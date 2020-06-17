@@ -1,0 +1,253 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "ctrl+2",
+        "command": "-r.length",
+        "when": "editorTextFocus && editorLangId == 'r'"
+    },
+    {
+        "key": "ctrl+1",
+        "command": "-r.nrow",
+        "when": "editorTextFocus && editorLangId == 'r'"
+    },
+    {
+        "key": "ctrl+5",
+        "command": "-r.names",
+        "when": "editorTextFocus && editorLangId == 'r'"
+    },
+    {
+        "key": "ctrl+4",
+        "command": "-r.thead",
+        "when": "editorTextFocus && editorLangId == 'r'"
+    },
+    {
+        "key": "ctrl+3",
+        "command": "-r.head",
+        "when": "editorTextFocus && editorLangId == 'r'"
+    },
+    {
+        "key": "ctrl+g ctrl+p",
+        "command": "git.push"
+    },
+    {
+        "key": "ctrl+shift+`",
+        "command": "-workbench.action.terminal.new"
+    },
+    {
+        "key": "ctrl+2",
+        "command": "workbench.action.focusSecondEditorGroup"
+    },
+    {
+        "key": "ctrl+2",
+        "command": "-workbench.action.focusSecondEditorGroup"
+    },
+    {
+        "key": "ctrl+g ctrl+g",
+        "command": "git-graph.view"
+    },
+    {
+        "key": "ctrl+enter",
+        "command": "r.runSelectionInActiveTerm"
+    },
+    {
+        "key": "ctrl+r ctrl+b",
+        "command": "r.build"
+    },
+    {
+        "key": "ctrl+b ctrl+d",
+        "command": "r.document"
+    },
+    {
+        "key": "ctrl+r ctrl+i",
+        "command": "r.install"
+    },
+    {
+        "key": "ctrl+r ctrl+v",
+        "command": "r.previewDataframe"
+    },
+    {
+        "key": "ctrl+r ctrl+h",
+        "command": "r.head"
+    },
+    {
+        "key": "ctrl+r ctrl+l",
+        "command": "r.length"
+    },
+    {
+        "key": "ctrl+r ctrl+n",
+        "command": "r.names"
+    },
+    {
+        "key": "ctrl+r ctrl+t",
+        "command": "r.test"
+    },
+    {
+        "key": "ctrl+0 ctrl+0",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "-workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "ctrl+t ctrl+right",
+        "command": "workbench.action.terminal.focusNext"
+    },
+    {
+        "key": "ctrl+shift+s",
+        "command": "-workbench.action.files.saveAs"
+    },
+    {
+        "key": "ctrl+g ctrl+c",
+        "command": "git.commit"
+    },
+    {
+        "key": "ctrl+k ctrl+c",
+        "command": "-editor.action.addCommentLine",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+k ctrl+c",
+        "command": "workbench.action.closeFolder"
+    },
+    {
+        "key": "ctrl+k f",
+        "command": "-workbench.action.closeFolder"
+    },
+    {
+        "key": "ctrl+t",
+        "command": "-workbench.action.showAllSymbols"
+    },
+    {
+        "key": "ctrl+9",
+        "command": "-workbench.action.lastEditorInGroup"
+    },
+    {
+        "key": "ctrl+4",
+        "command": "-workbench.action.focusFourthEditorGroup"
+    },
+    {
+        "key": "ctrl+e left",
+        "command": "workbench.action.moveEditorToLeftGroup"
+    },
+    {
+        "key": "ctrl+e right",
+        "command": "workbench.action.moveEditorToRightGroup"
+    },
+    {
+        "key": "ctrl+alt+s",
+        "command": "workbench.action.files.saveAll"
+    },
+    {
+        "key": "ctrl+shift+s",
+        "command": "-workbench.action.files.saveLocalFile",
+        "when": "remoteFileDialogVisible"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "-workbench.action.quickOpen"
+    },
+    {
+        "key": "ctrl+g ctrl+s",
+        "command": "workbench.action.gotoSymbol"
+    },
+    {
+        "key": "ctrl+shift+o",
+        "command": "-workbench.action.gotoSymbol"
+    },
+    {
+        "key": "ctrl+k ctrl+b",
+        "command": "extension.kanban.openBoard"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "-workbench.action.quickOpenNavigateNextInFilePicker",
+        "when": "inFilesPicker && inQuickOpen"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "workbench.action.quickOpen"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "-workbench.action.quickOpen"
+    },
+    {
+        "key": "ctrl+m ctrl+r",
+        "command": "-latex-workshop.shortcut.mathrm",
+        "when": "editorTextFocus && !editorReadonly && editorLangId == 'latex'"
+    },
+    {
+        "key": "ctrl+m ctrl+r",
+        "command": "html.preview.refresh"
+    },
+    {
+        "key": "ctrl+t ctrl+t",
+        "command": "workbench.action.focusPanel"
+    },
+    {
+        "key": "ctrl+shift+alt+s",
+        "command": "workbench.action.openSettings"
+    },
+    {
+        "key": "ctrl+,",
+        "command": "-workbench.action.openSettings"
+    },
+    {
+        "key": "alt+left",
+        "command": "workbench.action.terminal.focusPreviousPane",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+left",
+        "command": "-workbench.action.terminal.focusPreviousPane",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+right",
+        "command": "workbench.action.terminal.focusNextPane",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+right",
+        "command": "-workbench.action.terminal.focusNextPane",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+shift+alt+a",
+        "command": "wwm.aligncode"
+    },
+    {
+        "key": "alt+down",
+        "command": "-workbench.action.terminal.focusNextPane",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "meta+m",
+        "command": "workbench.action.toggleMenuBar"
+    },
+    {
+        "key": "ctrl+t ctrl+b",
+        "command": "workbench.action.positionPanelBottom"
+    },
+    {
+        "key": "ctrl+t ctrl+r",
+        "command": "workbench.action.positionPanelRight"
+    },
+    {
+        "key": "ctrl+t ctrl+m",
+        "command": "workbench.action.toggleMaximizedPanel"
+    },
+    {
+        "key": "ctrl+t ctrl+n",
+        "command": "workbench.action.nextPanelView"
+    },
+    {
+        "key": "ctrl+b ctrl+e",
+        "command": "workbench.view.explorer"
+    },
+    {
+        "key": "ctrl+shift+e",
+        "command": "-workbench.view.explorer"
+    }
+]
