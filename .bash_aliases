@@ -1,0 +1,5 @@
+alias nvtop="watch -d -n 0.5 nvidia-smi"
+alias settings="env XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
+alias open="xdg-open"
+alias r="radian"
+alias pass="lpass show -Gp"
