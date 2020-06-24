@@ -1,0 +1,51 @@
+{
+	// Place your snippets for r here. Each snippet is defined under a snippet name and has a prefix, body and
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"For loop" : {
+		"prefix": "for",
+		"body": [
+			"for ($1 in $2) {$3}"
+		],
+		"description": "for loop"
+	},
+	"If statement" : {
+		"prefix": "if",
+		"body": [
+			"if ($1) {$2}"
+		],
+		"description": "if statement"
+	},
+	"If-else statement": {
+		"prefix": "ifel",
+		"body": [
+			"if ($1) {$2} else {$3}"
+		],
+		"description": "if/else statement"
+	},
+	"Roxygen entry": {
+		"prefix": "rox",
+		"body": "#' @",
+		"description": "Roxygen snippet"
+	},
+	"Roxygen skeleton": {
+		"prefix": "skeleton",
+		"body": [
+			"#' @title $1",
+			"#' @description $2",
+			"#' @param $3",
+			"#' @return $4",
+			"#' @export",
+		]
+	}
+}
