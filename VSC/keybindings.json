@@ -46,10 +46,6 @@
         "command": "git-graph.view"
     },
     {
-        "key": "ctrl+enter",
-        "command": "r.runSelectionInActiveTerm"
-    },
-    {
         "key": "ctrl+r ctrl+b",
         "command": "r.build"
     },
@@ -249,5 +245,23 @@
     {
         "key": "ctrl+shift+e",
         "command": "-workbench.view.explorer"
+    },
+    {
+        "key": "ctrl+t ctrl+s",
+        "command": "workbench.action.terminal.split",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+shift+5",
+        "command": "-workbench.action.terminal.split",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+b ctrl+g",
+        "command": "workbench.view.scm"
+    },
+    {
+        "key": "ctrl+shift+g",
+        "command": "-workbench.view.scm"
     }
 ]

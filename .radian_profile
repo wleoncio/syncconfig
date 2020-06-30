@@ -1,6 +1,6 @@
 # Full color list: https://help.farbox.com/pygments.html
-options(radian.color_scheme = "colorful") # for light backgrounds
-# options(radian.color_scheme = "native") # for dark backgrounds
+# options(radian.color_scheme = "colorful") # for light backgrounds
+options(radian.color_scheme = "native") # for dark backgrounds
 options(radian.auto_match = TRUE)
 options(radian.highlight_matching_bracket = TRUE)
 options(radian.complete_while_typing = FALSE)

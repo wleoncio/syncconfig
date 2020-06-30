@@ -24,7 +24,6 @@
     "window.restoreWindows": "none",
     "editor.tabCompletion": "on",
     "git.autofetch": true,
-    "workbench.editor.showTabs": true,
     "terminal.integrated.fontWeight": "bold",
     "git.confirmSync": false,
     "git.checkoutType": "local",
@@ -110,13 +109,12 @@
     "comment-divider.subheaderAlign": "left",
     "comment-divider.mainHeaderFiller": "=",
     "comment-divider.subHeaderFiller": "-",
-    "workbench.colorTheme": "Blink Contrast (rainglow)",
+    "workbench.colorTheme": "Arc Dark",
     "editor.insertSpaces": false,
     "workbench.tree.indent": 32,
     "editor.fontWeight": "bold",
     "editor.cursorBlinking": "phase",
     "explorer.compactFolders": false,
-    "workbench.activityBar.visible": true,
     "diffEditor.renderSideBySide": false,
     "alignment.chars": {
         "<-": {
@@ -160,5 +158,12 @@
     "color-highlight.markerType": "dot-before",
     "markdown-pdf.omitBackground": true,
     "r.editor.tabSize": 4,
-    "r.alwaysUseActiveTerminal": true
+    "r.alwaysUseActiveTerminal": true,
+    "workbench.colorCustomizations" : {
+        "terminal.foreground" : "#00FD61",
+        "terminal.background" : "#000000"
+    },
+    "workbench.editor.revealIfOpen": true,
+    "workbench.editor.tabSizing": "shrink",
+    "workbench.startupEditor": "readme"
 }
