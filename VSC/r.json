@@ -52,5 +52,15 @@
 		"prefix": "bro",
 		"body": "browser() #TEMP",
 		"description": "Call to browser with #TEMP tag"
+	},
+	"Assignment with posterior space": {
+		"prefix": ",.",
+		"body": "<- ",
+		"description": "Assignment arrow with spaces"
+	},
+	"Assignment without posterior space": {
+		"prefix": ",.,",
+		"body": "<-",
+		"description": "Assignment arrow without spaces"
 	}
 }
