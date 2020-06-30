@@ -8,11 +8,11 @@
 # ==============================================================================
 if [ "$1" = "push" ]
 then
-	echo "Pushing files to GitHub"
+	echo "Pushing files to local git repository"
 	fromto="to"
 elif [ "$1" = "pull" ]
 then
-	echo "Pulling files from GitHub"
+	echo "Pulling files from local git repository"
 	fromto="from"
 else
 	echo "First argument must be 'push' or 'pull'"
@@ -31,6 +31,20 @@ fi
 echo "Copying files "$fromto" "$location""
 
 # ==============================================================================
+# Determining VSC local folder
+# ==============================================================================
+if [ -d "$HOME/.config/VSCodium" ]
+then
+	VSCdir="VSCodium"
+elif [ -d "$HOME/.config/VSCode" ]
+then
+	VSCdir="VSCode"
+else
+	echo "Could not determine location of VSCode directory. Exiting."
+	exit 0
+fi
+
+# ==============================================================================
 # Actually copying files
 # ==============================================================================
 if [ "$1" = "push" ]
@@ -41,9 +55,9 @@ then
 	eval cp ~/.radian_profile "$location"
 	eval cp ~/.config/dunst/dunstrc "$location"
 	eval cp ~/.config/i3/* "$location"/i3
-	eval cp ~/.config/VSCodium/User/keybindings.json "$location"/VSC
-	eval cp ~/.config/VSCodium/User/settings.json "$location"/VSC
-	eval cp ~/.config/VSCodium/User/snippets/* "$location"/VSC
+	eval cp ~/.config/"$VSCdir"/User/keybindings.json "$location"/VSC
+	eval cp ~/.config/"$VSCdir"/User/settings.json "$location"/VSC
+	eval cp ~/.config/"$VSCdir"/User/snippets/* "$location"/VSC
 elif [ "$1" = "pull" ]
 then
 	eval cp "$location"/.bash_aliases ~
@@ -52,8 +66,8 @@ then
 	eval cp "$location"/.radian_profile ~
 	eval cp "$location"/dunstrc ~/.config/dunst/
 	eval cp "$location"/i3/* ~/.config/i3/
-	eval cp "$location"/VSC/keybindings.json ~/.config/VSCodium/User
-	eval cp "$location"/VSC/settings.json ~/.config/VSCodium/User
-	eval cp "$location"/VSC/r.rmd ~/.config/VSCodium/User/snippets/
-	eval cp "$location"/VSC/rmd.rmd ~/.config/VSCodium/User/snippets/
+	eval cp "$location"/VSC/keybindings.json ~/.config/"$VSCdir"/User
+	eval cp "$location"/VSC/settings.json ~/.config/"$VSCdir"/User
+	eval cp "$location"/VSC/r.rmd ~/.config/"$VSCdir"/User/snippets/
+	eval cp "$location"/VSC/rmd.rmd ~/.config/"$VSCdir"/User/snippets/
 fi
