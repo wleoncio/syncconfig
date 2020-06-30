@@ -120,10 +120,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Waldir
-
+# My paths
 PATH=$PATH:~/Dropbox/Software/
 PATH=$PATH:~/Dropbox/Software/pomodoro/
+PATH=$PATH:~/Dropbox/Software/config/
 
 ## To use rJava in radian
 export R_LD_LIBRARY_PATH=$R_LD_LIBRARY_PATH:/usr/lib/jvm/java-11-openjdk-amd64/lib/server
