@@ -24,7 +24,7 @@ fi
 # ==============================================================================
 if [ "$2" = "" ]
 then
-	location="Dropbox/Software/config/"
+	location="$HOME/Dropbox/Software/config/"
 else
 	location="$2"
 fi
