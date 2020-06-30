@@ -267,6 +267,7 @@ for_window [instance="albert"] floating enable, border pixel 0, move position 20
 for_window [instance="gsimplecal"] floating enable
 for_window [instance="shutter"] floating enable
 for_window [instance="todoist"] floating enable
+for_window [title="Compose Message"] floating enable
 
 # Using the mouse
 ## The middle button over a titlebar kills the window
