@@ -24,7 +24,7 @@ fi
 # ==============================================================================
 if [ "$2" = "" ]
 then
-	location="$(pwd)"
+	location="Dropbox/Software/config/"
 else
 	location="$2"
 fi
