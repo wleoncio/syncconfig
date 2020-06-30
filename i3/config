@@ -263,7 +263,7 @@ focus_follows_mouse yes
 for_window [title="Microsoft Teams-varsling" window_role="browser-window"] floating enable # Teams popup
 for_window [window_role="pop-up"] floating enable
 for_window [title="Volume Control"] floating enable # pavucontrol
-for_window [instance="albert"] floating enable, border pixel 0, move position 2000 2000
+for_window [instance="albert"] floating enable, border pixel 0, move absolute position center
 for_window [instance="gsimplecal"] floating enable
 for_window [instance="shutter"] floating enable
 for_window [instance="todoist"] floating enable
@@ -284,4 +284,4 @@ smart_gaps on
 smart_borders on
 
 # Renaming workspaces
-bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
+bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: ' -f pango:Ubuntu
