@@ -47,5 +47,10 @@
 			"#' @return $4",
 			"#' @export",
 		]
+	},
+	"Browser": {
+		"prefix": "bro",
+		"body": "browser() #TEMP",
+		"description": "Call to browser with #TEMP tag"
 	}
 }
