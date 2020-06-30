@@ -3,3 +3,4 @@ This is a repository containing some configuration files I use across my compute
 
 # TODO
 - [ ] Add script to pull and push files
+- [ ] Add CITATION.cff
