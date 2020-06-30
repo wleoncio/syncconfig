@@ -40,13 +40,20 @@ then
 	eval cp ~/.gitconfig "$location"
 	eval cp ~/.radian_profile "$location"
 	eval cp ~/.config/dunst/dunstrc "$location"
-	eval cp ~/.config/i3/* "$location"
+	eval cp ~/.config/i3/* "$location"/i3
+	eval cp ~/.config/VSCodium/User/keybindings.json "$location"/VSC
+	eval cp ~/.config/VSCodium/User/settings.json "$location"/VSC
+	eval cp ~/.config/VSCodium/User/snippets/* "$location"/VSC
 elif [ "$1" = "pull" ]
 then
 	eval cp "$location"/.bash_aliases ~
 	eval cp "$location"/.bashrc ~
 	eval cp "$location"/.gitconfig ~
 	eval cp "$location"/.radian_profile ~
-	eval cp "$location"/dunstrc ~/.config/dunst/dunstrc
-	eval cp "$location"/i3/* ~/.config/i3
+	eval cp "$location"/dunstrc ~/.config/dunst/
+	eval cp "$location"/i3/* ~/.config/i3/
+	eval cp "$location"/VSC/keybindings.json ~/.config/VSCodium/User
+	eval cp "$location"/VSC/settings.json ~/.config/VSCodium/User
+	eval cp "$location"/VSC/r.rmd ~/.config/VSCodium/User/snippets/
+	eval cp "$location"/VSC/rmd.rmd ~/.config/VSCodium/User/snippets/
 fi
