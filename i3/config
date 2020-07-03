@@ -285,3 +285,6 @@ smart_borders on
 
 # Renaming workspaces
 bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: ' -f pango:Ubuntu
+
+# Other i3 options
+focus_wrapping no
