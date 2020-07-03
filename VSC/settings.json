@@ -16,7 +16,8 @@
     "latex-workshop.intellisense.unimathsymbols.enabled": true,
     "editor.scrollBeyondLastColumn": 0,
     "files.associations": {
-        "*.rmd": "markdown"
+        "*.rmd": "markdown",
+        "*.docker": "Dockerfile"
     },
     "terminal.external.linuxExec": "gnome-terminal",
     "terminal.integrated.cursorBlinking": true,
@@ -24,7 +25,6 @@
     "window.restoreWindows": "none",
     "editor.tabCompletion": "on",
     "git.autofetch": true,
-    "terminal.integrated.fontWeight": "bold",
     "git.confirmSync": false,
     "git.checkoutType": "local",
     "editor.renderWhitespace": "all",
@@ -34,7 +34,6 @@
     "git.autoRepositoryDetection": false,
     "git-graph.referenceLabelAlignment": "Branches (aligned to the graph) & Tags (on the right)",
     "workbench.editor.enablePreviewFromQuickOpen": false,
-    "terminal.integrated.fontSize": 12,
     "editor.renderIndentGuides": false,
     "breadcrumbs.enabled": true,
     "todo-tree.highlights.customHighlight": {
@@ -160,10 +159,13 @@
     "r.editor.tabSize": 4,
     "r.alwaysUseActiveTerminal": true,
     "workbench.colorCustomizations" : {
-        "terminal.foreground" : "#00FD61",
-        "terminal.background" : "#000000"
+        "terminal.foreground" : "#fff",
+        "terminal.background" : "#000"
     },
     "workbench.editor.revealIfOpen": true,
     "workbench.editor.tabSizing": "shrink",
-    "workbench.startupEditor": "readme"
+    "workbench.startupEditor": "readme",
+    "terminal.integrated.fontFamily": "Fira Code",
+    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.fontWeight": "500"
 }

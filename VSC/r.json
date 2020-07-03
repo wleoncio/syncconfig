@@ -45,6 +45,7 @@
 			"#' @description $2",
 			"#' @param $3",
 			"#' @return $4",
+			"#' @author Waldir Leoncio $5",
 			"#' @export",
 		],
 		"description": "Roxygen skeleton"
