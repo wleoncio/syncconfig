@@ -277,7 +277,6 @@ for_window [title="Volume Control"] floating enable # pavucontrol
 for_window [instance="albert"] floating enable, border pixel 0, move absolute position center
 for_window [instance="gsimplecal"] floating enable
 for_window [instance="shutter"] floating enable
-for_window [instance="todoist"] floating enable
 for_window [title="Compose Message"] floating enable
 
 # Using the mouse
