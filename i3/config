@@ -98,8 +98,6 @@ bindsym $mod+Shift+s sticky toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-
-
 # switch to workspace
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
@@ -252,6 +250,19 @@ mode "$mode_launcher" {
 	bindsym w exec whatsdesk
 	bindsym c exec chromium
 
+	bindsym Escape mode "default"
+	bindsym Return mode "default"
+}
+
+# Setting shortcuts
+set $mode_settings Settings: [g]nome [a]lsa [p]ulseaudio [n]vidia
+bindsym $mod+g mode "$mode_settings"
+
+mode "$mode_settings" {
+	bindsym g exec env XDG_CURRENT_DESKTOP=GNOME gnome-control-center
+	bindsym a exec gnome-alsamixer
+	bindsym p exec pavucontrol
+	bindsym n exec nvidia-settings
 	bindsym Escape mode "default"
 	bindsym Return mode "default"
 }
