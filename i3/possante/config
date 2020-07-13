@@ -267,8 +267,18 @@ mode "$mode_settings" {
 	bindsym Return mode "default"
 }
 
-# Change focus mode (may require update on i3)
-focus_follows_mouse yes
+# ------------------------------------------------------------------------------
+# Game mode
+# ------------------------------------------------------------------------------
+set $mode_game Settings: Game mode [1](on) [0](off)
+bindsym $mod+g mode "$mode_game"
+
+mode "$mode_game" {
+	bindsym 1 exec killall compton & nvidia-settings -a AllowVRR=1 & nvidia-settings -a ShowVRRVisualIndicator=1 & mode "default"
+	bindsym 0 exec compton -bcf -i .8 & nvidia-settings -a AllowVRR=0 & nvidia-settings -a ShowVRRVisualIndicator=0 & mode "default"
+	bindsym Escape mode "default"
+	bindsym Return mode "default"
+}
 
 # Custom window rules
 for_window [title="Microsoft Teams-varsling" window_role="browser-window"] floating enable # Teams popup
