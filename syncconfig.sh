@@ -75,6 +75,6 @@ then
 	eval cp "$location"/i3/"$machinename"/* ~/.config/i3/
 	eval cp "$location"/VSC/keybindings.json ~/.config/"$VSCdir"/User
 	eval cp "$location"/VSC/settings.json ~/.config/"$VSCdir"/User
-	eval cp "$location"/VSC/r.rmd ~/.config/"$VSCdir"/User/snippets/
-	eval cp "$location"/VSC/rmd.rmd ~/.config/"$VSCdir"/User/snippets/
+	eval cp "$location"/VSC/r.json ~/.config/"$VSCdir"/User/snippets/
+	eval cp "$location"/VSC/rmd.json ~/.config/"$VSCdir"/User/snippets/
 fi
