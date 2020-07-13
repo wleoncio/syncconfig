@@ -1,4 +1,5 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
 # If not running interactively, don't do anything
@@ -128,4 +129,6 @@ PATH=$PATH:~/Dropbox/Software/config/
 ## To use rJava in radian
 export R_LD_LIBRARY_PATH=$R_LD_LIBRARY_PATH:/usr/lib/jvm/java-11-openjdk-amd64/lib/server
 # https://stackoverflow.com/a/58647104/1169233
-# export LD_LIBRARY_PATH=/usr/lib/jvm/java-1.11.0-openjdk-amd64/lib/server$
+export LD_LIBRARY_PATH=/usr/lib/jvm/java-1.11.0-openjdk-amd64/lib/server:$LD_LIBRARY_PATH
+
+#export LD_LIBRARY_PATH=/usr/local/MATLAB/MATLAB_Runtime/v97/runtime/glnxa64:/usr/local/MATLAB/MATLAB_Runtime/v97/bin/glnxa64:/usr/local/MATLAB/MATLAB_Runtime/v97/sys/os/glnxa64:/usr/local/MATLAB/MATLAB_Runtime/v97/extern/bin/glnxa64:$LD_LIBRARY_PATH
