@@ -216,7 +216,6 @@ exec xrandr --output DP-0 --mode 2560x1440 --rate 144.00
 exec --no-startup-id numlockx on
 exec --no-startup-id dropbox start
 exec --no-startup-id clipit
-exec --no-startup-id albert
 exec --no-startup-id gnome-settings-daemon
 exec_always --no-startup-id compton -bcf -i .8
 exec_always --no-startup-id setxkbmap -option caps:none # disable caps lock
@@ -254,7 +253,8 @@ bindcode 179 exec spotify
 bindcode 152 exec codium
 bindcode 107 exec shutter
 bindsym $mod+m exec killall spotify && spotify &
-bindsym $mod+z exec rofi -show run -combi-modi window#run -modi combi#find:~/.local/share/rofi/finder.sh
+bindsym $mod+z exec rofi -show drun -modi window -show-icons -auto-select -theme oxide
+bindsym $mod+x exec xdg-open "$(locate -e -i --regex "$HOME/[^\.]+" | rofi -dmenu -i -p "File or folder" -threads 0 -show-icons -theme oxide -modi drun)"
 
 set $mode_launcher Launch: [t]odoist [f]irefox [e]volution tea[m]s [p]avucontrol [l]ibreoffice t[y]pora pl[u]ma [w]hatsapp [c]hromium
 bindsym $mod+p mode "$mode_launcher"
@@ -308,7 +308,6 @@ mode "$mode_game" {
 for_window [title="Microsoft Teams-varsling" window_role="browser-window"] floating enable # Teams popup
 for_window [window_role="pop-up"] floating enable
 for_window [title="Volume Control"] floating enable # pavucontrol
-for_window [instance="albert"] floating enable, border pixel 0, move absolute position center
 for_window [instance="gsimplecal"] floating enable
 for_window [instance="shutter"] floating enable
 for_window [title="Compose Message"] floating enable
