@@ -331,5 +331,9 @@
     {
         "key": "ctrl+e ctrl+down",
         "command": "workbench.action.moveEditorToBelowGroup"
+    },
+    {
+        "key": "ctrl+g ctrl+l",
+        "command": "workbench.action.gotoLine"
     }
 ]
