@@ -4,4 +4,5 @@ This is a repository containing some configuration files I use across my compute
 # TODO
 - [x] Add script to pull and push files
 - [x] Add CITATION.cff
-- [ ] Improve sync script with diff when pulling
+- [ ] Add diff when pulling
+- [ ] Add switches to select file groups to sync
