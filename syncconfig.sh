@@ -4,6 +4,11 @@
 # Tip: edit the crontab file to make this run automatically
 
 # ==============================================================================
+# Determining computer name
+# ==============================================================================
+machinename=$(hostname)
+
+# ==============================================================================
 # Determining if operation is push or pull
 # ==============================================================================
 if [ "$1" = "push" ]
@@ -29,6 +34,7 @@ else
 	location="$2"
 fi
 echo "Copying files "$fromto" "$location""
+echo "Copying i3 files "$fromto" "$location""$machinename""
 
 # ==============================================================================
 # Determining VSC local folder
@@ -43,11 +49,6 @@ else
 	echo "Could not determine location of VSCode directory. Exiting."
 	exit 0
 fi
-
-# ==============================================================================
-# Determining computer name
-# ==============================================================================
-machinename=$(hostname)
 
 # ==============================================================================
 # Actually copying files
