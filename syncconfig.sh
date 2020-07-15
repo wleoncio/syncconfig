@@ -59,6 +59,7 @@ then
 	eval cp ~/.gitconfig "$location"
 	eval cp ~/.radian_profile "$location"
 	eval cp ~/.vimrc "$location"
+	eval cp ~/.xbindkeysrc "$location"
 	eval cp ~/.config/dunst/dunstrc "$location"
 	eval cp ~/.config/i3/* "$location"/i3/"$machinename"/
 	eval cp ~/.config/"$VSCdir"/User/keybindings.json "$location"/VSC
@@ -71,6 +72,7 @@ then
 	eval cp "$location"/.gitconfig ~
 	eval cp "$location"/.radian_profile ~
 	eval cp "$location"/.vimrc ~
+	eval cp "$location"/.xbindkeysrc ~
 	eval cp "$location"/dunstrc ~/.config/dunst/
 	eval cp "$location"/i3/"$machinename"/* ~/.config/i3/
 	eval cp "$location"/VSC/keybindings.json ~/.config/"$VSCdir"/User
