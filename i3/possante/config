@@ -217,7 +217,7 @@ exec --no-startup-id numlockx on
 exec --no-startup-id dropbox start
 exec --no-startup-id clipit
 exec --no-startup-id gnome-settings-daemon
-exec_always --no-startup-id compton -bcf -i .8
+exec_always --no-startup-id compton -bcf -i .6
 exec_always --no-startup-id setxkbmap -option caps:none # disable caps lock
 # More setxkbmap options on /usr/share/X11/xkb/rules/base.lst
 
@@ -253,7 +253,7 @@ bindcode 179 exec spotify
 bindcode 152 exec codium
 bindcode 107 exec shutter
 bindsym $mod+m exec killall spotify && spotify &
-bindsym $mod+z exec rofi -show drun -modi window -show-icons -auto-select -theme oxide
+bindsym $mod+z exec rofi -show drun -modi drun#window -show-icons -theme oxide
 bindsym $mod+x exec xdg-open "$(locate -e -i --regex "$HOME/[^\.]+" | rofi -dmenu -i -p "File or folder" -threads 0 -show-icons -theme oxide -modi drun)"
 
 set $mode_launcher Launch: [t]odoist [f]irefox [e]volution tea[m]s [p]avucontrol [l]ibreoffice t[y]pora pl[u]ma [w]hatsapp [c]hromium
@@ -315,7 +315,7 @@ for_window [title="Compose Message"] floating enable
 # ==============================================================================
 # i3-gaps
 # ==============================================================================
-for_window [class=".*"] border pixel 5
+for_window [class=".*"] border pixel 0
 gaps inner 10
 smart_gaps on # Only enable gaps when there is at least one container
 smart_borders on # Activate smart borders (always)
