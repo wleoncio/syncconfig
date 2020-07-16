@@ -10,3 +10,4 @@ This is a repository containing some configuration files I use across my compute
 - [ ] Move .compton.conf to `~/.config`
 - [ ] Fix VSC syncing for "Code - OSS" (Arch)
 - [ ] Add support for non-users of dunst (Arch)
+- [ ] Fix vim colors (Arch)
