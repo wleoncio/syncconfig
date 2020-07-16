@@ -217,7 +217,7 @@ exec --no-startup-id numlockx on
 exec --no-startup-id dropbox start
 exec --no-startup-id clipit
 exec --no-startup-id gnome-settings-daemon
-exec_always --no-startup-id compton -bcf --blur-background -i .7
+exec_always --no-startup-id compton --config ~/.compton.conf
 exec_always --no-startup-id setxkbmap -option caps:none # disable caps lock
 # More setxkbmap options on /usr/share/X11/xkb/rules/base.lst
 
@@ -304,7 +304,7 @@ bindsym $mod+g mode "$mode_game"
 
 mode "$mode_game" {
 	bindsym o exec killall compton dropbox variety & nvidia-settings -a AllowVRR=1 & nvidia-settings -a ShowVRRVisualIndicator=1 & steam
-	bindsym f exec compton -bcf -i .7 --blur-background & nvidia-settings -a AllowVRR=0 & nvidia-settings -a ShowVRRVisualIndicator=0
+	bindsym f exec compton --config ~/.compton.conf & nvaidia-settings -a AllowVRR=0 & nvidia-settings -a ShowVRRVisualIndicator=0
 	bindsym Escape mode "default"
 	bindsym Return mode "default"
 }
