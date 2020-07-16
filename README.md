@@ -6,3 +6,4 @@ This is a repository containing some configuration files I use across my compute
 - [x] Add CITATION.cff
 - [ ] Add diff when pulling
 - [ ] Add switches to select file groups to sync
+- [ ] Add workmode to i3
