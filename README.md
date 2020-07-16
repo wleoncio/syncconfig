@@ -7,3 +7,4 @@ This is a repository containing some configuration files I use across my compute
 - [ ] Add diff when pulling
 - [ ] Add switches to select file groups to sync
 - [ ] Add workmode to i3
+- [ ] Move .compton.conf to `~/.config`
