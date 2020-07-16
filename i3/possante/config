@@ -312,6 +312,7 @@ for_window [title="Volume Control"] floating enable # pavucontrol
 for_window [instance="gsimplecal"] floating enable
 for_window [instance="shutter"] floating enable
 for_window [title="Compose Message"] floating enable
+for_window [instance="spotify"] move to workspace number 10. Sounds
 
 # ==============================================================================
 # i3-gaps
