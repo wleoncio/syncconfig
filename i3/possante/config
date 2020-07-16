@@ -126,18 +126,18 @@ bindsym $mod+Shift+0 move container to workspace number 10
 bindsym $mod+Shift+F5 move container to workspace prev_on_output
 bindsym $mod+Shift+F6 move container to workspace next_on_output
 
-# ==============================================================================
-# Scratchpad
-# ==============================================================================
-bindsym $mod+Shift+BackSpace move scratchpad
-bindsym $mod+backslash scratchpad show
-
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# ==============================================================================
+# Scratchpad
+# ==============================================================================
+bindsym $mod+Shift+BackSpace move scratchpad
+bindsym $mod+backslash scratchpad show
 
 # ==============================================================================
 # Resize window (you can also use the mouse for that)
@@ -165,12 +165,12 @@ bindsym $mod+r mode "resize"
 # ==============================================================================
 # Colors
 # ==============================================================================
-set $bg-col	        #28bf6f
-set $inactive-bg-col	#333333
-set $text-col		#ffffff
-set $inactive-text-col	#484e50
-set $urgent-border-col	#2f343a
-set $urgent-bg-col	#900000
+set $bg-col	           #28bf6f
+set $inactive-bg-col   #333333
+set $text-col          #ffffff
+set $inactive-text-col #484e50
+set $urgent-border-col #2f343a
+set $urgent-bg-col     #900000
 
 # Changing border colors
 # class                 border   		backgr.		   	text        		indicator 		child_border
@@ -242,7 +242,7 @@ bindsym XF86AudioPrev exec playerctl previous
 bindcode 174 exec playerctl stop
 
 # ==============================================================================
-# App shortcuts
+# Keyboard app shortcuts
 # ==============================================================================
 bindcode 163 exec evolution
 bindcode 180 exec firefox
@@ -256,35 +256,41 @@ bindsym $mod+m exec killall spotify && spotify &
 bindsym $mod+z exec rofi -show drun -modi drun#window -show-icons -theme oxide
 bindsym $mod+x exec xdg-open "$(locate -e -i --regex "$HOME/[^\.]+" | rofi -dmenu -i -p "File or folder" -threads 0 -show-icons -theme oxide -modi drun)"
 
+# ==============================================================================
+# Modes
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# Most common apps
+# ------------------------------------------------------------------------------
 set $mode_launcher Launch: [t]odoist [f]irefox [e]volution tea[m]s [p]avucontrol [l]ibreoffice t[y]pora pl[u]ma [w]hatsapp [c]hromium
 bindsym $mod+p mode "$mode_launcher"
 
 mode "$mode_launcher" {
-	bindsym f exec firefox & mode "default"
-	bindsym e exec evolution & mode "default"
-	bindsym t exec todoist & mode "default"
-	bindsym m exec teams & mode "default"
-	bindsym p exec pavucontrol & mode "default"
-	bindsym l exec libreoffice & mode "default"
-	bindsym u exec pluma & mode "default"
-	bindsym y exec typora & mode "default"
-	bindsym w exec whatsdesk & mode "default"
-	bindsym c exec chromium & mode "default"
+	bindsym f exec firefox
+	bindsym e exec evolution
+	bindsym t exec todoist
+	bindsym m exec teams
+	bindsym p exec pavucontrol
+	bindsym l exec libreoffice
+	bindsym u exec pluma
+	bindsym y exec typora
+	bindsym w exec whatsdesk
+	bindsym c exec chromium
 	bindsym Escape mode "default"
 	bindsym Return mode "default"
 }
-
-# ==============================================================================
-# Settings shortcuts
-# ==============================================================================
+# ------------------------------------------------------------------------------
+# Settings
+# ------------------------------------------------------------------------------
 set $mode_settings Settings: [g]nome [a]lsa [p]ulseaudio [n]vidia [s]team_mode
 bindsym $mod+c mode "$mode_settings"
 
 mode "$mode_settings" {
-	bindsym g exec env XDG_CURRENT_DESKTOP=GNOME gnome-control-center & mode "default"
-	bindsym a exec gnome-alsamixer & mode "default"
-	bindsym p exec pavucontrol & mode "default"
-	bindsym n exec nvidia-settings & mode "default"
+	bindsym g exec env XDG_CURRENT_DESKTOP=GNOME gnome-control-center
+	bindsym a exec gnome-alsamixer
+	bindsym p exec pavucontrol
+	bindsym n exec nvidia-settings
 	bindsym Escape mode "default"
 	bindsym Return mode "default"
 }
