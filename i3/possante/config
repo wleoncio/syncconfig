@@ -163,25 +163,23 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # ==============================================================================
-# Color palette
+# Colors
 # ==============================================================================
-set $bg-col	         #00BCD4
-set $inact-bg-col    #333333
-set $txt-col         #ffffff
-set $inact-txt-col   #484e50
-set $urgent-bord-col #2f343a
-set $urgent-bg-col   #900000
+set $bg-col	           #00BCD4
+set $inactive-bg-col   #333333
+set $text-col          #ffffff
+set $inactive-text-col #484e50
+set $urgent-border-col #2f343a
+set $urgent-bg-col     #900000
 
-# ------------------------------------------------------------------------------
-# Setting border colors
-# ------------------------------------------------------------------------------
+# Changing border colors
 # class border backgr. text indicator child_border
-client.focused $bg-col $bg-col $txt-col $bg-col $bg-col
-client.focused_inactive $inact-bg-col $inact-bg-col $inact-txt-col #484e50 #5f676a
-client.unfocused $inact-bg-col $inact-bg-col $inact-txt-col $inact-bg-col $inact-bg-col
-client.urgent $urgent-bord-col $urgent-bg-col $txt-col $urgent-bg-col $urgent-bg-col
-client.placeholder $urgent-bg-col $urgent-bg-col $txt-col $urgent-bg-col $urgent-bg-col
-client.background $txt-col
+client.focused $bg-col $bg-col $text-col #007035 $bg-col
+client.focused_inactive $inactive-bg-col $inactive-bg-col $inactive-text-col #484e50 #5f676a
+client.unfocused $inactive-bg-col $inactive-bg-col $inactive-text-col #292d2e #222222
+client.urgent $urgent-border-col $urgent-bg-col $text-col $urgent-bg-col $urgent-bg-col
+client.placeholder $urgent-bg-col $urgent-bg-col $text-col $urgent-bg-col $urgent-bg-col
+client.background $text-col
 
 hide_edge_borders both
 
@@ -199,12 +197,12 @@ bar {
 	bindsym button2 exec pavucontrol
 	bindsym button3 exec gsimplecal
 	colors {
-		background $inact-bg-col
+		background $inactive-bg-col
 		separator #757575
-		# class            border         background     text
-		focused_workspace  $bg-col        $bg-col        $txt-col
-		inactive_workspace $inact-bg-col  $inact-bg-col  $txt-col
-		urgent_workspace   $urgent-bg-col $urgent-bg-col $txt-col
+		# class            border           background       text
+		focused_workspace  $bg-col          $bg-col          $text-col
+		inactive_workspace $inactive-bg-col $inactive-bg-col $text-col
+		urgent_workspace   $urgent-bg-col   $urgent-bg-col   $text-col
 	}
 }
 
@@ -321,6 +319,7 @@ for_window [instance="gsimplecal"] floating enable
 for_window [instance="shutter"] floating enable
 for_window [title="Compose Message"] floating enable
 for_window [instance="spotify"] move to workspace number 10. Sounds
+for_window [instance="r_x11"] floating enable
 
 # ==============================================================================
 # i3-gaps
