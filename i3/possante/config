@@ -215,7 +215,7 @@ exec --no-startup-id nitrogen --restore
 exec xrandr --output DP-0 --mode 2560x1440 --rate 144.00
 exec --no-startup-id numlockx on
 exec --no-startup-id dropbox start
-exec --no-startup-id clipit
+exec --no-startup-id clipit # TODO: move to work mode
 exec --no-startup-id gnome-settings-daemon
 exec_always --no-startup-id compton --config ~/.compton.conf
 exec_always --no-startup-id setxkbmap -option caps:none # disable caps lock
@@ -303,7 +303,7 @@ set $mode_game Settings: Game mode [o]n o[f]f
 bindsym $mod+g mode "$mode_game"
 
 mode "$mode_game" {
-	bindsym o exec killall compton dropbox variety & nvidia-settings -a AllowVRR=1 & nvidia-settings -a ShowVRRVisualIndicator=1 & steam
+	bindsym o exec killall compton dropbox variety clipit & nvidia-settings -a AllowVRR=1 & nvidia-settings -a ShowVRRVisualIndicator=1 & steam
 	bindsym f exec compton --config ~/.compton.conf & nvaidia-settings -a AllowVRR=0 & nvidia-settings -a ShowVRRVisualIndicator=0
 	bindsym Escape mode "default"
 	bindsym Return mode "default"
@@ -320,6 +320,7 @@ for_window [instance="shutter"] floating enable
 for_window [title="Compose Message"] floating enable
 for_window [instance="spotify"] move to workspace number 10. Sounds
 for_window [instance="r_x11"] floating enable
+for_window [title="Steam - News"] floating enable
 
 # ==============================================================================
 # i3-gaps
