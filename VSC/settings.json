@@ -167,5 +167,6 @@
     "workbench.startupEditor": "readme",
     "terminal.integrated.fontFamily": "Fira Code",
     "terminal.integrated.fontSize": 12,
-    "terminal.integrated.fontWeight": "500"
+    "terminal.integrated.fontWeight": "500",
+    "terminal.integrated.confirmOnExit": true
 }
