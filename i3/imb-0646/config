@@ -214,7 +214,7 @@ bar {
 }
 
 # Startup programs
-exec_always --no-startup-id compton --inactive-dim 0 --shadow -f -i .9
+exec_always --no-startup-id compton --config $HOME/.config/compton.conf
 exec --no-startup-id albert
 exec --no-startup-id xbindkeys
 exec --no-startup-id nitrogen --restore
@@ -226,7 +226,7 @@ exec numlockx on
 focus_follows_mouse yes
 
 # i3 gaps
-for_window [class=".*"] border pixel 1
+for_window [class=".*"] border pixel 0
 gaps inner 10
 smart_gaps on
 hide_edge_borders smart_no_gaps
