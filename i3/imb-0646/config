@@ -214,16 +214,13 @@ bar {
 }
 
 # Startup programs
-exec_always --no-startup-id compton --config $HOME/.config/compton.conf
+exec_always --no-startup-id compton -bcf --config $HOME/.config/compton.conf
 exec --no-startup-id albert
 exec --no-startup-id xbindkeys
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id xrandr --output DP-2 --primary
 exec --no-startup-id xrandr --output HDMI-3 --rotate normal; xrandr --output HDMI-3 --rotate left
 exec numlockx on
-
-# Mouse config
-focus_follows_mouse yes
 
 # i3 gaps
 for_window [class=".*"] border pixel 0
@@ -237,19 +234,22 @@ for_window [title="gsimplecal"] floating enable, border none
 for_window [instance="albert"] border none, move to workspace $ws2
 for_window [title="Volume Control"] floating enable
 for_window [title="Microsoft Teams-varsling"] floating enable
-
+for_window [instance="spotify"] move to workspace number 3. Sounds
+for_window [instance="r_x11"] floating enable
 # My shortcuts
 bindsym $mod+ctrl+l exec i3lock -c ff0000
 bindsym $mod+Shift+f exec firefox
 bindsym $mod+Shift+n exec nemo UiO
-bindsym $mod+Shift+m exec killall spotify && spotify # reload Spotify
+bindsym $mod+m exec killall spotify && spotify # reload Spotify
 bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
-bindsym $mod+z exec rofi -show run
+bindsym $mod+z exec rofi -show drun -modi drun#window -show-icons -theme oxide
+bindsym $mod+x exec xdg-open "$(locate -e -i --regex "$HOME/[^\.]+" | rofi -dmenu -i -p "File or folder" -threads 0 -show-icons -theme oxide -modi drun)"
 
 ## Multimedia shortcuts
+bindsym $mod+F9 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym $mod+F10 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym $mod+F11 exec playerctl play-pause
 bindsym $mod+F12 exec playerctl next
-bindsym $mod+F10 exec playerctl previous
 
 # Defining which workspace opens where (multimonitor setup)
 workspace 1 output HDMI-1
@@ -284,3 +284,10 @@ bindsym $mod+Shift+minus move scratchpad
 
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
+
+# ==============================================================================
+# Other i3 options
+# ==============================================================================
+focus_wrapping no
+focus_follows_mouse yes
+
