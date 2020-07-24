@@ -32,7 +32,6 @@
         80
     ],
     "git.autoRepositoryDetection": false,
-    "git-graph.referenceLabelAlignment": "Branches (aligned to the graph) & Tags (on the right)",
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "editor.renderIndentGuides": false,
     "breadcrumbs.enabled": true,
@@ -97,7 +96,6 @@
     "files.trimTrailingWhitespace": true,
     "diffEditor.ignoreTrimWhitespace": false,
     "git-graph.commitDetailsViewLocation": "Docked to Bottom",
-    "git-graph.dialog.createBranch.checkOut": true,
     "git-graph.fetchAndPrune": true,
     "git-graph.fetchAvatars": true,
     "julia.executablePath": "/home/waldir/Programs/julia-1.4.1/bin",
@@ -168,5 +166,5 @@
     "terminal.integrated.fontFamily": "Fira Code",
     "terminal.integrated.fontSize": 12,
     "terminal.integrated.fontWeight": "500",
-    "terminal.integrated.confirmOnExit": true
+    "git-graph.dialog.createBranch.checkOut": true
 }
