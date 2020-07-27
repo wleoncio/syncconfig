@@ -259,6 +259,8 @@ bindcode 107 exec shutter
 bindsym $mod+m exec killall spotify && spotify &
 bindsym $mod+z exec rofi -show drun -modi drun#window -show-icons -theme oxide
 bindsym $mod+x exec xdg-open "$(locate -e -i --regex "$HOME/[^\.]+" | rofi -dmenu -i -p "File or folder" -threads 0 -show-icons -theme oxide -modi drun)"
+bindsym $mod+Ctrl+l exec i3lock
+bindsym $mod+Ctrl+s exec systemctl suspend
 
 # ==============================================================================
 # Modes
