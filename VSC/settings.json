@@ -64,7 +64,6 @@
     "git-graph.dialog.createBranch.checkOut": true,
     "git-graph.fetchAndPrune": true,
     "git-graph.fetchAvatars": true,
-    "git-graph.referenceLabelAlignment": "Branches (aligned to the graph) & Tags (on the right)",
     "html.preview.doubleClickToSwitchToEditor": false,
     "julia.executablePath": "/home/waldir/Programs/julia-1.4.1/bin",
     "latex-workshop.intellisense.package.enabled": true,
