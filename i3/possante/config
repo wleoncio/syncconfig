@@ -217,7 +217,6 @@ exec --no-startup-id nitrogen --restore
 exec xrandr --output DP-0 --mode 2560x1440 --rate 144.00
 exec --no-startup-id numlockx on
 exec --no-startup-id dropbox start
-exec --no-startup-id clipit # TODO: move to work mode
 exec --no-startup-id gnome-settings-daemon
 exec_always --no-startup-id compton --config ~/.config/compton.conf
 exec_always --no-startup-id setxkbmap -option caps:none # disable caps lock
@@ -271,7 +270,7 @@ bindsym $mod+Ctrl+s exec systemctl suspend
 # ------------------------------------------------------------------------------
 # Most common apps
 # ------------------------------------------------------------------------------
-set $mode_launcher Launch: [t]odoist [f]irefox [e]volution tea[m]s [p]avucontrol [l]ibreoffice t[y]pora pl[u]ma [w]hatsapp [c]hromium
+set $mode_launcher Launch: [t]odoist [f]irefox [e]volution tea[m]s [p]avucontrol [l]ibreoffice t[y]pora pl[u]ma [w]hatsapp [c]hromium wor[k]
 bindsym $mod+p mode "$mode_launcher"
 
 mode "$mode_launcher" {
@@ -285,6 +284,7 @@ mode "$mode_launcher" {
 	bindsym y exec typora
 	bindsym w exec whatsdesk
 	bindsym c exec chromium
+	bindsym k exec evolution & teams & pocket-casts
 	bindsym Escape mode "default"
 	bindsym Return mode "default"
 }
@@ -326,7 +326,10 @@ for_window [title="Volume Control"] floating enable # pavucontrol
 for_window [instance="gsimplecal"] floating enable
 for_window [instance="shutter"] floating enable
 for_window [title="Compose Message"] floating enable
+for_window [instance="evolution"] move to workspace number 1. Mail
+for_window [instance="teams"] move to workspace number 2. Chat
 for_window [instance="spotify"] move to workspace number 10. Sounds
+for_window [instance="pocket-casts"] move to workspace number 10. Sounds
 for_window [instance="r_x11"] floating enable
 for_window [title="Steam - News"] floating enable
 
