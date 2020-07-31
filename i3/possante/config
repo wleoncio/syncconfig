@@ -293,7 +293,7 @@ mode "$mode_launcher" {
 	bindsym y exec typora
 	bindsym w exec whatsdesk
 	bindsym c exec chromium
-	bindsym k exec evolution & teams & pocket-casts
+	bindsym k exec evolution & teams & pocket-casts & firefox hr-portalen.uio.no & libreoffice --nologo -o $HOME/UiO/Docs/Adm/Work\ rotation.ods 
 	bindsym Escape mode "default"
 	bindsym Return mode "default"
 }
