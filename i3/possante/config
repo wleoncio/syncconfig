@@ -44,6 +44,9 @@ bindsym $mod+d exec dmenu_run
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+# ==============================================================================
+# Focusing, moving and modifying windows
+# ==============================================================================
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -100,6 +103,38 @@ bindsym $mod+Shift+s sticky toggle
 bindsym $mod+a focus parent
 bindsym $mod+Shift+a focus child
 
+# ==============================================================================
+# Resize windows (you can also use the mouse for that)
+# ==============================================================================
+bindsym $mod+r mode "resize"
+mode "resize" {
+	# These bindings trigger as soon as you enter the resize mode
+	bindsym Left resize shrink width 5 px or 5 ppt
+	bindsym Down resize grow height 5 px or 5 ppt
+	bindsym Up resize shrink height 5 px or 5 ppt
+	bindsym Right resize grow width 5 px or 5 ppt
+
+	# Aggressive resizing
+	bindsym Shift+Left resize shrink width 20 px or 20 ppt
+	bindsym Shift+Down resize grow height 20 px or 20 ppt
+	bindsym Shift+Up resize shrink height 20 px or 20 ppt
+	bindsym Shift+Right resize grow width 20 px or 20 ppt
+
+	# back to normal: Enter or Escape
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+
+# ==============================================================================
+# Scratchpad
+# ==============================================================================
+bindsym $mod+Shift+BackSpace move scratchpad
+bindsym $mod+backslash scratchpad show
+
+# ==============================================================================
+# Switching workspaces
+# ==============================================================================
 # switch to workspace
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
@@ -128,41 +163,15 @@ bindsym $mod+Shift+0 move container to workspace number 10
 bindsym $mod+Shift+F5 move container to workspace prev_on_output
 bindsym $mod+Shift+F6 move container to workspace next_on_output
 
+# ==============================================================================
+# Reloading i3
+# ==============================================================================
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
-# ==============================================================================
-# Scratchpad
-# ==============================================================================
-bindsym $mod+Shift+BackSpace move scratchpad
-bindsym $mod+backslash scratchpad show
-
-# ==============================================================================
-# Resize window (you can also use the mouse for that)
-# ==============================================================================
-mode "resize" {
-	# These bindings trigger as soon as you enter the resize mode
-	bindsym Left resize shrink width 5 px or 5 ppt
-	bindsym Down resize grow height 5 px or 5 ppt
-	bindsym Up resize shrink height 5 px or 5 ppt
-	bindsym Right resize grow width 5 px or 5 ppt
-
-	# Aggressive resizing
-	bindsym Shift+Left resize shrink width 20 px or 20 ppt
-	bindsym Shift+Down resize grow height 20 px or 20 ppt
-	bindsym Shift+Up resize shrink height 20 px or 20 ppt
-	bindsym Shift+Right resize grow width 20 px or 20 ppt
-
-	# back to normal: Enter or Escape
-	bindsym Return mode "default"
-	bindsym Escape mode "default"
-}
-
-bindsym $mod+r mode "resize"
 
 # ==============================================================================
 # Colors
