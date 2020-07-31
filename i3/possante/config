@@ -44,6 +44,9 @@ bindsym $mod+d exec dmenu_run
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+# ==============================================================================
+# Focusing, moving and modifying windows
+# ==============================================================================
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -100,6 +103,38 @@ bindsym $mod+Shift+s sticky toggle
 bindsym $mod+a focus parent
 bindsym $mod+Shift+a focus child
 
+# ==============================================================================
+# Resize windows (you can also use the mouse for that)
+# ==============================================================================
+bindsym $mod+r mode "resize"
+mode "resize" {
+	# These bindings trigger as soon as you enter the resize mode
+	bindsym Left resize shrink width 5 px or 5 ppt
+	bindsym Down resize grow height 5 px or 5 ppt
+	bindsym Up resize shrink height 5 px or 5 ppt
+	bindsym Right resize grow width 5 px or 5 ppt
+
+	# Aggressive resizing
+	bindsym Shift+Left resize shrink width 20 px or 20 ppt
+	bindsym Shift+Down resize grow height 20 px or 20 ppt
+	bindsym Shift+Up resize shrink height 20 px or 20 ppt
+	bindsym Shift+Right resize grow width 20 px or 20 ppt
+
+	# back to normal: Enter or Escape
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+
+# ==============================================================================
+# Scratchpad
+# ==============================================================================
+bindsym $mod+Shift+BackSpace move scratchpad
+bindsym $mod+backslash scratchpad show
+
+# ==============================================================================
+# Switching workspaces
+# ==============================================================================
 # switch to workspace
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
@@ -128,41 +163,15 @@ bindsym $mod+Shift+0 move container to workspace number 10
 bindsym $mod+Shift+F5 move container to workspace prev_on_output
 bindsym $mod+Shift+F6 move container to workspace next_on_output
 
+# ==============================================================================
+# Reloading i3
+# ==============================================================================
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
-# ==============================================================================
-# Scratchpad
-# ==============================================================================
-bindsym $mod+Shift+BackSpace move scratchpad
-bindsym $mod+backslash scratchpad show
-
-# ==============================================================================
-# Resize window (you can also use the mouse for that)
-# ==============================================================================
-mode "resize" {
-	# These bindings trigger as soon as you enter the resize mode
-	bindsym Left resize shrink width 5 px or 5 ppt
-	bindsym Down resize grow height 5 px or 5 ppt
-	bindsym Up resize shrink height 5 px or 5 ppt
-	bindsym Right resize grow width 5 px or 5 ppt
-
-	# Aggressive resizing
-	bindsym Shift+Left resize shrink width 20 px or 20 ppt
-	bindsym Shift+Down resize grow height 20 px or 20 ppt
-	bindsym Shift+Up resize shrink height 20 px or 20 ppt
-	bindsym Shift+Right resize grow width 20 px or 20 ppt
-
-	# back to normal: Enter or Escape
-	bindsym Return mode "default"
-	bindsym Escape mode "default"
-}
-
-bindsym $mod+r mode "resize"
 
 # ==============================================================================
 # Colors
@@ -217,7 +226,6 @@ exec --no-startup-id nitrogen --restore
 exec xrandr --output DP-0 --mode 2560x1440 --rate 144.00
 exec --no-startup-id numlockx on
 exec --no-startup-id dropbox start
-exec --no-startup-id clipit # TODO: move to work mode
 exec --no-startup-id gnome-settings-daemon
 exec_always --no-startup-id compton --config ~/.config/compton.conf
 exec_always --no-startup-id setxkbmap -option caps:none # disable caps lock
@@ -271,7 +279,7 @@ bindsym $mod+Ctrl+s exec systemctl suspend
 # ------------------------------------------------------------------------------
 # Most common apps
 # ------------------------------------------------------------------------------
-set $mode_launcher Launch: [t]odoist [f]irefox [e]volution tea[m]s [p]avucontrol [l]ibreoffice t[y]pora pl[u]ma [w]hatsapp [c]hromium
+set $mode_launcher Launch: [t]odoist [f]irefox [e]volution tea[m]s [p]avucontrol [l]ibreoffice t[y]pora pl[u]ma [w]hatsapp [c]hromium wor[k]
 bindsym $mod+p mode "$mode_launcher"
 
 mode "$mode_launcher" {
@@ -285,6 +293,7 @@ mode "$mode_launcher" {
 	bindsym y exec typora
 	bindsym w exec whatsdesk
 	bindsym c exec chromium
+	bindsym k exec evolution & teams & pocket-casts
 	bindsym Escape mode "default"
 	bindsym Return mode "default"
 }
@@ -326,7 +335,10 @@ for_window [title="Volume Control"] floating enable # pavucontrol
 for_window [instance="gsimplecal"] floating enable
 for_window [instance="shutter"] floating enable
 for_window [title="Compose Message"] floating enable
+for_window [instance="evolution"] move to workspace number 1. Mail
+for_window [instance="teams"] move to workspace number 2. Chat
 for_window [instance="spotify"] move to workspace number 10. Sounds
+for_window [instance="pocket-casts"] move to workspace number 10. Sounds
 for_window [instance="r_x11"] floating enable
 for_window [title="Steam - News"] floating enable
 
