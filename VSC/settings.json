@@ -156,5 +156,6 @@
     "workbench.tree.indent": 32,
     "yaml.schemas": {
         "file:///home/waldir/.vscode-oss/extensions/atlassian.atlascode-2.6.1/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
-    }
+    },
+    "scm.defaultViewMode": "tree"
 }
