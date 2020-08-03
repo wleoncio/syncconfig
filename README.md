@@ -6,9 +6,14 @@ This is a repository containing some configuration files I use across my compute
 
 Just browse the repository and hand-pick the code you want. To make my own life easier, I've created the `syncconfig.sh` script to manually sync these files between my system and a local clone of this repository. You can use it on Linux, but I'd strongly advise against it at this point, as it is a destructive and ad-hoc operation.
 
+# License
+
+This software is licenced under GPL-3 and citation details can be found in the [CITATION.cff](CITATION.cff) file. Contributions are welcome!
+
 # To-dos
 - [x] Add script to pull and push files
 - [x] Add CITATION.cff
+- [ ] Add confirmation when pulling
 - [ ] Add diff when pulling
 - [ ] Add switches to select file groups to sync
 - [x] Add workmode to i3
