@@ -229,12 +229,6 @@ hide_edge_borders smart_no_gaps
 
 # Other tweaks to make things run properly
 bindsym $mod+Shift+g exec XDG_CURRENT_DESKTOP=GNOME gnome-control-centeR
-for_window [title="gsimplecal"] floating enable, border none
-for_window [instance="albert"] border none, move to workspace $ws2
-for_window [title="Volume Control"] floating enable
-for_window [title="Microsoft Teams-varsling"] floating enable
-for_window [instance="spotify"] move to workspace number 3. Sounds
-for_window [instance="r_x11"] floating enable
 
 # My shortcuts
 bindsym $mod+ctrl+l exec i3lock -c ff0000
@@ -291,3 +285,24 @@ bindsym $mod+minus scratchpad show
 focus_wrapping no
 focus_follows_mouse yes
 
+# ==============================================================================
+# Load work mode
+# ==============================================================================
+bindsym $mod+Shift+w exec firefox hr-portalen.uio.no & evolution & teams & todoist-thibaut.todoist & pocket-casts &
+libreoffice -o ~/UiO/Docs/Adm/Work\ rotation.ods --nologo
+
+# ==============================================================================
+# Window positioning
+# ==============================================================================
+for_window [instance="evolution"] move to workspace number 1. Mail
+for_window [instance="teams"] move to workspace number 4. Chat
+for_window [instance="spotify"] move to workspace number 6. Sounds
+for_window [instance="pocket-casts"] move to workspace number 6. Sounds
+
+# ==============================================================================
+# Other window rules
+# ==============================================================================
+for_window [title="Volume Control"] floating enable
+for_window [title="Microsoft Teams-varsling"] floating enable
+for_window [instance="r_x11"] floating enable
+for_window [title="gsimplecal"] floating enable, border none
