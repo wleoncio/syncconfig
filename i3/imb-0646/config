@@ -297,6 +297,7 @@ bindsym $mod+Shift+w exec firefox hr-portalen.uio.no & evolution & teams & todoi
 # Window positioning
 # ==============================================================================
 for_window [instance="evolution"] move to workspace number 1. Mail
+for_window [instance="todoist"] move to workspace number 3. Todo
 for_window [instance="teams"] move to workspace number 4. Chat
 for_window [instance="spotify"] move to workspace number 6. Sounds
 for_window [instance="pocket-casts"] move to workspace number 6. Sounds

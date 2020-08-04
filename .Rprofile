@@ -1,5 +1,5 @@
-require(utils)
-require(colorout)
+require(utils, quietly=TRUE)
+require(colorout, quietly=TRUE)
 .First <- function() if(interactive()) try(loadhistory("~/.Rhistory"))
 .Last <- function() if(interactive()) try(savehistory("~/.Rhistory"))
 tryCatch(
@@ -10,4 +10,4 @@ tryCatch(
            stderr());
     options(width=120)}
 )
-q <- function() quit(save="no")
+q <- function() quit("no")
