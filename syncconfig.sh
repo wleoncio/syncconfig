@@ -61,6 +61,7 @@ then
 	eval cp ~/.radian_profile "$location"
 	eval cp ~/.vimrc "$location"
 	eval cp ~/.xbindkeysrc "$location"
+	eval cp ~/.Rprofile "$location"
 	eval cp ~/.config/compton.conf "$location"
 	eval cp ~/.config/dunst/dunstrc "$location"
 	eval cp ~/.config/i3/* "$location"/i3/"$machinename"/
@@ -75,6 +76,7 @@ then
 	eval cp "$location"/.radian_profile ~
 	eval cp "$location"/.vimrc ~
 	eval cp "$location"/.xbindkeysrc ~
+	eval cp "$location"/.Rprofile ~
 	eval cp "$location"compton.conf ~/.config
 	eval cp "$location"/dunstrc ~/.config/dunst/
 	eval cp "$location"/i3/"$machinename"/* ~/.config/i3/
