@@ -60,7 +60,6 @@
     "git.checkoutType": "local",
     "git.confirmSync": false,
     "git.suggestSmartCommit": false,
-    "git-graph.commitDetailsViewLocation": "Docked to Bottom",
     "git-graph.dialog.createBranch.checkOut": true,
     "git-graph.fetchAndPrune": true,
     "git-graph.fetchAvatars": true,
@@ -146,7 +145,7 @@
         "terminal.foreground" : "#fff",
         "terminal.background" : "#000"
     },
-    "workbench.colorTheme": "Arc Dark",
+    "workbench.colorTheme": "Dracula Soft",
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.revealIfOpen": true,
     "workbench.editor.scrollToSwitchTabs": true,
