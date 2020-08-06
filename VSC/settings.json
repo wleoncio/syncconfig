@@ -98,7 +98,7 @@
         "FIXME",
         "TEMP",
         "ASK",
-        "IDEA",
+        "SUGGEST",
         "DONE"
     ],
     "todo-tree.highlights.customHighlight": {
@@ -126,7 +126,7 @@
             "icon": "question",
             "iconColour": "#FFCA02"
         },
-        "IDEA": {
+        "SUGGEST": {
             "background": "FFCA02",
             "foreground": "black",
             "icon": "light-bulb",
