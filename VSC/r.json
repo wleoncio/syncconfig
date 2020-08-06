@@ -68,5 +68,43 @@
         "prefix": "pt",
         "body": "print($1) # TEMP",
         "description": "Add print() with #TEMP tag"
+    },
+    "Todo": {
+        "prefix": "tod",
+        "body": "# TODO: ",
+        "description": "Add todo comment"
+    },
+    "Fix": {
+        "prefix": "fix",
+        "body": "# FIXME: ",
+        "description": "Add bug comment"
+    },
+    "Temp": {
+        "prefix": "temp",
+        "body": "# TEMP: ",
+        "description": "Add temporary comment"
+    },
+    "Suggestion": {
+        "prefix": "sugg",
+        "body": "# SUGGEST: ",
+        "description": "Add suggestion comment"
+    },
+    "Ask": {
+        "prefix": "ask",
+        "body": "# ASK: ",
+        "description": "Add ask comment"
+    },
+    // =========================================================================
+    // Comments
+    // =========================================================================
+    "H1 comment": {
+        "prefix": "sec",
+        "body": "# $1 ========================================================",
+        "description": "Section"
+    },
+    "H2 comment": {
+        "prefix": "sub",
+        "body": "# $1 --------------------------------------------------------",
+        "description": "Subsection"
     }
 }
