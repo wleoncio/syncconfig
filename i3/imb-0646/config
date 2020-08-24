@@ -291,7 +291,7 @@ focus_follows_mouse yes
 # ==============================================================================
 # Load work mode
 # ==============================================================================
-bindsym $mod+Shift+w exec firefox hr-portalen.uio.no & evolution & teams & todoist-thibaut.todoist & pocket-casts & libreoffice --nologo -o $HOME/UiO/Docs/Adm/Work\ rotation.ods & xrandr --output HDMI-3 --rotate normal;xrandr --output HDMI-3 --rotate left
+bindsym $mod+Shift+w exec firefox hr-portalen.uio.no & evolution & teams & todoist-thibaut.todoist & pocket-casts & libreoffice --nologo -o $HOME/UiO/Docs/Adm/Work\ rotation.ods & xrandr --output HDMI-3 --rotate normal & xrandr --output HDMI-3 --rotate left
 
 # ==============================================================================
 # Window positioning
