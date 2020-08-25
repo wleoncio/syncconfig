@@ -106,15 +106,15 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
+set $ws1 "1. Mail"
 set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
+set $ws3 "3. Todo"
+set $ws4 "4. Chat"
 set $ws5 "5"
-set $ws6 "6"
+set $ws6 "6. Sounds"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9"
+set $ws9 "9. Web"
 set $ws10 "10"
 
 # switch to workspace
@@ -299,8 +299,10 @@ bindsym $mod+Shift+w exec firefox hr-portalen.uio.no & evolution & teams & todoi
 for_window [instance="evolution"] move to workspace number 1. Mail
 for_window [instance="todoist"] move to workspace number 3. Todo
 for_window [instance="teams"] move to workspace number 4. Chat
+for_window [instance="whatsdesk"] move to workspace number 4. Chat
 for_window [instance="spotify"] move to workspace number 6. Sounds
 for_window [instance="pocket-casts"] move to workspace number 6. Sounds
+for_window [instance="Navigator"] move to workspace number 9. Web
 
 # ==============================================================================
 # Other window rules
