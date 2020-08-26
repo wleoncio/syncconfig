@@ -10,4 +10,4 @@ tryCatch(
            stderr());
     options(width=120)}
 )
-q <- function() quit("no")
+.q <- function() quit("no")
