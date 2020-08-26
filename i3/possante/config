@@ -266,6 +266,7 @@ bindcode 148 exec speedcrunch
 bindcode 179 exec spotify
 bindcode 152 exec codium
 bindcode 107 exec shutter
+bindsym $mod+Shift+t exec pluma
 bindsym $mod+m exec killall spotify && spotify &
 bindsym $mod+z exec rofi -show drun -modi drun#window -show-icons -theme oxide
 bindsym $mod+x exec xdg-open "$(locate -e -i --regex "$HOME/[^\.]+" | rofi -dmenu -i -p "File or folder" -threads 0 -show-icons -theme oxide -modi drun)"
@@ -340,6 +341,7 @@ for_window [instance="teams"] move to workspace number 2. Chat
 for_window [instance="spotify"] move to workspace number 10. Sounds
 for_window [instance="pocket-casts"] move to workspace number 10. Sounds
 for_window [instance="r_x11"] floating enable
+for_window [title="Choose one"] floating enable # R help
 for_window [title="Steam - News"] floating enable
 
 # ==============================================================================
