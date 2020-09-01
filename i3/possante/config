@@ -280,7 +280,7 @@ bindsym $mod+Ctrl+s exec systemctl suspend
 # ------------------------------------------------------------------------------
 # Most common apps
 # ------------------------------------------------------------------------------
-set $mode_launcher Launch: [t]odoist [f]irefox [e]volution tea[m]s [p]avucontrol [l]ibreoffice t[y]pora pl[u]ma [w]hatsapp [c]hromium wor[k]
+set $mode_launcher Launch: [t]odoist [f]irefox [e]volution tea[m]s [p]avucontrol [l]ibreoffice t[y]pora pl[u]ma [w]hatsapp [c]hromium wor[k] 
 bindsym $mod+p mode "$mode_launcher"
 
 mode "$mode_launcher" {
@@ -301,7 +301,7 @@ mode "$mode_launcher" {
 # ------------------------------------------------------------------------------
 # Settings
 # ------------------------------------------------------------------------------
-set $mode_settings Settings: [g]nome [a]lsa [p]ulseaudio [n]vidia [s]team_mode
+set $mode_settings Settings: [g]nome [a]lsa [p]ulseaudio [n]vidia [s]ound
 bindsym $mod+c mode "$mode_settings"
 
 mode "$mode_settings" {
@@ -309,6 +309,7 @@ mode "$mode_settings" {
 	bindsym a exec gnome-alsamixer
 	bindsym p exec pavucontrol
 	bindsym n exec nvidia-settings
+	bindsym s exec env XDG_CURRENT_DESKTOP=GNOME gnome-control-center & pavucontrol
 	bindsym Escape mode "default"
 	bindsym Return mode "default"
 }
@@ -332,7 +333,6 @@ mode "$mode_game" {
 # ==============================================================================
 for_window [title="Microsoft Teams-varsling" window_role="browser-window"] floating enable # Teams popup
 for_window [window_role="pop-up"] floating enable
-for_window [title="Volume Control"] floating enable # pavucontrol
 for_window [instance="gsimplecal"] floating enable
 for_window [instance="shutter"] floating enable
 for_window [title="Compose Message"] floating enable
