@@ -335,5 +335,15 @@
     {
         "key": "ctrl+g ctrl+l",
         "command": "workbench.action.gotoLine"
+    },
+    {
+        "key": "ctrl+enter",
+        "command": "r.runSelection",
+        "when": "editorTextFocus && editorLangId == 'rmd'"
+    },
+    {
+        "key": "ctrl+enter",
+        "command": "-r.runSelection",
+        "when": "editorTextFocus && editorLangId == 'rmd'"
     }
 ]
