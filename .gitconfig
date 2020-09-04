@@ -4,7 +4,8 @@
 [alias]
 	df = diff --word-diff=color
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
-	forget = git filter-branch --index-filter "git rm -rf --cached --ignore-unmatch $1" HEAD
+	forget = filter-branch --index-filter "git rm -rf --cached --ignore-unmatch $1" HEAD
+	FORGET = filter-branch -f --index-filter "git rm -rf --cached --ignore-unmatch $1" HEAD
 [core]
 	editor = vim
 [credential]
