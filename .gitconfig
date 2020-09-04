@@ -1,10 +1,11 @@
 [user]
-	email = waldir.leoncio@gmail.com
+	email = w.l.netto@medisin.uio.no
 	name = Waldir Leoncio
 [alias]
 	df = diff --word-diff=color
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
+	forget = git filter-branch --index-filter "git rm -rf --cached --ignore-unmatch $1" HEAD
 [core]
-	editor = nano
+	editor = vim
 [credential]
     helper = store
