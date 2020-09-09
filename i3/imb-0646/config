@@ -301,7 +301,6 @@ for_window [instance="teams"] move to workspace number 4. Chat
 for_window [instance="whatsdesk"] move to workspace number 4. Chat
 for_window [instance="spotify"] move to workspace number 6. Sounds
 for_window [instance="pocket-casts"] move to workspace number 6. Sounds
-for_window [instance="Navigator"] move to workspace number 9. Web
 
 # ==============================================================================
 # Other window rules
