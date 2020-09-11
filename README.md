@@ -22,4 +22,5 @@ This software is licenced under GPL-3 and citation details can be found in the [
 - [ ] Add support for non-users of dunst (Arch)
 - [ ] Fix vim colors (Arch)
 - [ ] Make local repository file path flexible (non-Dropbox dependent)
-- [ ] Add solution to focus window on game mode and perpetually-opaque windows
+- [ ] Add presentation mode
+- [ ] Add solution to focus window when compton is not running (e.g. game and presentation modes)
