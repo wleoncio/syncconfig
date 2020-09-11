@@ -205,6 +205,7 @@ bar {
 	#status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
 	position top
 	tray_padding 1
+	tray_output DP-0
 	bindsym button2 exec pavucontrol
 	bindsym button3 exec gsimplecal
 	colors {
@@ -335,9 +336,9 @@ for_window [title="Microsoft Teams-varsling" window_role="browser-window"] float
 for_window [window_role="pop-up"] floating enable
 for_window [instance="gsimplecal"] floating enable
 for_window [instance="shutter"] floating enable
-for_window [title="Compose Message"] floating enable
-for_window [title="Innboks — Evolution"] move to workspace number 1. Mail
-for_window [instance="teams"] move to workspace number 2. Chat
+for_window [instance="todoist"] move to workspace number 7. Todo
+for_window [title="Innboks — Evolution"] move to workspace number 8. Mail
+for_window [instance="teams"] move to workspace number 9. Chat
 for_window [instance="spotify"] move to workspace number 10. Sounds
 for_window [instance="pocket-casts"] move to workspace number 10. Sounds
 for_window [instance="r_x11"] floating enable
@@ -362,3 +363,21 @@ bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for this
 # ==============================================================================
 focus_wrapping no
 focus_follows_mouse yes
+
+# Multiple monitor options
+# Defining which workspace opens where (multimonitor setup)
+workspace 1 output DP-0
+workspace 2 output DP-0
+workspace 3 output DP-0
+workspace 4 output DP-0
+workspace 5 output DP-0
+workspace 6 output HDMI-0
+workspace 7 output HDMI-0
+workspace 8 output HDMI-0
+workspace 9 output HDMI-0
+workspace 0 output HDMI-0
+
+
+
+
+
