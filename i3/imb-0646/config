@@ -265,7 +265,7 @@ bindsym $mod+o mode "$mode_launcher"
 mode "$mode_launcher" {
 	bindsym f exec firefox
 	bindsym e exec evolution
-	bindsym t exec teams
+	bindsym t exec /var/lib/flatpak/app/com.github.IsmaelMartinez.teams_for_linux/x86_64/stable/active/files/teams-for-linux/teams-for-linux
 	bindsym c exec evolution & teams & whatsdesk &
 	bindsym p exec pavucontrol
 	bindsym n exec nemo
@@ -290,7 +290,7 @@ focus_follows_mouse yes
 # ==============================================================================
 # Load work mode
 # ==============================================================================
-bindsym $mod+Shift+w exec firefox hr-portalen.uio.no & evolution & teams & todoist & pocket-casts & libreoffice --nologo -o $HOME/UiO/Docs/Adm/Work\ rotation.ods & xrandr --output HDMI-3 --rotate left
+bindsym $mod+Shift+w exec firefox hr-portalen.uio.no & evolution & /var/lib/flatpak/app/com.github.IsmaelMartinez.teams_for_linux/x86_64/stable/active/files/teams-for-linux/teams-for-linux & todoist & pocket-casts & libreoffice --nologo -o $HOME/UiO/Docs/Adm/Work\ rotation.ods & xrandr --output HDMI-3 --rotate left
 
 # ==============================================================================
 # Window positioning

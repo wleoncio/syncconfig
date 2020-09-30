@@ -24,3 +24,5 @@ This software is licenced under GPL-3 and citation details can be found in the [
 - [ ] Make local repository file path flexible (non-Dropbox dependent)
 - [ ] Add presentation mode
 - [ ] Add solution to focus window when compton is not running (e.g. game and presentation modes)
+- [x] Change work mode on IMB to load stable Teams release (instead of beta)
+
