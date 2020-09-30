@@ -18,7 +18,7 @@ This software is licenced under GPL-3 and citation details can be found in the [
 - [ ] Add switches to select file groups to sync
 - [x] Add workmode to i3
 - [x] Move .compton.conf to `~/.config`
-- [ ] Fix VSC syncing for "Code - OSS" (Arch)
+- [x] Fix VSC syncing for "Code - OSS" (Arch)
 - [ ] Add support for non-users of dunst (Arch)
 - [ ] Fix vim colors (Arch)
 - [ ] Make local repository file path flexible (non-Dropbox dependent)
