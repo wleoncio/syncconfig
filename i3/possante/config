@@ -433,7 +433,7 @@ bindcode 152 exec code
 bindsym $mod+m exec killall spotify && spotify &
 #bindsym $mod+z exec rofi -show drun -modi drun#window -show-icons -theme oxide
 bindsym $mod+z exec rofi -show drun -modi drun#window -show-icons
-bindsym $mod+x exec xdg-open "$(locate -e -i --regex "$HOME/[^\.]+" | rofi -dmenu -i -p "File or folder" -threads 0 -show-icons -theme oxide -modi drun)"
+bindsym $mod+x exec xdg-open "$(locate -e -i --regex "$HOME/[^\.]+" | rofi -dmenu -i -p "File or folder" -threads 0 -show-icons -modi drun)"
 
 # ==============================================================================
 # Renaming workspaces
