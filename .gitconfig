@@ -10,3 +10,5 @@
 	editor = vim
 [credential]
     helper = store
+[color]
+	ui = auto
