@@ -476,3 +476,12 @@ mode "$mode_game" {
 	bindsym Escape mode "default"
 	bindsym Return mode "default"
 }
+
+# ------------------------------------------------------------------------------
+# Playback
+# ------------------------------------------------------------------------------
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindcode 174 exec playerctl stop
+
