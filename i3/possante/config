@@ -287,6 +287,7 @@ exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec --no-startup-id xbindkeys
+exec --no-startup-id numlockx on
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
