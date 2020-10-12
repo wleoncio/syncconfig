@@ -476,7 +476,7 @@ set $mode_launcher Launch: [w]ork
 bindsym $mod+p mode "$mode_launcher"
 
 mode "$mode_launcher" {
-	bindsym w exec evolution & teams & pocket-casts & firefox hr-portalen.uio.no & libreoffice --nologo -o $HOME/UiO/Docs/Adm/Work\ rotation.ods & /snap/todoist/1/todoist --no-sandbox
+	bindsym w exec evolution & teams & pocket-casts & firefox hr-portalen.uio.no & libreoffice --nologo -o $HOME/UiO/Docs/Adm/Work\ rotation.ods & /snap/todoist/1/todoist --no-sandbox, mode "default"
 	bindsym Escape mode "default"
 	bindsym Return mode "default"
 }
@@ -489,10 +489,8 @@ set $mode_game Settings: Game mode [o]n o[f]f
 bindsym $mod+g mode "$mode_game"
 
 mode "$mode_game" {
-	bindsym o exec killall picom dropbox variety clipit & nvidia-settings -a AllowVRR=1 & nvidia-settings -a ShowVRRVisualIndicator=1 & steam
-	bindsym f exec picom -b & nvidia-settings -a AllowVRR=0 & nvidia-settings -a ShowVRRVisualIndicator=0
-	bindsym Escape mode "default"
-	bindsym Return mode "default"
+	bindsym o exec killall picom dropbox variety & nvidia-settings -a AllowVRR=1 & nvidia-settings -a ShowVRRVisualIndicator=1 & steam, mode "default"
+	bindsym f exec picom -b & nvidia-settings -a AllowVRR=0 & nvidia-settings -a ShowVRRVisualIndicator=0, mode "default"
 }
 
 # ------------------------------------------------------------------------------
@@ -511,7 +509,7 @@ for_window [window_role="pop-up"] floating enable
 for_window [instance="todoist"] move to workspace number 8. Todo
 for_window [title="Innboks — Evolution"] move to workspace number 7. Mail
 for_window [instance="teams"] move to workspace number 6. Chat
-for_window [instance="firefox"] move to workspace number 4. Web
+for_window [instance="Firefox"] move to workspace number 4. Web
 for_window [instance="spotify"] move to workspace number 5. Sounds
 for_window [instance="pocket-casts"] move to workspace number 5. Sounds
 for_window [instance="r_x11"] floating enable
