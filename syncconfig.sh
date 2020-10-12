@@ -45,8 +45,25 @@ then
 elif [ -d "$HOME/.config/VSCode" ]
 then
 	VSCdir="VSCode"
+elif [ -d "$HOME/.config/Code - OSS" ]
+then
+	VSCdir="Code\ -\ OSS"
 else
-	echo "Could not determine location of VSCode directory. Exiting."
+	echo "ERROR: Could not determine location of VSCode directory. Exiting."
+	exit 0
+fi
+
+# =============================================================================
+# Determining i3 config folder
+# =============================================================================
+if [ -d "$HOME/.i3" ]
+then
+	i3dir=".i3"
+elif [ -d "$HOME/.config/i3" ]
+then
+	i3dir=".config/i3"
+else
+	echo "ERROR: Could not determine location of i3 folder. Exiting."
 	exit 0
 fi
 
@@ -64,7 +81,7 @@ then
 	eval cp ~/.Rprofile "$location"
 	eval cp ~/.config/compton.conf "$location"
 	eval cp ~/.config/dunst/dunstrc "$location"
-	eval cp ~/.config/i3/* "$location"/i3/"$machinename"/
+	eval cp ~/"$i3dir"/* "$location"/i3/"$machinename"/
 	eval cp ~/.config/"$VSCdir"/User/keybindings.json "$location"/VSC
 	eval cp ~/.config/"$VSCdir"/User/settings.json "$location"/VSC
 	eval cp ~/.config/"$VSCdir"/User/snippets/* "$location"/VSC
@@ -79,7 +96,7 @@ then
 	eval cp "$location"/.Rprofile ~
 	eval cp "$location"compton.conf ~/.config
 	eval cp "$location"/dunstrc ~/.config/dunst/
-	eval cp "$location"/i3/"$machinename"/* ~/.config/i3/
+	eval cp "$location"/i3/"$machinename"/* ~/"$i3dir"
 	eval cp "$location"/VSC/keybindings.json ~/.config/"$VSCdir"/User
 	eval cp "$location"/VSC/settings.json ~/.config/"$VSCdir"/User
 	eval cp "$location"/VSC/r.json ~/.config/"$VSCdir"/User/snippets/
