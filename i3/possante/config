@@ -476,7 +476,7 @@ set $mode_launcher Launch: [w]ork
 bindsym $mod+p mode "$mode_launcher"
 
 mode "$mode_launcher" {
-	bindsym w exec evolution & teams & pocket-casts & firefox hr-portalen.uio.no & libreoffice --nologo -o $HOME/UiO/Docs/Adm/Work\ rotation.ods & /snap/todoist/1/todoist --no-sandbox, mode "default"
+	bindsym w exec evolution & teams & pocket-casts & firefox hr-portalen.uio.no & libreoffice --nologo -o $HOME/UiO/Docs/Adm/Work\ rotation.ods & /var/lib/snapd/snap/bin/todoist --no-sandbox, mode "default"
 	bindsym Escape mode "default"
 	bindsym Return mode "default"
 }
@@ -507,11 +507,11 @@ bindcode 174 exec playerctl stop
 for_window [title="Microsoft Teams-varsling" window_role="browser-window"] floating enable # Teams popup
 for_window [window_role="pop-up"] floating enable
 for_window [instance="todoist"] move to workspace number 8. Todo
-for_window [title="Innboks — Evolution"] move to workspace number 7. Mail
+for_window [instance="evolution"] move to workspace number 7. Mail
 for_window [instance="teams"] move to workspace number 6. Chat
-for_window [instance="Firefox"] move to workspace number 4. Web
+for_window [instance="Navigator"] move to workspace number 4. Web
 for_window [instance="spotify"] move to workspace number 5. Sounds
-for_window [instance="pocket-casts"] move to workspace number 5. Sounds
+for_window [instance="pocket-casts-linux"] move to workspace number 5. Sounds
 for_window [instance="r_x11"] floating enable
 for_window [title="Choose one"] floating enable # R help
 for_window [title="Steam - News"] floating enable
