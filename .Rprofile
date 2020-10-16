@@ -11,3 +11,4 @@ tryCatch(
     options(width=120)}
 )
 .q <- function() quit("no")
+options(browser="firefox")
