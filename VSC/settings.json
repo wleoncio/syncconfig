@@ -145,7 +145,6 @@
         "terminal.foreground" : "#fff",
         "terminal.background" : "#000"
     },
-    "workbench.colorTheme": "Dracula Soft",
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.revealIfOpen": true,
     "workbench.editor.scrollToSwitchTabs": true,
