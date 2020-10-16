@@ -426,7 +426,11 @@ mode "$mode_gaps_outer" {
 bindcode 163 exec evolution
 bindcode 180 exec firefox
 # bindcode 181 exec gnome-calendar
-bindcode 164 exec nemo
+bindcode 164 exec pcmanfm
+bindcode 181 exec variety --favorite
+bindcode 166 exec variety --trash
+bindcode 167 exec variety --next
+bindcode 225 exec libreoffice --nologo -o $HOME/UiO/Docs/Adm/Work\ rotation.ods
 bindcode 148 exec speedcrunch
 bindcode 179 exec paswitch alsa_output.pci-0000_00_1f.3.analog-stereo
 bindcode $mod+179 exec paswitch alsa_output.usb-Logitech_Logitech_USB_Headset-00.analog-stereo
