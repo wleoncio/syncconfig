@@ -476,11 +476,12 @@ workspace $ws8 output HDMI-0
 # ------------------------------------------------------------------------------
 # One-off modes
 # ------------------------------------------------------------------------------
-set $mode_launcher Launch: [w]ork
+set $mode_launcher Launch: [w]ork [p]resentation
 bindsym $mod+p mode "$mode_launcher"
 
 mode "$mode_launcher" {
 	bindsym w exec evolution & teams & pocket-casts & firefox hr-portalen.uio.no & libreoffice --nologo -o $HOME/UiO/Docs/Adm/Work\ rotation.ods & /var/lib/snapd/snap/bin/todoist --no-sandbox, mode "default"
+	bindsym p exec killall picom dropbox variety, mode "default"
 	bindsym Escape mode "default"
 	bindsym Return mode "default"
 }
