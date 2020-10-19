@@ -56,17 +56,15 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-#bindsym $mod+F2 exec palemoon
-#bindsym $mod+F3 exec pcmanfm
 bindsym $mod+F7 exec ranger
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill picom
 bindsym $mod+Ctrl+t exec --no-startup-id picom -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
-bindsym Print exec --no-startup-id i3-scrot
-bindsym Print+w exec --no-startup-id i3-scrot -w
-bindsym Print+s exec --no-startup-id i3-scrot -s
+bindsym Print exec --no-startup-id shutter -s --disable_systray
+#bindsym Print+w exec --no-startup-id i3-scrot -w
+#bindsym Print+s exec --no-startup-id i3-scrot -s
 bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
@@ -425,6 +423,7 @@ mode "$mode_gaps_outer" {
 # ==============================================================================
 bindcode 163 exec evolution
 bindcode 180 exec firefox
+bindcode $mod+180 exec firefox --private-window
 # bindcode 181 exec gnome-calendar
 bindcode 164 exec pcmanfm
 bindcode 181 exec variety --favorite
