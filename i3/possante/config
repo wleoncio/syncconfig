@@ -287,6 +287,7 @@ exec_always --no-startup-id fix_xcursor
 exec --no-startup-id xbindkeys
 exec --no-startup-id numlockx on
 exec --no-startup-id keynav
+exec --no-startup-id dropbox start
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
