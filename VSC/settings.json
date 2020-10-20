@@ -14,7 +14,6 @@
     ],
     "bracket-pair-colorizer-2.forceUniqueOpeningColor": false,
     "bracket-pair-colorizer-2.highlightActiveScope": true,
-    "bracket-pair-colorizer-2.showBracketsInGutter": true,
     "breadcrumbs.enabled": true,
     "color-highlight.markerType": "dot-before",
     "comment-divider.length": 80,
@@ -155,5 +154,7 @@
     "yaml.schemas": {
         "file:///home/waldir/.vscode-oss/extensions/atlassian.atlascode-2.6.1/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
     },
-    "scm.defaultViewMode": "tree"
+    "scm.defaultViewMode": "tree",
+    "workbench.colorTheme": "Darcula",
+    "files.autoGuessEncoding": true
 }
