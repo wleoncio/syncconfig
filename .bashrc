@@ -59,7 +59,7 @@ fi
 theme="dark"
 
 if [ "$color_prompt" = yes ] && [ "$theme" = "dark" ]; then
-    PS1='\[\033[1;32m\]\h\[\033[02m\] \[\033[01;34m\]\w\[\033[2;37m\]\$\[\033[0;37m\] '
+    PS1='\[\033[1;30;46m\]▓▒░ [\[\033[37m\]\w\[\033[30m\]] ░▒▓\[\033[0;37m\] '
 elif [ "$color_prompt" = yes ] && [ "$theme" = "light" ]; then
     PS1='\e[0;34m\]\h \e[0;32m\]\w\e[2;31m\]\$\e[0;00m\] '
 else
@@ -132,3 +132,5 @@ export R_LD_LIBRARY_PATH=$R_LD_LIBRARY_PATH:/usr/lib/jvm/java-11-openjdk-amd64/l
 export LD_LIBRARY_PATH=/usr/lib/jvm/java-1.11.0-openjdk-amd64/lib/server:$LD_LIBRARY_PATH
 
 #export LD_LIBRARY_PATH=/usr/local/MATLAB/MATLAB_Runtime/v97/runtime/glnxa64:/usr/local/MATLAB/MATLAB_Runtime/v97/bin/glnxa64:/usr/local/MATLAB/MATLAB_Runtime/v97/sys/os/glnxa64:/usr/local/MATLAB/MATLAB_Runtime/v97/extern/bin/glnxa64:$LD_LIBRARY_PATH
+
+source /home/waldir/Programs/bash-wakatime/bash-wakatime.sh
