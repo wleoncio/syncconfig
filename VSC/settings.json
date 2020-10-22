@@ -80,7 +80,6 @@
     "r.lsp.diagnostics": false,
     "r.rterm.linux": "/usr/bin/radian",
     "task.saveBeforeRun": "prompt",
-    "terminal.external.linuxExec": "gnome-terminal",
     "terminal.integrated.confirmOnExit": true,
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.cursorBlinking": true,
