@@ -59,7 +59,7 @@ fi
 theme="dark"
 
 if [ "$color_prompt" = yes ] && [ "$theme" = "dark" ]; then
-    PS1='\[\033[1;30;46m\]▓▒░ [\[\033[37m\]\w\[\033[30m\]] ░▒▓\[\033[0;37m\] '
+    PS1='\[\033[1;30;46m\] \[\033[30m\]\w\[\033[30m\] \[\033[0;37m\] '
 elif [ "$color_prompt" = yes ] && [ "$theme" = "light" ]; then
     PS1='\e[0;34m\]\h \e[0;32m\]\w\e[2;31m\]\$\e[0;00m\] '
 else
