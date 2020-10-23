@@ -476,14 +476,15 @@ workspace $ws8 output HDMI-0
 # ------------------------------------------------------------------------------
 # One-off modes
 # ------------------------------------------------------------------------------
-set $mode_launcher Launch: [w]ork [p]resentation
-bindsym $mod+p mode "$mode_launcher"
+set $mode_launcher Launch: [w]ork [p]resentation [g]ame [n]ormal
+bindsym $mod+m mode "$mode_launcher"
 
 mode "$mode_launcher" {
-	bindsym w exec evolution & teams & pocket-casts & firefox hr-portalen.uio.no & libreoffice --nologo -o $HOME/UiO/Docs/Adm/Work\ rotation.ods & /var/lib/snapd/snap/bin/todoist --no-sandbox, mode "default"
-	bindsym p exec killall picom dropbox variety, mode "default"
+	bindsym w exec "notify-send 'Entering work mode'; evolution; teams; firefox hr-portalen.uio.no; libreoffice --nologo -o $HOME/UiO/Docs/Adm/Work\ rotation.ods; /var/lib/snapd/snap/bin/todoist --no-sandbox", mode "default"
+	bindsym p exec "notify-send 'Entering presentation mode'; killall picom dropbox variety; sleep 1; picom -b --config /dev/null --inactive-dim .8", mode "default"
+	bindsym g exec "notify-send 'Entering game mode'; killall picom dropbox variety; exec xrandr --output HDMI-0 --off & exec nvidia-settings -a AllowVRR=1 & exec nvidia-settings -a ShowVRRVisualIndicator=1 & exec steam", mode "default"
+	bindsym n exec "notify-send 'Entering normal mode'; killall steam picom; sleep 1; picom -b --config ~/.config/picom.conf; dropbox start; nvidia-settings -a AllowVRR=0; nvidia-settings -a ShowVRRVisualIndicator=0; xrandr --output HDMI-0 --pos 2800x750 --mode 1360x768", mode "default"
 	bindsym Escape mode "default"
-	bindsym Return mode "default"
 }
 
 # ------------------------------------------------------------------------------
@@ -491,7 +492,7 @@ mode "$mode_launcher" {
 # ------------------------------------------------------------------------------
 set $mode_game Settings: Game mode [o]n o[f]f
 
-bindsym $mod+g mode "$mode_game"
+#bindsym $mod+g mode "$mode_game"
 
 mode "$mode_game" {
 	bindsym o exec killall picom dropbox variety & nvidia-settings -a AllowVRR=1 & nvidia-settings -a ShowVRRVisualIndicator=1 & steam, mode "default"
