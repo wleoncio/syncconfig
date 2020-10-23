@@ -455,7 +455,7 @@ focus_wrapping no
 # Multiple monitor options
 # ==============================================================================
 exec_always --no-startup-id xrandr --output DP-0 --mode 2560x1440 --rate 144.00 --primary
-exec_always --no-startup-id xrandr --output HDMI-0 --pos 2800x750 --size 1920x1080
+exec_always --no-startup-id xrandr --output HDMI-0 --pos 2800x750 --mode 1360x768 --size 1360x768
 
 # ------------------------------------------------------------------------------
 # Defining which workspace opens where (multimonitor setup)
