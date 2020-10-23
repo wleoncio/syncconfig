@@ -436,7 +436,7 @@ bindcode 179 exec paswitch alsa_output.pci-0000_00_1f.3.analog-stereo
 bindcode $mod+179 exec paswitch alsa_output.usb-Logitech_Logitech_USB_Headset-00.analog-stereo
 bindcode 152 exec code
 # bindcode 107 exec shutter
-bindsym $mod+m exec killall spotify && spotify &
+bindsym $mod+Ctrl+Shift+m exec killall spotify && spotify &
 #bindsym $mod+z exec rofi -show drun -modi drun#window -show-icons -theme oxide
 bindsym $mod+z exec rofi -show drun -modi drun#window -show-icons
 bindsym $mod+x exec xdg-open "$(locate -e -i --regex "$HOME/[^\.]+" | rofi -dmenu -i -p "File or folder" -threads 0 -show-icons -modi drun)"
