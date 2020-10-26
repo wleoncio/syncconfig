@@ -140,7 +140,9 @@
     "window.zoomLevel": 0,
     "workbench.colorCustomizations" : {
         "terminal.foreground" : "#fff",
-        "terminal.background" : "#000"
+        "terminal.background" : "#000",
+        "terminal.ansiCyan": "#00A",
+        "terminal.ansiBrightBlack": "#fff"
     },
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.revealIfOpen": true,
