@@ -65,6 +65,7 @@ bindsym $mod+t exec --no-startup-id pkill picom
 bindsym $mod+Ctrl+t exec --no-startup-id picom -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id shutter -s --disable_systray
+bindsym $mod+Print exec --no-startup-id shutter -w --disable_systray
 #bindsym Print+w exec --no-startup-id i3-scrot -w
 #bindsym Print+s exec --no-startup-id i3-scrot -s
 bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
