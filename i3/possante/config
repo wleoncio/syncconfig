@@ -547,3 +547,8 @@ for_window [instance="r_x11"] floating enable # R plots
 for_window [title="Secure CRAN mirrors"] floating enable # R mirror picker
 for_window [title="Choose one"] floating enable # R help
 for_window [title="Steam - News"] floating enable
+
+# Other shortcuts
+bindsym $mod+Shift+Ctrl+p exec "notify-send 'Restarting picom' --urgency low; pkill picom; sleep 1; picom -b"
+bindsym $mod+Tab exec echo "swap_focus" | nc --send-only -U "$XDG_RUNTIME_DIR/i3/event-listener.sock"
+exec --no-startup-id ./Programs/event-listener.py
