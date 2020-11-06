@@ -170,5 +170,6 @@
     "terminal.external.linuxExec": "urxvt-unicode-256color",
     "python.dataScience.askForKernelRestart": false,
     "r.lsp.debug": true,
-    "r.lsp.diagnostics": false
+    "r.lsp.diagnostics": false,
+    "rdebugger.rterm.linux": "/usr/bin/radian"
 }
