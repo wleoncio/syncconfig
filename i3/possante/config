@@ -516,12 +516,13 @@ bindcode 174 exec playerctl stop
 # ==============================================================================
 for_window [title="Microsoft Teams-varsling" window_role="browser-window"] floating enable # Teams popup
 for_window [window_role="pop-up"] floating enable
-for_window [instance="todoist"] move to workspace number 8. Todo
-for_window [instance="evolution"] move to workspace number 7. Comm
-for_window [instance="teams"] move to workspace number 7. Comm
-for_window [instance="spotify"] move to workspace number 6. Sounds
-for_window [instance="pocket-casts-linux"] move to workspace number 6. Sounds
-for_window [instance="r_x11"] floating enable
+for_window [instance="todoist"] move to scratchpad
+for_window [instance="evolution"] move to workspace number 8. Comm
+for_window [instance="teams"] move to workspace number 8. Comm
+for_window [instance="spotify"] move to workspace number 7. Sounds
+for_window [instance="pocket-casts-linux"] move to workspace number 7. Sounds
+for_window [instance="musixmatch"] move to workspace number 7. Sounds
+for_window [instance="r_x11"] floating enable # R plots
 for_window [title="Secure CRAN mirrors"] floating enable # R mirror picker
 for_window [title="Choose one"] floating enable # R help
 for_window [title="Steam - News"] floating enable
