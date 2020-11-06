@@ -48,3 +48,7 @@
 #    Mod1 + b:1 + Release
 
 # End of xbindkeys configuration
+
+# scroll up and down with the keyboard
+#"xte 'mouseclick 4'"
+#	Mod3 + Up
