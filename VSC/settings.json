@@ -19,7 +19,6 @@
     "comment-divider.length": 80,
     "comment-divider.mainHeaderAlign": "left",
     "comment-divider.mainHeaderFiller": "=",
-    "comment-divider.mainHeaderHeight": "line",
     "comment-divider.subheaderAlign": "left",
     "comment-divider.subHeaderFiller": "-",
     "comment-divider.subheaderHeight": "line",
@@ -41,7 +40,7 @@
     "editor.renderIndentGuides": false,
     "editor.renderWhitespace": "all",
     "editor.rulers": [
-        80
+        70, 80
     ],
     "editor.scrollBeyondLastColumn": 0,
     "editor.scrollBeyondLastLine": false,
@@ -76,7 +75,6 @@
     "r.alwaysUseActiveTerminal": true,
     "r.bracketedPaste": true,
     "r.editor.tabSize": 4,
-    "r.lsp.diagnostics": false,
     "r.rterm.linux": "/usr/bin/radian",
     "task.saveBeforeRun": "prompt",
     "terminal.integrated.confirmOnExit": true,
@@ -142,7 +140,9 @@
         "terminal.foreground" : "#fff",
         "terminal.background" : "#000",
         "terminal.ansiCyan": "#00A",
-        "terminal.ansiBrightBlack": "#fff"
+        "terminal.ansiBrightBlack": "#fff",
+        "terminal.ansiBrightRed": "#ff0000",
+        "terminal.ansiYellow": "#ffaa00"
     },
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.revealIfOpen": true,
@@ -156,5 +156,19 @@
     },
     "scm.defaultViewMode": "tree",
     "workbench.colorTheme": "Darcula",
-    "files.autoGuessEncoding": true
+    "files.autoGuessEncoding": true,
+    "markdown.marp.themes": [
+        "./themes/uio-light.css",
+        "./themes/uio-dark.css"
+    ],
+    "latex-workshop.message.update.show": false,
+    "latex-workshop.latex.bibDirs": [
+        "./",
+        "../"
+    ],
+    "r.lsp.path": "/usr/bin/R",
+    "terminal.external.linuxExec": "urxvt-unicode-256color",
+    "python.dataScience.askForKernelRestart": false,
+    "r.lsp.debug": true,
+    "r.lsp.diagnostics": false
 }

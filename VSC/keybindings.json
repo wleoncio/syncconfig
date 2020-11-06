@@ -235,7 +235,7 @@
         "command": "workbench.action.toggleMaximizedPanel"
     },
     {
-        "key": "ctrl+t ctrl+n",
+        "key": "ctrl+t ctrl+p",
         "command": "workbench.action.nextPanelView"
     },
     {
@@ -345,5 +345,13 @@
         "key": "ctrl+enter",
         "command": "-r.runSelection",
         "when": "editorTextFocus && editorLangId == 'rmd'"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "-workbench.action.gotoLine"
+    },
+    {
+        "key": "ctrl+t ctrl+n",
+        "command": "workbench.action.terminal.new"
     }
 ]
