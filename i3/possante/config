@@ -484,10 +484,14 @@ set $mode_launcher Launch: [w]ork [p]resentation [g]ame [n]ormal
 bindsym $mod+m mode "$mode_launcher"
 
 mode "$mode_launcher" {
-	bindsym w exec "notify-send 'Entering work mode'; evolution; teams; firefox hr-portalen.uio.no; libreoffice --nologo -o $HOME/UiO/Docs/Adm/Work\ rotation.ods; /var/lib/snapd/snap/bin/todoist --no-sandbox", mode "default"
-	bindsym p exec "notify-send 'Entering presentation mode'; killall picom dropbox variety; sleep 1; picom -b --config /dev/null --inactive-dim .8", mode "default"
-	bindsym g exec "notify-send 'Entering game mode'; killall picom dropbox variety; exec xrandr --output HDMI-0 --off & exec nvidia-settings -a AllowVRR=1 & exec nvidia-settings -a ShowVRRVisualIndicator=1 & exec steam", mode "default"
-	bindsym n exec "notify-send 'Entering normal mode'; killall steam picom; sleep 1; picom -b --config ~/.config/picom.conf; dropbox start; nvidia-settings -a AllowVRR=0; nvidia-settings -a ShowVRRVisualIndicator=0; xrandr --output HDMI-0 --pos 2800x750 --mode 1360x768", mode "default"
+	# Work mode
+	bindsym w exec "notify-send 'Entering work mode' --urgency low; evolution & teams & firefox hr-portalen.uio.no & libreoffice --nologo -o $HOME/UiO/Docs/Adm/Work\ rotation.ods & /var/lib/snapd/snap/bin/todoist --no-sandbox", mode "default"
+	# Presentation mode
+	bindsym p exec "notify-send 'Entering presentation mode' --urgency low; killall picom dropbox variety; sleep 1; picom -b --config /dev/null --inactive-dim 0; gromit-mpx", mode "default"
+	# Game mode
+	bindsym g exec "notify-send 'Entering game mode' --urgency low; killall picom dropbox variety; xrandr --output HDMI-0 --off & nvidia-settings -a AllowVRR=1 & nvidia-settings -a ShowVRRVisualIndicator=1 & steam", mode "default"
+	# Normal mode
+	bindsym n exec "notify-send 'Entering normal mode' --urgency low; killall steam picom; sleep 1; picom -b --config ~/.config/picom.conf; dropbox start; nvidia-settings -a AllowVRR=0; nvidia-settings -a ShowVRRVisualIndicator=0; xrandr --output HDMI-0 --pos 2800x750 --mode 1360x768", mode "default"
 	bindsym Escape mode "default"
 }
 
