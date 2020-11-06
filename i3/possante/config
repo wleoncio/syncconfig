@@ -486,14 +486,14 @@ exec_always --no-startup-id xrandr --output HDMI-0 --pos 0x640 --mode 1360x768
 # ------------------------------------------------------------------------------
 # Defining which workspace opens where (multimonitor setup)
 # ------------------------------------------------------------------------------
-workspace $ws1 output DP-0
-workspace $ws2 output DP-0
-workspace $ws3 output DP-0
-workspace $ws4 output DP-0
+workspace $ws6 output DP-0
+workspace $ws7 output DP-0
+workspace $ws8 output DP-0
+workspace $ws1 output HDMI-0
+workspace $ws2 output HDMI-0
+workspace $ws3 output HDMI-0
+workspace $ws4 output HDMI-0
 workspace $ws5 output HDMI-0
-workspace $ws6 output HDMI-0
-workspace $ws7 output HDMI-0
-workspace $ws8 output HDMI-0
 
 # ==============================================================================
 # Modes
@@ -543,11 +543,11 @@ bindcode 174 exec playerctl stop
 for_window [title="Microsoft Teams-varsling" window_role="browser-window"] floating enable # Teams popup
 for_window [window_role="pop-up"] floating enable
 for_window [instance="todoist"] move to scratchpad
-for_window [instance="evolution"] move to workspace number 8. Comm
-for_window [instance="teams"] move to workspace number 8. Comm
-for_window [instance="spotify"] move to workspace number 7. Sounds
-for_window [instance="pocket-casts-linux"] move to workspace number 7. Sounds
-for_window [instance="musixmatch"] move to workspace number 7. Sounds
+for_window [instance="evolution"] move to workspace number 1. Mail
+for_window [instance="teams"] move to workspace number 2. Chat
+for_window [instance="spotify"] move to workspace number 3. Sounds
+for_window [instance="pocket-casts-linux"] move to workspace number 3. Sounds, workspace number $ws3
+for_window [instance="musixmatch"] move to workspace number 3. Sounds
 for_window [instance="r_x11"] floating enable # R plots
 for_window [title="Secure CRAN mirrors"] floating enable # R mirror picker
 for_window [title="Choose one"] floating enable # R help
