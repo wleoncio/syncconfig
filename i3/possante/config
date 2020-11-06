@@ -308,6 +308,9 @@ exec --no-startup-id xbindkeys
 exec --no-startup-id numlockx on
 exec --no-startup-id keynav
 exec --no-startup-id dropbox start
+exec_always --no-startup-id ./Programs/i3-center-mouse.py --all
+exec_always --no-startup-id ./Programs/event-listener.py
+
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
