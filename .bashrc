@@ -130,3 +130,7 @@ export LD_LIBRARY_PATH=/usr/lib/jvm/java-1.11.0-openjdk-amd64/lib/server:$LD_LIB
 
 source /home/waldir/Programs/bash-wakatime/bash-wakatime.sh
 export COLUMNS # For R Language Server
+
+# Enabling autocompletion on Git
+source /usr/share/git/completion/git-completion.bash
+
