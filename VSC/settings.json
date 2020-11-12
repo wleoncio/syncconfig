@@ -64,7 +64,7 @@
     "julia.executablePath": "/home/waldir/Programs/julia-1.4.1/bin",
     "latex-workshop.intellisense.package.enabled": true,
     "latex-workshop.intellisense.unimathsymbols.enabled": true,
-    "latex-workshop.latex.outDir": "../",
+    "latex-workshop.latex.outDir": "./",
     "latex-workshop.synctex.afterBuild.enabled": true,
     "latex-workshop.view.pdf.viewer": "tab",
     "markdown.marp.enableHtml": true,
@@ -161,15 +161,12 @@
         "./themes/uio-light.css",
         "./themes/uio-dark.css"
     ],
-    "latex-workshop.message.update.show": false,
-    "latex-workshop.latex.bibDirs": [
-        "./",
-        "../"
-    ],
     "r.lsp.path": "/usr/bin/R",
     "terminal.external.linuxExec": "urxvt-unicode-256color",
     "python.dataScience.askForKernelRestart": false,
     "r.lsp.debug": true,
     "r.lsp.diagnostics": false,
-    "rdebugger.rterm.linux": "/usr/bin/radian"
+    "rdebugger.rterm.linux": "/usr/bin/radian",
+    "latex-workshop.bibtex-format.tab": "tab",
+    "markdown.extension.print.theme": "dark"
 }
