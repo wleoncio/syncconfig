@@ -84,7 +84,7 @@
     "terminal.integrated.fontSize": 12,
     "terminal.integrated.fontWeight": "500",
     "terminal.integrated.rendererType": "dom",
-    "terminal.integrated.shell.linux": "/bin/bash",
+    "terminal.integrated.shell.linux": "/usr/bin/bash",
     "todo-tree.general.revealBehaviour": "highlight todo",
     "todo-tree.general.statusBar": "tags",
     "todo-tree.general.statusBarClickBehaviour": "reveal",
