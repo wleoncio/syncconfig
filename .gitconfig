@@ -33,3 +33,7 @@
 	smudge = git-lfs smudge -- %f
 [help]
 	autocorrect = 1
+[merge]
+	ff = no
+[pull]
+	ff = only
