@@ -18,7 +18,7 @@ hide_edge_borders none
 
 # change borders
 bindsym $mod+u border none
-bindsym $mod+i border pixel 5
+bindsym $mod+i border pixel 10
 bindsym $mod+o border normal
 
 # Font for window titles. Will also be used by the bar unless a different font
