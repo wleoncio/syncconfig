@@ -56,10 +56,11 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-theme="dark"
-
-if [ "$color_prompt" = yes ] && [ "$theme" = "dark" ]; then
-    PS1='\[\033[1;30;46m\] \[\033[30m\]\w\[\033[30m\] \[\033[0;37m\] '
+if [ "$color_prompt" = yes ]; then
+    # Setting prompt format
+    PS1='\[\033[1;30;44m\] \w \[\033[0;37m\] '
+    # Setting cursor format
+    echo -e "\e]12;lightgray\a"
 fi
 unset color_prompt force_color_prompt
 
@@ -133,4 +134,3 @@ export COLUMNS # For R Language Server
 
 # Enabling autocompletion on Git
 source /usr/share/git/completion/git-completion.bash
-
