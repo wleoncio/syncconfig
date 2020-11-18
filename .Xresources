@@ -57,7 +57,7 @@ XTerm*selectToClipboard: true
 Xcursor.theme: Bibata-Modern-Ice
 Xcursor.size:                     0
 
-URxvt.font:                       xft:LiberationMono:style=Bold:pixelsize=14
+URxvt.font:            xft:FiraCode:pixelsize=12
 URxvt.keysym.C-Up:     font-size:increase
 URxvt.keysym.C-Down:   font-size:decrease
 URxvt.keysym.C-S-Up:   font-size:incglobal
