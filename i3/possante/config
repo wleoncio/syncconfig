@@ -449,7 +449,7 @@ mode "$mode_gaps_outer" {
 bindcode 163 exec evolution
 bindcode 180 exec firefox
 bindcode $mod+180 exec firefox --private-window
-bindcode 181 exec exec firefox --new-window https://calendar.google.com
+bindcode 181 exec exec evolution -c calendar 
 bindcode 164 exec pcmanfm
 #bindcode 181 exec variety --favorite
 bindcode 166 exec variety --trash
