@@ -507,28 +507,18 @@ bindsym $mod+m mode "$mode_launcher"
 
 mode "$mode_launcher" {
 	# Work mode
-	bindsym w exec "notify-send 'Entering work mode' --urgency low; evolution & teams & firefox hr-portalen.uio.no & libreoffice --nologo -o $HOME/UiO/Docs/Adm/Work\ rotation.ods & /var/lib/snapd/snap/bin/todoist --no-sandbox", mode "default"
+	bindsym w workspace number $ws5; workspace number $ws6; exec "notify-send 'Entering work mode' --urgency low; evolution & teams & firefox hr-portalen.uio.no & libreoffice --nologo -o $HOME/UiO/Docs/Adm/Work\ rotation.ods & /var/lib/snapd/snap/bin/todoist --no-sandbox", mode "default"
 	# Meeting mode
-	bindsym m exec "notify-send 'Entering meeting mode' -- urgency low; gromit-mpx; killall variety dropbox", mode "default"
+	bindsym m exec "notify-send 'Entering meeting mode' -- urgency low; gromit-mpx; zoom; killall variety; killall dropbox", mode "default"
 	# Presentation mode
 	bindsym p exec "notify-send 'Entering presentation mode' --urgency low; killall picom dropbox variety; sleep 1; picom -b --config /dev/null --inactive-dim 0; gromit-mpx", mode "default"
 	# Game mode
 	bindsym g exec "notify-send 'Entering game mode' --urgency low; killall picom dropbox variety; xrandr --output HDMI-0 --off & nvidia-settings -a AllowVRR=1 & nvidia-settings -a ShowVRRVisualIndicator=1 & steam", mode "default"
 	# Normal mode
-	bindsym n exec "notify-send 'Entering normal mode' --urgency low; killall steam picom; sleep 1; picom -b --config ~/.config/picom.conf; dropbox start; nvidia-settings -a AllowVRR=0; nvidia-settings -a ShowVRRVisualIndicator=0; xrandr --output HDMI-0 --pos 2800x750 --mode 1360x768", mode "default"
+	bindsym n exec "notify-send 'Entering normal mode' --urgency low; xrandr --output HDMI-0 --left-of DP-0 --mode 1360x768; killall steam picom; sleep 1; picom -b --config ~/.config/picom.conf; dropbox start; nvidia-settings -a AllowVRR=0; nvidia-settings -a ShowVRRVisualIndicator=0", mode "default"
+	# (secret) test mode
+	bindsym t workspace number $ws5; exec "notify-send 'Hello!' --urgency critical"
 	bindsym Escape mode "default"
-}
-
-# ------------------------------------------------------------------------------
-# Game mode
-# ------------------------------------------------------------------------------
-set $mode_game Settings: Game mode [o]n o[f]f
-
-#bindsym $mod+g mode "$mode_game"
-
-mode "$mode_game" {
-	bindsym o exec killall picom dropbox variety & nvidia-settings -a AllowVRR=1 & nvidia-settings -a ShowVRRVisualIndicator=1 & steam, mode "default"
-	bindsym f exec picom -b & nvidia-settings -a AllowVRR=0 & nvidia-settings -a ShowVRRVisualIndicator=0, mode "default"
 }
 
 # ------------------------------------------------------------------------------
