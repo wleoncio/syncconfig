@@ -81,7 +81,8 @@ then
 	eval cp ~/.Xresources "$location"
 	eval cp ~/.Rprofile "$location"
 	eval cp ~/.config/compton.conf "$location"
-	eval cp ~/.config/dunst/dunstrc "$location"
+	eval cp ~/.config/picom.conf "$location"
+ 	eval cp ~/.config/dunst/dunstrc "$location"
 	eval cp ~/"$i3dir"/* "$location"/i3/"$machinename"/
 	eval cp ~/.config/"$VSCdir"/User/keybindings.json "$location"/VSC
 	eval cp ~/.config/"$VSCdir"/User/settings.json "$location"/VSC
@@ -96,7 +97,8 @@ then
 	eval cp "$location"/.xbindkeysrc ~
 	eval cp "$location"/.Xresources ~
 	eval cp "$location"/.Rprofile ~
-	eval cp "$location"compton.conf ~/.config
+	eval cp "$location"/compton.conf ~/.config
+	eval cp "$location"/picom.conf ~/.config
 	eval cp "$location"/dunstrc ~/.config/dunst/
 	eval cp "$location"/i3/"$machinename"/* ~/"$i3dir"
 	eval cp "$location"/VSC/keybindings.json ~/.config/"$VSCdir"/User
