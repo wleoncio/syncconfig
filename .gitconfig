@@ -11,6 +11,7 @@
 	cb = checkout -b
 	bd = branch -d
 	cam = commit -am
+	ss = status
 [core]
 	editor = vim
 [credential]
