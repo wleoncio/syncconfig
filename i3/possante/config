@@ -450,9 +450,10 @@ bindcode 180 exec firefox
 bindcode $mod+180 exec firefox --private-window
 bindcode 181 exec exec evolution -c calendar 
 bindcode 164 exec pcmanfm
-#bindcode 181 exec variety --favorite
-bindcode 166 exec variety --trash
+bindcode 166 exec variety --previous
+bindcode $mod+166 exec variety --trash
 bindcode 167 exec variety --next
+bindcode $mod+167 exec variety --favorite
 bindcode 225 exec libreoffice --nologo -o $HOME/UiO/Docs/Adm/Work\ rotation.ods
 bindcode 148 exec speedcrunch
 bindcode 179 exec paswitch alsa_output.pci-0000_00_1f.3.analog-stereo
@@ -463,6 +464,7 @@ bindsym $mod+Ctrl+Shift+m exec "killall spotify; sleep 1; spotify"
 #bindsym $mod+z exec rofi -show drun -modi drun#window -show-icons -theme oxide
 bindsym $mod+z exec rofi -show drun -modi drun#window -show-icons
 bindsym $mod+x exec xdg-open "$(locate -e -i --regex "$HOME/[^\.]+" | rofi -dmenu -i -p "File or folder" -threads 0 -show-icons -modi drun)"
+bindsym $mod+Ctrl+p exec "variety --next; killall firefox"
 
 # ==============================================================================
 # Renaming workspaces
