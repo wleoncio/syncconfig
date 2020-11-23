@@ -543,6 +543,9 @@ for_window [instance="r_x11"] floating enable # R plots
 for_window [title="Secure CRAN mirrors"] floating enable # R mirror picker
 for_window [title="Choose one"] floating enable # R help
 for_window [title="Steam - News"] floating enable
+for_window [title= "Variety Images"] floating enable
+for_window [title= "Variety History"] floating enable
+for_window [title= "Variety Recent Downloads"] floating enable
 
 # Other shortcuts
 bindsym $mod+Shift+Ctrl+p exec "notify-send 'Restarting picom' --urgency low; pkill picom; sleep 1; picom -b"
