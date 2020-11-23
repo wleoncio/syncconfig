@@ -10,6 +10,8 @@
 	co = checkout
 	cb = checkout -b
 	bd = branch -d
+	cm = commit
+	cmm = commit -m
 	cam = commit -am
 	ss = status
 [core]
