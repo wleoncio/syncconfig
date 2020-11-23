@@ -351,7 +351,6 @@ bar {
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
 	tray_output primary
-#	tray_output eDP1
 
 #	bindsym button4 nop
 #	bindsym button5 nop
@@ -444,7 +443,7 @@ mode "$mode_gaps_outer" {
 }
 
 # ==============================================================================
-# Keyboard app shortcuts
+# Keyboard shortcuts
 # ==============================================================================
 bindcode 163 exec evolution
 bindcode 180 exec firefox
