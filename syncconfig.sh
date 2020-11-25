@@ -82,6 +82,7 @@ then
 	eval cp ~/.Rprofile "$location"
 	eval cp ~/.config/compton.conf "$location"
 	eval cp ~/.config/picom.conf "$location"
+	eval cp ~/.config/gromit-mpx.cfg "$location"
  	eval cp ~/.config/dunst/dunstrc "$location"
 	eval cp ~/"$i3dir"/* "$location"/i3/"$machinename"/
 	eval cp ~/.config/"$VSCdir"/User/keybindings.json "$location"/VSC
@@ -99,6 +100,7 @@ then
 	eval cp "$location"/.Rprofile ~
 	eval cp "$location"/compton.conf ~/.config
 	eval cp "$location"/picom.conf ~/.config
+	eval cp "$location"/gromit-mpx.cfg ~/.config
 	eval cp "$location"/dunstrc ~/.config/dunst/
 	eval cp "$location"/i3/"$machinename"/* ~/"$i3dir"
 	eval cp "$location"/VSC/keybindings.json ~/.config/"$VSCdir"/User
