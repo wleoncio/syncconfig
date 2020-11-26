@@ -58,9 +58,10 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 # ------------------------------------------------------------------------------
 # Volume
 # ------------------------------------------------------------------------------
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 4%+ unmute; exec "notify-send 'Volume up' --urgency low"
-bindsym XF86AudioLowerVolume exec amixer -q set Master 4%- unmute; exec "notify-send 'Volume down' --urgency low"
-bindsym XF86AudioMute exec amixer -q set Master 1+ toggle; exec "notify-send 'Mute toggled' --urgency low"
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 4%+ unmute; exec $HOME/Programs/notify-volume.sh
+bindsym XF86AudioLowerVolume exec amixer -q set Master 4%- unmute; exec $HOME/Programs/notify-volume.sh
+
+bindsym XF86AudioMute exec amixer -q set Master 1+ toggle #; exec "notify-send 'Mute toggled' --urgency low"
 #bindsym XF86AudioMute exec pactl set-sink-mute alsa_output.pci-0000_00_1f.3.analog-stereo toggle
 #bindsym $mod+XF86AudioRaiseVolume exec pactl set-sink-volume alsa_output.usb-Logitech_Logitech_USB_Headset-00.analog-stereo +10%
 #bindsym $mod+XF86AudioLowerVolume exec pactl set-sink-volume alsa_output.usb-Logitech_Logitech_USB_Headset-00.analog-stereo -10%
@@ -458,6 +459,7 @@ bindcode 225 exec libreoffice --nologo -o $HOME/UiO/Docs/Adm/Work\ rotation.ods
 bindcode 148 exec speedcrunch
 bindcode 179 exec paswitch alsa_output.pci-0000_00_1f.3.analog-stereo
 bindcode $mod+179 exec paswitch alsa_output.usb-Logitech_Logitech_USB_Headset-00.analog-stereo
+bindcode $mod+Ctrl+179 exec paswitch bluez_sink.70_88_6B_91_F8_14.a2dp_sink
 bindcode 152 exec code
 # bindcode 107 exec shutter
 bindsym $mod+Ctrl+Shift+m exec "killall spotify; sleep 1; spotify"
