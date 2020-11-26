@@ -30,7 +30,7 @@
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
     #geometry = "400x10-1080+30"
-	geometry = "400x10-5+33"
+	geometry = "400x10+5+33"
     # x = (2560 - width) / 2
 
     # Show how many messages are currently hidden (because of geometry).
@@ -43,7 +43,7 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.).
-    transparency = 05
+    transparency = 30
 
     # The height of the entire notification.  If the height is smaller
     # than the font height and padding combined, it will be raised
@@ -63,7 +63,7 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 2
+    frame_width = 0
 	corner_radius = 10
 
     # Defines color of the frame around the notification window.
@@ -295,6 +295,11 @@
 	background = "#000000"
 	foreground = "#FFFFFF"
 	format = " %n%%"
+[waldsvol]
+	appname = "waldsvol"
+	background = "#000000"
+	foreground = "#FFFFFF"
+	format = " %s"
 #[espeak]
 #    summary = "*"
 #    script = dunst_espeak.sh
