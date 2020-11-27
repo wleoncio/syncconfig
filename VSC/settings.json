@@ -14,7 +14,6 @@
     ],
     "bracket-pair-colorizer-2.forceUniqueOpeningColor": false,
     "bracket-pair-colorizer-2.highlightActiveScope": true,
-    "breadcrumbs.enabled": true,
     "color-highlight.markerType": "dot-before",
     "comment-divider.mainHeaderAlign": "left",
     "comment-divider.mainHeaderFiller": "=",
@@ -34,9 +33,6 @@
     "editor.minimap.side": "left",
     "editor.minimap.size": "fit",
     "editor.mouseWheelZoom": true,
-    "editor.overviewRulerBorder": false,
-    "editor.renderControlCharacters": false,
-    "editor.renderIndentGuides": false,
     "editor.renderWhitespace": "all",
     "editor.rulers": [
         // {
@@ -50,12 +46,10 @@
     ],
     "editor.scrollBeyondLastColumn": 0,
     "editor.scrollBeyondLastLine": false,
-    "editor.smoothScrolling": true,
-    "editor.tabCompletion": "on",
+    "editor.tabCompletion": "onlySnippets",
     "editor.wordWrap": "wordWrapColumn",
     "explorer.compactFolders": false,
     "files.associations": {
-        "*.rmd": "markdown",
         "*.docker": "Dockerfile"
     },
     "files.trimTrailingWhitespace": true,
@@ -67,12 +61,12 @@
     "git-graph.repository.fetchAndPrune": true,
     "git-graph.repository.commits.fetchAvatars": true,
     "html.preview.doubleClickToSwitchToEditor": false,
-    "julia.executablePath": "/home/waldir/Programs/julia-1.4.1/bin",
     "latex-workshop.intellisense.package.enabled": true,
     "latex-workshop.intellisense.unimathsymbols.enabled": true,
     "latex-workshop.latex.outDir": "./",
     "latex-workshop.synctex.afterBuild.enabled": true,
     "latex-workshop.view.pdf.viewer": "tab",
+    "markdown.extension.tableFormatter.enabled": true,
     "markdown.marp.enableHtml": true,
     "markdown.preview.breaks": true,
     "markdown.preview.doubleClickToSwitchToEditor": false,
@@ -169,5 +163,10 @@
     "latex-workshop.bibtex-format.tab": "tab",
     "markdown.extension.print.theme": "dark",
     "comment-divider.length": 60,
-    "workbench.startupEditor": "welcomePageInEmptyWorkbench"
+    "workbench.startupEditor": "welcomePageInEmptyWorkbench",
+    "editor.minimap.enabled": false,
+    "editor.overviewRulerBorder": false,
+    "editor.smoothScrolling": true,
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
 }
