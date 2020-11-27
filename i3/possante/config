@@ -353,6 +353,7 @@ bar {
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
 	tray_output primary
 
+	bindsym button3 exec gsimplecal
 #	bindsym button4 nop
 #	bindsym button5 nop
 #    font pango:URWGothic-Book, FontAwesome
