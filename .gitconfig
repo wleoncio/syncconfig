@@ -42,5 +42,3 @@
 	autocorrect = 1
 [merge]
 	ff = no
-[pull]
-	ff = only
