@@ -79,8 +79,8 @@ bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
 bindsym $mod+F7 exec ranger
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 bindsym $mod+F5 exec terminal -e 'mocp'
-bindsym $mod+t exec --no-startup-id pkill picom
-bindsym $mod+Ctrl+t exec --no-startup-id picom -b
+#bindsym $mod+t exec --no-startup-id pkill picom
+#bindsym $mod+Ctrl+t exec --no-startup-id picom -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id shutter -s --disable_systray
 bindsym $mod+Print exec --no-startup-id shutter -w --disable_systray
@@ -522,6 +522,31 @@ mode "$mode_launcher" {
 	bindsym n exec "notify-send 'Entering normal mode' --urgency low; xrandr --output HDMI-0 --left-of DP-0 --mode 1360x768; killall steam picom; sleep 1; picom -b --config ~/.config/picom.conf; dropbox start; nvidia-settings -a AllowVRR=0; nvidia-settings -a ShowVRRVisualIndicator=0", mode "default"
 	# (secret) test mode
 	bindsym t workspace number $ws5; exec "notify-send 'Hello!' --urgency critical"
+	bindsym Escape mode "default"
+}
+
+set $mode_bt Bluetooth [c]onnect [d]isconnect [s]ettings
+set $mode_bt_connect Connect [B]T506F [U]rbanista New York
+set $mode_bt_disconnect Disconnect [B]T506F [U]rbanista New York
+bindsym $mod+t mode "$mode_bt"
+
+mode "$mode_bt" {
+	bindsym c mode "$mode_bt_connect"
+	bindsym d mode "$mode_bt_disconnect"
+	bindsym s exec blueman-manager
+	bindsym Escape mode "default"
+}
+
+mode "$mode_bt_connect" {
+	bindsym c exec bluetoothctl connect CF:24:FE:06:9E:49, mode "default"
+	bindsym u exec bluetoothctl connect 70:88:6B:91:F8:14, mode "default"
+
+	bindsym Escape mode "default"
+}
+
+mode "$mode_bt_disconnect" {
+	bindsym c exec bluetoothctl disconnect CF:24:FE:06:9E:49, mode "default"
+	bindsym u exec bluetoothctl disconnect 70:88:6B:91:F8:14, mode "default"
 	bindsym Escape mode "default"
 }
 
