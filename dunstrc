@@ -15,7 +15,7 @@
     #
     # If this option is set to mouse or keyboard, the monitor option
     # will be ignored.
-    follow = mouse
+    follow = none
 
     # The geometry of the window:
     #   [{width}]x{height}[+/-{x}+/-{y}]
@@ -29,8 +29,8 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    #geometry = "400x10-1080+30"
-	geometry = "400x10+5+33"
+    geometry = "600x10-980+30"
+	#geometry = "400x10+5+33"
     # x = (2560 - width) / 2
 
     # Show how many messages are currently hidden (because of geometry).
@@ -38,7 +38,7 @@
 
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
-    shrink = yes
+    shrink = no
 
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
@@ -132,7 +132,7 @@
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
-    alignment = left
+    alignment = center
 
     # Show age of message if message is older than show_age_threshold
     # seconds.
