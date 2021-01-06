@@ -595,3 +595,5 @@ bindsym $mod+Shift+i exec --no-startup-id xprop -id $(xdotool getwindowfocus) -f
                                 | sed -e 's/.*= 1.*/0/' -e 's/.*= 0.*/1/'  -e 's/.*not found.*/1/'\
                             )
 
+# Create QR code from copied URL
+bindsym $mod+Shift+z exec xclip -selection clipboard -o | qrencode -o ~/.qr.png; exec feh -FZ ~/.qr.png
