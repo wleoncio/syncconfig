@@ -310,7 +310,7 @@ exec --no-startup-id numlockx on
 exec --no-startup-id keynav
 exec --no-startup-id dropbox start
 exec_always --no-startup-id ./Programs/i3-center-mouse.py --all
-exec_always --no-startup-id ./Programs/event-listener.py
+#exec_always --no-startup-id ./Programs/event-listener.py
 
 
 # Color palette used for the terminal ( ~/.Xresources file )
@@ -582,11 +582,13 @@ for_window [title="Oversikt - HRP - UiO HR Portal — Mozilla Firefox"] floating
 
 # Other shortcuts
 bindsym $mod+Shift+Ctrl+p exec "notify-send 'Restarting picom' --urgency low; pkill picom; sleep 1; picom -b"
+#bindsym $mod+Tab exec echo "swap_focus" | nc --send-only -U "$XDG_RUNTIME_DIR/i3/event-listener.sock"
+#exec --no-startup-id ./Programs/event-listener.py
+
 # invert the active window (toggle its "TAG_INVERT" property)
 bindsym $mod+Shift+i exec --no-startup-id xprop -id $(xdotool getwindowfocus) -format TAG_INVERT 8c \
             -set TAG_INVERT $(\
                                 xprop -id $(xdotool getwindowfocus) 8c TAG_INVERT \
                                 | sed -e 's/.*= 1.*/0/' -e 's/.*= 0.*/1/'  -e 's/.*not found.*/1/'\
                             )
-bindsym $mod+Tab exec echo "swap_focus" | nc --send-only -U "$XDG_RUNTIME_DIR/i3/event-listener.sock"
-exec --no-startup-id ./Programs/event-listener.py
+
