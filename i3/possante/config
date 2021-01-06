@@ -117,8 +117,8 @@ bindsym $mod+Shift+Right move right
 
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth no
-bindsym $mod+b workspace back_and_forth
-bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
+bindsym $mod+9 workspace back_and_forth
+bindsym $mod+Shift+9 move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
 bindsym $mod+h split h
@@ -529,7 +529,7 @@ mode "$mode_launcher" {
 set $mode_bt Bluetooth [c]onnect [d]isconnect [s]ettings
 set $mode_bt_connect Connect [B]T506F [U]rbanista New York
 set $mode_bt_disconnect Disconnect [B]T506F [U]rbanista New York
-bindsym $mod+t mode "$mode_bt"
+bindsym $mod+b mode "$mode_bt"
 
 mode "$mode_bt" {
 	bindsym c mode "$mode_bt_connect"
