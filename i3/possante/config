@@ -565,12 +565,13 @@ bindcode 174 exec playerctl stop
 # ==============================================================================
 for_window [title="Microsoft Teams-varsling" window_role="browser-window"] floating enable # Teams popup
 for_window [window_role="pop-up"] floating enable
-for_window [instance="todoist"] move to workspace number 3. Todo
-for_window [instance="evolution"] move to workspace number 1. Mail
+for_window [instance="todoist"] move to workspace number 2. Todo
+for_window [title="Work rotation.ods - LibreOffice Calc"] move to workspace number 8. Worksheet
+for_window [title="Innboks – Evolution"] move to workspace number 1. Mail, layout tabbed
 for_window [instance="evolution-alarm-notify"] floating enable
-for_window [instance="teams"] move to workspace number 2. Chat
-for_window [instance="spotify"] move to workspace number 4. Sounds
-for_window [instance="pocket-casts-linux"] move to workspace number 4. Sounds, workspace number $ws4
+for_window [instance="teams"] move to workspace number 1. Mail, layout tabbed
+for_window [instance="spotify"] move to workspace number 3. Sounds, workspace number $ws4
+for_window [instance="pocket-casts-linux"] move to workspace number 3. Sounds, workspace number $ws4
 for_window [instance="r_x11"] floating enable # R plots
 for_window [title="Secure CRAN mirrors"] floating enable # R mirror picker
 for_window [title="Choose one"] floating enable # R help
@@ -578,8 +579,9 @@ for_window [title="Steam - News"] floating enable
 for_window [title= "Variety Images"] floating enable
 for_window [title= "Variety History"] floating enable
 for_window [title= "Variety Recent Downloads"] floating enable
-for_window [title="SAP NetWeaver Portal — Mozilla Firefox"] floating enable
-for_window [title="Oversikt - HRP - UiO HR Portal — Mozilla Firefox"] floating disable
+for_window [title="SAP NetWeaver Portal — Mozilla Firefox"] move to workspace number $ws8, floating enable
+for_window [title="Oversikt - HRP - UiO HR Portal — Mozilla Firefox"] move to workspace number $ws8, floating disable
+for_window [title="Zoom Meeting"] border pixel 5
 
 # Other shortcuts
 bindsym $mod+Shift+Ctrl+p exec "notify-send 'Restarting picom' --urgency low; pkill picom; sleep 1; picom -b"
