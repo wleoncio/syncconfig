@@ -140,6 +140,7 @@
     "window.restoreWindows": "none",
     "window.zoomLevel": 0,
     "workbench.colorCustomizations" : {
+        "terminal.border": "#fff",
         "terminal.foreground" : "#fff",
         "terminal.background" : "#000",
         "terminal.ansiCyan": "#2d2d97",
