@@ -171,4 +171,5 @@
     "editor.smoothScrolling": true,
     "telemetry.enableTelemetry": false,
     "telemetry.enableCrashReporter": false,
+    "latex-workshop.message.update.show": false,
 }
