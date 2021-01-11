@@ -567,7 +567,7 @@ for_window [title="Microsoft Teams-varsling" window_role="browser-window"] float
 for_window [window_role="pop-up"] floating enable
 for_window [instance="todoist"] move to workspace number 2. Todo
 for_window [title="Work rotation.ods - LibreOffice Calc"] move to workspace number 8. Worksheet
-for_window [title="Innboks – Evolution"] move to workspace number 1. Mail, layout tabbed
+for_window [title="Innboks"] move to workspace number 1. Mail, layout tabbed
 for_window [instance="evolution-alarm-notify"] floating enable
 for_window [instance="teams"] move to workspace number 1. Mail, layout tabbed
 for_window [instance="spotify"] move to workspace number 3. Sounds, workspace number $ws4
