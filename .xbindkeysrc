@@ -34,6 +34,8 @@
 #keystate_capslock = enable
 
 
+# On Arch, "xte" is available through the "xautomation" package.
+# Source: https://man.archlinux.org/man/xte.1
 
 #pgup
 "xte 'key Page_Up'"
