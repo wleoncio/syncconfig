@@ -9,9 +9,10 @@
 	countcomm = rev-list --count
 	co = checkout
 	cb = checkout -b
-	bd = branch -d
+	db = branch -d
 	cm = commit
 	cmm = commit -m
+	aa = add -A
 	cam = commit -am
 	ss = status
 [core]
