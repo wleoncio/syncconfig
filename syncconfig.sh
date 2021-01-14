@@ -29,7 +29,9 @@ fi
 # ==============================================================================
 if [ "$2" = "" ]
 then
-	location="$HOME/Dropbox/Software/config/"
+	echo "Assuming git repository located at "$HOME/Programs"."
+	echo "You can pass a different path as the second argument."
+	location="$HOME/Programs"
 else
 	location="$2"
 fi
