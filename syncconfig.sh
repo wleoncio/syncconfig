@@ -29,14 +29,13 @@ fi
 # ==============================================================================
 if [ "$2" = "" ]
 then
-	echo "Assuming git repository located at "$HOME/Programs"."
-	echo "You can pass a different path as the second argument."
-	location="$HOME/Programs"
+	echo "Assuming git repository located at "$HOME/Programs". You can pass a different path as the second argument."
+	location="$HOME/Programs/config"
 else
 	location="$2"
 fi
 echo "Copying files "$fromto" "$location""
-echo "Copying i3 files "$fromto" "$location""$machinename""
+echo "Copying i3 files "$fromto" "$location"/"$machinename""
 
 # ==============================================================================
 # Determining VSC local folder
@@ -86,7 +85,7 @@ then
 	eval cp ~/.config/picom.conf "$location"
 	eval cp ~/.config/gromit-mpx.cfg "$location"
  	eval cp ~/.config/dunst/dunstrc "$location"
-	eval cp ~/"$i3dir"/* "$location"/i3/"$machinename"/
+	eval cp -r ~/"$i3dir"/* "$location"/i3/"$machinename"/
 	eval cp ~/.config/"$VSCdir"/User/keybindings.json "$location"/VSC
 	eval cp ~/.config/"$VSCdir"/User/settings.json "$location"/VSC
 	eval cp ~/.config/"$VSCdir"/User/snippets/* "$location"/VSC
