@@ -82,7 +82,7 @@
         "command": "-workbench.action.toggleSidebarVisibility"
     },
     {
-        "key": "ctrl+t ctrl+right",
+        "key": "ctrl+t ctrl+y",
         "command": "workbench.action.terminal.focusNext"
     },
     {
