@@ -134,6 +134,7 @@ exec --no-startup-id /usr/bin/dunst
 # Others
 exec --no-startup-id keynav
 exec --no-startup-id xbindkeys
+exec --no-startup-id numlockx on
 
 # set floating (nontiling)for apps needing it:
 for_window [class="Yad" instance="yad"] floating enable
