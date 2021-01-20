@@ -3,7 +3,7 @@
 	name = Waldir Leoncio
 [alias]
 	df = diff --word-diff=color
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all -n 20
 	forget = filter-branch --index-filter "git rm -rf --cached --ignore-unmatch ${1}" HEAD
 	FORGET = filter-branch -f --index-filter "git rm -rf --cached --ignore-unmatch ${1}" HEAD
 	countcomm = rev-list --count
