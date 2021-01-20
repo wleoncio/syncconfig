@@ -352,8 +352,7 @@ bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for work
 # ==============================================================================
 # Multiple monitor options
 # ==============================================================================
-exec xrandr --output DP-0 --mode 2560x1440 --rate 144.00 --primary
-exec xrandr --output HDMI-0 --left-of DP-0 --mode 1920x1080 --rate 59.94
+exec xrandr --output DP-0 --mode 2560x1440 --rate 144.00 --primary --output HDMI-0 --left-of DP-0 --mode 1360x768
 
 # ------------------------------------------------------------------------------
 # Defining which workspace opens where (multimonitor setup)
