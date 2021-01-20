@@ -166,6 +166,10 @@ set $ws7 7
 set $ws8 8
 set $ws9 9
 set $ws10 10
+
+# Navigating workspaces
+bindsym $mod+Ctrl+Right workspace next
+bindsym $mod+Ctrl+Left workspace prev
 bindsym $mod+b workspace back_and_forth
 
 # switch to workspace
