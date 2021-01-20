@@ -339,13 +339,10 @@ bindcode 166 exec variety --previous
 bindcode $mod+166 exec variety --trash
 bindcode 167 exec variety --next
 bindcode $mod+167 exec variety --favorite
-bindcode 225 exec libreoffice --nologo -o $HOME/UiO/Docs/Adm/Work\ rotation.ods
 bindcode 148 exec speedcrunch
-bindcode 179 exec paswitch alsa_output.pci-0000_00_1f.3.analog-stereo
-bindcode $mod+179 exec paswitch alsa_output.usb-Logitech_Logitech_USB_Headset-00.analog-stereo
-bindcode $mod+Ctrl+179 exec paswitch bluez_sink.70_88_6B_91_F8_14.a2dp_sink
 bindcode 152 exec code
 bindsym $mod+x exec xdg-open "$(locate -e -i --regex "$HOME/[^\.]+" | rofi -dmenu -i -p "File or folder" -threads 0 -show-icons -modi drun)"
+bindcode 225 exec flameshot gui
 
 # ==============================================================================
 # Renaming workspaces
