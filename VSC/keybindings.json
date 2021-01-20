@@ -50,7 +50,7 @@
         "command": "r.build"
     },
     {
-        "key": "ctrl+b ctrl+d",
+        "key": "ctrl+r ctrl+d",
         "command": "r.document"
     },
     {
@@ -62,10 +62,6 @@
         "command": "r.previewDataframe"
     },
     {
-        "key": "ctrl+r ctrl+h",
-        "command": "r.head"
-    },
-    {
         "key": "ctrl+r ctrl+l",
         "command": "r.length"
     },
@@ -74,7 +70,7 @@
         "command": "r.names"
     },
     {
-        "key": "ctrl+r ctrl+t",
+        "key": "ctrl+r ctrl+u",
         "command": "r.test"
     },
     {
@@ -353,5 +349,24 @@
     {
         "key": "ctrl+t ctrl+n",
         "command": "workbench.action.terminal.new"
+    },
+    {
+        "key": "ctrl+r ctrl+q",
+        "command": "r.helpPanel.showQuickPick"
+    },
+    {
+        "key": "ctrl+r ctrl+t",
+        "command": "r.createRTerm"
+    },
+    {
+        "key": "ctrl+b ctrl+r",
+        "command": "workbench.view.extension.workspaceViewer"
+    },
+    {
+        "description": "Check package",
+        "key": "ctrl+r ctrl+c",
+        "command": "r.runCommand",
+        // "when": "editorTextFocus",
+        "args": "devtools::check()"
     }
 ]
