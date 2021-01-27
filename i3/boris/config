@@ -23,6 +23,7 @@ workspace_layout default
 # Set inner/outer gaps
 gaps inner 2
 gaps outer 0
+smart_gaps on
 
 #do not show titlebar on windows: 
 new_window 1pixel
