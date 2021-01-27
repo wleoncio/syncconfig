@@ -300,6 +300,7 @@ bar {
     status_command i3blocks -c ~/.config/i3/i3blocks.conf 
     position top
 	tray_output primary
+	bindsym button3 exec gsimplecal
     colors {
       separator          #666666
         background         #222222
