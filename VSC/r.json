@@ -37,6 +37,15 @@
         ],
         "description": "Roxygen skeleton"
     },
+    "Roxygen data skeleton": {
+        "prefix": "roxydata",
+        "body": [
+            "#' $2",
+            "#' @name $1",
+            "#' @docType data",
+            "NULL"
+        ]
+    },
     "Assignment with posterior space": {
         "prefix": ",.",
         "body": "<- ",
