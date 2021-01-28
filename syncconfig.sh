@@ -19,9 +19,13 @@ elif [ "$1" = "pull" ]
 then
 	echo "Pulling files from local git repository"
 	fromto="from"
+elif [ "$1" = "diff" ]
+then
+	echo "Pulling files from local git repository"
+	fromto="from"
 else
-	echo "First argument must be 'push' or 'pull'"
-	exit 0
+	echo "Comparing local files with local git repository"
+	fromto="from"
 fi
 
 # ==============================================================================
@@ -34,8 +38,11 @@ then
 else
 	location="$2"
 fi
-echo "Copying files "$fromto" "$location""
-echo "Copying i3 files "$fromto" "$location"/"$machinename""
+if [ "$1" = "push" ] || [ "$1" = "pull" ]
+then
+	echo "Copying files "$fromto" "$location""
+	echo "Copying i3 files "$fromto" "$location"/"$machinename""
+fi
 
 # ==============================================================================
 # Determining VSC local folder
@@ -108,4 +115,23 @@ then
 	eval cp "$location"/VSC/settings.json ~/.config/"$VSCdir"/User
 	eval cp "$location"/VSC/r.json ~/.config/"$VSCdir"/User/snippets/
 	eval cp "$location"/VSC/rmd.json ~/.config/"$VSCdir"/User/snippets/
+else
+	echo -e "\n# Diff report\n"
+	eval diff --brief --recursive "$location"/.bash_aliases ~
+	eval diff --brief --recursive "$location"/.bashrc ~
+	eval diff --brief --recursive "$location"/.gitconfig ~
+	eval diff --brief --recursive "$location"/.radian_profile ~
+	eval diff --brief --recursive "$location"/.vimrc ~
+	eval diff --brief --recursive "$location"/.xbindkeysrc ~
+	eval diff --brief --recursive "$location"/.Xresources ~
+	eval diff --brief --recursive "$location"/.Rprofile ~
+	eval diff --brief --recursive "$location"/compton.conf ~/.config
+	eval diff --brief --recursive "$location"/picom.conf ~/.config
+	eval diff --brief --recursive "$location"/gromit-mpx.cfg ~/.config
+	eval diff --brief --recursive "$location"/dunstrc ~/.config/dunst/
+	eval diff --brief --recursive "$location"/i3/"$machinename"/ ~/"$i3dir"
+	eval diff --brief --recursive "$location"/VSC/keybindings.json ~/.config/"$VSCdir"/User
+	eval diff --brief --recursive "$location"/VSC/settings.json ~/.config/"$VSCdir"/User
+	eval diff --brief --recursive "$location"/VSC/r.json ~/.config/"$VSCdir"/User/snippets/
+	eval diff --brief --recursive "$location"/VSC/rmd.json ~/.config/"$VSCdir"/User/snippets/
 fi
