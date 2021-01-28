@@ -117,21 +117,20 @@ then
 	eval cp "$location"/VSC/rmd.json ~/.config/"$VSCdir"/User/snippets/
 else
 	echo -e "\n# Diff report\n"
-	eval diff --brief --recursive "$location"/.bash_aliases ~
-	eval diff --brief --recursive "$location"/.bashrc ~
-	eval diff --brief --recursive "$location"/.gitconfig ~
-	eval diff --brief --recursive "$location"/.radian_profile ~
-	eval diff --brief --recursive "$location"/.vimrc ~
-	eval diff --brief --recursive "$location"/.xbindkeysrc ~
-	eval diff --brief --recursive "$location"/.Xresources ~
-	eval diff --brief --recursive "$location"/.Rprofile ~
-	eval diff --brief --recursive "$location"/compton.conf ~/.config
-	eval diff --brief --recursive "$location"/picom.conf ~/.config
-	eval diff --brief --recursive "$location"/gromit-mpx.cfg ~/.config
-	eval diff --brief --recursive "$location"/dunstrc ~/.config/dunst/
-	eval diff --brief --recursive "$location"/i3/"$machinename"/ ~/"$i3dir"
-	eval diff --brief --recursive "$location"/VSC/keybindings.json ~/.config/"$VSCdir"/User
-	eval diff --brief --recursive "$location"/VSC/settings.json ~/.config/"$VSCdir"/User
-	eval diff --brief --recursive "$location"/VSC/r.json ~/.config/"$VSCdir"/User/snippets/
-	eval diff --brief --recursive "$location"/VSC/rmd.json ~/.config/"$VSCdir"/User/snippets/
+	eval diff "$diffFlags" ~/.bash_aliases "$location"
+	eval diff "$diffFlags" ~/.bashrc "$location"
+	eval diff "$diffFlags" ~/.gitconfig "$location"
+	eval diff "$diffFlags" ~/.radian_profile "$location"
+	eval diff "$diffFlags" ~/.vimrc "$location"
+	eval diff "$diffFlags" ~/.xbindkeysrc "$location"
+	eval diff "$diffFlags" ~/.Xresources "$location"
+	eval diff "$diffFlags" ~/.Rprofile "$location"
+	eval diff "$diffFlags" ~/.config/compton.conf "$location"
+	eval diff "$diffFlags" ~/.config/picom.conf "$location"
+	eval diff "$diffFlags" ~/.config/gromit-mpx.cfg "$location"
+ 	eval diff "$diffFlags" ~/.config/dunst/dunstrc "$location"
+	eval diff "$diffFlags" -r ~/"$i3dir"/ "$location"/i3/"$machinename"/
+	eval diff "$diffFlags" ~/.config/"$VSCdir"/User/keybindings.json "$location"/VSC/t
+	eval diff "$diffFlags" ~/.config/"$VSCdir"/User/settings.json "$location"/VSC/
+	eval diff "$diffFlags" ~/.config/"$VSCdir"/User/snippets/ "$location"/VSC
 fi
