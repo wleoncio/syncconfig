@@ -117,6 +117,15 @@ then
 	eval cp "$location"/VSC/rmd.json ~/.config/"$VSCdir"/User/snippets/
 else
 	echo -e "\n# Diff report\n"
+	diffFlags="--recursive --color=always"
+	if [ "$1" = "diff" ]
+	then
+		echo -e "## Showing changes to be made when pulling\n"
+		diffFlags=""$diffFlags" --suppress-common-lines -bZB -C 1"
+	else
+		echo -e "To get diff details, run this script with a 'diff' switch.\n"
+		diffFlags=""$diffFlags" --brief --recursive"
+	fi
 	eval diff "$diffFlags" ~/.bash_aliases "$location"
 	eval diff "$diffFlags" ~/.bashrc "$location"
 	eval diff "$diffFlags" ~/.gitconfig "$location"
