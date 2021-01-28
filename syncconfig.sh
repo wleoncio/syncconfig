@@ -19,9 +19,13 @@ elif [ "$1" = "pull" ]
 then
 	echo "Pulling files from local git repository"
 	fromto="from"
+elif [ "$1" = "diff" ]
+then
+	echo "Pulling files from local git repository"
+	fromto="from"
 else
-	echo "First argument must be 'push' or 'pull'"
-	exit 0
+	echo "Comparing local files with local git repository"
+	fromto="from"
 fi
 
 # ==============================================================================
@@ -34,8 +38,11 @@ then
 else
 	location="$2"
 fi
-echo "Copying files "$fromto" "$location""
-echo "Copying i3 files "$fromto" "$location"/"$machinename""
+if [ "$1" = "push" ] || [ "$1" = "pull" ]
+then
+	echo "Copying files "$fromto" "$location""
+	echo "Copying i3 files "$fromto" "$location"/"$machinename""
+fi
 
 # ==============================================================================
 # Determining VSC local folder
@@ -85,10 +92,10 @@ then
 	eval cp ~/.config/picom.conf "$location"
 	eval cp ~/.config/gromit-mpx.cfg "$location"
  	eval cp ~/.config/dunst/dunstrc "$location"
-	eval cp -r ~/"$i3dir"/* "$location"/i3/"$machinename"/
+	eval cp -r ~/"$i3dir"/ "$location"/i3/"$machinename"/
 	eval cp ~/.config/"$VSCdir"/User/keybindings.json "$location"/VSC
 	eval cp ~/.config/"$VSCdir"/User/settings.json "$location"/VSC
-	eval cp ~/.config/"$VSCdir"/User/snippets/* "$location"/VSC
+	eval cp ~/.config/"$VSCdir"/User/snippets/ "$location"/VSC/snippets/
 elif [ "$1" = "pull" ]
 then
 	eval cp "$location"/.bash_aliases ~
@@ -106,6 +113,33 @@ then
 	eval cp "$location"/i3/"$machinename"/* ~/"$i3dir"
 	eval cp "$location"/VSC/keybindings.json ~/.config/"$VSCdir"/User
 	eval cp "$location"/VSC/settings.json ~/.config/"$VSCdir"/User
-	eval cp "$location"/VSC/r.json ~/.config/"$VSCdir"/User/snippets/
-	eval cp "$location"/VSC/rmd.json ~/.config/"$VSCdir"/User/snippets/
+	eval cp "$location"/VSC/snippets/r.json ~/.config/"$VSCdir"/User/snippets/
+	eval cp "$location"/VSC/snippets/rmd.json ~/.config/"$VSCdir"/User/snippets/
+else
+	echo -e "\n# Diff report\n"
+	diffFlags="--recursive --color=always"
+	if [ "$1" = "diff" ]
+	then
+		echo -e "## Showing changes to be made when pulling\n"
+		diffFlags=""$diffFlags" --suppress-common-lines -bZB -C 1"
+	else
+		echo -e "To get diff details, run this script with a 'diff' switch.\n"
+		diffFlags=""$diffFlags" --brief --recursive"
+	fi
+	eval diff "$diffFlags" ~/.bash_aliases "$location"
+	eval diff "$diffFlags" ~/.bashrc "$location"
+	eval diff "$diffFlags" ~/.gitconfig "$location"
+	eval diff "$diffFlags" ~/.radian_profile "$location"
+	eval diff "$diffFlags" ~/.vimrc "$location"
+	eval diff "$diffFlags" ~/.xbindkeysrc "$location"
+	eval diff "$diffFlags" ~/.Xresources "$location"
+	eval diff "$diffFlags" ~/.Rprofile "$location"
+	eval diff "$diffFlags" ~/.config/compton.conf "$location"
+	eval diff "$diffFlags" ~/.config/picom.conf "$location"
+	eval diff "$diffFlags" ~/.config/gromit-mpx.cfg "$location"
+ 	eval diff "$diffFlags" ~/.config/dunst/dunstrc "$location"
+	eval diff "$diffFlags" -r ~/"$i3dir"/ "$location"/i3/"$machinename"/
+	eval diff "$diffFlags" ~/.config/"$VSCdir"/User/keybindings.json "$location"/VSC/keybindings.json
+	eval diff "$diffFlags" ~/.config/"$VSCdir"/User/settings.json "$location"/VSC/settings.json
+	eval diff "$diffFlags" ~/.config/"$VSCdir"/User/snippets/ "$location"/VSC/snippets/
 fi
