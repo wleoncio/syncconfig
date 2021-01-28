@@ -92,10 +92,10 @@ then
 	eval cp ~/.config/picom.conf "$location"
 	eval cp ~/.config/gromit-mpx.cfg "$location"
  	eval cp ~/.config/dunst/dunstrc "$location"
-	eval cp -r ~/"$i3dir"/* "$location"/i3/"$machinename"/
+	eval cp -r ~/"$i3dir"/ "$location"/i3/"$machinename"/
 	eval cp ~/.config/"$VSCdir"/User/keybindings.json "$location"/VSC
 	eval cp ~/.config/"$VSCdir"/User/settings.json "$location"/VSC
-	eval cp ~/.config/"$VSCdir"/User/snippets/* "$location"/VSC
+	eval cp ~/.config/"$VSCdir"/User/snippets/ "$location"/VSC/snippets/
 elif [ "$1" = "pull" ]
 then
 	eval cp "$location"/.bash_aliases ~
@@ -113,8 +113,8 @@ then
 	eval cp "$location"/i3/"$machinename"/* ~/"$i3dir"
 	eval cp "$location"/VSC/keybindings.json ~/.config/"$VSCdir"/User
 	eval cp "$location"/VSC/settings.json ~/.config/"$VSCdir"/User
-	eval cp "$location"/VSC/r.json ~/.config/"$VSCdir"/User/snippets/
-	eval cp "$location"/VSC/rmd.json ~/.config/"$VSCdir"/User/snippets/
+	eval cp "$location"/VSC/snippets/r.json ~/.config/"$VSCdir"/User/snippets/
+	eval cp "$location"/VSC/snippets/rmd.json ~/.config/"$VSCdir"/User/snippets/
 else
 	echo -e "\n# Diff report\n"
 	diffFlags="--recursive --color=always"
@@ -139,7 +139,7 @@ else
 	eval diff "$diffFlags" ~/.config/gromit-mpx.cfg "$location"
  	eval diff "$diffFlags" ~/.config/dunst/dunstrc "$location"
 	eval diff "$diffFlags" -r ~/"$i3dir"/ "$location"/i3/"$machinename"/
-	eval diff "$diffFlags" ~/.config/"$VSCdir"/User/keybindings.json "$location"/VSC/t
-	eval diff "$diffFlags" ~/.config/"$VSCdir"/User/settings.json "$location"/VSC/
-	eval diff "$diffFlags" ~/.config/"$VSCdir"/User/snippets/ "$location"/VSC
+	eval diff "$diffFlags" ~/.config/"$VSCdir"/User/keybindings.json "$location"/VSC/keybindings.json
+	eval diff "$diffFlags" ~/.config/"$VSCdir"/User/settings.json "$location"/VSC/settings.json
+	eval diff "$diffFlags" ~/.config/"$VSCdir"/User/snippets/ "$location"/VSC/snippets/
 fi
