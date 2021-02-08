@@ -20,7 +20,7 @@
     "comment-divider.subheaderAlign": "left",
     "comment-divider.subHeaderFiller": "-",
     "diffEditor.ignoreTrimWhitespace": false,
-    "diffEditor.renderSideBySide": false,
+    "diffEditor.renderSideBySide": true,
     "editor.cursorBlinking": "phase",
     "editor.emptySelectionClipboard": false,
     "editor.fontFamily": "Fira Code",
@@ -46,7 +46,6 @@
     ],
     "editor.scrollBeyondLastColumn": 0,
     "editor.scrollBeyondLastLine": false,
-    "editor.tabCompletion": "onlySnippets",
     "editor.wordWrap": "wordWrapColumn",
     "explorer.compactFolders": false,
     "files.associations": {
@@ -153,7 +152,7 @@
     "workbench.enableExperiments": false,
     "workbench.tree.indent": 32,
     "scm.defaultViewMode": "tree",
-    "workbench.colorTheme": "Monokai",
+    "workbench.colorTheme": "Tomorrow Night Blue",
     "files.autoGuessEncoding": true,
     "markdown.marp.themes": [
         "./themes/uio-light.css",
