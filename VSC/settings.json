@@ -172,4 +172,25 @@
     "latex-workshop.message.update.show": false,
     "r.bracketedPaste": true,
     "workbench.sideBar.location": "right",
+    "githubIssues.queries": [
+        {
+            "label": "Assigned to me",
+            //     "query": "default"
+            "query": "repo:${owner}/${repository} state:open assignee:${user} sort:created-asc"
+        },
+        {
+            "label": "Open and unassigned",
+            "query": "state:open repo:${owner}/${repository} sort:created-asc no:assignee"
+        }
+    ],
+    "githubIssues.createIssueTriggers": [
+        "TODO",
+        "FIXME"
+    ],
+    "githubPullRequests.remotes": [
+        "origin",
+        "ocbe-uio"
+    ],
+    "githubIssues.issueBranchTitle": "issue-${issueNumber}",
+    "terminal.integrated.drawBoldTextInBrightColors": false,
 }

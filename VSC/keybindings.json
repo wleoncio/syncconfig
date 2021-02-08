@@ -368,5 +368,9 @@
         "command": "r.runCommand",
         // "when": "editorTextFocus",
         "args": "devtools::check()"
+    },
+    {
+        "key": "ctrl+b ctrl+i",
+        "command": "issues:github.focus"
     }
 ]
