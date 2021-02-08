@@ -4,8 +4,8 @@
 [alias]
 	df = diff --word-diff=color
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all -n 15
-	forget = filter-branch --index-filter "git rm -rf --cached --ignore-unmatch ${1}" HEAD
-	FORGET = filter-branch -f --index-filter "git rm -rf --cached --ignore-unmatch ${1}" HEAD
+	forget = git rm --cached $1
+	forgetfolder = git rm -r --cached $1 
 	countcomm = rev-list --count
 	co = checkout
 	cb = checkout -b
