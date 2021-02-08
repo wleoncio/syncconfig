@@ -95,7 +95,7 @@ then
 	eval cp -r ~/"$i3dir"/ "$location"/i3/"$machinename"/
 	eval cp ~/.config/"$VSCdir"/User/keybindings.json "$location"/VSC
 	eval cp ~/.config/"$VSCdir"/User/settings.json "$location"/VSC
-	eval cp -r ~/.config/"$VSCdir"/User/snippets/ "$location"/VSC/snippets/
+	eval cp -r ~/.config/"$VSCdir"/User/snippets/ "$location"/VSC/
 elif [ "$1" = "pull" ]
 then
 	eval cp "$location"/.bash_aliases ~
