@@ -95,7 +95,7 @@ then
 	eval cp -r ~/"$i3dir"/ "$location"/i3/"$machinename"/
 	eval cp ~/.config/"$VSCdir"/User/keybindings.json "$location"/VSC
 	eval cp ~/.config/"$VSCdir"/User/settings.json "$location"/VSC
-	eval cp ~/.config/"$VSCdir"/User/snippets/ "$location"/VSC/snippets/
+	eval cp -r ~/.config/"$VSCdir"/User/snippets/ "$location"/VSC/snippets/
 elif [ "$1" = "pull" ]
 then
 	eval cp "$location"/.bash_aliases ~
@@ -114,7 +114,7 @@ then
 	eval cp "$location"/VSC/keybindings.json ~/.config/"$VSCdir"/User
 	eval cp "$location"/VSC/settings.json ~/.config/"$VSCdir"/User
 	eval cp "$location"/VSC/snippets/r.json ~/.config/"$VSCdir"/User/snippets/
-	eval cp "$location"/VSC/snippets/rmd.json ~/.config/"$VSCdir"/User/snippets/
+	eval cp -f "$location"/VSC/snippets/rmd.json ~/.config/"$VSCdir"/User/snippets/
 else
 	echo -e "\n# Diff report\n"
 	diffFlags="--recursive --color=always"
@@ -141,5 +141,5 @@ else
 	eval diff "$diffFlags" -r ~/"$i3dir"/ "$location"/i3/"$machinename"/
 	eval diff "$diffFlags" ~/.config/"$VSCdir"/User/keybindings.json "$location"/VSC/keybindings.json
 	eval diff "$diffFlags" ~/.config/"$VSCdir"/User/settings.json "$location"/VSC/settings.json
-	eval diff "$diffFlags" ~/.config/"$VSCdir"/User/snippets/ "$location"/VSC/snippets/
+	eval diff "$diffFlags" -f ~/.config/"$VSCdir"/User/snippets/ "$location"/VSC/snippets/
 fi
