@@ -321,17 +321,9 @@ bindsym $mod+z exec rofi -modi drun -show drun -line-padding 4 \
                 -columns 2 -padding 50 -hide-scrollbar \
                 -show-icons -drun-icon-theme "Arc-X-D" -font "Droid Sans Regular 10"
 
-#bindsym F9 exec rofi -modi drun -show drun -line-padding 4 \
-#                -columns 2 -padding 50 -hide-scrollbar \
-#                -show-icons -drun-icon-theme "Arc-X-D" -font "Droid Sans Regular 10"
-
-bindsym $mod+o exec rofi -show window -line-padding 4 \
+bindsym $mod+Shift+z exec rofi -show window -line-padding 4 \
                 -lines 6 -padding 50 -hide-scrollbar \
                 -show-icons -drun-icon-theme "Arc-X-D" -font "Droid Sans Regular 10"
-
-#bindsym F10 exec rofi -show window -line-padding 4 \
-#                -lines 6 -padding 50 -hide-scrollbar \
-#                -show-icons -drun-icon-theme "Arc-X-D" -font "Droid Sans Regular 10"
 
 # ==============================================================================
 # Keyboard shortcuts
@@ -342,9 +334,9 @@ bindcode $mod+180 exec firefox --private-window
 bindcode 181 exec exec evolution -c calendar
 bindcode 164 exec thunar
 bindcode 166 exec variety --previous
-bindcode $mod+166 exec variety --trash
+bindcode $mod+166 exec variety --favorite
 bindcode 167 exec variety --next
-bindcode $mod+167 exec variety --favorite
+bindcode $mod+167 exec variety --trash
 bindcode 148 exec speedcrunch
 bindcode 152 exec code
 bindsym $mod+x exec xdg-open "$(locate -e -i --regex "$HOME/[^\.]+" | rofi -dmenu -i -p "File or folder" -threads 0 -show-icons -modi drun)"
