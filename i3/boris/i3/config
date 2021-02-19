@@ -30,8 +30,8 @@ smart_borders no_gaps # Smart borders will draw borders on windows only if there
 #do not show titlebar on windows:
 default_border pixel 1
 
-bindsym $mod+Shift+y border pixel 5
-bindsym $mod+Shift+t border pixel 1
+bindsym $mod+Ctrl+b [class=.*] border pixel 7
+bindsym $mod+Ctrl+Shift+b [class=.*] border pixel 1
 
 #workspace_layout stacking
 
@@ -318,10 +318,10 @@ bindsym $mod+Shift+z exec rofi -show window -line-padding 4 \
 # ==============================================================================
 # Keyboard shortcuts
 # ==============================================================================
-bindcode 163 exec evolution
+bindcode 163 exec evolution -c mail
 bindcode 180 exec firefox
 bindcode $mod+180 exec firefox --private-window
-bindcode 181 exec exec evolution -c calendar
+bindcode 181 exec evolution -c calendar
 bindcode 164 exec thunar
 bindcode 166 exec variety --previous
 bindcode $mod+166 exec variety --favorite
@@ -368,13 +368,13 @@ bindsym $mod+m mode "$mode_launcher"
 
 mode "$mode_launcher" {
         # Work mode
-        bindsym w workspace number $ws5; workspace number $ws6; exec "notify-send 'Entering work mode' --urgency low; xrandr --output HDMI-0 --left-of DP-0 --mode 1360x768; picom -cC & evolution & libreoffice --nologo -o $HOME/UiO/Docs/Adm/Work\ rotation.ods & $HOME/Programs/Todoist-0.2.3.AppImage & /opt/Pocket\ Casts/pocket-casts-linux"; mode "default"
+        bindsym w workspace number $ws5; workspace number $ws6; exec "notify-send 'Entering work mode' --urgency low; xrandr --output HDMI-0 --left-of DP-0 --mode 1360x768; picom -cC & evolution -c mail & libreoffice --nologo -o $HOME/UiO/Docs/Adm/Work\ rotation.ods & $HOME/Programs/Todoist-0.2.4.AppImage & /opt/Pocket\ Casts/pocket-casts-linux"; mode "default"
         # Meeting mode
-        bindsym m exec "notify-send 'Entering meeting mode' 'Plug in tablet\nUse $mod+Shift+t/y to control window borders'; killall picom dropbox variety evolution; sleep 1; picom -b --config /dev/null; gromit-mpx & zoom", mode "default"
+        bindsym m exec "notify-send 'Entering meeting mode' 'Plug in tablet\nUse $mod+Ctrl(+Shift)+b to control window borders' -t 5000; killall picom dropbox variety evolution /opt/Pocket\ Casts/pocket-casts-linux; sleep 1; picom -b --config /dev/null; gromit-mpx & zoom"; [class=.*] border pixel 7; mode "default"
         # Game mode
         bindsym g workspace number $ws1; exec "notify-send 'Entering game mode' --urgency low; killall picom dropbox variety gromit-mpx; xrandr --output HDMI-0 --off & nvidia-settings -a AllowVRR=1 & nvidia-settings -a ShowVRRVisualIndicator=0 & steam", mode "default"
         # Normal mode
-        bindsym n exec "notify-send 'Entering normal mode' --urgency low; xrandr --output HDMI-0 --left-of DP-0 --mode 1360x768; killall steam gromit-mpx picom; sleep 1; picom -b --config ~/.config/picom.conf; dropbox start; nvidia-settings -a AllowVRR=0; nvidia-settings -a ShowVRRVisualIndicator=0", mode "default"
+        bindsym n exec "notify-send 'Entering normal mode' --urgency low; xrandr --output HDMI-0 --left-of DP-0 --mode 1360x768; killall steam gromit-mpx picom; sleep 1; picom -b --config ~/.config/picom.conf; dropbox start; nvidia-settings -a AllowVRR=0; nvidia-settings -a ShowVRRVisualIndicator=0"; [class=.*] border pixel 1; mode "default" 
         # (secret) test mode
         bindsym t default_border pixel 5, mode "default"
         bindsym Escape mode "default"
@@ -389,7 +389,6 @@ for_window [instance="todoist"] move to workspace number 2. Todo
 for_window [title="Work rotation.ods - LibreOffice Calc"] move to workspace number 4. Worksheet
 for_window [title="E-post"] move to workspace number 1. Mail, layout tabbed
 for_window [instance="evolution-alarm-notify"] floating enable
-for_window [instance="teams"] move to workspace number 1. Mail, layout tabbed
 for_window [instance="spotify"] move to workspace number 3. Sounds, workspace number $ws3
 for_window [instance="pocket-casts-linux"] move to workspace number 3. Sounds, workspace number $ws3
 for_window [instance="r_x11"] floating enable # R plots
