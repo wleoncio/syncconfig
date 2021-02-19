@@ -23,7 +23,8 @@ workspace_layout default
 # Set inner/outer gaps
 gaps inner 2
 gaps outer 0
-smart_gaps on
+smart_gaps on # Only enable gaps on a workspace when there is at least one container
+smart_borders no_gaps # Smart borders will draw borders on windows only if there is more than one window in a workspace. 
 
 # Border rules
 #do not show titlebar on windows:
