@@ -193,4 +193,5 @@
     ],
     "githubIssues.issueBranchTitle": "issue-${issueNumber}",
     "terminal.integrated.drawBoldTextInBrightColors": false,
+    "editor.acceptSuggestionOnEnter": "off"
 }
