@@ -152,7 +152,7 @@
     "workbench.enableExperiments": false,
     "workbench.tree.indent": 32,
     "scm.defaultViewMode": "tree",
-    "workbench.colorTheme": "Tomorrow Night Blue",
+    "workbench.colorTheme": "Tokyo Night",
     "files.autoGuessEncoding": true,
     "markdown.marp.themes": [
         "./themes/uio-light.css",
@@ -172,13 +172,14 @@
     "r.bracketedPaste": true,
     "workbench.sideBar.location": "right",
     "githubIssues.queries": [
+
         {
             "label": "Assigned to me",
             //     "query": "default"
             "query": "repo:${owner}/${repository} state:open assignee:${user} sort:created-asc"
         },
         {
-            "label": "Open and unassigned",
+            "label": "Unassigned",
             "query": "state:open repo:${owner}/${repository} sort:created-asc no:assignee"
         }
     ],
