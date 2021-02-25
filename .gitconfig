@@ -3,7 +3,9 @@
 	name = Waldir Leoncio
 [alias]
 	df = diff --word-diff=color
+	dc = diff --cached
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all -n 15
+	lgg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
 	forget = git rm --cached $1
 	forgetfolder = git rm -r --cached $1 
 	countcomm = rev-list --count
