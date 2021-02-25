@@ -135,15 +135,16 @@
     "todo-tree.tree.showScanModeButton": false,
     "window.menuBarVisibility": "hidden",
     "window.restoreWindows": "none",
-    "window.zoomLevel": 0,
     "workbench.colorCustomizations" : {
         "terminal.border": "#fff",
         "terminal.foreground" : "#fff",
         "terminal.background" : "#000",
         "terminal.ansiCyan": "#2d2d97",
         "terminal.ansiBrightBlack": "#fff",
-        "terminal.ansiBrightRed": "#ff0000",
-        "terminal.ansiYellow": "#ffaa00"
+        "terminal.ansiBrightRed": "#fd6464",
+        "terminal.ansiRed": "#ff0000",
+        "terminal.ansiYellow": "#ffaa00",
+        "terminal.ansiGreen": "#00ff00"
     },
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.revealIfOpen": true,
