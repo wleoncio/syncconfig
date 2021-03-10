@@ -32,7 +32,7 @@
     "editor.minimap.showSlider": "always",
     "editor.minimap.side": "left",
     "editor.minimap.size": "fit",
-    "editor.mouseWheelZoom": true,
+    "editor.mouseWheelZoom": false,
     "editor.renderWhitespace": "all",
     "editor.rulers": [
         // {
@@ -65,13 +65,12 @@
     "latex-workshop.synctex.afterBuild.enabled": true,
     "latex-workshop.view.pdf.viewer": "tab",
     "markdown.extension.tableFormatter.enabled": true,
+    "latex-workshop.latex.autoBuild.run": "never",
     "markdown.marp.enableHtml": true,
     "markdown.preview.breaks": true,
     "markdown.preview.doubleClickToSwitchToEditor": false,
     "markdown-pdf.omitBackground": true,
     "open-in-browser.default": "firefox",
-    "r.lsp.diagnostics": false,
-    "r.lsp.path": "/usr/bin/R",
     "r.helpPanel.helpProvider": "custom",
     "r.rpath.linux": "/usr/bin/R",
     "r.rterm.linux": "/usr/bin/radian",
@@ -131,14 +130,16 @@
             "foreground": "green"
         }
     },
-    "todo-tree.tree.showInExplorer": false,
     "todo-tree.tree.showScanModeButton": false,
+    "todo-tree.regex.regex": "((%|//|#|<!--|;|/\\*|^)\\s*($TAGS)|^\\s*- \\[ \\])",
     "window.menuBarVisibility": "hidden",
     "window.restoreWindows": "none",
     "workbench.colorCustomizations" : {
         "terminal.border": "#fff",
         "terminal.foreground" : "#fff",
-        "terminal.background" : "#000",
+        "terminal.background" : "#101010",
+        "terminal.ansiBlack": "#000",
+        "terminal.ansiWhite": "#fff",
         "terminal.ansiCyan": "#2d2d97",
         "terminal.ansiBrightBlack": "#fff",
         "terminal.ansiBrightRed": "#fd6464",
@@ -153,7 +154,7 @@
     "workbench.enableExperiments": false,
     "workbench.tree.indent": 32,
     "scm.defaultViewMode": "tree",
-    "workbench.colorTheme": "Tokyo Night",
+    "workbench.colorTheme": "Tokyo Night Storm",
     "files.autoGuessEncoding": true,
     "markdown.marp.themes": [
         "./themes/uio-light.css",
@@ -192,7 +193,11 @@
         "origin",
         "ocbe-uio"
     ],
-    "githubIssues.issueBranchTitle": "issue-${issueNumber}",
+    "githubIssues.issueBranchTitle": "issue-${issueNumber}-${sanitizedIssueTitle}",
     "terminal.integrated.drawBoldTextInBrightColors": false,
-    "editor.acceptSuggestionOnEnter": "off"
+    "editor.acceptSuggestionOnEnter": "off",
+    "markdown.marp.exportType": "html",
+    "markdown.extension.toc.levels": "1..1",
+    "typescript.suggest.paths": false
+
 }
