@@ -170,7 +170,10 @@ _open_files_for_editing() {
 # alias ef='_open_files_for_editing'     # 'ef' opens given file(s) for editing
 ################################################################################
 
-PATH=$PATH:~/Programs
+PATH=$PATH:~/Programs/bin
+PATH=$PATH:~/Programs/config
+PATH=$PATH:~/UiO/rse-tools/general
+PATH=$PATH:~/UiO/rse-tools/contingencytables
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
