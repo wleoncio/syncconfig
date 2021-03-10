@@ -2,8 +2,10 @@
 	email = waldir.leoncio@gmail.com
 	name = Waldir Leoncio
 [alias]
-	df = diff --word-diff=color
-	dc = diff --cached
+	df = diff
+	dff = diff --word-diff=color
+	dfc = diff --cached
+	dffc = diff --cached --word-diff=color
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all -n 15
 	lgg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
 	forget = git rm --cached $1
