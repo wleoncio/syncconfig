@@ -23,15 +23,17 @@ workspace_layout default
 # Set inner/outer gaps
 gaps inner 2
 gaps outer 0
-smart_gaps on # Only enable gaps on a workspace when there is at least one container
+smart_gaps inverse_outer # yes, true, on, enable, active, inverse_outer Only enable gaps on a workspace when there is at least one container
 smart_borders no_gaps # Smart borders will draw borders on windows only if there is more than one window in a workspace. 
+hide_edge_borders smart # none vertical horizontal both smart_no_gaps smart 1 yes true on enable active
 
 # Border rules
 #do not show titlebar on windows:
-default_border pixel 1
+default_border pixel 0
 
-bindsym $mod+Ctrl+b [class=.*] border pixel 7
-bindsym $mod+Ctrl+Shift+b [class=.*] border pixel 1
+bindsym $mod+Ctrl+b [class=.*] border pixel 15
+bindsym $mod+Ctrl+Shift+b [class=.*] border pixel 0
+bindsym $mod+Ctrl+Shift+mod1+b border pixel 5 # Applies a little bit of border on one container
 
 #workspace_layout stacking
 
