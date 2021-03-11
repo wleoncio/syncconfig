@@ -272,7 +272,7 @@ bindcode $mod+179 exec paswitch alsa_output.usb-Logitech_Logitech_USB_Headset-00
 bindcode $mod+Ctrl+179 exec paswitch bluez_sink.70_88_6B_91_F8_14.a2dp_sink
 
 # Lock the system
-bindsym $mod+l exec i3lock -i ~/.config/i3/i3-lock-screen.png -t -f
+bindsym $mod+l exec i3lock -f
 
 set $bg-color            #0088CC
 set $inactive-bg-color   #2f343f
