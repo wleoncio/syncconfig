@@ -333,6 +333,7 @@ bindcode 148 exec speedcrunch
 bindcode 152 exec code
 bindsym $mod+x exec xdg-open "$(locate -e -i --regex "$HOME/[^\.]+" | rofi -dmenu -i -p "File or folder" -threads 0 -show-icons -modi drun)"
 bindsym Print exec flameshot gui
+bindsym $mod+Print exec shutter
 
 # ==============================================================================
 # Renaming workspaces
