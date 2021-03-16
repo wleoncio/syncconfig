@@ -404,6 +404,7 @@ for_window [title= "Variety Recent Downloads"] floating enable
 #for_window [title="SAP NetWeaver Portal — Mozilla Firefox"] floating enable
 #for_window [title="Oversikt - HRP - UiO HR Portal — Mozilla Firefox"] floating disable
 for_window [title="Zoom Meeting"] border pixel 5
+for_window [class="pocket-casts-linux"] border pixel 5
 for_window [class="^custom-float-no-border$"] floating enable
 for_window [class="^custom-float-no-border$"] border pixel 0
 
