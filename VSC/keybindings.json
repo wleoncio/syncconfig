@@ -46,16 +46,25 @@
         "command": "git-graph.view"
     },
     {
-        "key": "ctrl+r ctrl+b",
+        "description": "Build package",
+        "key": "ctrl+r ctrl+shift+b",
         "command": "r.build"
+    },
+    {
+        "description": "Build package, bumping up build version",
+        "key": "ctrl+r ctrl+b",
+        "command": "r.runCommand",
+        "args": "usethis::use_version('dev'); devtools::build()"
     },
     {
         "key": "ctrl+r ctrl+d",
         "command": "r.document"
     },
     {
+        "description": "Update docs, version and install package",
         "key": "ctrl+r ctrl+i",
-        "command": "r.install"
+        "command": "r.runCommand",
+        "args": "devtools::document(); usethis::use_version('dev'); devtools::install()"
     },
     {
         "key": "ctrl+r ctrl+v",
