@@ -167,7 +167,7 @@
 
     # Paths to default icons.
     #icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
-    icon_path = /usr/share/icons/Paper/16x16/status/:/usr/share/icons/Paper/16x16/devices/:/usr/share/icons/Paper/16x16/apps/:/usr/share/pixmaps/
+    icon_path = /usr/share/icons/Paper/48x48/status/:/usr/share/icons/Paper/48x48/devices/:/usr/share/icons/Paper/48x48/apps/:/usr/share/pixmaps/
     ### History ###
 
     # Should a notification popped up from history be sticky or timeout
@@ -213,7 +213,7 @@
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = 3
+    corner_radius = 10
 
     ### Legacy
 
@@ -275,26 +275,28 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#28143c"
+    background = "#444444"
+	frame_color = "#888888"
     foreground = "#ffffff"
     timeout = 5
     # Icon for notifications with low urgency, uncomment to enable
-    icon = /usr/share/icons/Arc-X-D/status/16/dialog-information.png
+    icon = /usr/share/icons/Arc-X-D/status/48/dialog-information.png
 
 [urgency_normal]
     background = "#28143c"
     foreground = "#ffffff"
+	frame_color = "#0088cc"
     timeout = 5
     # Icon for notifications with normal urgency, uncomment to enable
-    icon = /usr/share/icons/Arc-X-D/status/16/dialog-question.png
+    icon = /usr/share/icons/Arc-X-D/status/48/dialog-information.png
 
 [urgency_critical]
-    background = "#28143c"
+    background = "#bb0000"
     foreground = "#ffffff"
-    frame_color = "#ff7f7f"
+    frame_color = "#ffffff"
     timeout = 120
     # Icon for notifications with critical urgency, uncomment to enable
-    icon = /usr/share/icons/Arc-X-D/status/16/dialog-warning.png
+    icon = /usr/share/icons/Arc-X-D/status/48/dialog-warning.png
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
