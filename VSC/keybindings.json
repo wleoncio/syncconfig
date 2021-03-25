@@ -107,7 +107,7 @@
         "command": "r.test"
     },
     {
-        "key": "ctrl+0 ctrl+0",
+        "key": "ctrl+b ctrl+b",
         "command": "workbench.action.toggleSidebarVisibility"
     },
     {
@@ -493,5 +493,13 @@
     {
         "key": "ctrl+shift+alt+f",
         "command": "editor.action.formatDocument"
+    },
+    {
+        "key": "ctrl+b ctrl+s",
+        "command": "prStatus:github.focus"
+    },
+    {
+        "key": "ctrl+b ctrl+o",
+        "command": "outline.focus"
     }
 ]
