@@ -61,23 +61,47 @@
         "command": "r.document"
     },
     {
-        "description": "Update docs, version and install package",
+        "description": "Install package",
         "key": "ctrl+r ctrl+i",
+        "command": "r.runCommand",
+        "args": "devtools::install()"
+    },
+    {
+        "description": "Update version and install package",
+        "key": "ctrl+r ctrl+shift+i",
+        "command": "r.runCommand",
+        "args": "usethis::use_version('dev'); devtools::install()"
+    },
+    {
+        "description": "Update docs, version and install package",
+        "key": "ctrl+shift+r ctrl+shift+i",
         "command": "r.runCommand",
         "args": "devtools::document(); usethis::use_version('dev'); devtools::install()"
     },
     {
+        "description": "Update version and install package",
+        "key": "ctrl+r ctrl+shift+i",
+        "command": "r.runCommand",
+        "args": "usethis::use_version('dev'); devtools::install()"
+    },
+    {
+        "description": "Bump development version",
         "key": "ctrl+r ctrl+v",
-        "command": "r.previewDataframe"
+        "command": "r.runCommand",
+        "args": "usethis::use_version('dev')"
     },
-    {
-        "key": "ctrl+r ctrl+l",
-        "command": "r.length"
-    },
-    {
-        "key": "ctrl+r ctrl+n",
-        "command": "r.names"
-    },
+    // {
+    //     "key": "ctrl+r ctrl+v",
+    //     "command": "r.previewDataframe"
+    // },
+    // {
+    //     "key": "ctrl+r ctrl+l",
+    //     "command": "r.length"
+    // },
+    // {
+    //     "key": "ctrl+r ctrl+n",
+    //     "command": "r.names"
+    // },
     {
         "key": "ctrl+r ctrl+u",
         "command": "r.test"
