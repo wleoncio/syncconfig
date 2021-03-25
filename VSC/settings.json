@@ -93,7 +93,8 @@
         "TEMP",
         "ASK",
         "SUGGEST",
-        "DONE"
+        "[ ]",
+        "[x]"
     ],
     "todo-tree.highlights.customHighlight": {
         "TODO": {
@@ -131,7 +132,8 @@
         }
     },
     "todo-tree.tree.showScanModeButton": false,
-    "todo-tree.regex.regex": "((%|//|#|<!--|;|/\\*|^)\\s*($TAGS)|^\\s*- \\[ \\])",
+    // "todo-tree.regex.regex": "((%|//|#|<!--|;|/\\*|^)\\s*($TAGS)|^\\s*- \\[ \\])",
+    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
     "window.menuBarVisibility": "hidden",
     "window.restoreWindows": "none",
     "workbench.colorCustomizations" : {
