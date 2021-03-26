@@ -501,5 +501,14 @@
     {
         "key": "ctrl+b ctrl+o",
         "command": "outline.focus"
+    },
+    {
+        "key": "ctrl+alt+r",
+        "command": "revealFileInOS"
+    },
+    {
+        "key": "ctrl+alt+r",
+        "command": "-revealFileInOS",
+        "when": "!editorFocus"
     }
 ]
