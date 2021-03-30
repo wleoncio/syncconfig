@@ -363,23 +363,20 @@ workspace $ws5 output HDMI-0
 # Modes
 # ==============================================================================
 
-# ------------------------------------------------------------------------------
-# One-off modes
-# ------------------------------------------------------------------------------
 set $mode_launcher Launch: [w]ork [m]eeting [g]ame [n]ormal
 bindsym $mod+m mode "$mode_launcher"
 
 mode "$mode_launcher" {
         # Work mode
-        bindsym w workspace number $ws5; workspace number $ws6; exec "notify-send 'Entering work mode' --urgency low; xrandr --output HDMI-0 --left-of DP-0 --mode 1360x768; picom -cC & evolution -c mail & libreoffice --nologo -o $HOME/UiO/Docs/Adm/Work\ rotation.ods & $HOME/Programs/bin/Todoist-0.2.4.AppImage & /opt/Pocket\ Casts/pocket-casts-linux"; mode "default"
+        bindsym w workspace number $ws5; workspace number $ws6; exec "xrandr --output HDMI-0 --left-of DP-0 --mode 1360x768; picom -cC & evolution -c mail & libreoffice --nologo -o $HOME/UiO/Docs/Adm/Work\ rotation.ods & $HOME/Programs/bin/Todoist-0.2.4.AppImage & /opt/Pocket\ Casts/pocket-casts-linux"; mode "default"
         # Meeting mode
-        bindsym m exec "notify-send 'Entering meeting mode' 'Plug in tablet\nUse $mod+Ctrl(+Shift)+b to control window borders' -t 5000; killall picom dropbox variety evolution /opt/Pocket\ Casts/pocket-casts-linux; sleep 1; picom -b --config /dev/null; gromit-mpx & zoom"; [class=.*] border pixel 15; mode "default"
+        bindsym m exec "notify-send 'Entering meeting mode' '\- Plug in camera\n\- Plug in tablet' -t 10000; killall picom dropbox variety evolution /opt/Pocket\ Casts/pocket-casts-linux; sleep 1; picom -b --config /dev/null; gromit-mpx"; mode "default"; exec "$HOME/.config/i3/scripts/mass_change_borders.sh 15"
         # Game mode
-        bindsym g workspace number $ws1; exec "notify-send 'Entering game mode' --urgency low; killall picom dropbox variety gromit-mpx; xrandr --output HDMI-0 --off & nvidia-settings -a AllowVRR=1 & nvidia-settings -a ShowVRRVisualIndicator=0 & steam", workspace number $ws6; workspace number $ws1; mode "default"
+        bindsym g workspace number $ws1; exec "killall picom dropbox variety gromit-mpx; xrandr --output HDMI-0 --off & nvidia-settings -a AllowVRR=1 & nvidia-settings -a ShowVRRVisualIndicator=0 & steam"; workspace number $ws6; workspace number $ws1; mode "default"; exec "$HOME/.config/i3/scripts/mass_change_borders.sh 5"
         # Normal mode
-        bindsym n exec "notify-send 'Entering normal mode' --urgency low; xrandr --output HDMI-0 --left-of DP-0 --mode 1360x768; killall steam gromit-mpx picom; sleep 1; picom -b --config ~/.config/picom.conf; dropbox start; nvidia-settings -a AllowVRR=0; nvidia-settings -a ShowVRRVisualIndicator=0"; [class=.*] border pixel 1; mode "default" 
+        bindsym n exec "xrandr --output HDMI-0 --left-of DP-0 --rotate right --mode 1360x768; killall steam gromit-mpx picom; sleep 1; picom -b --config ~/.config/picom.conf; dropbox start; nvidia-settings -a AllowVRR=0; nvidia-settings -a ShowVRRVisualIndicator=0"; mode "default"; exec "$HOME/.config/i3/scripts/mass_change_borders.sh 1"
         # (secret) test mode
-        bindsym t default_border pixel 5, mode "default"
+        bindsym t exec "$HOME/.config/i3/scripts/mass_change_borders.sh 15"
         bindsym Escape mode "default"
 }
 
