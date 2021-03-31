@@ -510,5 +510,9 @@
         "key": "ctrl+alt+r",
         "command": "-revealFileInOS",
         "when": "!editorFocus"
+    },
+    {
+        "key": "ctrl+b ctrl+h",
+        "command": "timeline.focus"
     }
 ]
