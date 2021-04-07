@@ -47,6 +47,7 @@ fi
 # ==============================================================================
 # Determining VSC local folder
 # ==============================================================================
+has_vsc=true
 if [ -d "$HOME/.config/VSCodium" ]
 then
 	VSCdir="VSCodium"
@@ -57,13 +58,15 @@ elif [ -d "$HOME/.config/Code - OSS" ]
 then
 	VSCdir="Code\ -\ OSS"
 else
-	echo "ERROR: Could not determine location of VSCode directory. Exiting."
-	exit 0
+	echo "Could not determine location of VSCode directory."
+	has_vsc=false
+	
 fi
 
 # =============================================================================
 # Determining i3 config folder
 # =============================================================================
+has_i3=true
 if [ -d "$HOME/.i3" ]
 then
 	i3dir=".i3"
@@ -71,8 +74,8 @@ elif [ -d "$HOME/.config/i3" ]
 then
 	i3dir=".config/i3"
 else
-	echo "ERROR: Could not determine location of i3 folder. Exiting."
-	exit 0
+	echo "Could not determine location of i3 folder."
+	has_i3=false
 fi
 
 # ==============================================================================
@@ -92,10 +95,16 @@ then
 	eval cp ~/.config/picom.conf "$location"
 	eval cp ~/.config/gromit-mpx.cfg "$location"
  	eval cp ~/.config/dunst/dunstrc "$location"
-	eval cp -r ~/"$i3dir"/ "$location"/i3/"$machinename"/
-	eval cp ~/.config/"$VSCdir"/User/keybindings.json "$location"/VSC
-	eval cp ~/.config/"$VSCdir"/User/settings.json "$location"/VSC
-	eval cp -r ~/.config/"$VSCdir"/User/snippets/ "$location"/VSC/
+	if [ "$has_i3" = true ] 
+	then
+		eval cp -r ~/"$i3dir"/ "$location"/i3/"$machinename"/
+	fi
+	if [ "$has_vsc" = true ]
+	then
+		eval cp ~/.config/"$VSCdir"/User/keybindings.json "$location"/VSC
+		eval cp ~/.config/"$VSCdir"/User/settings.json "$location"/VSC
+		eval cp -r ~/.config/"$VSCdir"/User/snippets/ "$location"/VSC/
+	fi
 elif [ "$1" = "pull" ]
 then
 	eval cp "$location"/.bash_aliases ~
@@ -110,11 +119,17 @@ then
 	eval cp "$location"/picom.conf ~/.config
 	eval cp "$location"/gromit-mpx.cfg ~/.config
 	eval cp "$location"/dunstrc ~/.config/dunst/
-	eval cp "$location"/i3/"$machinename"/* ~/"$i3dir"
-	eval cp "$location"/VSC/keybindings.json ~/.config/"$VSCdir"/User
-	eval cp "$location"/VSC/settings.json ~/.config/"$VSCdir"/User
-	eval cp "$location"/VSC/snippets/r.json ~/.config/"$VSCdir"/User/snippets/
-	eval cp -f "$location"/VSC/snippets/rmd.json ~/.config/"$VSCdir"/User/snippets/
+	if [ "$has_i3" = true ] 
+	then
+		eval cp "$location"/i3/"$machinename"/* ~/"$i3dir"
+	fi
+	if [ "$has_vsc" = true ]
+	then
+		eval cp "$location"/VSC/keybindings.json ~/.config/"$VSCdir"/User
+		eval cp "$location"/VSC/settings.json ~/.config/"$VSCdir"/User
+		eval cp "$location"/VSC/snippets/r.json ~/.config/"$VSCdir"/User/snippets/
+		eval cp -f "$location"/VSC/snippets/rmd.json ~/.config/"$VSCdir"/User/snippets/
+	fi
 else
 	echo -e "\n# Diff report\n"
 	diffFlags="--recursive --color=always"
@@ -138,8 +153,14 @@ else
 	eval diff "$diffFlags" ~/.config/picom.conf "$location"
 	eval diff "$diffFlags" ~/.config/gromit-mpx.cfg "$location"
  	eval diff "$diffFlags" ~/.config/dunst/dunstrc "$location"
-	eval diff "$diffFlags" -r ~/"$i3dir"/ "$location"/i3/"$machinename"/
-	eval diff "$diffFlags" ~/.config/"$VSCdir"/User/keybindings.json "$location"/VSC/keybindings.json
-	eval diff "$diffFlags" ~/.config/"$VSCdir"/User/settings.json "$location"/VSC/settings.json
-	eval diff "$diffFlags" -f ~/.config/"$VSCdir"/User/snippets/ "$location"/VSC/snippets/
+	if [ "$has_i3" = true ]
+	then
+		eval diff "$diffFlags" -r ~/"$i3dir"/ "$location"/i3/"$machinename"/
+	fi
+	if [ "$has_vsc" = true ]
+	then
+		eval diff "$diffFlags" ~/.config/"$VSCdir"/User/keybindings.json "$location"/VSC/keybindings.json
+		eval diff "$diffFlags" ~/.config/"$VSCdir"/User/settings.json "$location"/VSC/settings.json
+		eval diff "$diffFlags" -f ~/.config/"$VSCdir"/User/snippets/ "$location"/VSC/snippets/
+	fi
 fi
