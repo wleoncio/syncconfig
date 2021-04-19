@@ -174,6 +174,8 @@ PATH=$PATH:~/Programs/bin
 PATH=$PATH:~/Programs/config
 PATH=$PATH:~/UiO/rse-tools/general
 PATH=$PATH:~/UiO/rse-tools/contingencytables
+PATH=$PATH:~/.local/bin
+PATH=$PATH:~/Programs/MATLAB/R2021a/bin
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
