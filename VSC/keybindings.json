@@ -514,5 +514,10 @@
     {
         "key": "ctrl+b ctrl+h",
         "command": "timeline.focus"
+    },
+    {
+        "key": "ctrl+shift+c",
+        "command": "-workbench.action.terminal.openNativeConsole",
+        "when": "!terminalFocus"
     }
 ]
