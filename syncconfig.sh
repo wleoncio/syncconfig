@@ -79,6 +79,21 @@ else
 fi
 
 # ==============================================================================
+# Determining compositor
+# ==============================================================================
+if [ -f "$HOME/.config/picom.conf" ]
+then
+	echo "Compositor found: picom"
+	compositor="picom.conf"
+elif [ -f "$HOME/.config/compton.conf" ]
+then
+	echo "Compositor found: compton"
+	compositor="compton.conf"
+else
+	echo "No X11 compositor found"
+fi
+
+# ==============================================================================
 # Actually copying files
 # ==============================================================================
 if [ "$1" = "push" ]
@@ -91,8 +106,7 @@ then
 	eval cp ~/.xbindkeysrc "$location"
 	eval cp ~/.Xresources "$location"
 	eval cp ~/.Rprofile "$location"
-	eval cp ~/.config/compton.conf "$location"
-	eval cp ~/.config/picom.conf "$location"
+	eval cp ~/.config/"$compositor" "$location"
 	eval cp ~/.config/gromit-mpx.cfg "$location"
  	eval cp ~/.config/dunst/dunstrc "$location"
 	if [ "$has_i3" = true ] 
@@ -115,8 +129,7 @@ then
 	eval cp "$location"/.xbindkeysrc ~
 	eval cp "$location"/.Xresources ~
 	eval cp "$location"/.Rprofile ~
-	eval cp "$location"/compton.conf ~/.config
-	eval cp "$location"/picom.conf ~/.config
+	eval cp "$location"/"$compositor" ~/.config
 	eval cp "$location"/gromit-mpx.cfg ~/.config
 	eval cp "$location"/dunstrc ~/.config/dunst/
 	if [ "$has_i3" = true ] 
