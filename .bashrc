@@ -170,6 +170,15 @@ _open_files_for_editing() {
 # alias ef='_open_files_for_editing'     # 'ef' opens given file(s) for editing
 ################################################################################
 
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# Environment variables
 PATH=$PATH:~/Programs/bin
 PATH=$PATH:~/Programs/config
 PATH=$PATH:~/Programs/myScripts
@@ -178,10 +187,5 @@ PATH=$PATH:~/UiO/rse-tools/contingencytables
 PATH=$PATH:~/.local/bin
 PATH=$PATH:~/Programs/MATLAB/R2021a/bin
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
+
+eval "$(thefuck --alias)"
