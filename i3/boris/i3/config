@@ -7,13 +7,15 @@ set $bordersize 5
 # workspace layouts:
 #default i3 tiling mode
 workspace_layout default
+focus_follows_mouse no
+focus_wrapping no
 
 # Set inner/outer gaps
 gaps inner 2
 gaps outer 0
 smart_gaps inverse_outer # yes, true, on, enable, active, inverse_outer Only enable gaps on a workspace when there is at least one container
-smart_borders no_gaps # Smart borders will draw borders on windows only if there is more than one window in a workspace. 
-hide_edge_borders smart # none vertical horizontal both smart_no_gaps smart 1 yes true on enable active
+smart_borders no_gaps # Smart borders will draw borders on windows only if there is more than one window in a workspace.
+hide_edge_borders none # smart # none vertical horizontal both smart_no_gaps smart 1 yes true on enable active
 
 # Border rules
 default_border pixel $bordersize
@@ -31,7 +33,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 font pango:Noto Sans Regular 10
 
 # thin borders:
-hide_edge_borders both
+hide_edge_borders none
 
 # Use Mouse+$mod to drag floating windows to their wanted position:
 floating_modifier $mod
@@ -94,7 +96,8 @@ bindsym $mod+s exec --no-startup-id ~/.config/i3/scripts/empty_workspace.sh
 # Autostart apps
 # ========================================================================
 
-# Autostart apps:
+# Setup monitors
+exec --no-startup-id $HOME/Programs/myScripts/fix_monitors.sh
 
 # dex execute .desktop files:
 exec --no-startup-id dex -a -s /etc/xdg/autostart/:~/.config/autostart
@@ -314,16 +317,16 @@ bindsym $mod+Ctrl+Shift+1 exec $HOME/Programs/myScripts/fix_monitors.sh
 # ------------------------------------------------------------------------------
 # Defining which workspace opens where (multimonitor setup)
 # ------------------------------------------------------------------------------
+workspace $ws1 output DP-0
+workspace $ws2 output DP-0
+workspace $ws3 output DP-0
+workspace $ws4 output DP-0
+workspace $ws5 output DP-0
 workspace $ws6 output DP-0
 workspace $ws7 output DP-0
-workspace $ws8 output DP-0
-workspace $ws9 output DP-0
-workspace $ws10 output DP-0
-workspace $ws1 output HDMI-0
-workspace $ws2 output HDMI-0
-workspace $ws3 output HDMI-0
-workspace $ws4 output HDMI-0
-workspace $ws5 output HDMI-0
+workspace $ws8 output HDMI-0
+workspace $ws9 output HDMI-0
+workspace $ws10 output HDMI-0
 
 # ==============================================================================
 # Modes
@@ -382,15 +385,17 @@ mode "$mode_launcher" {
 # ==============================================================================
 # Custom window rules
 # ==============================================================================
-for_window [title="Microsoft Teams-varsling" window_role="browser-window"] floating enable # Teams popup
-for_window [window_role="pop-up"] floating enable
-for_window [instance="todoist"] move to workspace number 2. Todo
-for_window [title="Work rotation.ods - LibreOffice Calc"] move to workspace number 4. Worksheet
-for_window [title="E-post"] move to workspace number 1. Mail, layout tabbed
+for_window [title="Microsoft Teams-varsling" window_role="browser-window"] floating enable
+for_window [title="E-post"] move to workspace number 6. Mail
+for_window [title="Work rotation.ods - LibreOffice Calc"] move to workspace number 5. Hours
+for_window [instance="todoist"] move to workspace number 10. Todo
 for_window [instance="evolution-alarm-notify"] floating enable
-for_window [instance="spotify"] move to workspace number 3. Sounds, workspace number $ws3
-for_window [instance="pocket-casts-linux"] move to workspace number 3. Sounds, workspace number $ws3
+for_window [instance="spotify"] move to workspace number 7. Sounds
+for_window [instance="pocket-casts-linux"] move to workspace number 7. Sounds
 for_window [instance="r_x11"] floating enable # R plots
+for_window [window_role="pop-up"] floating enable
+for_window [instance="oversteer"] floating disable
+for_window [title="Secure CRAN mirrors|Choose one|Steam - News|^Variety\s|^Regions of Ruin Configuration"] floating enable
 for_window [title="Oversteer"] border pixel $bordersize, floating disable
 for_window [title="Zoom Meeting"] border pixel $bordersize
 for_window [instance="cheese|evince|Steam|telegram-desktop|whatsapp-for-linux|file-roller"] border pixel $bordersize
