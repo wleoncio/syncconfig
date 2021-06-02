@@ -46,9 +46,9 @@
             "NULL"
         ]
     },
-    "Assignment with posterior space": {
+    "Assignment with anterior and posterior spaces": {
         "prefix": ",.",
-        "body": "<- ",
+        "body": " <- ",
         "description": "Assignment arrow with spaces"
     },
     "Assignment without posterior space": {
