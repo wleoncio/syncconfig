@@ -172,6 +172,7 @@ _open_files_for_editing() {
 
 PATH=$PATH:~/Programs/bin
 PATH=$PATH:~/Programs/config
+PATH=$PATH:~/Programs/myScripts
 PATH=$PATH:~/UiO/rse-tools/general
 PATH=$PATH:~/UiO/rse-tools/contingencytables
 PATH=$PATH:~/.local/bin
