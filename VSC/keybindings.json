@@ -90,6 +90,12 @@
         "command": "r.runCommand",
         "args": "usethis::use_version('dev')"
     },
+    {
+        "description": "List object structure",
+        "key": "ctrl+r ctrl+l",
+        "command": "r.runCommand",
+        "args": "ls.str()"
+    },
     // {
     //     "key": "ctrl+r ctrl+v",
     //     "command": "r.previewDataframe"
