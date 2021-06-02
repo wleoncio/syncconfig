@@ -1,17 +1,4 @@
-# This file a modified version based by default i3-config-wizard config
-# source is available here:
-# https://raw.githubusercontent.com/endeavouros-team/i3-EndeavourOS/master/.config/i3/config
-# Maintainer: joekamprad [joekamprad@endeavouros.com]
-# https://endeavouros.com
-#
-# --> to update this run the following command:
-# wget --backups=1 https://raw.githubusercontent.com/endeavouros-team/i3-EndeavourOS/master/.config/i3/config -P ~/.config/i3/
-
-#get latest configs from GitHub:
-#exec --no-startup-id git clone https://github.com/endeavouros-team/i3-EndeavourOS.git ~/.config/i3/original/
-
 # i3 config file
-#
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
@@ -29,14 +16,6 @@ smart_borders no_gaps # Smart borders will draw borders on windows only if there
 hide_edge_borders smart # none vertical horizontal both smart_no_gaps smart 1 yes true on enable active
 
 # Border rules
-#workspace_layout stacking
-
-#workspace_layout tabbed
-#Tiling mode is tabbed:
-#so each new window will open fullscreen as a tab, you can change between window-tabs with mouse or shortcut:
-#
-#    [mod]+Left focus left (left arrow key)
-#    [mod]+Right focus right (right arrow key)
 default_border pixel $bordersize
 
 bindsym $mod+Ctrl+b [class="[.]*"] border pixel $bordersize
@@ -49,12 +28,6 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-# Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
 font pango:Noto Sans Regular 10
 
 # thin borders:
@@ -68,13 +41,6 @@ bindsym $mod+Return exec xfce4-terminal
 
 # kill focused window:
 bindsym $mod+c kill
-
-# start dmenu (a program launcher)
-# bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus:
 bindsym $mod+Left focus left
@@ -117,9 +83,6 @@ bindsym $mod+a focus parent
 # workspace-edit:
 bindsym $mod+s exec --no-startup-id ~/.config/i3/scripts/empty_workspace.sh
 
-# autostart start applications + bind program to workspace:
-#assign [class="(?i)firefox"] $ws2
-#for_window [class=(?i)firefox] focus
 
 # Autostart apps:
 
@@ -232,12 +195,6 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym ntilde resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
@@ -253,10 +210,10 @@ bindsym $mod+r mode "resize"
 # ------------------------------------------------------------------------------
 # Sound
 # ------------------------------------------------------------------------------
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 4%+ unmute; exec $HOME/Programs/notify-volume.sh
-bindsym XF86AudioLowerVolume exec amixer -q set Master 4%- unmute; exec $HOME/Programs/notify-volume.sh
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 4%+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 4%- unmute
 
-bindsym XF86AudioMute exec amixer -q set Master 1+ toggle #; exec "notify-send 'Mute toggled' --urgency low"
+bindsym XF86AudioMute exec amixer -q set Master 1+ toggle
 
 # Multimedia Keys:
 
@@ -295,9 +252,8 @@ bar {
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
     position top
 	tray_output primary
-	bindsym button3 exec gsimplecal
     colors {
-      separator          #666666
+		separator          #666666
         background         #222222
         statusline         #dddddd
         focused_workspace  #0088CC #0088CC #ffffff
