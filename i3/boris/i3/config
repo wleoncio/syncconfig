@@ -37,10 +37,14 @@ hide_edge_borders both
 floating_modifier $mod
 
 # start a terminal:
-bindsym $mod+Return exec xfce4-terminal
+set $terminal xfce4-terminal
+bindsym $mod+Return exec $terminal
+bindsym $mod+Shift+Return exec i3-quickterm shell
 
 # kill focused window:
 bindsym $mod+c kill
+bindsym $mod+Shift+x --release exec --no-startup-id xkill
+bindsym $mod+Escape exec "pkill firefox"
 
 # change focus:
 bindsym $mod+Left focus left
@@ -70,6 +74,9 @@ bindsym $mod+Shift+e layout toggle split
 
 # toggle tiling / floating:
 bindsym $mod+Shift+space floating toggle
+
+# toggle sticky:
+bindsym $mod+Shift+Ctrl+space sticky toggle
 
 # change focus between tiling / floating windows:
 bindsym $mod+space focus mode_toggle
@@ -266,32 +273,33 @@ bar {
     }
 }
 
-# rofi bindings fancy application menu
-bindsym $mod+z exec rofi -modi drun -show drun -line-padding 4 \
-                -columns 2 -padding 50 -hide-scrollbar \
-                -show-icons -drun-icon-theme "Arc-X-D" -font "Droid Sans Regular 10"
-
-bindsym $mod+Shift+z exec rofi -show window -line-padding 4 \
-                -lines 6 -padding 50 -hide-scrollbar \
-                -show-icons -drun-icon-theme "Arc-X-D" -font "Droid Sans Regular 10"
-
 # ==============================================================================
 # Keyboard shortcuts
 # ==============================================================================
+
+# Function keys
 bindcode 163 exec evolution -c mail
 bindcode 180 exec firefox
 bindcode $mod+180 exec firefox --private-window
-bindcode 181 exec evolution -c calendar
-bindcode 164 exec thunar
-bindcode 166 exec variety --previous
-bindcode $mod+166 exec variety --favorite
-bindcode 167 exec variety --next
-bindcode $mod+167 exec variety --trash
-bindcode 148 exec speedcrunch
+bindcode 181 exec $HOME/Programs/bin/Todoist-0.2.8.AppImage
+bindcode 166 exec $HOME/Programs/myScripts/change_background.sh 1
+bindcode $mod+166 exec "$HOME/Programs/myScripts/remove_background.sh 1; sleep 1; $HOME/Programs/myScripts/change_background.sh 1"
+bindcode 167 exec $HOME/Programs/myScripts/change_background.sh 0
+bindcode $mod+167 exec "$HOME/Programs/myScripts/remove_background.sh 0; sleep 1; $HOME/Programs/myScripts/change_background.sh 0"
+bindcode 164 exec $terminal -e ranger
+bindcode $mod+164 exec pcmanfm
 bindcode 152 exec code
-bindsym $mod+x exec xdg-open "$(locate -e -i --regex "$HOME/[^\.]+" | rofi -dmenu -i -p "File or folder" -threads 0 -show-icons -modi drun)"
+bindcode 148 exec speedcrunch
 bindsym Print exec flameshot gui
 bindsym $mod+Print exec shutter
+
+# rofi bindings
+bindsym $mod+z exec $HOME/Programs/myScripts/rofiCustom.sh app
+bindsym $mod+Shift+z exec $HOME/Programs/myScripts/rofiCustom.sh window
+bindsym Mod1+Tab exec $HOME/Programs/myScripts/rofiCustom.sh window
+bindsym $mod+Tab exec $HOME/Programs/myScripts/rofiCustom.sh window
+bindsym $mod+Ctrl+Shift+z exec bwmenu
+bindsym $mod+x exec $HOME/Programs/myScripts/rofiCustom.sh file
 
 # ==============================================================================
 # Renaming workspaces
@@ -301,7 +309,7 @@ bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for work
 # ==============================================================================
 # Multiple monitor options
 # ==============================================================================
-exec xrandr --output DP-0 --mode 2560x1440 --rate 144.00 --primary --output HDMI-0 --left-of DP-0 --mode 1360x768
+bindsym $mod+Ctrl+Shift+1 exec $HOME/Programs/myScripts/fix_monitors.sh
 
 # ------------------------------------------------------------------------------
 # Defining which workspace opens where (multimonitor setup)
@@ -367,7 +375,7 @@ mode "$mode_launcher" {
                 nvidia-settings -a ShowVRRVisualIndicator=0"; \
             mode "default"
         # (secret) test mode
-        bindsym t exec "$HOME/.config/i3/scripts/mass_change_borders.sh 15"
+        bindsym t exec "$HOME/Programs/bin/Todoist-0.2.8.AppImage"; mode "default"
         bindsym Escape mode "default"
 }
 
