@@ -15,6 +15,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $bordersize 5
 
 # workspace layouts:
 #default i3 tiling mode
@@ -28,13 +29,6 @@ smart_borders no_gaps # Smart borders will draw borders on windows only if there
 hide_edge_borders smart # none vertical horizontal both smart_no_gaps smart 1 yes true on enable active
 
 # Border rules
-#do not show titlebar on windows:
-default_border pixel 0
-
-bindsym $mod+Ctrl+b [class=.*] border pixel 15
-bindsym $mod+Ctrl+Shift+b [class=.*] border pixel 0
-bindsym $mod+Ctrl+Shift+mod1+b border pixel 5 # Applies a little bit of border on one container
-
 #workspace_layout stacking
 
 #workspace_layout tabbed
@@ -43,7 +37,12 @@ bindsym $mod+Ctrl+Shift+mod1+b border pixel 5 # Applies a little bit of border o
 #
 #    [mod]+Left focus left (left arrow key)
 #    [mod]+Right focus right (right arrow key)
+default_border pixel $bordersize
 
+bindsym $mod+Ctrl+b [class="[.]*"] border pixel $bordersize
+bindsym $mod+Ctrl+Shift+b [class="[.]*"] border pixel 0
+# Applies a little bit of border on one container
+bindsym $mod+Ctrl+Shift+mod1+b border pixel $bordersize
 
 # get auth work with polkit-gnome:
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -392,20 +391,9 @@ for_window [instance="evolution-alarm-notify"] floating enable
 for_window [instance="spotify"] move to workspace number 3. Sounds, workspace number $ws3
 for_window [instance="pocket-casts-linux"] move to workspace number 3. Sounds, workspace number $ws3
 for_window [instance="r_x11"] floating enable # R plots
-for_window [title="Secure CRAN mirrors"] floating enable # R mirror picker
-for_window [title="Choose one"] floating enable # R help
-for_window [title="Steam - News"] floating enable
-for_window [title= "Variety Images"] floating enable
-for_window [title= "Variety History"] floating enable
-for_window [title= "Variety Recent Downloads"] floating enable
-#for_window [title="SAP NetWeaver Portal — Mozilla Firefox"] floating enable
-#for_window [title="Oversikt - HRP - UiO HR Portal — Mozilla Firefox"] floating disable
-for_window [title="Zoom Meeting"] border pixel 5
-for_window [class="pocket-casts-linux"] border pixel 5
-for_window [class="^custom-float-no-border$"] floating enable
-for_window [class="^custom-float-no-border$"] border pixel 0
-
+for_window [title="Oversteer"] border pixel $bordersize, floating disable
+for_window [title="Zoom Meeting"] border pixel $bordersize
+for_window [instance="cheese|evince|Steam|telegram-desktop|whatsapp-for-linux|file-roller"] border pixel $bordersize
 # Scratchpad
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
-
