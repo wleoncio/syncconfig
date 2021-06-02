@@ -20,7 +20,6 @@
     "comment-divider.subheaderAlign": "left",
     "comment-divider.subHeaderFiller": "-",
     "diffEditor.ignoreTrimWhitespace": false,
-    "diffEditor.renderSideBySide": false,
     "editor.cursorBlinking": "phase",
     "editor.emptySelectionClipboard": false,
     "editor.fontFamily": "Fira Code",
@@ -46,7 +45,6 @@
     ],
     "editor.scrollBeyondLastColumn": 0,
     "editor.scrollBeyondLastLine": false,
-    "editor.wordWrap": "wordWrapColumn",
     "explorer.compactFolders": false,
     "files.associations": {
         "*.docker": "Dockerfile"
@@ -67,7 +65,6 @@
     "markdown.extension.tableFormatter.enabled": true,
     "latex-workshop.latex.autoBuild.run": "never",
     "markdown.marp.enableHtml": true,
-    "markdown.preview.breaks": true,
     "markdown.preview.doubleClickToSwitchToEditor": false,
     "markdown-pdf.omitBackground": true,
     "open-in-browser.default": "firefox",
@@ -84,7 +81,7 @@
     "terminal.integrated.fontFamily": "Fira Code",
     "terminal.integrated.fontSize": 12,
     "terminal.integrated.fontWeight": "500",
-    "todo-tree.general.revealBehaviour": "highlight todo",
+    "todo-tree.general.revealBehaviour": "start of todo",
     "todo-tree.general.statusBar": "tags",
     "todo-tree.general.statusBarClickBehaviour": "reveal",
     "todo-tree.general.tags": [
@@ -132,22 +129,21 @@
         }
     },
     "todo-tree.tree.showScanModeButton": false,
-    // "todo-tree.regex.regex": "((%|//|#|<!--|;|/\\*|^)\\s*($TAGS)|^\\s*- \\[ \\])",
     "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
     "window.menuBarVisibility": "hidden",
     "window.restoreWindows": "none",
     "workbench.colorCustomizations" : {
-        "terminal.border": "#fff",
+        "terminal.border": "#888",
         "terminal.foreground" : "#fff",
         "terminal.background" : "#101010",
         "terminal.ansiBlack": "#000",
         "terminal.ansiWhite": "#fff",
-        "terminal.ansiCyan": "#2d2d97",
         "terminal.ansiBrightBlack": "#fff",
         "terminal.ansiBrightRed": "#fd6464",
         "terminal.ansiRed": "#ff0000",
         "terminal.ansiYellow": "#ffaa00",
-        "terminal.ansiGreen": "#00ff00"
+        "terminal.ansiGreen": "#00ff00",
+
     },
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.revealIfOpen": true,
@@ -156,7 +152,7 @@
     "workbench.enableExperiments": false,
     "workbench.tree.indent": 32,
     "scm.defaultViewMode": "tree",
-    "workbench.colorTheme": "Tokyo Night Storm",
+    "workbench.colorTheme": "Community Material Theme",
     "files.autoGuessEncoding": true,
     "markdown.marp.themes": [
         "./themes/uio-light.css",
@@ -175,16 +171,29 @@
     "latex-workshop.message.update.show": false,
     "r.bracketedPaste": true,
     "workbench.sideBar.location": "right",
+    "githubPullRequests.queries": [
+        // {
+        //     "label": "Waiting For My Review",
+        //     "query": "is:open review-requested:${user}"
+        // },
+        // {
+        //     "label": "Assigned To Me",
+        //     "query": "is:open assignee:${user}"
+        // },
+        // {
+        //     "label": "Created By Me",
+        //     "query": "is:open author:${user}"
+        // }
+    ],
     "githubIssues.queries": [
-
         {
             "label": "Assigned to me",
             //     "query": "default"
-            "query": "repo:${owner}/${repository} state:open assignee:${user} sort:created-asc"
+            "query": "repo:${owner}/${repository} state:open assignee:${user} sort:created-desc"
         },
         {
             "label": "Unassigned",
-            "query": "state:open repo:${owner}/${repository} sort:created-asc no:assignee"
+            "query": "state:open repo:${owner}/${repository} sort:created-desc no:assignee"
         }
     ],
     "githubIssues.createIssueTriggers": [
@@ -195,11 +204,15 @@
         "origin",
         "ocbe-uio"
     ],
-    "githubIssues.issueBranchTitle": "issue-${issueNumber}-${sanitizedIssueTitle}",
+    "githubIssues.issueBranchTitle": "issue-${issueNumber}",
     "terminal.integrated.drawBoldTextInBrightColors": false,
     "editor.acceptSuggestionOnEnter": "off",
     "markdown.marp.exportType": "html",
     "markdown.extension.toc.levels": "1..1",
-    "typescript.suggest.paths": false
+    "typescript.suggest.paths": false,
+    "r.lsp.diagnostics": false,
+    "workbench.editor.centeredLayoutAutoResize": false,
+    "diffEditor.renderSideBySide": false,
+    "workbench.editor.mouseBackForwardToNavigate": false
 
 }
