@@ -385,6 +385,13 @@ mode "$mode_launcher" {
         bindsym Escape mode "default"
 }
 
+set $pop_files Open: [w]ork rotation [s]ustentabilidade
+bindsym $mod+Shift+f mode "$pop_files"
+mode "$pop_files" {
+	bindsym w exec libreoffice -o $HOME/UiO/Docs/Adm/Work\ rotation.ods; mode "default"
+	bindsym s exec libreoffice -o $HOME/Dropbox/Finanças/Sustentabilidade.ods; mode "default"
+}
+
 # ==============================================================================
 # Custom window rules
 # ==============================================================================
