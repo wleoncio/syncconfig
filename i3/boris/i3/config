@@ -280,11 +280,12 @@ bar {
 # Keyboard shortcuts
 # ==============================================================================
 
+set $Todoist Todoist-0.4.1.AppImage
 # Function keys
 bindcode 163 exec evolution -c mail
 bindcode 180 exec firefox
 bindcode $mod+180 exec firefox --private-window
-bindcode 181 exec $HOME/Programs/bin/Todoist-0.2.8.AppImage
+bindcode 181 exec $HOME/Programs/bin/$Todoist
 bindcode 166 exec $HOME/Programs/myScripts/change_background.sh 1
 bindcode $mod+166 exec "$HOME/Programs/myScripts/remove_background.sh 1; sleep 1; $HOME/Programs/myScripts/change_background.sh 1"
 bindcode 167 exec $HOME/Programs/myScripts/change_background.sh 0
@@ -343,7 +344,7 @@ mode "$mode_launcher" {
                 picom -b --config ~/.config/picom.conf; \
 	            evolution -c mail & \
 				libreoffice --nologo -o $HOME/UiO/Docs/Adm/Work\ rotation.ods & \
-        	    $HOME/Programs/bin/Todoist-0.2.8.AppImage & \
+        	    $HOME/Programs/bin/$Todoist & \
             	$HOME/Programs/bin/pocket-casts-linux & \
 	            xbindkeys"; \
             mode "default"
@@ -381,7 +382,7 @@ mode "$mode_launcher" {
                 dropbox start & xbindkeys; \
             mode "default"
         # (secret) test mode
-        bindsym t exec "$HOME/Programs/bin/Todoist-0.2.8.AppImage"; mode "default"
+        bindsym t exec "$HOME/Programs/bin/$Todoist"; mode "default"
         bindsym Escape mode "default"
 }
 
@@ -397,7 +398,6 @@ mode "$pop_files" {
 # ==============================================================================
 for_window [title="Microsoft Teams-varsling" window_role="browser-window"] floating enable
 for_window [title="E-post"] move to workspace number 6. Mail
-for_window [title="Work rotation.ods - LibreOffice Calc"] move to workspace number 5. Hours
 for_window [instance="todoist"] move to workspace number 10. Todo
 for_window [instance="evolution-alarm-notify"] floating enable
 for_window [instance="spotify"] move to workspace number 7. Sounds
