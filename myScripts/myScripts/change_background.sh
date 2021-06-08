@@ -21,8 +21,8 @@ bg_0=$(cat .config/nitrogen/bg-saved.cfg | grep file | tail -2 | head -1)
 bg_1=$(cat .config/nitrogen/bg-saved.cfg | grep file | tail -2 | tail -1)
 
 # Retrieving title
-title_0=$(echo $bg_0 | cut -d '/' -f 7)
-title_1=$(echo $bg_1 | cut -d '/' -f 7)
+title_0=$(echo $bg_0 | cut -d '/' -f 7 | cut -d '_' -f 4)
+title_1=$(echo $bg_1 | cut -d '/' -f 7 | cut -d '_' -f 4)
 
 if [ $1 == 0 ]
 then

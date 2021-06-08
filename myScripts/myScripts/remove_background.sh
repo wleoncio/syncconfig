@@ -11,8 +11,8 @@ bg_0=$(echo $bg_0 | cut -d '=' -f 2)
 bg_1=$(echo $bg_1 | cut -d '=' -f 2)
 
 # Retrieving title
-title_0=$(echo $bg_0 | cut -d '/' -f 7)
-title_1=$(echo $bg_1 | cut -d '/' -f 7)
+title_0=$(echo $bg_0 | cut -d '/' -f 7 | cut -d '_' -f 4)
+title_1=$(echo $bg_1 | cut -d '/' -f 7 | cut -d '_' -f 4)
 
 
 
