@@ -34,7 +34,7 @@ fi
 if [ "$2" = "" ]
 then
 	echo "Assuming git repository located at "$HOME/Programs". You can pass a different path as the second argument."
-	location="$HOME/Programs/config"
+	location="$HOME/Programs/syncconfig"
 else
 	location="$2"
 fi
@@ -98,17 +98,17 @@ fi
 # ==============================================================================
 if [ "$1" = "push" ]
 then
-	eval cp ~/.bash_aliases "$location"
-	eval cp ~/.bashrc "$location"
-	eval cp ~/.gitconfig "$location"
-	eval cp ~/.radian_profile "$location"
-	eval cp ~/.vimrc "$location"
-	eval cp ~/.xbindkeysrc "$location"
-	eval cp ~/.Xresources "$location"
-	eval cp ~/.Rprofile "$location"
-	eval cp ~/.config/"$compositor" "$location"
-	eval cp ~/.config/gromit-mpx.cfg "$location"
- 	eval cp ~/.config/dunst/dunstrc "$location"
+	eval cp ~/.bash_aliases "$location"/config
+	eval cp ~/.bashrc "$location"/config
+	eval cp ~/.gitconfig "$location"/config
+	eval cp ~/.radian_profile "$location"/config
+	eval cp ~/.vimrc "$location"/config
+	eval cp ~/.xbindkeysrc "$location"/config
+	eval cp ~/.Xresources "$location"/config
+	eval cp ~/.Rprofile "$location"/config
+	eval cp ~/.config/"$compositor" "$location"/config
+	eval cp ~/.config/gromit-mpx.cfg "$location"/config
+ 	eval cp ~/.config/dunst/dunstrc "$location"/config
 	eval cp -r ~/Programs/myScripts/ "$location"/myScripts/
 	if [ "$has_i3" = true ] 
 	then
@@ -122,17 +122,17 @@ then
 	fi
 elif [ "$1" = "pull" ]
 then
-	eval cp "$location"/.bash_aliases ~
-	eval cp "$location"/.bashrc ~
-	eval cp "$location"/.gitconfig ~
-	eval cp "$location"/.radian_profile ~
-	eval cp "$location"/.vimrc ~
-	eval cp "$location"/.xbindkeysrc ~
-	eval cp "$location"/.Xresources ~
-	eval cp "$location"/.Rprofile ~
-	eval cp "$location"/"$compositor" ~/.config
-	eval cp "$location"/gromit-mpx.cfg ~/.config
-	eval cp "$location"/dunstrc ~/.config/dunst/
+	eval cp "$location"/config/.bash_aliases ~
+	eval cp "$location"/config/.bashrc ~
+	eval cp "$location"/config/.gitconfig ~
+	eval cp "$location"/config/.radian_profile ~
+	eval cp "$location"/config/.vimrc ~
+	eval cp "$location"/config/.xbindkeysrc ~
+	eval cp "$location"/config/.Xresources ~
+	eval cp "$location"/config/.Rprofile ~
+	eval cp "$location"/config/"$compositor" ~/.config
+	eval cp "$location"/config/gromit-mpx.cfg ~/.config
+	eval cp "$location"/config/dunstrc ~/.config/dunst/
 	eval cp -r "$location"/myScripts/* ~/Programs/myScripts/
 	if [ "$has_i3" = true ] 
 	then
@@ -156,18 +156,18 @@ else
 		echo -e "To get diff details, run this script with a 'diff' switch.\n"
 		diffFlags=""$diffFlags" --brief --recursive"
 	fi
-	eval diff "$diffFlags" ~/.bash_aliases "$location"
-	eval diff "$diffFlags" ~/.bashrc "$location"
-	eval diff "$diffFlags" ~/.gitconfig "$location"
-	eval diff "$diffFlags" ~/.radian_profile "$location"
-	eval diff "$diffFlags" ~/.vimrc "$location"
-	eval diff "$diffFlags" ~/.xbindkeysrc "$location"
-	eval diff "$diffFlags" ~/.Xresources "$location"
-	eval diff "$diffFlags" ~/.Rprofile "$location"
-	eval diff "$diffFlags" ~/.config/compton.conf "$location"
-	eval diff "$diffFlags" ~/.config/picom.conf "$location"
-	eval diff "$diffFlags" ~/.config/gromit-mpx.cfg "$location"
- 	eval diff "$diffFlags" ~/.config/dunst/dunstrc "$location"
+	eval diff "$diffFlags" ~/.bash_aliases "$location"/config
+	eval diff "$diffFlags" ~/.bashrc "$location"/config
+	eval diff "$diffFlags" ~/.gitconfig "$location"/config
+	eval diff "$diffFlags" ~/.radian_profile "$location"/config
+	eval diff "$diffFlags" ~/.vimrc "$location"/config
+	eval diff "$diffFlags" ~/.xbindkeysrc "$location"/config
+	eval diff "$diffFlags" ~/.Xresources "$location"/config
+	eval diff "$diffFlags" ~/.Rprofile "$location"/config
+	eval diff "$diffFlags" ~/.config/compton.conf "$location"/config
+	eval diff "$diffFlags" ~/.config/picom.conf "$location"/config
+	eval diff "$diffFlags" ~/.config/gromit-mpx.cfg "$location"/config
+ 	eval diff "$diffFlags" ~/.config/dunst/dunstrc "$location"/config
 	eval diff "$diffFlags" ~/Programs/myScripts "$location"/myScripts
 	if [ "$has_i3" = true ]
 	then

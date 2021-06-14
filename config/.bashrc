@@ -180,7 +180,7 @@ fi
 
 # Environment variables
 PATH=$PATH:~/Programs/bin
-PATH=$PATH:~/Programs/config
+PATH=$PATH:~/Programs/syncconfig
 PATH=$PATH:~/Programs/myScripts
 PATH=$PATH:~/UiO/rse-tools/general
 PATH=$PATH:~/UiO/rse-tools/contingencytables
