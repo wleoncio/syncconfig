@@ -90,7 +90,8 @@ then
 	echo "Compositor found: compton"
 	compositor="compton.conf"
 else
-	echo "No X11 compositor found"
+	echo "No supported compositor found (picom or compton)"
+	compositor="other"
 fi
 
 # ==============================================================================
@@ -106,7 +107,10 @@ then
 	eval cp ~/.xbindkeysrc "$location"/config
 	eval cp ~/.Xresources "$location"/config
 	eval cp ~/.Rprofile "$location"/config
-	eval cp ~/.config/"$compositor" "$location"/config
+	if [ $compositor != "other" ]
+	then
+		eval cp ~/.config/"$compositor" "$location"/config
+	fi
 	eval cp ~/.config/gromit-mpx.cfg "$location"/config
  	eval cp ~/.config/dunst/dunstrc "$location"/config
 	eval cp -r ~/Programs/myScripts/ "$location"/myScripts/
@@ -130,7 +134,10 @@ then
 	eval cp "$location"/config/.xbindkeysrc ~
 	eval cp "$location"/config/.Xresources ~
 	eval cp "$location"/config/.Rprofile ~
-	eval cp "$location"/config/"$compositor" ~/.config
+	if [ $compositor != "other" ]
+	then
+		eval cp "$location"/config/"$compositor" ~/.config
+	fi
 	eval cp "$location"/config/gromit-mpx.cfg ~/.config
 	eval cp "$location"/config/dunstrc ~/.config/dunst/
 	eval cp -r "$location"/myScripts/* ~/Programs/myScripts/
