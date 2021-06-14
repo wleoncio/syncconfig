@@ -1,5 +1,14 @@
 require(utils, quietly=TRUE)
 require(colorout, quietly=TRUE)
+setOutputColors(
+	normal = 39,
+	number = 51,
+	negnum = 183,
+	date = 43,
+	string = 79,
+	const = 75,
+	verbose = FALSE
+)
 .First <- function() if(interactive() & Sys.getenv("RADIAN_VERSION") == "") try(loadhistory("~/.Rhistory"))
 .Last <- function() if(interactive() & Sys.getenv("RADIAN_VERSION") == "") try(savehistory("~/.Rhistory"))
 tryCatch(
