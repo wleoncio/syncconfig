@@ -9,7 +9,7 @@
 
 _set_my_PS1() {
     #PS1='[\u@\h \W]\$ '
-    PS1='\[\033[1;30;44m\] \w \[\033[0;37m\] '
+    PS1='\[\033[1;37;44m\] \w \[\033[0;37m\] '
     echo -e "\e]12;lightgray\a" # cursor format
     if [ "$(whoami)" = "liveuser" ] ; then
         local iso_version="$(grep ^VERSION= /usr/lib/endeavouros-release 2>/dev/null | cut -d '=' -f 2)"
@@ -180,7 +180,7 @@ fi
 
 # Environment variables
 PATH=$PATH:~/Programs/bin
-PATH=$PATH:~/Programs/config
+PATH=$PATH:~/Programs/syncconfig
 PATH=$PATH:~/Programs/myScripts
 PATH=$PATH:~/UiO/rse-tools/general
 PATH=$PATH:~/UiO/rse-tools/contingencytables
