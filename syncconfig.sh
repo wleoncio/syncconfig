@@ -60,7 +60,7 @@ then
 else
 	echo "Could not determine location of VSCode directory."
 	has_vsc=false
-	
+
 fi
 
 # =============================================================================
@@ -113,10 +113,10 @@ then
 	fi
 	eval cp ~/.config/gromit-mpx.cfg "$location"/config
  	eval cp ~/.config/dunst/dunstrc "$location"/config
-	eval cp -r ~/Programs/myScripts/ "$location"/myScripts/
-	if [ "$has_i3" = true ] 
+	eval cp -r ~/Programs/myScripts/* "$location"/myScripts/
+	if [ "$has_i3" = true ]
 	then
-		eval cp -r ~/"$i3dir"/ "$location"/i3/"$machinename"/
+		eval cp -r ~/"$i3dir"/* "$location"/i3/"$machinename"/
 	fi
 	if [ "$has_vsc" = true ]
 	then
@@ -141,7 +141,7 @@ then
 	eval cp "$location"/config/gromit-mpx.cfg ~/.config
 	eval cp "$location"/config/dunstrc ~/.config/dunst/
 	eval cp -r "$location"/myScripts/* ~/Programs/myScripts/
-	if [ "$has_i3" = true ] 
+	if [ "$has_i3" = true ]
 	then
 		eval cp "$location"/i3/"$machinename"/* ~/"$i3dir"
 	fi
