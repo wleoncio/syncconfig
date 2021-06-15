@@ -13,4 +13,8 @@ tryCatch(
 .q <- function() quit("no")
 options(browser="firefox")
 options(repos="https://cran.uib.no")
-
+.reload <- function(pkg) {
+  pkg_string <- paste0("package:", pkg, collapse="")
+  detach(pkg_string, unload=TRUE, character.only=TRUE)
+  library(pkg, verbose=TRUE, character.only=TRUE)
+}
