@@ -47,4 +47,4 @@
 [pull]
 	ff = yes
 [init]
-	defaultBranch = main
+	defaultBranch = develop
