@@ -8,18 +8,19 @@
 	dffc = diff --cached --word-diff=color
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all -n 15
 	lgg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
-	forget = git rm --cached $1
-	forgetfolder = git rm -r --cached $1 
+	forget = !sh -c 'git filter-branch --index-filter "git rm -rf --cached --ignore-unmatch ${1}" HEAD' -
 	countcomm = rev-list --count
 	co = checkout
 	cb = checkout -b
 	db = branch -d
+	aa = add -A
 	cm = commit
 	cmm = commit -m
-	aa = add -A
-	cam = commit -am
+	cam = !sh -c 'git add -A && git commit ' -
 	cma = commit --amend
 	ss = status
+	ci = !sh -c 'git checkout -b issue-$1' -
+	mi = !sh -c 'git checkout develop && git merge issue-$1 && git branch -d issue-$1' -
 [core]
 	editor = vim
 [credential]
