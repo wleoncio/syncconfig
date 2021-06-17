@@ -290,8 +290,8 @@ bindcode 166 exec $HOME/Programs/myScripts/change_background.sh 1
 bindcode $mod+166 exec "$HOME/Programs/myScripts/remove_background.sh 1; sleep 1; $HOME/Programs/myScripts/change_background.sh 1"
 bindcode 167 exec $HOME/Programs/myScripts/change_background.sh 0
 bindcode $mod+167 exec "$HOME/Programs/myScripts/remove_background.sh 0; sleep 1; $HOME/Programs/myScripts/change_background.sh 0"
-bindcode 164 exec $terminal -e ranger
-bindcode $mod+164 exec pcmanfm
+bindcode 164 exec pcmanfm
+bindcode $mod+164 exec $terminal -e ranger
 bindcode 152 exec code
 bindcode 148 exec speedcrunch
 bindsym Print exec flameshot gui
