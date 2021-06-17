@@ -340,6 +340,7 @@ mode "$mode_launcher" {
         # Work mode
         bindsym w \
 			exec "$HOME/Programs/myScripts/fix_monitors.sh; \
+				$HOME/Programs/myScripts/mass_change_borders.sh 5; \
                 killall picom; sleep 1; \
                 picom -b --config ~/.config/picom.conf; \
 	            evolution -c mail & \
