@@ -375,12 +375,21 @@ mode "$mode_launcher" {
         bindsym n \
             exec "$HOME/Programs/myScripts/mass_change_borders.sh 5; \
                 nvidia-settings -a AllowVRR=0; \
-                nvidia-settings -a ShowVRRVisualIndicator=0"; \
+                nvidia-settings -a ShowVRRVisualIndicator=0; \
                 $HOME/Programs/myScripts/fix_monitors.sh; sleep 2; \
                 $HOME/Programs/myScripts/change_background.sh; \
                 killall gromit-mpx picom; sleep 1; \
                 picom -b --config ~/.config/picom.conf; \
-                dropbox start & xbindkeys; \
+                dropbox start & xbindkeys"; \
+            mode "default"
+        # Norskkurs mode
+        bindsym k \
+			exec "notify-send 'Entering Norskkurs mode' \
+				'\- Plug in tablet' -t 10000; \
+	            dropbox start & xbindkeys & \
+				firefox https://speaknorskonline.teachable.com/courses/enrolled/1229539 & \
+				sleep 1 & \
+				pcmanfm ~/Dropbox/Diversos/Norge/B2/"; \
             mode "default"
         # (secret) test mode
         bindsym t exec "$HOME/Programs/bin/$Todoist"; mode "default"
