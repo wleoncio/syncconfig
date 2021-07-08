@@ -179,7 +179,7 @@
         "command": "-workbench.action.quickOpen"
     },
     {
-        "key": "ctrl+g ctrl+s",
+        "key": "ctrl+g ctrl+f",
         "command": "workbench.action.gotoSymbol"
     },
     {
@@ -525,5 +525,9 @@
         "key": "ctrl+shift+c",
         "command": "-workbench.action.terminal.openNativeConsole",
         "when": "!terminalFocus"
+    },
+    {
+        "key": "ctrl+g ctrl+shift+f",
+        "command": "workbench.action.showAllSymbols"
     }
 ]
