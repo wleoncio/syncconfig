@@ -205,7 +205,6 @@
         "ocbe-uio"
     ],
     "githubIssues.issueBranchTitle": "issue-${issueNumber}",
-    "terminal.integrated.drawBoldTextInBrightColors": false,
     "editor.acceptSuggestionOnEnter": "off",
     "markdown.marp.exportType": "html",
     "markdown.extension.toc.levels": "1..1",
@@ -213,6 +212,12 @@
     "r.lsp.diagnostics": false,
     "workbench.editor.centeredLayoutAutoResize": false,
     "diffEditor.renderSideBySide": false,
-    "workbench.editor.mouseBackForwardToNavigate": false
+    "workbench.editor.mouseBackForwardToNavigate": false,
+    "terminal.integrated.gpuAcceleration": "on",
+    "terminal.integrated.tabs.enabled": true,
+    "terminal.integrated.drawBoldTextInBrightColors": false,
+    "terminal.integrated.tabs.showActiveTerminal": "always",
+    "terminal.integrated.tabs.hideCondition": "never",
+    "terminal.integrated.tabs.location": "left"
 
 }
