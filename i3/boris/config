@@ -333,7 +333,7 @@ workspace $ws10 output HDMI-0
 # Modes
 # ==============================================================================
 
-set $mode_launcher Launch: [w]ork [m]eeting [g]ame [n]ormal
+set $mode_launcher Launch: [w]ork [m]eeting [g]ame [n]ormal nors[k]kurs
 bindsym $mod+m mode "$mode_launcher"
 
 mode "$mode_launcher" {
