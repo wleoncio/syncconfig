@@ -410,7 +410,6 @@ mode "$pop_files" {
 # ==============================================================================
 for_window [title="Microsoft Teams-varsling" window_role="browser-window"] floating enable
 for_window [title="E-post"] move to workspace number 6. Mail
-for_window [instance="todoist"] move to workspace number 10. Todo
 for_window [instance="evolution-alarm-notify"] floating disable
 for_window [instance="spotify"] move to workspace number 7. Sounds
 for_window [instance="pocket-casts-linux"] move to workspace number 7. Sounds
@@ -422,7 +421,7 @@ for_window [title="Oversteer"] border pixel $bordersize; floating disable
 for_window [title="^zoom$"] floating enable; border pixel $bordersize #; resize set 200 400
 for_window [title="Zoom Meeting"] border pixel $bordersize; floating disable
 for_window [title="Zoom - Licensed Account"] floaring disable
-for_window [instance="teams|cheese|evince|Steam|telegram-desktop|whatsapp-for-linux|file-roller"] border pixel $bordersize
+for_window [instance="teams|cheese|evince|Steam|telegram-desktop|whatsapp-for-linux|file-roller|musixmatch"] border pixel $bordersize
 # Scratchpad
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
