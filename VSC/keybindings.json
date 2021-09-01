@@ -529,5 +529,15 @@
     {
         "key": "ctrl+g ctrl+shift+f",
         "command": "workbench.action.showAllSymbols"
+    },
+    {
+        "key": "ctrl+r ctrl+k",
+        "command": "r.knitRmd",
+        "when": "editorTextFocus && editorLangId == 'rmd'"
+    },
+    {
+        "key": "ctrl+shift+k",
+        "command": "-r.knitRmd",
+        "when": "editorTextFocus && editorLangId == 'rmd'"
     }
 ]
