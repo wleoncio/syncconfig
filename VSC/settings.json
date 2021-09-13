@@ -152,7 +152,7 @@
     "workbench.enableExperiments": false,
     "workbench.tree.indent": 32,
     "scm.defaultViewMode": "tree",
-    "workbench.colorTheme": "Community Material Theme",
+    "workbench.colorTheme": "Monokai Dimmed",
     "files.autoGuessEncoding": true,
     "markdown.marp.themes": [
         "./themes/uio-light.css",
@@ -218,6 +218,8 @@
     "terminal.integrated.drawBoldTextInBrightColors": false,
     "terminal.integrated.tabs.showActiveTerminal": "always",
     "terminal.integrated.tabs.hideCondition": "never",
-    "terminal.integrated.tabs.location": "left"
+    "terminal.integrated.tabs.location": "left",
+    "workbench.editor.showTabs": true,
+    "files.autoSave": "onFocusChange"
 
 }

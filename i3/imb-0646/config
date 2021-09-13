@@ -184,6 +184,7 @@ client.background       $uiowhite
 # finds out, if available)
 bar {
 	status_command i3status
+	font pango:Awesome 10
 	output HDMI-1
 	output DP-2
 	tray_output primary
