@@ -58,6 +58,7 @@ bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
+bindsym $mod+b workspace back_and_forth
 
 # move focused window
 bindsym $mod+Shift+Left move left
@@ -287,7 +288,7 @@ focus_follows_mouse yes
 # ==============================================================================
 # Window positioning
 # ==============================================================================
-for_window [instance="evolution"] move to workspace number 1. Mail
+for_window [title="Evolution"] move to workspace number 1. Mail
 for_window [instance="todoist"] move to workspace number 3. Todo
 for_window [instance="spotify"] move to workspace number 9. Sounds
 for_window [instance="pocket-casts"] move to workspace number 9. Sounds
