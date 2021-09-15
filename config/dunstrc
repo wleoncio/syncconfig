@@ -61,10 +61,10 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 3
+    frame_width = 2
 
     # Defines color of the frame around the notification window.
-    frame_color = "#7f3fbf"
+    frame_color = "#ffffff"
 
     # Define a color for the separator.
     # possible values are:
@@ -152,7 +152,7 @@
     stack_duplicates = true
 
     # Hide the count of stacked notifications with the same content
-    hide_duplicate_count = false
+    hide_duplicate_count = true
 
     # Display indicators for URLs (U) and actions (A).
     show_indicators = yes
@@ -213,7 +213,7 @@
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = 10
+    corner_radius = 5
 
     ### Legacy
 
@@ -283,10 +283,10 @@
     icon = /usr/share/icons/Arc-X-D/status/48/dialog-information.png
 
 [urgency_normal]
-    background = "#28143c"
-    foreground = "#ffffff"
-	frame_color = "#0088cc"
-    timeout = 5
+    background = "#bbbbbb"
+    foreground = "#111111"
+	frame_color = "#ffffff"
+    timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     icon = /usr/share/icons/Arc-X-D/status/48/dialog-information.png
 
