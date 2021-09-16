@@ -14,6 +14,6 @@
 	// }
 	"Add temporary cout": {
 		"prefix": "cout",
-		"body": "std::cout << $1 << '\\n'; //TEMP"
+		"body": "Rcpp::Rcout << $1 << std::endl; //TEMP"
 	}
 }
