@@ -12,8 +12,12 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
+	"Add temporary R cout": {
+		"prefix": "rcout",
+		"body": "Rcpp::Rcout << \"$1 \" << $1 << std::endl; //TEMP"
+	},
 	"Add temporary cout": {
 		"prefix": "cout",
-		"body": "Rcpp::Rcout << $1 << std::endl; //TEMP"
+		"body": "std::cout << \"$1 \" << $1 << std::endl; //TEMP"
 	}
 }
