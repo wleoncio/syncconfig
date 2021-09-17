@@ -14,10 +14,10 @@
 	// }
 	"Add temporary R cout": {
 		"prefix": "rcout",
-		"body": "Rcpp::Rcout << \"$1 \" << $1 << std::endl; //TEMP"
+		"body": "Rcpp::Rcout << \"$1\\n\" << $1 << std::endl; //TEMP"
 	},
 	"Add temporary cout": {
 		"prefix": "cout",
-		"body": "std::cout << \"$1 \" << $1 << std::endl; //TEMP"
+		"body": "std::cout << \"$1\\n\" << $1 << std::endl; //TEMP"
 	}
 }
