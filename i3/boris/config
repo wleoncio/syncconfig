@@ -422,6 +422,8 @@ for_window [title="^zoom$"] floating enable; border pixel $bordersize #; resize 
 for_window [title="Zoom Meeting"] border pixel $bordersize; floating disable
 for_window [title="Zoom - Licensed Account"] floaring disable
 for_window [instance="teams|cheese|evince|Steam|telegram-desktop|whatsapp-for-linux|file-roller|musixmatch"] border pixel $bordersize
+for_window [title="Work rotation.ods - LibreOffice Calc"] move to workspace number 5. Work hours
+
 # Scratchpad
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
