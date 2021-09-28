@@ -19,7 +19,6 @@ tryCatch(
            stderr());
     options(width=120)}
 )
-.q <- function() quit("no")
 options(browser="firefox")
 options(repos="https://cran.uib.no")
 .reload <- function(pkg) {
