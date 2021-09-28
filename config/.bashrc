@@ -189,3 +189,10 @@ PATH=$PATH:~/Programs/MATLAB/R2021a/bin
 
 
 eval "$(thefuck --alias)"
+
+export COLUMNS
+
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
