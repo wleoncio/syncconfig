@@ -120,9 +120,10 @@ then
 	fi
 	if [ "$has_vsc" = true ]
 	then
-		eval cp ~/.config/"$VSCdir"/User/keybindings.json "$location"/VSC
-		eval cp ~/.config/"$VSCdir"/User/settings.json "$location"/VSC
-		eval cp -r ~/.config/"$VSCdir"/User/snippets/ "$location"/VSC/
+		echo "Pushing VSC config files"
+		eval cp ~/.config/"$VSCdir"/User/keybindings.json "$location"/VSC/
+		eval cp ~/.config/"$VSCdir"/User/settings.json "$location"/VSC/
+		eval cp -r ~/.config/"$VSCdir"/User/snippets "$location"/VSC/snippets
 	fi
 elif [ "$1" = "pull" ]
 then
@@ -147,10 +148,10 @@ then
 	fi
 	if [ "$has_vsc" = true ]
 	then
-		eval cp "$location"/VSC/keybindings.json ~/.config/"$VSCdir"/User
-		eval cp "$location"/VSC/settings.json ~/.config/"$VSCdir"/User
-		eval cp "$location"/VSC/snippets/r.json ~/.config/"$VSCdir"/User/snippets/
-		eval cp -f "$location"/VSC/snippets/rmd.json ~/.config/"$VSCdir"/User/snippets/
+		echo "Pulling VSC config files"
+		eval cp "$location"/VSC/keybindings.json ~/.config/"$VSCdir"/User/
+		eval cp "$location"/VSC/settings.json ~/.config/"$VSCdir"/User/
+		eval cp -r "$location"/VSC/snippets ~/.config/"$VSCdir"/User/
 	fi
 else
 	echo -e "\n# Diff report\n"
@@ -184,6 +185,6 @@ else
 	then
 		eval diff "$diffFlags" ~/.config/"$VSCdir"/User/keybindings.json "$location"/VSC/keybindings.json
 		eval diff "$diffFlags" ~/.config/"$VSCdir"/User/settings.json "$location"/VSC/settings.json
-		eval diff "$diffFlags" -f ~/.config/"$VSCdir"/User/snippets/ "$location"/VSC/snippets/
+		eval diff "$diffFlags" ~/.config/"$VSCdir"/User/snippets "$location"/VSC/snippets
 	fi
 fi
