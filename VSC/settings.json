@@ -220,6 +220,7 @@
     "terminal.integrated.tabs.hideCondition": "never",
     "terminal.integrated.tabs.location": "left",
     "workbench.editor.showTabs": true,
-    "files.autoSave": "onFocusChange"
+    "files.autoSave": "onFocusChange",
+    "security.workspace.trust.untrustedFiles": "open"
 
 }
