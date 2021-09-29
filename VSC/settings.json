@@ -32,7 +32,6 @@
     "editor.minimap.side": "left",
     "editor.minimap.size": "fit",
     "editor.mouseWheelZoom": false,
-    "editor.renderWhitespace": "all",
     "editor.rulers": [
         // {
         //     "column": 70,
