@@ -290,7 +290,7 @@ bindsym $mod+minus scratchpad show
 # Other i3 options
 # ==============================================================================
 focus_wrapping no
-focus_follows_mouse yes
+focus_follows_mouse no
 
 # ==============================================================================
 # Window positioning
