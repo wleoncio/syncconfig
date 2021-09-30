@@ -26,7 +26,6 @@
     "editor.fontLigatures": true,
     "editor.fontSize": 12,
     "editor.fontWeight": "bold",
-    "editor.insertSpaces": false,
     "editor.minimap.maxColumn": 80,
     "editor.minimap.showSlider": "always",
     "editor.minimap.side": "left",
@@ -220,6 +219,7 @@
     "terminal.integrated.tabs.location": "left",
     "workbench.editor.showTabs": true,
     "files.autoSave": "onFocusChange",
-    "security.workspace.trust.untrustedFiles": "open"
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.tabSize": 2
 
 }
