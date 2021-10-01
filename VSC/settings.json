@@ -26,7 +26,6 @@
     "editor.fontLigatures": true,
     "editor.fontSize": 12,
     "editor.fontWeight": "bold",
-    "editor.insertSpaces": false,
     "editor.minimap.maxColumn": 80,
     "editor.minimap.showSlider": "always",
     "editor.minimap.side": "left",
@@ -44,7 +43,6 @@
         }
     ],
     "editor.scrollBeyondLastColumn": 0,
-    "editor.scrollBeyondLastLine": false,
     "explorer.compactFolders": false,
     "files.associations": {
         "*.docker": "Dockerfile"
@@ -152,7 +150,7 @@
     "workbench.enableExperiments": false,
     "workbench.tree.indent": 32,
     "scm.defaultViewMode": "tree",
-    "workbench.colorTheme": "Monokai Dimmed",
+    "workbench.colorTheme": "Tokyo Night",
     "files.autoGuessEncoding": true,
     "markdown.marp.themes": [
         "./themes/uio-light.css",
@@ -170,7 +168,6 @@
     "telemetry.enableCrashReporter": false,
     "latex-workshop.message.update.show": false,
     "r.bracketedPaste": true,
-    "workbench.sideBar.location": "right",
     "githubPullRequests.queries": [
         // {
         //     "label": "Waiting For My Review",
@@ -220,6 +217,14 @@
     "terminal.integrated.tabs.hideCondition": "never",
     "terminal.integrated.tabs.location": "left",
     "workbench.editor.showTabs": true,
-    "files.autoSave": "onFocusChange"
-
+    "files.autoSave": "onFocusChange",
+    "markdown.extension.toc.orderedList": true,
+    "editor.renderLineHighlight": "all",
+    "editor.renderLineHighlightOnlyWhenFocus": true,
+    "editor.snippetSuggestions": "top",
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "editor.insertSpaces": false,
+    "workbench.sideBar.location": "right",
+    "workbench.activityBar.visible": false,
 }
