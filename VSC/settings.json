@@ -31,7 +31,6 @@
     "editor.minimap.side": "left",
     "editor.minimap.size": "fit",
     "editor.mouseWheelZoom": false,
-    "editor.renderWhitespace": "all",
     "editor.rulers": [
         // {
         //     "column": 70,
@@ -227,4 +226,6 @@
     "editor.insertSpaces": false,
     "workbench.sideBar.location": "right",
     "workbench.activityBar.visible": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.tabSize": 2
 }
