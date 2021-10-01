@@ -98,6 +98,9 @@ bindsym $mod+s exec --no-startup-id ~/.config/i3/scripts/empty_workspace.sh
 # Autostart apps
 # ========================================================================
 
+# Source: https://github.com/olemartinorg/i3-alternating-layout
+exec_always --no-startup-id $HOME/Programs/i3-alternating-layout/alternating_layouts.py
+
 # Setup monitors
 exec --no-startup-id $HOME/Programs/myScripts/fix_monitors.sh
 
