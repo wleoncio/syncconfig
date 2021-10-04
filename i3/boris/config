@@ -2,9 +2,11 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-set $bordersize 5
+set $bordersize 0
 
 # workspace layouts:
+
+
 #default i3 tiling mode
 workspace_layout default
 focus_follows_mouse no
@@ -95,6 +97,9 @@ bindsym $mod+s exec --no-startup-id ~/.config/i3/scripts/empty_workspace.sh
 # ========================================================================
 # Autostart apps
 # ========================================================================
+
+# Source: https://github.com/olemartinorg/i3-alternating-layout
+exec_always --no-startup-id $HOME/Programs/i3-alternating-layout/alternating_layouts.py
 
 # Setup monitors
 exec --no-startup-id $HOME/Programs/myScripts/fix_monitors.sh
@@ -340,7 +345,7 @@ mode "$mode_launcher" {
         # Work mode
         bindsym w \
 			exec "$HOME/Programs/myScripts/fix_monitors.sh; \
-				$HOME/Programs/myScripts/mass_change_borders.sh 5; \
+				$HOME/Programs/myScripts/mass_change_borders.sh 0; \
                 killall picom; sleep 1; \
                 picom -b --config ~/.config/picom.conf; \
 	            evolution -c mail & \
@@ -384,7 +389,7 @@ mode "$mode_launcher" {
 			mode "default"
         # Normal mode
         bindsym n \
-            exec "$HOME/Programs/myScripts/mass_change_borders.sh 5; \
+            exec "$HOME/Programs/myScripts/mass_change_borders.sh 0; \
                 nvidia-settings -a AllowVRR=0; \
                 nvidia-settings -a ShowVRRVisualIndicator=0; \
                 $HOME/Programs/myScripts/fix_monitors.sh; sleep 2; \
@@ -418,11 +423,11 @@ for_window [window_role="pop-up"] floating enable
 for_window [instance="oversteer"] floating disable
 for_window [title="Secure CRAN mirrors|Choose one|Steam - News|^Variety\s|^Regions of Ruin Configuration"] floating enable
 for_window [title="Oversteer"] border pixel $bordersize; floating disable
-for_window [title="^zoom$"] floating enable; border pixel $bordersize #; resize set 200 400
-for_window [title="Zoom Meeting"] border pixel $bordersize; floating disable
-for_window [title="Zoom - Licensed Account"] floaring disable
 for_window [instance="teams|cheese|evince|Steam|telegram-desktop|whatsapp-for-linux|file-roller|musixmatch"] border pixel $bordersize
 for_window [title="Work rotation.ods - LibreOffice Calc"] move to workspace number 5. Work hours
+for_window [title="Zoom Meeting"] border pixel $bordersize; floating disable
+for_window [title="Zoom - Licensed Account"] floaring disable
+for_window [title="^zoom$"] floating enable; #border pixel $bordersize #; resize set 200 400
 
 # Scratchpad
 bindsym $mod+Shift+minus move scratchpad
