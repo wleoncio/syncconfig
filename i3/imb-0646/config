@@ -222,8 +222,7 @@ exec --no-startup-id xrandr --output DP-2 --primary --output HDMI-3 & sleep 5 & 
 exec --no-startup-id i3-msg workspace number $ws2; i3-msg workspace number $ws4; i3-msg workspace number $ws7;
 exec --no-startup-id evolution
 exec --no-startup-id todoist
-exec --no-startup-id libreoffice --nologo -o $HOME/UiO/Docs/Adm/Work\ rotation.ods
-exec --no-startup-id keynav
+exec_always --no-startup-id keynav
 exec numlockx on
 
 # i3 gaps
