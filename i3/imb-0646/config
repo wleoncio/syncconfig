@@ -307,4 +307,5 @@ for_window [title="Microsoft Teams-varsling"] floating enable
 for_window [instance="r_x11"] floating enable
 for_window [title="gsimplecal"] floating enable, border none
 for_window [title="^zoom$"] floating enable
-for_window [title="Work rotation"] move to workspace number $ws5
+for_window [instance="shutter"] floating enable
+
