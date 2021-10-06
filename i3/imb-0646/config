@@ -173,9 +173,9 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Colors
-set $uiored "#ff0000"
-set $uiowhite "#ffffff"
-set $uiogray "#b5aca3"
+set $uiored "#b60000"
+set $uiowhite "#f4f6ff"
+set $uiogray "#b2b3b7"
 
 # class                 border  backgr. text      indicator child_border
 client.focused          $uiored $uiored $uiowhite $uiored   $uiored
@@ -231,7 +231,7 @@ hide_edge_borders smart_no_gaps
 bindsym $mod+Shift+g exec XDG_CURRENT_DESKTOP=GNOME gnome-control-centeR
 
 # My shortcuts
-bindsym $mod+ctrl+l exec i3lock -c ff0000
+bindsym $mod+ctrl+l exec i3lock -c $uiored
 bindsym $mod+Shift+f exec firefox
 bindsym $mod+Shift+n exec nemo UiO
 bindsym $mod+Shift+v exec codium
