@@ -10,6 +10,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+default_border pixel 0
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -197,10 +198,6 @@ bar {
 	bindsym button3 exec gsimplecal
 	bindsym button2 exec pavucontrol
 	colors {
-		# background #000000
-		# statusline #ffffff
-		# separator #666666
-
 		# <colorclass>		<border> 	<bg>	<text>
 		focused_workspace	$uiored		$uiored	$uiowhite
 		active_workspace	$uiogray	$uiogray #000000
@@ -226,8 +223,7 @@ exec_always --no-startup-id keynav
 exec numlockx on
 
 # i3 gaps
-for_window [class=".*"] border pixel 0
-gaps inner 10
+gaps inner 5
 smart_gaps on
 hide_edge_borders smart_no_gaps
 
@@ -308,4 +304,5 @@ for_window [instance="r_x11"] floating enable
 for_window [title="gsimplecal"] floating enable, border none
 for_window [title="^zoom$"] floating enable
 for_window [instance="shutter"] floating enable
+for_window [title="Zoom Meeting"] border pixel 5
 
