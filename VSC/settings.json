@@ -167,6 +167,7 @@
     "telemetry.enableCrashReporter": false,
     "latex-workshop.message.update.show": false,
     "r.bracketedPaste": true,
+    "workbench.sideBar.location": "right",
     "githubPullRequests.queries": [
         // {
         //     "label": "Waiting For My Review",
@@ -215,7 +216,6 @@
     "terminal.integrated.tabs.showActiveTerminal": "always",
     "terminal.integrated.tabs.hideCondition": "never",
     "terminal.integrated.tabs.location": "left",
-    "workbench.editor.showTabs": true,
     "files.autoSave": "onFocusChange",
     "markdown.extension.toc.orderedList": true,
     "editor.renderLineHighlight": "all",
@@ -227,5 +227,11 @@
     "workbench.sideBar.location": "right",
     "workbench.activityBar.visible": false,
     "security.workspace.trust.untrustedFiles": "open",
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "terminal.integrated.commandsToSkipShell": [
+        "language-julia.interrupt"
+    ],
+    "julia.symbolCacheDownload": true,
+    "julia.enableTelemetry": false
+
 }
