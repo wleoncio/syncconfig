@@ -349,9 +349,7 @@ mode "$mode_launcher" {
                 killall picom; sleep 1; \
                 picom -b --config ~/.config/picom.conf; \
 	            evolution -c mail & \
-				libreoffice --nologo -o $HOME/UiO/Docs/Adm/Work\ rotation.ods & \
         	    $HOME/Programs/bin/$Todoist & \
-            	$HOME/Programs/bin/pocket-casts-linux & \
 	            xbindkeys"; \
             mode "default"
         # Meeting mode
