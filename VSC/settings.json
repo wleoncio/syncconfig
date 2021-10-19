@@ -14,11 +14,10 @@
     ],
     "bracket-pair-colorizer-2.forceUniqueOpeningColor": false,
     "bracket-pair-colorizer-2.highlightActiveScope": true,
-    "color-highlight.markerType": "dot-before",
+    "comment-divider.mainHeaderHeight": "line",
     "comment-divider.mainHeaderAlign": "left",
     "comment-divider.mainHeaderFiller": "=",
     "comment-divider.subheaderAlign": "left",
-    "comment-divider.subHeaderFiller": "-",
     "diffEditor.ignoreTrimWhitespace": false,
     "editor.cursorBlinking": "phase",
     "editor.emptySelectionClipboard": false,
@@ -32,10 +31,6 @@
     "editor.minimap.size": "fit",
     "editor.mouseWheelZoom": false,
     "editor.rulers": [
-        // {
-        //     "column": 70,
-        //     "color": "#333333"
-        // },
         {
             "column": 80,
             "color": "#ff0000"
@@ -56,23 +51,19 @@
     "html.preview.doubleClickToSwitchToEditor": false,
     "latex-workshop.intellisense.package.enabled": true,
     "latex-workshop.intellisense.unimathsymbols.enabled": true,
+    "latex-workshop.latex.autoBuild.run": "never",
     "latex-workshop.latex.outDir": "./",
     "latex-workshop.synctex.afterBuild.enabled": true,
     "latex-workshop.view.pdf.viewer": "tab",
     "markdown.extension.tableFormatter.enabled": true,
-    "latex-workshop.latex.autoBuild.run": "never",
     "markdown.marp.enableHtml": true,
     "markdown.preview.doubleClickToSwitchToEditor": false,
-    "markdown-pdf.omitBackground": true,
-    "open-in-browser.default": "firefox",
-    "r.helpPanel.helpProvider": "custom",
     "r.rpath.linux": "/usr/bin/R",
     "r.rterm.linux": "/usr/bin/radian",
     "r.sessionWatcher": true,
     "r.alwaysUseActiveTerminal": true,
-    "rdebugger.rterm.linux": "/usr/bin/radian",
     "task.saveBeforeRun": "prompt",
-    "terminal.integrated.confirmOnExit": true,
+    "terminal.integrated.confirmOnExit": "always",
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.cursorBlinking": true,
     "terminal.integrated.fontFamily": "Fira Code",
@@ -110,13 +101,13 @@
             "type": "line"
         },
         "ASK": {
-            "background": "FFCA02",
+            "background": "#FFCA02",
             "foreground": "black",
             "icon": "question",
             "iconColour": "#FFCA02"
         },
         "SUGGEST": {
-            "background": "FFCA02",
+            "background": "#FFCA02",
             "foreground": "black",
             "icon": "light-bulb",
             "iconColour": "#FFCA02"
@@ -149,7 +140,7 @@
     "workbench.enableExperiments": false,
     "workbench.tree.indent": 32,
     "scm.defaultViewMode": "tree",
-    "workbench.colorTheme": "Tokyo Night",
+    "workbench.colorTheme": "Ayu Mirage",
     "files.autoGuessEncoding": true,
     "markdown.marp.themes": [
         "./themes/uio-light.css",
@@ -163,29 +154,11 @@
     "editor.minimap.enabled": false,
     "editor.overviewRulerBorder": false,
     "editor.smoothScrolling": true,
-    "telemetry.enableTelemetry": false,
-    "telemetry.enableCrashReporter": false,
     "latex-workshop.message.update.show": false,
     "r.bracketedPaste": true,
-    "workbench.sideBar.location": "right",
-    "githubPullRequests.queries": [
-        // {
-        //     "label": "Waiting For My Review",
-        //     "query": "is:open review-requested:${user}"
-        // },
-        // {
-        //     "label": "Assigned To Me",
-        //     "query": "is:open assignee:${user}"
-        // },
-        // {
-        //     "label": "Created By Me",
-        //     "query": "is:open author:${user}"
-        // }
-    ],
     "githubIssues.queries": [
         {
             "label": "Assigned to me",
-            //     "query": "default"
             "query": "repo:${owner}/${repository} state:open assignee:${user} sort:created-desc"
         },
         {
@@ -232,6 +205,5 @@
         "language-julia.interrupt"
     ],
     "julia.symbolCacheDownload": true,
-    "julia.enableTelemetry": false
-
+    "julia.enableTelemetry": false,
 }
