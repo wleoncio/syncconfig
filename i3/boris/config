@@ -43,7 +43,6 @@ floating_modifier $mod
 # start a terminal:
 set $terminal xfce4-terminal
 bindsym $mod+Return exec $terminal
-bindsym $mod+Shift+Return exec i3-quickterm shell
 
 # kill focused window:
 bindsym $mod+c kill
@@ -80,7 +79,7 @@ bindsym $mod+Shift+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # toggle sticky:
-bindsym $mod+Shift+Ctrl+space sticky toggle
+bindsym $mod+Shift+Ctrl+s sticky toggle
 
 # change focus between tiling / floating windows:
 bindsym $mod+space focus mode_toggle
@@ -349,9 +348,7 @@ mode "$mode_launcher" {
                 killall picom; sleep 1; \
                 picom -b --config ~/.config/picom.conf; \
 	            evolution -c mail & \
-				libreoffice --nologo -o $HOME/UiO/Docs/Adm/Work\ rotation.ods & \
         	    $HOME/Programs/bin/$Todoist & \
-            	$HOME/Programs/bin/pocket-casts-linux & \
 	            xbindkeys"; \
             mode "default"
         # Meeting mode
