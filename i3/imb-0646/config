@@ -210,7 +210,7 @@ bar {
 # ==============================================================================
 # Startup programs
 # ==============================================================================
-exec_always --no-startup-id compton -bcf --config $HOME/.config/compton.conf
+exec_always --no-startup-id compton --config $HOME/.config/compton.conf
 exec --no-startup-id $HOME/Programs/i3-alternating-layout/alternating_layouts.py
 exec --no-startup-id xbindkeys
 exec --no-startup-id dropbox start
