@@ -292,9 +292,9 @@ focus_follows_mouse no
 # Window positioning
 # ==============================================================================
 for_window [title="Evolution"] move to workspace number 1. Mail
-for_window [instance="todoist"] move to workspace number 8. Todo
-for_window [instance="spotify"] move to workspace number 9. Sounds
-for_window [instance="pocket-casts"] move to workspace number 9. Sounds
+for_window [instance="todoist"] move to workspace number 9. Todo
+for_window [instance="spotify"] move to workspace number 8. Sounds
+for_window [instance="pocket-casts"] move to workspace number 8. Sounds
 
 # ==============================================================================
 # Other window rules
