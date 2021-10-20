@@ -104,6 +104,7 @@ then
 	eval cp ~/.gitconfig "$location"/config
 	eval cp ~/.radian_profile "$location"/config
 	eval cp ~/.vimrc "$location"/config
+	eval cp ~/.keynavrc "$location"/config
 	eval cp ~/.xbindkeysrc "$location"/config
 	eval cp ~/.Xresources "$location"/config
 	eval cp ~/.Rprofile "$location"/config
@@ -132,6 +133,7 @@ then
 	eval cp "$location"/config/.gitconfig ~
 	eval cp "$location"/config/.radian_profile ~
 	eval cp "$location"/config/.vimrc ~
+	eval cp "$location"/config/.keynavrc ~
 	eval cp "$location"/config/.xbindkeysrc ~
 	eval cp "$location"/config/.Xresources ~
 	eval cp "$location"/config/.Rprofile ~
@@ -169,6 +171,7 @@ else
 	eval diff "$diffFlags" ~/.gitconfig "$location"/config
 	eval diff "$diffFlags" ~/.radian_profile "$location"/config
 	eval diff "$diffFlags" ~/.vimrc "$location"/config
+	eval diff "$diffFlags" ~/.keynavrc "$location"/config
 	eval diff "$diffFlags" ~/.xbindkeysrc "$location"/config
 	eval diff "$diffFlags" ~/.Xresources "$location"/config
 	eval diff "$diffFlags" ~/.Rprofile "$location"/config
