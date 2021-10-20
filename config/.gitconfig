@@ -13,13 +13,14 @@
 	co = checkout
 	cb = checkout -b
 	db = branch -d
-	drb = push -d 
+	drb = push -d
 	aa = add -A
+	ap = add -p
 	cm = commit
 	cmm = commit -m
-	cam = !sh -c 'git add -A && git commit ' -
+	cam = commit -am
 	cma = commit --amend
-	ss = status
+	s = status
 	ci = !sh -c 'git checkout -b issue-$1' -
 	di = !sh -c 'git branch -d issue-$1' -
 	mi = !sh -c 'git checkout develop && git merge issue-$1 && git branch -d issue-$1' -
