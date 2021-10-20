@@ -36,6 +36,37 @@
             "color": "#ff0000"
         }
     ],
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                // Find scope values by running the following on the code file:
+                // Developer: Inspect Editor Tokens and Scopes
+                "scope": [
+                    "meta.function-call.arguments.r",
+                    "keyword.operator.assignment.r",
+                    "punctuation.separator.parameters.r"
+                ],
+                "settings": {
+                    "foreground": "#f29668",
+                    "fontStyle": "bold"
+                }
+            },
+            {
+                "scope": ["constant.language.r"],
+                "settings": {
+                    "foreground": "#7e7e7e",
+                    "fontStyle": "bold"
+                }
+            },
+            {
+                "scope": ["constant.numeric.float.decimal.r"],
+                "settings": {
+                    "foreground": "#5153b3",
+                    "fontStyle": "bold"
+                }
+            },
+        ]
+    },
     "editor.scrollBeyondLastColumn": 0,
     "explorer.compactFolders": false,
     "files.associations": {
@@ -140,7 +171,7 @@
     "workbench.enableExperiments": false,
     "workbench.tree.indent": 32,
     "scm.defaultViewMode": "tree",
-    "workbench.colorTheme": "Ayu Mirage",
+    "workbench.colorTheme": "Ayu Dark",
     "files.autoGuessEncoding": true,
     "markdown.marp.themes": [
         "./themes/uio-light.css",
@@ -181,7 +212,6 @@
     "typescript.suggest.paths": false,
     "r.lsp.diagnostics": false,
     "workbench.editor.centeredLayoutAutoResize": false,
-    "diffEditor.renderSideBySide": false,
     "workbench.editor.mouseBackForwardToNavigate": false,
     "terminal.integrated.gpuAcceleration": "on",
     "terminal.integrated.tabs.enabled": true,
