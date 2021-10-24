@@ -24,6 +24,7 @@
 	ci = !sh -c 'git checkout -b issue-$1' -
 	di = !sh -c 'git branch -d issue-$1' -
 	mi = !sh -c 'git checkout develop && git merge issue-$1 && git branch -d issue-$1' -
+	hist = log -p --
 [core]
 	editor = vim
 [credential]
