@@ -321,6 +321,7 @@ for_window [instance="r_x11"] floating enable
 for_window [title="gsimplecal"] floating enable, border none
 for_window [title="^zoom$"] floating enable
 for_window [instance="shutter"] floating enable
+for_window [instance="evolution-alarm-notify"] floating enable
 for_window [title="Zoom Meeting"] border pixel 5
 for_window [instance="pocket-casts"] border pixel 5
 for_window [title="Møte \| Microsoft Teams"] border pixel 5
