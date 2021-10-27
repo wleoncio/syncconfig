@@ -52,3 +52,9 @@
 	ff = yes
 [init]
 	defaultBranch = develop
+[diff]
+    tool = meld
+[difftool]
+    prompt = false
+[difftool "meld"]
+    cmd = meld "$LOCAL" "$REMOTE"
