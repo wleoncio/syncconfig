@@ -278,6 +278,20 @@ mode "$mode_launcher" {
 	bindsym Return mode "default"
 }
 
+# Combinations for shutdown, reboot, lock screen
+
+set $mode_system System (l)ogout, (r)eboot, (s)hutdown
+bindsym $mod+Pause mode "$mode_system"
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3-msg exit, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym s exec --no-startup-id systemctl poweroff -i, mode "default"  
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
 
