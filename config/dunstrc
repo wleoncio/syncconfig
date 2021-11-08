@@ -18,7 +18,7 @@
     follow = none
 
     # The geometry of the window:
-	width = 600
+	width = 300
 	height = 200
 	origin = top-center
 
@@ -32,7 +32,7 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.).
-    transparency = 16
+    transparency = 40
 
     # The height of the entire notification.  If the height is smaller
     # than the font height and padding combined, it will be raised
@@ -274,9 +274,9 @@
     icon = /usr/share/icons/Arc-X-D/status/48/dialog-information.png
 
 [urgency_normal]
-    background = "#bbbbbb"
+    background = "#888888"
     foreground = "#111111"
-	frame_color = "#ffffff"
+	frame_color = "#aaaaaa"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     icon = /usr/share/icons/Arc-X-D/status/48/dialog-information.png
