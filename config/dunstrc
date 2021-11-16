@@ -18,9 +18,10 @@
     follow = none
 
     # The geometry of the window:
-	width = 300
+	width = (0, 300)
 	height = 200
 	origin = top-center
+	offset = 0x30
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
