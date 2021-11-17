@@ -182,7 +182,6 @@
     "markdown.extension.print.theme": "dark",
     "comment-divider.length": 60,
     "workbench.startupEditor": "welcomePageInEmptyWorkbench",
-    "editor.minimap.enabled": false,
     "editor.overviewRulerBorder": false,
     "editor.smoothScrolling": true,
     "latex-workshop.message.update.show": false,
@@ -201,10 +200,8 @@
         "TODO",
         "FIXME"
     ],
-    "githubPullRequests.remotes": [
-        "origin",
-        "ocbe-uio"
-    ],
+    "githubPullRequests.remotes": ["ocbe-uio", "origin"],
+    "github.remoteName": "ocbe-uio",
     "githubIssues.issueBranchTitle": "issue-${issueNumber}",
     "editor.acceptSuggestionOnEnter": "off",
     "markdown.marp.exportType": "html",
@@ -226,7 +223,6 @@
     "editor.snippetSuggestions": "top",
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
-    "editor.insertSpaces": false,
     "workbench.sideBar.location": "right",
     "workbench.activityBar.visible": false,
     "security.workspace.trust.untrustedFiles": "open",
@@ -236,4 +232,6 @@
     ],
     "julia.symbolCacheDownload": true,
     "julia.enableTelemetry": false,
+    "diffEditor.renderSideBySide": false,
+    "editor.minimap.enabled": false
 }
