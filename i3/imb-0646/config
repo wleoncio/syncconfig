@@ -229,9 +229,6 @@ gaps inner 5
 smart_gaps on
 hide_edge_borders smart_no_gaps
 
-# Other tweaks to make things run properly
-bindsym $mod+Shift+g exec XDG_CURRENT_DESKTOP=GNOME gnome-control-centeR
-
 # My shortcuts
 bindsym $mod+ctrl+l exec i3lock -c $uiored
 bindsym $mod+Shift+f exec firefox
