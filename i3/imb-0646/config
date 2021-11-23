@@ -10,7 +10,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-default_border pixel 0
+default_border pixel 5
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -176,10 +176,11 @@ bindsym $mod+r mode "resize"
 set $uiored "#b60000"
 set $uiowhite "#f4f6ff"
 set $uiogray "#b2b3b7"
+set $menubar "#23252e"
 
 # class                 border  backgr. text      indicator child_border
 client.focused          $uiored $uiored $uiowhite $uiored   $uiored
-client.focused_inactive #333333 #5f676a $uiowhite #484e50   #5f676a
+client.focused_inactive #333333 #5f676a $uiowhite $menubar  $menubar
 client.unfocused        #222222 #222222 #b5aca3 #292d2e   #222222
 client.urgent           #ffff00 #ffff00 #000000 #ffff00   #ffff00
 # client.placeholder    #000000 #0c0c0c $uiowhite #000000   #0c0c0c
@@ -309,21 +310,17 @@ focus_follows_mouse no
 # Window positioning
 # ==============================================================================
 for_window [title="Evolution"] move to workspace number 1. Mail
-for_window [instance="todoist"] move to workspace number 9. Todo
-for_window [instance="spotify"] move to workspace number 8. Sounds
-for_window [instance="pocket-casts"] move to workspace number 8. Sounds
+for_window [instance="todoist"] move to workspace number 7. Todo
+for_window [instance="spotify|pocket-casts"] move to workspace number 8. Sounds
 
 # ==============================================================================
 # Other window rules
 # ==============================================================================
-for_window [title="Volume Control"] floating enable
-for_window [title="Microsoft Teams-varsling"] floating enable
-for_window [instance="r_x11"] floating enable
+for_window [title="Volume Control|Microsoft Teams-varsling|^zoom$"] floating enable
+for_window [title="Zoom - Licensed Account"] floating disable
 for_window [title="gsimplecal"] floating enable, border none
-for_window [title="^zoom$"] floating enable
-for_window [instance="shutter"] floating enable
-for_window [instance="evolution-alarm-notify"] floating enable
-for_window [title="Zoom Meeting"] border pixel 5
+for_window [instance="shutter|evolution-alarm-notify|r_x11"] floating enable
+for_window [title="Zoom Meeting|YouTube"] border pixel 5
 for_window [instance="pocket-casts"] border pixel 5
 for_window [title="Møte \| Microsoft Teams"] border pixel 5
-for_window [title="YouTube"] border pixel 5
+for_window [instance="Navigator"] move to workspace number 9. Web; workspace number $ws9
