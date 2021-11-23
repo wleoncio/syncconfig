@@ -543,5 +543,10 @@
         "key": "ctrl+k ctrl+j",
         "command": "-editor.unfoldAll",
         "when": "editorTextFocus && foldingEnabled"
+    },
+    {
+        "key": "ctrl+delete",
+        "command": "-workbench.action.terminal.sendSequence",
+        "when": "terminalFocus"
     }
 ]
