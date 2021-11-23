@@ -284,7 +284,7 @@ mode "$mode_launcher" {
 # Combinations for shutdown, reboot, lock screen
 
 set $mode_system System (l)ogout, (r)eboot, (s)hutdown
-bindsym $mod+Pause mode "$mode_system"
+bindsym $mod+Shift+q mode "$mode_system"
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3-msg exit, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
