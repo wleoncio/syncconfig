@@ -1,8 +1,8 @@
 {
     "alignment.chars": {
         "<-": {
-            "spaceBefore": 1,
-            "spaceAfter": 1
+            "spaceAfter": 1,
+            "spaceBefore": 1
         }
     },
     "bracket-pair-colorizer-2.colors": [
@@ -14,28 +14,38 @@
     ],
     "bracket-pair-colorizer-2.forceUniqueOpeningColor": false,
     "bracket-pair-colorizer-2.highlightActiveScope": true,
-    "comment-divider.mainHeaderHeight": "line",
+    "comment-divider.length": 60,
     "comment-divider.mainHeaderAlign": "left",
     "comment-divider.mainHeaderFiller": "=",
+    "comment-divider.mainHeaderHeight": "line",
     "comment-divider.subheaderAlign": "left",
     "diffEditor.ignoreTrimWhitespace": false,
+    "editor.acceptSuggestionOnEnter": "off",
     "editor.cursorBlinking": "phase",
     "editor.emptySelectionClipboard": false,
     "editor.fontFamily": "Fira Code",
     "editor.fontLigatures": true,
     "editor.fontSize": 12,
     "editor.fontWeight": "bold",
+    "editor.minimap.enabled": false,
     "editor.minimap.maxColumn": 80,
     "editor.minimap.showSlider": "always",
     "editor.minimap.side": "left",
     "editor.minimap.size": "fit",
     "editor.mouseWheelZoom": false,
+    "editor.overviewRulerBorder": false,
+    "editor.renderLineHighlight": "all",
+    "editor.renderLineHighlightOnlyWhenFocus": true,
     "editor.rulers": [
         {
-            "column": 80,
-            "color": "#ff0000"
+            "color": "#ff0000",
+            "column": 80
         }
     ],
+    "editor.scrollBeyondLastColumn": 0,
+    "editor.smoothScrolling": true,
+    "editor.snippetSuggestions": "top",
+    "editor.tabSize": 2,
     "editor.tokenColorCustomizations": {
         "textMateRules": [
             {
@@ -47,59 +57,115 @@
                     "punctuation.separator.parameters.r"
                 ],
                 "settings": {
-                    "foreground": "#f29668",
-                    "fontStyle": "bold"
+                    "fontStyle": "bold",
+                    "foreground": "#f29668"
                 }
             },
             {
-                "scope": ["constant.language.r"],
+                "scope": [
+                    "constant.language.r"
+                ],
                 "settings": {
-                    "foreground": "#7e7e7e",
-                    "fontStyle": "bold"
+                    "fontStyle": "bold",
+                    "foreground": "#7e7e7e"
                 }
             },
             {
-                "scope": ["constant.numeric.float.decimal.r"],
+                "scope": [
+                    "constant.numeric.float.decimal.r"
+                ],
                 "settings": {
-                    "foreground": "#5153b3",
-                    "fontStyle": "bold"
+                    "fontStyle": "bold",
+                    "foreground": "#5153b3"
                 }
-            },
+            }
         ]
     },
-    "editor.scrollBeyondLastColumn": 0,
     "explorer.compactFolders": false,
     "files.associations": {
         "*.docker": "Dockerfile"
     },
+    "files.autoGuessEncoding": true,
+    "files.autoSave": "onFocusChange",
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
-    "git.autofetch": true,
-    "git.checkoutType": ["local"],
-    "git.suggestSmartCommit": false,
     "git-graph.dialog.createBranch.checkOut": true,
-    "git-graph.repository.fetchAndPrune": true,
     "git-graph.repository.commits.fetchAvatars": true,
+    "git-graph.repository.fetchAndPrune": true,
+    "git-graph.showStatusBarItem": false,
+    "git.autofetch": true,
+    "git.checkoutType": [
+        "local"
+    ],
+    "git.suggestSmartCommit": false,
+    "github.remoteName": "ocbe-uio",
+    "githubIssues.createIssueTriggers": [
+        "TODO",
+        "FIXME"
+    ],
+    "githubIssues.issueBranchTitle": "issue-${issueNumber}",
+    "githubIssues.queries": [
+        {
+            "label": "Assigned to me",
+            "query": "repo:${owner}/${repository} state:open assignee:${user} sort:created-desc"
+        },
+        {
+            "label": "Unassigned",
+            "query": "state:open repo:${owner}/${repository} sort:created-desc no:assignee"
+        }
+    ],
+    "githubPullRequests.remotes": [
+        "ocbe-uio",
+        "origin"
+    ],
     "html.preview.doubleClickToSwitchToEditor": false,
+    "julia.enableTelemetry": false,
+    "julia.symbolCacheDownload": true,
+    "latex-workshop.bibtex-format.tab": "tab",
     "latex-workshop.intellisense.package.enabled": true,
     "latex-workshop.intellisense.unimathsymbols.enabled": true,
     "latex-workshop.latex.autoBuild.run": "never",
     "latex-workshop.latex.outDir": "./",
+    "latex-workshop.message.update.show": false,
     "latex-workshop.synctex.afterBuild.enabled": true,
     "latex-workshop.view.pdf.viewer": "tab",
+    "markdown.extension.print.theme": "dark",
     "markdown.extension.tableFormatter.enabled": true,
+    "markdown.extension.toc.levels": "1..1",
+    "markdown.extension.toc.orderedList": true,
     "markdown.marp.enableHtml": true,
+    "markdown.marp.exportType": "html",
+    "markdown.marp.themes": [
+        "./themes/uio-light.css",
+        "./themes/uio-dark.css"
+    ],
     "markdown.preview.doubleClickToSwitchToEditor": false,
+    "python.dataScience.askForKernelRestart": false,
+    "r.alwaysUseActiveTerminal": true,
+    "r.bracketedPaste": true,
+    "r.lsp.diagnostics": false,
     "r.rpath.linux": "/usr/bin/R",
     "r.rterm.linux": "/usr/bin/radian",
     "r.sessionWatcher": true,
-    "r.alwaysUseActiveTerminal": true,
+    "scm.defaultViewMode": "tree",
+    "security.workspace.trust.untrustedFiles": "open",
     "task.saveBeforeRun": "prompt",
+    "terminal.integrated.commandsToSkipShell": [
+        "language-julia.interrupt"
+    ],
     "terminal.integrated.confirmOnExit": "always",
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.drawBoldTextInBrightColors": false,
     "terminal.integrated.fontFamily": "Fira Code",
     "terminal.integrated.fontSize": 12,
     "terminal.integrated.fontWeight": "500",
+    "terminal.integrated.gpuAcceleration": "on",
+    "terminal.integrated.tabs.enabled": true,
+    "terminal.integrated.tabs.hideCondition": "never",
+    "terminal.integrated.tabs.location": "left",
+    "terminal.integrated.tabs.showActiveTerminal": "always",
     "todo-tree.general.revealBehaviour": "start of todo",
     "todo-tree.general.statusBar": "tags",
     "todo-tree.general.statusBarClickBehaviour": "reveal",
@@ -113,16 +179,26 @@
         "[x]"
     ],
     "todo-tree.highlights.customHighlight": {
-        "TODO": {
-            "background": "green",
+        "ASK": {
+            "background": "#FFCA02",
             "foreground": "black",
-            "icon": "check"
+            "icon": "question",
+            "iconColour": "#FFCA02"
+        },
+        "DONE": {
+            "foreground": "green"
         },
         "FIXME": {
             "background": "red",
             "foreground": "white",
-            "iconColour": "red",
-            "icon": "alert"
+            "icon": "alert",
+            "iconColour": "red"
+        },
+        "SUGGEST": {
+            "background": "#FFCA02",
+            "foreground": "black",
+            "icon": "light-bulb",
+            "iconColour": "#FFCA02"
         },
         "TEMP": {
             "background": "#707070",
@@ -131,107 +207,39 @@
             "iconColour": "gray",
             "type": "line"
         },
-        "ASK": {
-            "background": "#FFCA02",
+        "TODO": {
+            "background": "green",
             "foreground": "black",
-            "icon": "question",
-            "iconColour": "#FFCA02"
-        },
-        "SUGGEST": {
-            "background": "#FFCA02",
-            "foreground": "black",
-            "icon": "light-bulb",
-            "iconColour": "#FFCA02"
-        },
-        "DONE": {
-            "foreground": "green"
+            "icon": "check"
         }
     },
-    "todo-tree.tree.showScanModeButton": false,
     "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+    "todo-tree.tree.showScanModeButton": false,
+    "typescript.suggest.paths": false,
     "window.menuBarVisibility": "hidden",
     "window.restoreWindows": "none",
-    "workbench.colorCustomizations" : {
-        "terminal.border": "#888",
-        "terminal.foreground" : "#fff",
-        "terminal.background" : "#101010",
+    "workbench.activityBar.visible": false,
+    "workbench.colorCustomizations": {
         "terminal.ansiBlack": "#000",
-        "terminal.ansiWhite": "#fff",
         "terminal.ansiBrightBlack": "#fff",
         "terminal.ansiBrightRed": "#fd6464",
-        "terminal.ansiRed": "#ff0000",
-        "terminal.ansiYellow": "#ffaa00",
         "terminal.ansiGreen": "#00ff00",
-
+        "terminal.ansiRed": "#ff0000",
+        "terminal.ansiWhite": "#fff",
+        "terminal.ansiYellow": "#ffaa00",
+        "terminal.background": "#101010",
+        "terminal.border": "#888",
+        "terminal.foreground": "#fff"
     },
+    "workbench.colorTheme": "Ayu Dark",
+    "workbench.editor.centeredLayoutAutoResize": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.editor.mouseBackForwardToNavigate": false,
     "workbench.editor.revealIfOpen": true,
     "workbench.editor.scrollToSwitchTabs": true,
     "workbench.editor.tabSizing": "shrink",
     "workbench.enableExperiments": false,
-    "workbench.tree.indent": 32,
-    "scm.defaultViewMode": "tree",
-    "workbench.colorTheme": "Ayu Dark",
-    "files.autoGuessEncoding": true,
-    "markdown.marp.themes": [
-        "./themes/uio-light.css",
-        "./themes/uio-dark.css"
-    ],
-    "python.dataScience.askForKernelRestart": false,
-    "latex-workshop.bibtex-format.tab": "tab",
-    "markdown.extension.print.theme": "dark",
-    "comment-divider.length": 60,
-    "workbench.startupEditor": "welcomePageInEmptyWorkbench",
-    "editor.overviewRulerBorder": false,
-    "editor.smoothScrolling": true,
-    "latex-workshop.message.update.show": false,
-    "r.bracketedPaste": true,
-    "githubIssues.queries": [
-        {
-            "label": "Assigned to me",
-            "query": "repo:${owner}/${repository} state:open assignee:${user} sort:created-desc"
-        },
-        {
-            "label": "Unassigned",
-            "query": "state:open repo:${owner}/${repository} sort:created-desc no:assignee"
-        }
-    ],
-    "githubIssues.createIssueTriggers": [
-        "TODO",
-        "FIXME"
-    ],
-    "githubPullRequests.remotes": ["ocbe-uio", "origin"],
-    "github.remoteName": "ocbe-uio",
-    "githubIssues.issueBranchTitle": "issue-${issueNumber}",
-    "editor.acceptSuggestionOnEnter": "off",
-    "markdown.marp.exportType": "html",
-    "markdown.extension.toc.levels": "1..1",
-    "typescript.suggest.paths": false,
-    "r.lsp.diagnostics": false,
-    "workbench.editor.centeredLayoutAutoResize": false,
-    "workbench.editor.mouseBackForwardToNavigate": false,
-    "terminal.integrated.gpuAcceleration": "on",
-    "terminal.integrated.tabs.enabled": true,
-    "terminal.integrated.drawBoldTextInBrightColors": false,
-    "terminal.integrated.tabs.showActiveTerminal": "always",
-    "terminal.integrated.tabs.hideCondition": "never",
-    "terminal.integrated.tabs.location": "left",
-    "files.autoSave": "onFocusChange",
-    "markdown.extension.toc.orderedList": true,
-    "editor.renderLineHighlight": "all",
-    "editor.renderLineHighlightOnlyWhenFocus": true,
-    "editor.snippetSuggestions": "top",
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
     "workbench.sideBar.location": "right",
-    "workbench.activityBar.visible": false,
-    "security.workspace.trust.untrustedFiles": "open",
-    "editor.tabSize": 2,
-    "terminal.integrated.commandsToSkipShell": [
-        "language-julia.interrupt"
-    ],
-    "julia.symbolCacheDownload": true,
-    "julia.enableTelemetry": false,
-    "diffEditor.renderSideBySide": false,
-    "editor.minimap.enabled": false
+    "workbench.startupEditor": "welcomePageInEmptyWorkbench",
+    "workbench.tree.indent": 32
 }
