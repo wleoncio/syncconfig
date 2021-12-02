@@ -233,7 +233,7 @@ hide_edge_borders smart_no_gaps
 # My shortcuts
 bindsym $mod+ctrl+l exec i3lock -c $uiored
 bindsym $mod+Shift+f exec firefox
-bindsym $mod+Shift+n exec nemo UiO
+bindsym $mod+Shift+n exec $default_terminal -e ranger UiO/
 bindsym $mod+Shift+v exec codium
 bindsym $mod+Shift+w exec libreoffice --nologo -o $HOME/UiO/Docs/Adm/Work\ rotation.ods
 bindsym $mod+Shift+p exec pavucontrol
