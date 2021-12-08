@@ -2,7 +2,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-set $bordersize 0
+set $bordersize 5
 
 # workspace layouts:
 
@@ -344,7 +344,7 @@ mode "$mode_launcher" {
         # Work mode
         bindsym w \
 			exec "$HOME/Programs/myScripts/fix_monitors.sh; \
-				$HOME/Programs/myScripts/mass_change_borders.sh 0; \
+				$HOME/Programs/myScripts/mass_change_borders.sh 5; \
                 killall picom; sleep 1; \
                 picom -b --config ~/.config/picom.conf; \
 	            evolution -c mail & \
@@ -365,7 +365,7 @@ mode "$mode_launcher" {
         # Game mode
         bindsym g \
 			workspace number $ws1; \
-            exec "$HOME/Programs/myScripts/mass_change_borders.sh 5; \
+            exec "$HOME/Programs/myScripts/mass_change_borders.sh 9; \
                 killall xbindkeys picom dropbox gromit-mpx; \
                 nvidia-settings -a AllowVRR=1 & \
                 nvidia-settings -a ShowVRRVisualIndicator=1 & \
@@ -386,7 +386,7 @@ mode "$mode_launcher" {
 			mode "default"
         # Normal mode
         bindsym n \
-            exec "$HOME/Programs/myScripts/mass_change_borders.sh 0; \
+            exec "$HOME/Programs/myScripts/mass_change_borders.sh 3; \
                 nvidia-settings -a AllowVRR=0; \
                 nvidia-settings -a ShowVRRVisualIndicator=0; \
                 $HOME/Programs/myScripts/fix_monitors.sh; sleep 2; \
