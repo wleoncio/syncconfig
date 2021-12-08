@@ -58,7 +58,7 @@
     },
     "Browser": {
         "prefix": "bro",
-        "body": "browser() # TEMP",
+        "body": "browser(\"$1\") # TEMP",
         "description": "Call to browser with #TEMP tag"
     },
     "Print debug": {
