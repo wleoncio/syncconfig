@@ -146,7 +146,7 @@ then
 	eval cp -r "$location"/myScripts/* ~/Programs/myScripts/
 	if [ "$has_i3" = true ]
 	then
-		eval cp "$location"/i3/"$machinename"/* ~/"$i3dir"
+		eval cp -r "$location"/i3/"$machinename"/* ~/"$i3dir"
 	fi
 	if [ "$has_vsc" = true ]
 	then
