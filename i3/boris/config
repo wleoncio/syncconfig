@@ -420,10 +420,11 @@ for_window [window_role="pop-up"] floating enable
 for_window [instance="oversteer"] floating disable
 for_window [title="Secure CRAN mirrors|Choose one|Steam - News|^Variety\s|^Regions of Ruin Configuration"] floating enable
 for_window [title="Oversteer"] border pixel $bordersize; floating disable
-for_window [instance="teams|cheese|evince|Steam|telegram-desktop|whatsapp-for-linux|file-roller|musixmatch"] border pixel $bordersize
+for_window [instance="teams|cheese|evince|Steam|telegram-desktop|whatsapp-for-linux|file-roller"] border pixel $bordersize
 for_window [title="Zoom Meeting"] border pixel $bordersize; floating disable
 for_window [title="Zoom - Licensed Account"] floaring disable
 for_window [title="^zoom$"] floating enable; #border pixel $bordersize #; resize set 200 400
+for_window [instance="musixmatch"] floating enable; move scratchpad
 
 # Scratchpad
 bindsym $mod+Shift+minus move scratchpad
