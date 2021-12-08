@@ -426,6 +426,4 @@ for_window [title="Zoom - Licensed Account"] floaring disable
 for_window [title="^zoom$"] floating enable; #border pixel $bordersize #; resize set 200 400
 for_window [instance="musixmatch"] floating enable; move scratchpad
 
-# Scratchpad
-bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus scratchpad show
+bindsym $mod+Shift+h exec "i3-msg floating enable & i3-msg move scratchpad"
