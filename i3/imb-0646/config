@@ -220,6 +220,7 @@ exec --no-startup-id i3-msg workspace number $ws2; i3-msg workspace number $ws8;
 exec evolution
 exec todoist
 exec numlockx on
+exec keynav
 
 # i3 gaps
 gaps inner 2
