@@ -226,9 +226,7 @@ exec todoist
 exec numlockx on
 
 # i3 gaps
-gaps inner 5
-smart_gaps on
-hide_edge_borders smart_no_gaps
+gaps inner 2
 
 # My shortcuts
 bindsym $mod+ctrl+l exec i3lock -c $uiored
