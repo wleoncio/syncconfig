@@ -316,7 +316,8 @@ for_window [title="Volume Control|Microsoft Teams-varsling|^zoom$"] floating ena
 for_window [title="Zoom - Licensed Account"] floating disable
 for_window [title="gsimplecal"] floating enable, border none
 for_window [instance="shutter|evolution-alarm-notify|r_x11"] floating enable
-for_window [title="Zoom Meeting|YouTube"] border pixel 5
-for_window [instance="pocket-casts"] border pixel 5
-for_window [title="Møte \| Microsoft Teams"] border pixel 5
 for_window [instance="Navigator"] move to workspace number 9. Web; workspace number $ws9
+
+# Windows that need to be explicitly given borders
+for_window [instance="pocket-casts|musixmatch|telegram-desktop|evince"] border pixel 5
+for_window [title="Zoom Meeting|YouTube|Møte \| Microsoft Teams"] border pixel 5
