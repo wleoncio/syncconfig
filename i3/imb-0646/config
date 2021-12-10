@@ -101,7 +101,7 @@ bindsym $mod+a focus parent
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1. Mail"
-set $ws2 "2. Chat"
+set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5" 
@@ -215,12 +215,8 @@ bar {
 exec_always --no-startup-id compton --config $HOME/.config/compton.conf
 exec_always --no-startup-id $HOME/Programs/i3-alternating-layout/alternating_layouts.py
 exec --no-startup-id xbindkeys
-exec --no-startup-id dropbox start
-exec --no-startup-id nitrogen --restore
-exec --no-startup-id xrandr --output DP-1 --primary --output HDMI-2 --left-of DP-1 --output HDMI-3 --right-of DP-1 & sleep 5 & xrandr --output HDMI-3 --mode 1920x1200 --rotate left
-exec --no-startup-id i3-msg workspace number $ws2; i3-msg workspace number $ws7; i3-msg workspace number $ws4; i3-sensible-terminal;
-exec_always --no-startup-id keynav
-exec --no-startup-id sleep 5; i3-msg workspace number $ws1; i3-msg workspace number $ws9; i3-msg workspace number $ws4;
+exec --no-startup-id xrandr --output DP-1 --primary --output HDMI-2 --left-of DP-1 --output HDMI-3 --right-of DP-1 & sleep 5 & xrandr --output HDMI-3 --mode 1920x1200 & sleep 2 & xrandr --output HDMI-3 --rotate left & sleep 2 & nitrogen --restore
+exec --no-startup-id i3-msg workspace number $ws2; i3-msg workspace number $ws8; i3-msg workspace number $ws4; i3-sensible-terminal;
 exec evolution
 exec todoist
 exec numlockx on
