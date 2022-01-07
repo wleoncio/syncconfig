@@ -268,7 +268,7 @@ bar {
 	font pango:Noto Sans Regular 10, FontAwesome 10
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
     position top
-	tray_output primary
+	tray_output DP-0
     colors {
 		separator          #666666
         background         #222222
