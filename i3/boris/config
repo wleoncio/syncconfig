@@ -287,6 +287,7 @@ bar {
 set $Todoist Todoist-0.4.1.AppImage
 # Function keys
 bindcode 163 exec evolution -c mail
+bindcode $mod+163 exec gsimplecal
 bindcode 180 exec firefox
 bindcode $mod+180 exec firefox --private-window
 bindcode 181 exec $HOME/Programs/bin/$Todoist
