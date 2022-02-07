@@ -20,7 +20,6 @@
     "comment-divider.mainHeaderHeight": "line",
     "comment-divider.subheaderAlign": "left",
     "diffEditor.ignoreTrimWhitespace": false,
-    "editor.acceptSuggestionOnEnter": "off",
     "editor.bracketPairColorization.enabled": true,
     "editor.cursorBlinking": "phase",
     "editor.emptySelectionClipboard": false,
@@ -252,5 +251,12 @@
     "workbench.enableExperiments": false,
     "workbench.sideBar.location": "right",
     "workbench.startupEditor": "welcomePageInEmptyWorkbench",
-    "workbench.tree.indent": 32
+    "workbench.tree.indent": 32,
+    "diffEditor.renderSideBySide": false,
+    "[markdown]": {
+        "editor.defaultFormatter": "darkriszty.markdown-table-prettify"
+    },
+    "editor.suggest.preview": true,
+    "editor.autoClosingOvertype": "always",
+    "editor.autoClosingQuotes": "always"
 }

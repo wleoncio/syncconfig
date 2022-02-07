@@ -47,18 +47,20 @@
     },
     {
         "description": "Build package",
-        "key": "ctrl+r ctrl+shift+b",
+        "key": "ctrl+r ctrl+b",
         "command": "r.build"
     },
     {
-        "description": "Build package, bumping up build version",
-        "key": "ctrl+r ctrl+b",
+        "key": "ctrl+r ctrl+d",
+        // "command": "r.document"
         "command": "r.runCommand",
-        "args": "usethis::use_version('dev'); devtools::build()"
+        "args": "devtools::document()"
     },
     {
-        "key": "ctrl+r ctrl+d",
-        "command": "r.document"
+        "description": "Load package functions",
+        "key": "ctrl+r ctrl+l",
+        "command": "r.runCommand",
+        "args": "devtools::load_all()"
     },
     {
         "description": "Install package",
@@ -92,7 +94,7 @@
     },
     {
         "description": "List object structure",
-        "key": "ctrl+r ctrl+l",
+        "key": "ctrl+r ctrl+s",
         "command": "r.runCommand",
         "args": "ls.str()"
     },
@@ -110,7 +112,9 @@
     // },
     {
         "key": "ctrl+r ctrl+u",
-        "command": "r.test"
+        // "command": "r.test"
+        "command": "r.runCommand",
+        "args": "devtools::test()"
     },
     {
         "key": "ctrl+b ctrl+b",
@@ -368,19 +372,19 @@
         "command": "workbench.action.moveEditorToBelowGroup"
     },
     {
-        "key": "ctrl+g ctrl+l",
+        "key": "ctrl+shift+g",
         "command": "workbench.action.gotoLine"
     },
-    {
-        "key": "ctrl+enter",
-        "command": "r.runSelection",
-        "when": "editorTextFocus && editorLangId == 'rmd'"
-    },
-    {
-        "key": "ctrl+enter",
-        "command": "-r.runSelection",
-        "when": "editorTextFocus && editorLangId == 'rmd'"
-    },
+    // {
+    //     "key": "ctrl+enter",
+    //     "command": "r.runSelection",
+    //     "when": "editorTextFocus && (editorLangId == 'rmd' || editorLangId == 'md')"
+    // },
+    // {
+    //     "key": "ctrl+enter",
+    //     "command": "-r.runSelection",
+    //     "when": "editorTextFocus && (editorLangId == 'rmd' || editorLangId == 'md')"
+    // },
     {
         "key": "ctrl+g",
         "command": "-workbench.action.gotoLine"
@@ -405,7 +409,6 @@
         "description": "Check package",
         "key": "ctrl+r ctrl+c",
         "command": "r.runCommand",
-        // "when": "editorTextFocus",
         "args": "devtools::check()"
     },
     {
@@ -548,5 +551,35 @@
         "key": "ctrl+delete",
         "command": "-workbench.action.terminal.sendSequence",
         "when": "terminalFocus"
-    }
+    },
+    {
+        "key": "ctrl+enter",
+        "command": "r.runSelection",
+        "when": "editorTextFocus && editorLangId == 'rmd'"
+    },
+    {
+        "key": "ctrl+enter",
+        "command": "r.runSelection",
+        "when": "editorTextFocus && editorLangId == 'markdown'"
+    },
+    {
+        "key": "ctrl+enter",
+        "command": "r.runSelection",
+        "when": "editorTextFocus && editorLangId == 'r'"
+    },
+    {
+        "key": "ctrl+alt+enter",
+        "command": "r.runSelectionRetainCursor",
+        "when": "editorTextFocus && editorLangId == 'r'"
+    },
+    {
+        "key": "ctrl+alt+enter",
+        "command": "r.runSelectionRetainCursor",
+        "when": "editorTextFocus && editorLangId == 'rmd'"
+    },
+    {
+        "key": "ctrl+alt+enter",
+        "command": "r.runSelectionRetainCursor",
+        "when": "editorTextFocus && editorLangId == 'markdown'"
+    },
 ]
