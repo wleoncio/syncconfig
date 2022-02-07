@@ -304,9 +304,7 @@ bindsym $mod+Print exec shutter
 
 # rofi bindings
 bindsym $mod+z exec $HOME/Programs/myScripts/rofiCustom.sh app
-bindsym $mod+Shift+z exec $HOME/Programs/myScripts/rofiCustom.sh window
-bindsym Mod1+Tab exec $HOME/Programs/myScripts/rofiCustom.sh window
-bindsym $mod+Tab exec $HOME/Programs/myScripts/rofiCustom.sh window
+bindsym mod1+Tab exec $HOME/Programs/myScripts/rofiCustom.sh window
 bindsym $mod+Ctrl+Shift+z exec bwmenu
 bindsym $mod+x exec $HOME/Programs/myScripts/rofiCustom.sh file
 
