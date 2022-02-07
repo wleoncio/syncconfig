@@ -8,6 +8,7 @@
 	dffc = diff --cached --word-diff=color
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all -n 15
 	lgg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
+    lgs = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --stat
 	forget = !sh -c 'git filter-branch --index-filter "git rm -rf --cached --ignore-unmatch ${1}" HEAD' -
 	countcomm = rev-list --count
 	co = checkout
@@ -18,7 +19,6 @@
 	ap = add -p
 	cm = commit
 	cmm = commit -m
-	cam = commit -am
 	cma = commit --amend
 	s = status
 	ci = !sh -c 'git checkout -b issue-$1' -
