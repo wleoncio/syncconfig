@@ -413,9 +413,9 @@ for_window [instance="oversteer"] floating disable
 for_window [title="Secure CRAN mirrors|Choose one|Steam - News|^Variety\s|^Regions of Ruin Configuration"] floating enable
 for_window [title="Oversteer"] border pixel $bordersize; floating disable
 for_window [instance="teams|cheese|evince|Steam|telegram-desktop|whatsapp-for-linux|file-roller"] border pixel $bordersize
-for_window [title="Zoom Meeting"] border pixel $bordersize; floating disable
-for_window [title="Zoom - Licensed Account"] floaring disable
-for_window [title="^zoom$"] floating enable; #border pixel $bordersize #; resize set 200 400
-for_window [instance="musixmatch"] floating enable; move scratchpad
+for_window [title="Zoom Meeting"] border pixel 5; floating disable
+for_window [title="Zoom - Licensed Account"] floating disable
+for_window [title="^zoom$"] floating enable
+for_window [title="Work rotation.ods - LibreOffice Calc"] move to workspace number 9. Work hours; workspace number $ws9
 
 bindsym $mod+Shift+h exec "i3-msg floating enable & i3-msg move scratchpad"
