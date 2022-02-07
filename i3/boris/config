@@ -100,8 +100,8 @@ bindsym $mod+s exec --no-startup-id ~/.config/i3/scripts/empty_workspace.sh
 # Source: https://github.com/olemartinorg/i3-alternating-layout
 exec_always --no-startup-id $HOME/Programs/i3-alternating-layout/alternating_layouts.py
 
-# Setup monitors
-exec --no-startup-id $HOME/Programs/myScripts/fix_monitors.sh
+# monitors
+exec xrandr --output DP-0 --mode 2560x1440 --rate 144.00 --primary
 
 # dex execute .desktop files:
 exec --no-startup-id dex -a -s /etc/xdg/autostart/:~/.config/autostart
@@ -315,11 +315,6 @@ bindsym $mod+x exec $HOME/Programs/myScripts/rofiCustom.sh file
 # ==============================================================================
 bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for workspace: '
 
-# ==============================================================================
-# Multiple monitor options
-# ==============================================================================
-bindsym $mod+Ctrl+Shift+1 exec $HOME/Programs/myScripts/fix_monitors.sh
-
 # ------------------------------------------------------------------------------
 # Defining which workspace opens where (multimonitor setup)
 # ------------------------------------------------------------------------------
@@ -370,7 +365,6 @@ mode "$mode_launcher" {
                 killall xbindkeys picom dropbox gromit-mpx; \
                 nvidia-settings -a AllowVRR=1 & \
                 nvidia-settings -a ShowVRRVisualIndicator=0 & \
-                xrandr --output DP-0 --pos 0x0 --output HDMI-0 --off; \
                 steam"; \
             mode "default";
         # Norskkurs mode
@@ -390,7 +384,6 @@ mode "$mode_launcher" {
             exec "$HOME/Programs/myScripts/mass_change_borders.sh 0; \
                 nvidia-settings -a AllowVRR=0; \
                 nvidia-settings -a ShowVRRVisualIndicator=0; \
-                $HOME/Programs/myScripts/fix_monitors.sh; sleep 2; \
                 $HOME/Programs/myScripts/change_background.sh; \
                 killall gromit-mpx picom; sleep 1; \
                 picom -b --config ~/.config/picom.conf; \
