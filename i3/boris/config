@@ -418,4 +418,5 @@ for_window [title="Zoom - Licensed Account"] floating disable
 for_window [title="^zoom$"] floating enable
 for_window [title="Work rotation.ods - LibreOffice Calc"] move to workspace number 9. Work hours; workspace number $ws9
 
-bindsym $mod+Shift+h exec "i3-msg floating enable & i3-msg move scratchpad"
+bindsym $mod+Shift+h exec "i3-msg floating enable & i3-msg sticky toggle & i3-msg move scratchpad"
+bindsym $mod+minus scratchpad show
