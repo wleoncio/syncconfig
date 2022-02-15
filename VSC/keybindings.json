@@ -63,10 +63,10 @@
         "args": "devtools::load_all()"
     },
     {
-        "description": "Install package",
+        "description": "Document and install package",
         "key": "ctrl+r ctrl+i",
         "command": "r.runCommand",
-        "args": "devtools::install()"
+        "args": "devtools::document(); devtools::install()"
     },
     {
         "description": "Update version and install package",
@@ -581,5 +581,9 @@
         "key": "ctrl+alt+enter",
         "command": "r.runSelectionRetainCursor",
         "when": "editorTextFocus && editorLangId == 'markdown'"
+    },
+    {
+        "key": "ctrl+4",
+        "command": "workbench.action.focusFourthEditorGroup"
     },
 ]
