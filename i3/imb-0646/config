@@ -108,7 +108,7 @@ set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5" 
 set $ws6 "6"
-set $ws7 "7. Todo"
+set $ws7 "7"
 set $ws8 "8. Sounds"
 set $ws9 "9. Web"
 
@@ -212,16 +212,15 @@ bar {
 }
 
 # ==============================================================================
-# Startup programs
+# Startup sequence
 # ==============================================================================
 exec_always --no-startup-id compton --config $HOME/.config/compton.conf
 exec_always --no-startup-id $HOME/Programs/i3-alternating-layout/alternating_layouts.py
 exec --no-startup-id xbindkeys
-exec --no-startup-id xrandr --output DP-1 --primary --output HDMI-2 --left-of DP-1 --output HDMI-3 --right-of DP-1 & sleep 5 & xrandr --output HDMI-3 --mode 1920x1200 & sleep 2 & xrandr --output HDMI-3 --rotate left & sleep 2 & nitrogen --restore
-exec --no-startup-id i3-msg workspace number $ws2; i3-msg workspace number $ws8; i3-msg workspace number $ws4; i3-sensible-terminal; evolution
-exec todoist
+exec --no-startup-id xrandr --output DP-1 --primary --output HDMI-2 --left-of DP-1 --output HDMI-3 --right-of DP-1; sleep 5; xrandr --output HDMI-3 --mode 1920x1200; sleep 2; xrandr --output HDMI-3 --rotate left; sleep 2; nitrogen --restore
+exec i3-msg workspace number $ws2; i3-msg workspace number $ws4; gnome-terminal --command="$HOME/Programs/myScripts/uiosync.sh pull"; evolution
+exec --no-startup-id keynav
 exec numlockx on
-exec keynav
 
 # i3 gaps
 gaps inner 2
@@ -303,7 +302,7 @@ focus_follows_mouse no
 # ==============================================================================
 # Window positioning
 # ==============================================================================
-for_window [title="Evolution"] move to workspace number 1. Mail
+for_window [title="Evolution"] move to workspace number 1. Mail; workspace number $ws1
 for_window [instance="todoist"] move to workspace number 7. Todo
 for_window [instance="spotify|pocket-casts"] move to workspace number 8. Sounds
 
