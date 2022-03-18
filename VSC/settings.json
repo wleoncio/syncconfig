@@ -286,4 +286,7 @@
         "r"
     ],
     "cSpell.enabled": false,
+    // Language-specific
+    "[git-commit]": {"editor.rulers": [{"color": "#ff0000", "column": 50}]},
+    "[markdown]": {"editor.rulers": []}
 }
