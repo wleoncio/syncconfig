@@ -218,8 +218,8 @@ exec_always --no-startup-id compton --config $HOME/.config/compton.conf
 exec_always --no-startup-id $HOME/Programs/i3-alternating-layout/alternating_layouts.py
 exec --no-startup-id xbindkeys
 exec --no-startup-id xrandr --output DP-1 --primary --output HDMI-2 --left-of DP-1 --output HDMI-3 --right-of DP-1; sleep 5; xrandr --output HDMI-3 --mode 1920x1200; sleep 2; xrandr --output HDMI-3 --rotate left; sleep 2; nitrogen --restore
-exec i3-msg workspace number $ws2; i3-msg workspace number $ws4; gnome-terminal --command="$HOME/Programs/myScripts/uiosync.sh pull"; evolution
-exec --no-startup-id keynav
+exec --no-startup-id i3-msg 'workspace $ws2; workspace $ws4; exec sleep 1; exec gnome-terminal --command="$HOME/Programs/myScripts/uiosync.sh pull"; exec libreoffice "$HOME/UiO/Docs/Adm/Work rotation.ods"; exec evolution'
+exec keynav
 exec numlockx on
 
 # i3 gaps
