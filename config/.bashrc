@@ -182,8 +182,7 @@ fi
 PATH=$PATH:~/Programs/bin
 PATH=$PATH:~/Programs/syncconfig
 PATH=$PATH:~/Programs/myScripts
-PATH=$PATH:~/UiO/Projects/rse-tools/general
-PATH=$PATH:~/UiO/Projects/rse-tools/contingencytables
+PATH=$PATH:~/UiO/Projects/library-code/scripts
 PATH=$PATH:~/.local/bin
 PATH=$PATH:~/Programs/MATLAB/R2021a/bin
 
