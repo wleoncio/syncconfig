@@ -239,6 +239,7 @@ bindsym $mod+z exec rofi -show drun -modi drun#window -show-icons -theme oxide
 bindsym $mod+x exec xdg-open "$(locate -e -i --regex "$HOME/[^\.]+" | rofi -dmenu -i -p "File or folder" -threads 0 -show-icons -theme oxide -modi drun)"
 bindsym Print exec flameshot gui
 bindsym $mod+Print exec shutter
+bindsym $mod+p exec scrcpy
 
 ## Multimedia shortcuts
 bindsym $mod+F9 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -20% && $refresh_i3status
