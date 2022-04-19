@@ -110,8 +110,8 @@ set $ws4 "4"
 set $ws5 "5" 
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 "8. Sounds"
-set $ws9 "9. Web"
+set $ws8 "8"
+set $ws9 "9"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -305,8 +305,7 @@ focus_follows_mouse no
 # Window positioning
 # ==============================================================================
 for_window [title="Evolution"] move to workspace number 1. Mail; workspace number $ws1
-for_window [instance="todoist"] move to workspace number 7. Todo
-for_window [instance="spotify|pocket-casts"] move to workspace number 8. Sounds
+for_window [instance="spotify|pocket-casts"] move to workspace number 9. Sounds
 
 # ==============================================================================
 # Other window rules
