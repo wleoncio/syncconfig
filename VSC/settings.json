@@ -88,6 +88,15 @@
                     "fontStyle": "bold",
                     "foreground": "#4381c9"
                 }
+            },
+            {
+                "scope": [
+                    "variable.parameter.r", "variable.other.r"
+                ],
+                "settings": {
+                    "fontStyle": "bold",
+                    "foreground": "#dfeeff"
+                }
             }
         ]
     },
@@ -110,25 +119,6 @@
     ],
     "git.suggestSmartCommit": false,
     "github.remoteName": "ocbe-uio",
-    "githubIssues.createIssueTriggers": [
-        "TODO",
-        "FIXME"
-    ],
-    "githubIssues.issueBranchTitle": "issue-${issueNumber}",
-    "githubIssues.queries": [
-        {
-            "label": "Assigned to me",
-            "query": "repo:${owner}/${repository} state:open assignee:${user} sort:created-desc"
-        },
-        {
-            "label": "Unassigned",
-            "query": "state:open repo:${owner}/${repository} sort:created-desc no:assignee"
-        }
-    ],
-    "githubPullRequests.remotes": [
-        "ocbe-uio",
-        "origin"
-    ],
     "html.preview.doubleClickToSwitchToEditor": false,
     "julia.enableTelemetry": false,
     "julia.symbolCacheDownload": true,
@@ -137,7 +127,6 @@
     "latex-workshop.intellisense.unimathsymbols.enabled": true,
     "latex-workshop.latex.autoBuild.run": "never",
     "latex-workshop.latex.outDir": "./",
-    "latex-workshop.message.update.show": false,
     "latex-workshop.synctex.afterBuild.enabled": true,
     "latex-workshop.view.pdf.viewer": "tab",
     "markdown.extension.print.theme": "dark",
@@ -151,7 +140,6 @@
         "./themes/uio-dark.css"
     ],
     "markdown.preview.doubleClickToSwitchToEditor": false,
-    "python.dataScience.askForKernelRestart": false,
     "r.alwaysUseActiveTerminal": true,
     "r.bracketedPaste": true,
     "r.lsp.diagnostics": false,
@@ -253,10 +241,55 @@
     "workbench.startupEditor": "welcomePageInEmptyWorkbench",
     "workbench.tree.indent": 32,
     "diffEditor.renderSideBySide": false,
-    "[markdown]": {
-        "editor.defaultFormatter": "darkriszty.markdown-table-prettify"
-    },
     "editor.suggest.preview": true,
     "editor.autoClosingOvertype": "always",
-    "editor.autoClosingQuotes": "always"
+    "editor.autoClosingQuotes": "always",
+    "outline.icons": false,
+    "latex-workshop.view.outline.commands": [],
+    "cSpell.enabledLanguageIds": [
+        "asciidoc",
+        "c",
+        "cpp",
+        "csharp",
+        "css",
+        "git-commit",
+        "go",
+        "graphql",
+        "handlebars",
+        "haskell",
+        "html",
+        "jade",
+        "java",
+        "javascript",
+        "javascriptreact",
+        "json",
+        "jsonc",
+        "jupyter",
+        "latex",
+        "less",
+        "markdown",
+        "php",
+        "plaintext",
+        "python",
+        "pug",
+        "restructuredtext",
+        "rust",
+        "scala",
+        "scss",
+        "swift",
+        "text",
+        "typescript",
+        "typescriptreact",
+        "vue",
+        "yaml",
+        "yml",
+        "r"
+    ],
+    "cSpell.enabled": false,
+    // Language-specific
+    "[git-commit]": {"editor.rulers": [{"color": "#ff0000", "column": 50}]},
+    "[markdown]": {
+        "editor.rulers": []
+    },
+    "editor.showFoldingControls": "always"
 }
