@@ -231,7 +231,7 @@ bindsym $mod+Shift+f exec firefox
 bindsym $mod+Shift+n exec $default_terminal -e ranger UiO/
 bindsym $mod+ShiftCtrl+n exec nautilus UiO/
 bindsym $mod+Shift+v exec codium
-bindsym $mod+Shift+w exec libreoffice --nologo -o $HOME/UiO/Docs/Adm/Work\ rotation.ods
+bindsym $mod+Shift+w exec libreoffice --nologo -o $HOME/UiO/Docs/Adm/projectManager.ods
 bindsym $mod+Shift+p exec pavucontrol
 bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
 bindsym $mod+z exec rofi -show drun -modi drun#window -show-icons -theme oxide
