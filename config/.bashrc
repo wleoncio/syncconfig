@@ -184,8 +184,7 @@ PATH=$PATH:~/Programs/syncconfig
 PATH=$PATH:~/Programs/myScripts
 PATH=$PATH:~/UiO/Projects/library-code/scripts
 PATH=$PATH:~/.local/bin
-PATH=$PATH:~/Programs/MATLAB/R2021a/bin
-
+PATH=$PATH:/opt/MATLAB/R2021b/bin
 
 eval "$(thefuck --alias)"
 
