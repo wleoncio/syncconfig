@@ -223,7 +223,7 @@ exec --no-startup-id i3-msg 'workspace $ws2; workspace $ws4; exec sleep 9; exec 
 exec numlockx on
 
 # i3 gaps
-gaps inner 2
+gaps inner 4
 
 # My shortcuts
 bindsym $mod+ctrl+l exec i3lock -c $uiored
