@@ -317,5 +317,5 @@ for_window [title="gsimplecal"] floating enable, border none
 for_window [instance="shutter|evolution-alarm-notify|r_x11"] floating enable
 
 # Windows that need to be explicitly given borders
-for_window [instance="pocket-casts|musixmatch|telegram-desktop|evince"] border pixel $bordersize
+for_window [instance="pocket-casts|musixmatch|telegram-desktop|evince|org.gnome.Nautilus|eog"] border pixel $bordersize
 for_window [title="Zoom Meeting|YouTube|Møte \| Microsoft Teams"] border pixel $bordersize
