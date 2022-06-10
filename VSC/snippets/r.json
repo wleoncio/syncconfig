@@ -41,13 +41,10 @@
     "Roxygen data skeleton": {
         "prefix": "roxydata",
         "body": [
-            "#' $1",
+            "#' $2",
+            "#' @name $1",
             "#' @docType data",
-            "#' @name $2",
-            "#' @references $3",
-            "#' @export",
-            "NULL$4",
-            "$2 <- $5"
+            "NULL"
         ]
     },
     "Browser": {
