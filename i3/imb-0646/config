@@ -259,23 +259,6 @@ workspace 7 output HDMI-3
 workspace 8 output HDMI-3
 workspace 9 output HDMI-3
 
-# Quick app launcher
-set $mode_launcher Launch: [f]irefox [e]volution [t]eams [c]ommunicate [p]avucontrol [n]emo [w]hatsdesk
-bindsym $mod+o mode "$mode_launcher"
-
-mode "$mode_launcher" {
-	bindsym f exec firefox
-	bindsym e exec evolution
-	bindsym t exec /var/lib/flatpak/app/com.github.IsmaelMartinez.teams_for_linux/x86_64/stable/active/files/teams-for-linux/teams-for-linux
-	bindsym c exec evolution & teams & whatsdesk &
-	bindsym p exec pavucontrol
-	bindsym n exec nemo
-	bindsym w exec whatsdesk
-
-	bindsym Escape mode "default"
-	bindsym Return mode "default"
-}
-
 # Combinations for shutdown, reboot, lock screen
 
 set $mode_system System (l)ogout, (r)eboot, (s)hutdown
