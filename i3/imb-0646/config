@@ -242,6 +242,7 @@ bindsym $mod+p exec scrcpy
 bindsym $mod+k exec keynav
 bindsym $mod+e exec evolution
 bindsym $mod+c exec evolution --component=calendar
+bindsym $mod+Mod1+c exec firefox --new-window "http://calendar.google.com/"
 bindsym $mod+t exec "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=todoist --file-forwarding com.todoist.Todoist @@u %U @@"
 
 ## Multimedia shortcuts
