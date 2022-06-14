@@ -1,6 +1,6 @@
 #!/bin/bash
-# Uses RedditImageGrab (<https://github.com/HoverHell/RedditImageGrab>) to download wallpapers
-subs='Verticalwallpapers HDwallpapers F1porn wallpaper wallpapers'
+# Uses RedditImageGrab (https://github.com/HoverHell/RedditImageGrab) to download wallpapers
+subs='Verticalwallpapers HDwallpapers F1porn wallpaper wallpapers highreswallpaper 4kWallpaper threescreenwallpapers multiwall'
 
 for sub in $subs
 do
