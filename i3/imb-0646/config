@@ -219,7 +219,7 @@ exec_always --no-startup-id compton --config $HOME/.config/compton.conf
 exec_always --no-startup-id $HOME/Programs/i3-alternating-layout/alternating_layouts.py
 exec --no-startup-id xbindkeys
 exec --no-startup-id xrandr --output DP-1 --primary --output HDMI-2 --left-of DP-1 --output HDMI-3 --right-of DP-1; sleep 5; xrandr --output HDMI-3 --mode 1920x1200; sleep 2; xrandr --output HDMI-3 --rotate left; sleep 2; nitrogen --restore
-exec --no-startup-id i3-msg 'exec gnome-terminal --command="$HOME/Programs/myScripts/uiosync.sh pull"; workspace $ws2; exec evolution'
+exec --no-startup-id i3-msg 'exec gnome-terminal --command="$HOME/Programs/myScripts/uiosync.sh pull"; workspace $ws2; exec evolution -c mail'
 exec numlockx on
 
 # i3 gaps
@@ -240,7 +240,7 @@ bindsym Print exec flameshot gui
 bindsym $mod+Print exec shutter
 bindsym $mod+p exec scrcpy
 bindsym $mod+k exec keynav
-bindsym $mod+e exec evolution
+bindsym $mod+m exec evolution --component=mail
 bindsym $mod+c exec evolution --component=calendar
 bindsym $mod+Mod1+c exec firefox --new-window "http://calendar.google.com/"
 bindsym $mod+t exec "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=todoist --file-forwarding com.todoist.Todoist @@u %U @@"

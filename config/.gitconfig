@@ -19,8 +19,11 @@
 	aa = add -A
 	ap = add -p
 	cm = commit
+	cf = commit --fixup
+	cs = commit --squash
 	cmm = commit -m
 	cma = commit --amend
+	tidysince = rebase -i --autosquash
 	s = status
 	ls = status
 	ci = !sh -c 'git checkout -b issue-$1' -
