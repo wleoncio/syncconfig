@@ -18,18 +18,19 @@
 	drb = push -d
 	aa = add -A
 	ap = add -p
+	rp = restore -p
 	cm = commit
-	cf = commit --fixup
-	cs = commit --squash
+	cmf = commit --fixup
+	cms = commit --squash
 	cmm = commit -m
 	cma = commit --amend
-	tidysince = rebase -i --autosquash
+	rb = rebase -i --autosquash develop
 	s = status
 	ls = status
 	ci = !sh -c 'git checkout -b issue-$1' -
 	di = !sh -c 'git branch -d issue-$1' -
 	mi = !sh -c 'git checkout develop && git merge issue-$1 && git branch -d issue-$1' -
-	hist = log -p --
+	history = log -p --
 	fap = fetch --all --prune
 	latexdiff = difftool -t latexdiff
 [core]
