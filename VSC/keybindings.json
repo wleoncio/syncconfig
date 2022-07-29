@@ -96,7 +96,13 @@
         "description": "List object structure",
         "key": "ctrl+r ctrl+s",
         "command": "r.runCommand",
-        "args": "ls.str()"
+        "args": "print(ls.str(), all.names = TRUE, max.level = 0)"
+    },
+    {
+        "description": "Clean working environment",
+        "key": "ctrl+r shiftls+r",
+        "command": "r.runCommand",
+        "args": "rm(list = ls())"
     },
     // {
     //     "key": "ctrl+r ctrl+v",
