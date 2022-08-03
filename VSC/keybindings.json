@@ -57,8 +57,14 @@
         "args": "devtools::document()"
     },
     {
-        "description": "Load package functions",
+        "description": "Lint package",
         "key": "ctrl+r ctrl+l",
+        "command": "r.runCommand",
+        "args": "lint_package(linters = list(commented_code_linter(), infix_spaces_linter(), line_length_linter(), single_quotes_linter(), spaces_inside_linter(), spaces_left_parentheses_linter(), unneeded_concatenation_linter()))"
+    },
+    {
+        "description": "Load package functions",
+        "key": "ctrl+r ctrl+r",
         "command": "r.runCommand",
         "args": "devtools::load_all()"
     },
