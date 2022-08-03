@@ -102,7 +102,13 @@
         "description": "List object structure",
         "key": "ctrl+r ctrl+s",
         "command": "r.runCommand",
-        "args": "ls.str()"
+        "args": "print(ls.str(), all.names = TRUE, max.level = 0)"
+    },
+    {
+        "description": "Clean working environment",
+        "key": "ctrl+r shiftls+r",
+        "command": "r.runCommand",
+        "args": "rm(list = ls())"
     },
     // {
     //     "key": "ctrl+r ctrl+v",
@@ -481,12 +487,12 @@
         "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown'"
     },
     {
-        "key": "ctrl+shift+[",
+        "key": "ctrl+k shift+left",
         "command": "editor.foldAll",
         "when": "editorTextFocus && foldingEnabled"
     },
     {
-        "key": "ctrl+k ctrl+alt+0",
+        "key": "ctrl+k shift+right",
         "command": "editor.unfoldAll",
         "when": "editorTextFocus && foldingEnabled"
     },
@@ -591,5 +597,33 @@
     {
         "key": "ctrl+4",
         "command": "workbench.action.focusFourthEditorGroup"
+    },
+    {
+        "key": "ctrl+k ctrl+9",
+        "command": "-editor.unfoldAllMarkerRegions",
+        "when": "editorTextFocus && foldingEnabled"
+    },
+    {
+        "key": "ctrl+k right",
+        "command": "-views.moveViewRight",
+        "when": "focusedView != ''"
+    },
+    {
+        "key": "ctrl+k ctrl+0",
+        "command": "-editor.foldAll",
+        "when": "editorTextFocus && foldingEnabled"
+    },
+    {
+        "key": "ctrl+k right",
+        "command": "editor.unfold"
+    },
+    {
+        "key": "ctrl+k left",
+        "command": "editor.fold"
+    },
+    {
+        "key": "ctrl+k left",
+        "command": "-views.moveViewLeft",
+        "when": "focusedView != ''"
     },
 ]

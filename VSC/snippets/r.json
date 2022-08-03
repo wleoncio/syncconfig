@@ -33,31 +33,19 @@
             "#' @param $3",
             "#' @return $4",
             "#' @author Waldir Leoncio $5",
-            "#' @export"
+            "#' @export",
+            "#' @examples"
         ],
         "description": "Roxygen skeleton"
     },
     "Roxygen data skeleton": {
         "prefix": "roxydata",
         "body": [
-            "#' $1",
+            "#' $2",
+            "#' @name $1",
             "#' @docType data",
-            "#' @name $2",
-            "#' @references $3",
-            "#' @export",
-            "NULL$4",
-            "$2 <- $5"
+            "NULL"
         ]
-    },
-    "Assignment with anterior and posterior spaces": {
-        "prefix": ",.",
-        "body": " <- ",
-        "description": "Assignment arrow with spaces"
-    },
-    "Assignment without posterior space": {
-        "prefix": ",.,",
-        "body": "<-",
-        "description": "Assignment arrow without spaces"
     },
     "Browser": {
         "prefix": "bro",
