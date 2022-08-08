@@ -24,7 +24,7 @@
 	cms = commit --squash
 	cmm = commit -m
 	cma = commit --amend
-	rb = rebase -i --autosquash develop
+	rb = rebase -i --autosquash
 	s = status
 	ls = status
 	ci = !sh -c 'git checkout -b issue-$1' -
