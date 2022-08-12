@@ -625,5 +625,5 @@
         "key": "ctrl+k left",
         "command": "-views.moveViewLeft",
         "when": "focusedView != ''"
-    },
+    }
 ]
