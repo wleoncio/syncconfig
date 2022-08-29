@@ -106,7 +106,7 @@
     },
     {
         "description": "Clean working environment",
-        "key": "ctrl+r shiftls+r",
+        "key": "ctrl+r shift+r",
         "command": "r.runCommand",
         "args": "rm(list = ls())"
     },
