@@ -244,6 +244,7 @@ bindsym $mod+m exec evolution --component=mail
 bindsym $mod+c exec evolution --component=calendar
 bindsym $mod+Mod1+c exec firefox --new-window "http://calendar.google.com/"
 bindsym $mod+t exec "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=todoist --file-forwarding com.todoist.Todoist @@u %U @@"
+bindsym $mod+F2 exec speedcrunch
 
 ## Multimedia shortcuts
 bindsym $mod+F9 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -20% && $refresh_i3status
