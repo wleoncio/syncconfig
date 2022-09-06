@@ -175,8 +175,10 @@ else
 	eval diff "$diffFlags" ~/.xbindkeysrc "$location"/config
 	eval diff "$diffFlags" ~/.Xresources "$location"/config
 	eval diff "$diffFlags" ~/.Rprofile "$location"/config
-	eval diff "$diffFlags" ~/.config/compton.conf "$location"/config
-	eval diff "$diffFlags" ~/.config/picom.conf "$location"/config
+	if [ $compositor != "other" ]
+	then
+		eval diff "$diffFlags"  ~/.config/"$compositor" "$location"/config
+	fi
 	eval diff "$diffFlags" ~/.config/gromit-mpx.cfg "$location"/config
  	eval diff "$diffFlags" ~/.config/dunst/dunstrc "$location"/config
 	eval diff "$diffFlags" ~/Programs/myScripts "$location"/myScripts
