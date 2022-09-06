@@ -31,13 +31,20 @@ fi
 # ==============================================================================
 # Determining location of GitHub files
 # ==============================================================================
-if [ "$2" = "" ]
+configPath=$HOME/.config/syncconfig.conf
+if [ -f $configPath ]
 then
-	echo "Assuming git repository located at "$HOME/Programs". You can pass a different path as the second argument."
-	location="$HOME/Programs/syncconfig"
+  echo "Using config file found at "$configPath""
 else
-	location="$2"
+	echo -e "\e[31mNo config file found. Creating one on "$configPath" with default values\e[0m"
+	touch $configPath
+	eval echo location=$HOME/Programs/syncconfig >> $configPath
 fi
+source $configPath
+
+# ==============================================================================
+# Determining syncing direction
+# ==============================================================================
 if [ "$1" = "push" ] || [ "$1" = "pull" ]
 then
 	echo "Copying files "$fromto" "$location""
