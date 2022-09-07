@@ -24,6 +24,10 @@ else
 	exit 0
 fi
 
+# Running rsync
+direction="from "$from" to "$to""
+echo -e "Synchronizing direction: \e[1;34m"$direction"\e[0m\n"
+
 # Checking for internet connection
 connection=$(nmcli -g "STATE" general)
 if [ "$connection" != "connected" ]
@@ -32,17 +36,14 @@ then
 	eval sleep 5
 fi
 
-# Running rsync
-direction="from "$from" to "$to""
-echo -e "Synchronizing direction: "$direction"\n"
-
 ## Dry run
-touch uiosync.log
+logPath="/tmp/uiosync.log"
+touch "$logPath"
 read -p "Check for file conflicts? (Y/n) " check
 if [ "$check" != "n" ]
 then
-  eval rsync -azu --dry-run --delete "$from/" "$to" > uiosync.log
-  cat uiosync.log | grep -v "\.git"
+  eval rsync -azu --verbose --dry-run --delete "$from/" "$to" > "$logPath"
+  cat "$logPath" | grep -v "\.git"
 fi
 
 ## Actual run
@@ -51,12 +52,9 @@ echo -e "\nTHIS OPERATION WILL \e[1;31mOVERWRITE\e[0m THE CONTENTS OF \e[1;31m"$
 read -p "Are you sure you want to continue? (y/N) " answer
 if [ "$answer" = "y" ]
 then
-	eval rsync -azu --delete --delete-excluded "$from/" "$to"
+	eval rsync -azu --progress --verbose --delete --delete-excluded "$from/" "$to"
+	echo -e "\n\e[1;34mFinished synchronizing "$direction"\e[0m"
 else
 	echo "Aborting."
 fi
 
-# Final touches
-echo -e "\n\e[1;34mFinished synchronizing "$direction"\e[0m"
-echo "Done. Removing log."
-rm uiosync.log
