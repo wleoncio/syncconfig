@@ -232,7 +232,6 @@ bindsym $mod+ctrl+l exec i3lock -c 000000 -p default
 bindsym $mod+Shift+f exec firefox
 bindsym $mod+Shift+n exec $default_terminal -e ranger UiO/
 bindsym $mod+ShiftCtrl+n exec nautilus UiO/
-bindsym $mod+Shift+v exec codium
 bindsym $mod+w exec libreoffice --nologo -o $HOME/UiO/Docs/Adm/projectManager.ods
 bindsym $mod+Shift+p exec pavucontrol
 bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
@@ -277,6 +276,16 @@ mode "$mode_system" {
 
 	# back to normal: Enter or Escape
 	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+# Virtual buttons (plan: replace with programmable hardware buttons)
+set $virtual_buttons (v)scode (q)alc
+bindsym $mod+Shift+v mode "$virtual_buttons"
+mode "$virtual_buttons" {
+  bindsym v exec codium, mode "default"
+  bindsym q exec $default_terminal -e qalc, mode "default"
+  bindsym Return mode "default"
 	bindsym Escape mode "default"
 }
 
