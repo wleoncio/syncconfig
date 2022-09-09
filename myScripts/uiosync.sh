@@ -2,7 +2,14 @@
 # Syncs UiO accounts to Hjemmeområdet
 
 # Config constants
-source $HOME/.config/uiosync.conf
+configPath=$HOME/.config/uiosync.conf
+if [ -f $configPath ]
+then
+  source $HOME/.config/uiosync.conf
+else
+  echo "No config file found. Please create one on "$configPath" with"
+  echo "appropriate paths for "local=" and "remote=""
+fi
 
 # Determine origin and destination
 if [ "$1" = "pull" ] || [ "$1" = "down" ]
@@ -42,8 +49,11 @@ touch "$logPath"
 read -p "Check for file conflicts? (Y/n) " check
 if [ "$check" != "n" ]
 then
-  eval rsync -azu --verbose --dry-run --delete "$from/" "$to" > "$logPath"
+	echo "Checking for file conflicts. Please wait."
+  eval rsync -au --verbose --dry-run --delete "$from/" "$to" > "$logPath"
   cat "$logPath" | grep -v "\.git"
+else
+	echo "Skipping conflict check"
 fi
 
 ## Actual run
@@ -55,6 +65,6 @@ then
 	eval rsync -azu --progress --verbose --delete --delete-excluded "$from/" "$to"
 	echo -e "\n\e[1;34mFinished synchronizing "$direction"\e[0m"
 else
-	echo "Aborting."
+	echo "Aborting"
 fi
 
