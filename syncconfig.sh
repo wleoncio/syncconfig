@@ -77,7 +77,7 @@ hasCompositor () {
 # Determining notification daemon
 # ==============================================================================
 hasNotifier() {
-	if [ -f "$HOME/.config/dunst/" ]
+	if [ -d "$HOME/.config/dunst/" ]
 	then
 		echo "Notification daemon found: dunst"
 		notifier="dunstrc"
