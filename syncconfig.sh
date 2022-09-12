@@ -33,7 +33,7 @@ hasCompositor () {
 		echo -e "\e[32mCompositor found: compton\e[0m"
 		compositor="compton.conf"
 	else
-		echo -e "\e[32mNo supported compositor found (picom or compton)\e[0m"
+		echo -e "\e[31mNo supported compositor found (picom or compton)\e[0m"
 		compositor="other"
 	fi
 }
