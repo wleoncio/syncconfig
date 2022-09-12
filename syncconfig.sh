@@ -149,10 +149,10 @@ else
 	if [ "$1" = "diff" ]
 	then
 		echo -e "## Showing changes to be made when pulling\n"
-		diffFlags=""$diffFlags" --suppress-common-lines -bZB -C 1 --color=always"
+		diffFlags=""$diffFlags" --suppress-common-lines -bZB -C 1"
 	else
 		echo -e "To get diff details, run this script with a 'diff' switch.\n"
-		diffFlags=""$diffFlags" --brief --recursive"
+		diffFlags=""$diffFlags" --brief"
 	fi
 	syncFiles diff "$HOME" "$location" "$diffFlags"
 fi

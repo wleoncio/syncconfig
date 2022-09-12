@@ -5,8 +5,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-[[ -f ~/.welcome_screen ]] && . ~/.welcome_screen
-
 _set_my_PS1() {
     #PS1='[\u@\h \W]\$ '
     PS1='\[\033[1;30;44m\] \w \[\033[0;37m\] '
@@ -186,4 +184,3 @@ export COLUMNS
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
-
