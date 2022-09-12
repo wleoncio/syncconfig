@@ -186,8 +186,6 @@ PATH=$PATH:~/UiO/Projects/library-code/scripts
 PATH=$PATH:~/.local/bin
 PATH=$PATH:/opt/MATLAB/R2021b/bin
 
-eval "$(thefuck --alias)"
-
 export COLUMNS
 
 if [ -f /etc/bash_completion ]; then
