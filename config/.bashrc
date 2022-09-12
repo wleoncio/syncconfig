@@ -179,12 +179,7 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # Environment variables
-PATH=$PATH:~/Programs/bin
-PATH=$PATH:~/Programs/syncconfig
-PATH=$PATH:~/Programs/myScripts
-PATH=$PATH:~/UiO/Projects/library-code/scripts
 PATH=$PATH:~/.local/bin
-PATH=$PATH:/opt/MATLAB/R2021b/bin
 
 export COLUMNS
 
