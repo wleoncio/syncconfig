@@ -102,64 +102,68 @@ else
 fi
 
 # ==============================================================================
+# Determining notification daemon
+# ==============================================================================
+if [ -f "$HOME/.config/dunst/" ]
+then
+	echo "Notification daemon found: dunst"
+	notifier="dunstrc"
+else
+	echo "No supported notification daemon found (dunst)"
+	notifier="other"
+fi
+
+# ==============================================================================
 # Actually copying files
 # ==============================================================================
+syncFiles () {
+	# Defining files
+	origin=$1
+	destination=$2
+	compositor=$3
+	has_i3=$4
+	i3dir=$5
+	has_vsc=$6
+	VSCdir=$7
+	notifier=$8
+
+	# Copying files
+	eval cp "$origin"/.bash_aliases "$destination"/config
+	eval cp "$origin"/.bashrc "$destination"/config
+	eval cp "$origin"/.gitconfig "$destination"/config
+	eval cp "$origin"/.radian_profile "$destination"/config
+	eval cp "$origin"/.vimrc "$destination"/config
+	eval cp "$origin"/.keynavrc "$destination"/config
+	eval cp "$origin"/.xbindkeysrc "$destination"/config
+	eval cp "$origin"/.Xresources "$destination"/config
+	eval cp "$origin"/.Rprofile "$destination"/config
+	if [ $compositor != "other" ]
+	then
+		eval cp "$origin"/.config/"$compositor" "$destination"/config
+	fi
+	eval cp "$origin"/.config/gromit-mpx.cfg "$destination"/config
+	if [ "$notifier" != "other" ]
+	then
+ 		eval cp "$origin"/.config/dunst/"$notifier" "$destination"/config
+	fi
+	if [ "$has_i3" = true ]
+	then
+		eval cp -r "$origin"/"$i3dir"/* "$destination"/i3/"$machinename"/
+	fi
+	if [ "$has_vsc" = true ]
+	then
+		eval cp "$origin"/.config/"$VSCdir"/User/keybindings.json "$destination"/VSC/
+		eval cp "$origin"/.config/"$VSCdir"/User/settings.json "$destination"/VSC/
+		eval cp -r "$origin"/.config/"$VSCdir"/User/snippets "$destination"/VSC/
+	fi
+}
+
 if [ "$1" = "push" ]
 then
-	eval cp ~/.bash_aliases "$location"/config
-	eval cp ~/.bashrc "$location"/config
-	eval cp ~/.gitconfig "$location"/config
-	eval cp ~/.radian_profile "$location"/config
-	eval cp ~/.vimrc "$location"/config
-	eval cp ~/.keynavrc "$location"/config
-	eval cp ~/.xbindkeysrc "$location"/config
-	eval cp ~/.Xresources "$location"/config
-	eval cp ~/.Rprofile "$location"/config
-	if [ $compositor != "other" ]
-	then
-		eval cp ~/.config/"$compositor" "$location"/config
-	fi
-	eval cp ~/.config/gromit-mpx.cfg "$location"/config
- 	eval cp ~/.config/dunst/dunstrc "$location"/config
-	if [ "$has_i3" = true ]
-	then
-		eval cp -r ~/"$i3dir"/* "$location"/i3/"$machinename"/
-	fi
-	if [ "$has_vsc" = true ]
-	then
-		echo "Pushing VSC config files"
-		eval cp ~/.config/"$VSCdir"/User/keybindings.json "$location"/VSC/
-		eval cp ~/.config/"$VSCdir"/User/settings.json "$location"/VSC/
-		eval cp -r ~/.config/"$VSCdir"/User/snippets "$location"/VSC/
-	fi
+	syncFiles "$HOME" "$location" "$compositor" "$has_i3" "$i3dir" "$has_vsc" "$VSCdir" "$notifier"
 elif [ "$1" = "pull" ]
 then
-	eval cp "$location"/config/.bash_aliases ~
-	eval cp "$location"/config/.bashrc ~
-	eval cp "$location"/config/.gitconfig ~
-	eval cp "$location"/config/.radian_profile ~
-	eval cp "$location"/config/.vimrc ~
-	eval cp "$location"/config/.keynavrc ~
-	eval cp "$location"/config/.xbindkeysrc ~
-	eval cp "$location"/config/.Xresources ~
-	eval cp "$location"/config/.Rprofile ~
-	if [ $compositor != "other" ]
-	then
-		eval cp "$location"/config/"$compositor" ~/.config
-	fi
-	eval cp "$location"/config/gromit-mpx.cfg ~/.config
-	eval cp "$location"/config/dunstrc ~/.config/dunst/
-	if [ "$has_i3" = true ]
-	then
-		eval cp -r "$location"/i3/"$machinename"/* ~/"$i3dir"
-	fi
-	if [ "$has_vsc" = true ]
-	then
-		echo "Pulling VSC config files"
-		eval cp "$location"/VSC/keybindings.json ~/.config/"$VSCdir"/User/
-		eval cp "$location"/VSC/settings.json ~/.config/"$VSCdir"/User/
-		eval cp -r "$location"/VSC/snippets ~/.config/"$VSCdir"/User/
-	fi
+	syncFiles "$HOME" "$location" "$compositor" "$has_i3" "$i3dir" "$has_vsc" "$VSCdir" "$notifier"
 else
 	echo -e "\n# Diff report\n"
 	diffFlags="--recursive --color=always"
@@ -185,7 +189,10 @@ else
 		eval diff "$diffFlags"  ~/.config/"$compositor" "$location"/config
 	fi
 	eval diff "$diffFlags" ~/.config/gromit-mpx.cfg "$location"/config
- 	eval diff "$diffFlags" ~/.config/dunst/dunstrc "$location"/config
+	if [ "$notifier" != "other" ]
+	then
+ 		eval diff "$diffFlags" ~/.config/dunst/dunstrc "$location"/config
+	fi
 	if [ "$has_i3" = true ]
 	then
 		eval diff "$diffFlags" -r ~/"$i3dir"/ "$location"/i3/"$machinename"/
