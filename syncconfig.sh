@@ -26,11 +26,11 @@ source $configPath
 hasCompositor () {
 	if [ -f "$HOME/.config/picom.conf" ]
 	then
-		echo -e "\e[32mCompositor found: picom\e[0m"
+		echo -e "Compositor found: picom"
 		compositor="picom.conf"
 	elif [ -f "$HOME/.config/compton.conf" ]
 	then
-		echo -e "\e[32mCompositor found: compton\e[0m"
+		echo -e "Compositor found: compton"
 		compositor="compton.conf"
 	else
 		echo -e "\e[31mNo supported compositor found (picom or compton)\e[0m"
@@ -60,7 +60,7 @@ hasi3 () {
 hasNotifier() {
 	if [ -d "$HOME/.config/dunst/" ]
 	then
-		echo -e "\e[32mNotification daemon found: dunst\e[0m"
+		echo -e "Notification daemon found: dunst"
 		notifier="dunstrc"
 	else
 		echo -e "\e[31mNo supported notification daemon found (dunst)\e[0m"
@@ -91,6 +91,7 @@ hasVSC() {
 # ==============================================================================
 # Determining paths
 # ==============================================================================
+echo -e "\e[34m# Determining paths\e[0m\n"
 hasCompositor
 hasi3
 hasNotifier
@@ -180,11 +181,11 @@ syncFiles () {
 # ==============================================================================
 if [ "$1" = "push" ]
 then
-	echo "Copying files to local git repository"
+	echo -e "\n\e[34m# Copying files to local git repository\e[0m\n"
 	syncFiles cp "${homePaths[*]}" "${locationPaths[*]}"
 elif [ "$1" = "pull" ]
 then
-	echo "Copying files from local git repository"
+	echo -e "\n\e[34m# Copying files from local git repository\e[0m\n"
 	changedFiles=$(syncFiles diff "${homePaths[*]}" "${locationPaths[*]}" "--brief")
 	if [ "$changedFiles" = "" ]
 	then
@@ -201,14 +202,14 @@ then
 		echo "Cancelling. Run syncconfig.sh diff to see the change details"
 	fi
 else
-	echo "Dry-run: comparing local files with local git repository"
+	echo -e "\n\e[34m# Dry-run: comparing local files with local git repository\e[0m\n"
 	diffFlags="--recursive --color=always"
 	if [ "$1" = "diff" ]
 	then
-		echo "Showing changes to be made when pulling"
+		echo -e "Showing changes to be made to local files\n"
 		diffFlags=""$diffFlags" --suppress-common-lines -bZB -C 1"
 	else
-		echo "To get diff details, run this script with 'diff' as the first argument"
+		echo -e "To get diff details, run this script with 'diff' as the first argument\n"
 		diffFlags=""$diffFlags" --brief"
 	fi
 	syncFiles diff "${homePaths[*]}" "${locationPaths[*]}" "$diffFlags"
