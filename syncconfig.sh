@@ -74,7 +74,7 @@ hasNotifier() {
 hasVSC() {
 	if [ -d "$HOME/.config/VSCodium" ]
 	then
-		VSCdir="VSCo	dium"
+		VSCdir="VSCodium"
 	elif [ -d "$HOME/.config/VSCode" ]
 	then
 		VSCdir="VSCode"
