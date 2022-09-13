@@ -147,6 +147,7 @@ syncFiles () {
 	eval "$operator" "${origin[0]}"/.Xresources "${destination[0]}"
 	eval "$operator" "${origin[0]}"/.Rprofile "${destination[0]}"
 	eval "$operator" "${origin[1]}"/gromit-mpx.cfg "${destination[1]}"
+	eval "$operator" "${origin[1]}"/gh/config.yml "${destination[1]}"/gh/config.yml
 
 	if [ $compositor != "other" ]
 	then
