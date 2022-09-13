@@ -74,7 +74,7 @@ hasNotifier() {
 hasVSC() {
 	if [ -d "$HOME/.config/VSCodium" ]
 	then
-		VSCdir="VSCodium"
+		VSCdir="VSCo	dium"
 	elif [ -d "$HOME/.config/VSCode" ]
 	then
 		VSCdir="VSCode"
@@ -101,17 +101,15 @@ homePaths=(
 	""$HOME"/.config/"$compositor""
 	""$HOME"/"$i3dir""
 	""$HOME"/.config/dunst/"$notifier""
-	""$HOME"/.config/"$VSCdir"/User"
-	""$HOME"/.config/"$VSCdir"/User/snippets"
+	""$HOME"/.config/""$VSCdir""/User"
 )
 locationPaths=(
 	""$location"/config"
 	""$location"/config"
 	""$location"/config"
-	""$location"/i3/"$machinename"/"
+	""$location"/i3/"$machinename""
 	""$location"/config"
-	""$location"/VSC/"
-	""$location"/VSC/snippets"
+	""$location"/VSC"
 )
 
 # ==============================================================================
@@ -122,8 +120,20 @@ syncFiles () {
 	operator="$1 $4"
 	origin=($2)
 	destination=($3)
-	# echo "Origin paths: "${origin[*]}""
-	# echo "Destination paths: "${destination[*]}""
+
+	# Workaround for spaces in VSC path
+	if [ "${#origin[@]}" -gt 6 ]
+	then
+		origin[5]=""${origin[5]}" "${origin[6]}" "${origin[7]}""
+		unset origin[6]
+		unset origin[7]
+	fi
+	if [ "${#destination[@]}" -gt 6 ]
+	then
+		destination[5]=""${destination[5]}" "${destination[6]}" "${destination[7]}""
+		unset destination[6]
+		unset destination[7]
+	fi
 
 	# Copying files
 	eval "$operator" "${origin[0]}"/.bash_aliases "${destination[0]}"
@@ -156,7 +166,7 @@ syncFiles () {
 	then
 		eval "$operator" "${origin[5]}"/keybindings.json "${destination[5]}"
 		eval "$operator" "${origin[5]}"/settings.json "${destination[5]}"
-		eval "$operator" "${origin[6]}"/* "${destination[6]}"
+		eval "$operator" -r "${origin[5]}"/snippets/ "${destination[5]}"
 	fi
 }
 
