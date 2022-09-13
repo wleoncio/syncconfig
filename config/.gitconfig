@@ -63,7 +63,7 @@
 [diff]
   tool = meld
 [difftool]
-  prompt = false
+  prompt = true
 [difftool "meld"]
   cmd = meld "$LOCAL" "$REMOTE"
 [difftool "latexdiff"]

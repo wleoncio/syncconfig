@@ -1,5 +1,5 @@
 #!/bin/bash
-# Counts down from $1 seconds
+# Counts down from $1 seconds, then sends message
 
 time=$1
 

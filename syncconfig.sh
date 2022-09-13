@@ -185,7 +185,21 @@ then
 elif [ "$1" = "pull" ]
 then
 	echo "Copying files from local git repository"
-	syncFiles cp "${locationPaths[*]}" "${homePaths[*]}"
+	changedFiles=$(syncFiles diff "${homePaths[*]}" "${locationPaths[*]}" "--brief")
+	if [ "$changedFiles" = "" ]
+	then
+		proceed="y"
+	else
+		echo -e "\nTHIS OPERATION WILL \e[1;31mOVERWRITE\e[0m THE CONTENTS OF:\e[0m"
+		echo "$changedFiles" | awk '{print $2'\r'}'
+		read -p "Are you sure you want to continue? (y/N) " proceed
+	fi
+	if [ "$proceed" = "y" ]
+	then
+		echo syncFiles cp "${locationPaths[*]}" "${homePaths[*]}"
+	else
+		echo "Cancelling. Run syncconfig.sh diff to see the change details"
+	fi
 else
 	echo "Dry-run: comparing local files with local git repository"
 	diffFlags="--recursive --color=always"
