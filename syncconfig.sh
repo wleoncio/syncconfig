@@ -99,9 +99,9 @@ hasVSC
 homePaths=(
   "$HOME"
 	""$HOME"/.config"
-	""$HOME"/.config/"$compositor""
+	""$HOME"/.config"
 	""$HOME"/"$i3dir""
-	""$HOME"/.config/dunst/"$notifier""
+	""$HOME"/.config/dunst"
 	""$HOME"/.config/""$VSCdir""/User"
 )
 locationPaths=(
@@ -150,7 +150,7 @@ syncFiles () {
 
 	if [ $compositor != "other" ]
 	then
-		eval "$operator" "${origin[2]}" "${destination[2]}"
+		eval "$operator" "${origin[2]}"/"$compositor" "${destination[2]}"
 	fi
 
 	if [ "$i3dir" != "none" ]
@@ -160,7 +160,7 @@ syncFiles () {
 
 	if [ "$notifier" != "other" ]
 	then
- 		eval "$operator" "${origin[4]}" "${destination[4]}"
+ 		eval "$operator" "${origin[4]}"/"$notifier" "${destination[4]}"
 	fi
 
 	if [ "$VSCdir" != "none" ]
@@ -191,13 +191,13 @@ then
 	then
 		proceed="y"
 	else
-		echo -e "\nTHIS OPERATION WILL \e[1;31mOVERWRITE\e[0m THE CONTENTS OF:\e[0m"
+		echo -e "THIS OPERATION WILL \e[1;31mOVERWRITE\e[0m THE CONTENTS OF:\e[0m"
 		echo "$changedFiles" | awk '{print $2'\r'}'
 		read -p "Are you sure you want to continue? (y/N) " proceed
 	fi
 	if [ "$proceed" = "y" ]
 	then
-		echo syncFiles cp "${locationPaths[*]}" "${homePaths[*]}"
+		syncFiles cp "${locationPaths[*]}" "${homePaths[*]}"
 	else
 		echo "Cancelling. Run syncconfig.sh diff to see the change details"
 	fi
