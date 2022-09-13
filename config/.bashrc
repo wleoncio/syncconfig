@@ -184,3 +184,7 @@ export COLUMNS
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
+
+# Linking custom scripts to $PATH
+ln -f $HOME/Programs/syncconfig/myScripts/* $HOME/.local/bin
+ln -f $HOME/Programs/syncconfig/syncconfig.sh $HOME/.local/bin
