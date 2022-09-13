@@ -231,7 +231,7 @@
         "editor.lineHighlightBackground": "#1073cf2d",
         "editor.lineHighlightBorder": "#9fced11f"
     },
-    "workbench.colorTheme": "Ayu Dark",
+    "workbench.colorTheme": "Monokai Dimmed",
     "workbench.editor.centeredLayoutAutoResize": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.mouseBackForwardToNavigate": false,
