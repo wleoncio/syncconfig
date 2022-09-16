@@ -33,6 +33,7 @@
 	history = log -p --
 	fap = fetch --all --prune
 	latexdiff = difftool -t latexdiff
+  pa = push --all
 [core]
 	editor = vim
 [credential]
