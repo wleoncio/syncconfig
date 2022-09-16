@@ -280,11 +280,11 @@ mode "$mode_system" {
 }
 
 # Virtual buttons (plan: replace with programmable hardware buttons)
-set $virtual_buttons (v)scode (q)alc
-bindsym $mod+Shift+v mode "$virtual_buttons"
+set $virtual_buttons 1. VSCodium 2. Qalc
+bindsym $mod+Escape mode "$virtual_buttons"
 mode "$virtual_buttons" {
-  bindsym v exec codium, mode "default"
-  bindsym q exec $default_terminal -e qalc, mode "default"
+  bindsym 1 exec codium, mode "default"
+  bindsym 2 exec $default_terminal -e qalc, mode "default"
   bindsym Return mode "default"
 	bindsym Escape mode "default"
 }
