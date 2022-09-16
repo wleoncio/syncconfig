@@ -24,7 +24,7 @@
 # Use 'daemonize' to background ourselves.
 daemonize
 
-ctrl+semicolon start
+ctrl+semicolon start, windowzoom
 Escape end
 ctrl+bracketleft end
 h cut-left
