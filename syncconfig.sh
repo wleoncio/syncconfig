@@ -184,6 +184,8 @@ if [ "$1" = "push" ]
 then
 	echo -e "\n\e[34m# Copying files to local git repository\e[0m\n"
 	syncFiles cp "${homePaths[*]}" "${locationPaths[*]}"
+	echo -e "\n\e[34m# Listing modified files\e[0m\n"
+	git status --short
 elif [ "$1" = "pull" ]
 then
 	echo -e "\n\e[34m# Copying files from local git repository\e[0m\n"
