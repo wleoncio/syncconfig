@@ -245,7 +245,8 @@ bindsym $mod+m exec evolution --component=mail
 bindsym $mod+c exec evolution --component=calendar
 bindsym $mod+Mod1+c exec firefox --new-window "http://calendar.google.com/"
 bindsym $mod+t exec "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=todoist --file-forwarding com.todoist.Todoist @@u %U @@"
-bindsym $mod+F2 exec speedcrunch
+bindsym $mod+F1 exec codium
+bindsym $mod+F2 exec $default_terminal -e qalc
 
 ## Multimedia shortcuts
 bindsym $mod+F9 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -20% && $refresh_i3status
@@ -277,16 +278,6 @@ mode "$mode_system" {
 
 	# back to normal: Enter or Escape
 	bindsym Return mode "default"
-	bindsym Escape mode "default"
-}
-
-# Virtual buttons (plan: replace with programmable hardware buttons)
-set $virtual_buttons 1. VSCodium 2. Qalc
-bindsym $mod+Escape mode "$virtual_buttons"
-mode "$virtual_buttons" {
-  bindsym 1 exec codium, mode "default"
-  bindsym 2 exec $default_terminal -e qalc, mode "default"
-  bindsym Return mode "default"
 	bindsym Escape mode "default"
 }
 
