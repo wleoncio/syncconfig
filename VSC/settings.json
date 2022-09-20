@@ -142,7 +142,6 @@
     "markdown.preview.doubleClickToSwitchToEditor": false,
     "r.alwaysUseActiveTerminal": true,
     "r.bracketedPaste": true,
-    "r.lsp.diagnostics": false,
     "r.rpath.linux": "/usr/bin/R",
     "r.rterm.linux": "/usr/bin/radian",
     "r.sessionWatcher": true,
@@ -298,5 +297,6 @@
     "editor.wordWrap": "off",
     "diffEditor.wordWrap": "off",
     "editor.guides.indentation": false,
-    "editor.inlayHints.enabled": false
+    "editor.inlayHints.enabled": false,
+    "r.lsp.diagnostics": false
 }
