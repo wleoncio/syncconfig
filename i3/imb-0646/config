@@ -221,7 +221,7 @@ exec_always --no-startup-id compton --config $HOME/.config/compton.conf
 exec_always --no-startup-id $HOME/Programs/i3-alternating-layout/alternating_layouts.py
 exec --no-startup-id xbindkeys
 exec --no-startup-id xrandr --output DP-1 --primary --output HDMI-2 --left-of DP-1 --output HDMI-3 --right-of DP-1; sleep 5; xrandr --output HDMI-3 --mode 1920x1200; sleep 2; xrandr --output HDMI-3 --rotate left; sleep 2; nitrogen --restore
-exec --no-startup-id i3-msg 'exec gnome-terminal --command="$HOME/Programs/myScripts/uiosync.sh pull"; workspace $ws2; exec evolution -c mail'
+exec --no-startup-id i3-msg 'exec gnome-terminal --command="$HOME/Programs/myScripts/uiosync.sh pull"; workspace $ws2; exec evolution -c mail;exec bash /var/lib/flatpak/app/com.todoist.Todoist/current/active/export/bin/com.todoist.Todoist'
 exec numlockx on
 
 # i3 gaps
