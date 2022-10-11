@@ -625,5 +625,10 @@
         "key": "ctrl+k left",
         "command": "-views.moveViewLeft",
         "when": "focusedView != ''"
+    },
+    {
+        "key": "ctrl+g ctrl+b",
+        "command": "editor.action.jumpToBracket",
+        "when": "editorTextFocus"
     }
 ]
