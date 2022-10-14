@@ -105,9 +105,9 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1. Extra"
-set $ws2 "2. Project A"
-set $ws3 "3. Project A"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
 set $ws4 "4. Project B"
 set $ws5 "5. Project B" 
 set $ws6 "6. Project C"
@@ -221,7 +221,7 @@ exec_always --no-startup-id compton --config $HOME/.config/compton.conf
 exec_always --no-startup-id $HOME/Programs/i3-alternating-layout/alternating_layouts.py
 exec --no-startup-id xbindkeys
 exec --no-startup-id xrandr --output DP-1 --primary --output HDMI-2 --left-of DP-1 --output HDMI-3 --right-of DP-1; sleep 5; xrandr --output HDMI-3 --mode 1920x1200; sleep 2; xrandr --output HDMI-3 --rotate left; sleep 2; nitrogen --restore
-exec --no-startup-id i3-msg 'exec gnome-terminal --command="$HOME/Programs/myScripts/uiosync.sh pull"; workspace $ws2; exec evolution -c mail;exec bash /var/lib/flatpak/app/com.todoist.Todoist/current/active/export/bin/com.todoist.Todoist'
+exec --no-startup-id i3-msg 'workspace $ws2; exec gnome-terminal --command="$HOME/Programs/myScripts/uiosync.sh pull"; exec evolution -c mail; exec bash /var/lib/flatpak/app/com.todoist.Todoist/current/active/export/bin/com.todoist.Todoist'
 exec numlockx on
 
 # i3 gaps
@@ -308,3 +308,7 @@ for_window [instance="shutter|evolution-alarm-notify|r_x11"] floating enable
 # Windows that need to be explicitly given borders
 for_window [instance="pocket-casts|musixmatch|telegram-desktop|evince|org.gnome.Nautilus|eog"] border pixel $bordersize
 for_window [title="Zoom Meeting|YouTube|Møte \| Microsoft Teams"] border pixel $bordersize
+
+exec i3-msg 'workspace 1; rename workspace to "1. Extra"'
+exec i3-msg 'workspace 3; rename workspace to "3. Project A"'
+exec i3-msg 'workspace 2; rename workspace to "2. Project A"'
