@@ -298,5 +298,7 @@
     "diffEditor.wordWrap": "off",
     "editor.guides.indentation": false,
     "editor.inlayHints.enabled": false,
-    "r.lsp.diagnostics": false
+    "notebook.lineNumbers": "on",
+    "r.lsp.diagnostics": false,
+    "r.lsp.promptToInstall": false
 }

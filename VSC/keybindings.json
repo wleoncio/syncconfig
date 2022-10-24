@@ -630,5 +630,9 @@
         "key": "ctrl+g ctrl+b",
         "command": "editor.action.jumpToBracket",
         "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+b ctrl+w",
+        "command": "workspaceViewer.focus"
     }
 ]
