@@ -51,7 +51,7 @@ if [ "$check" != "n" ]
 then
 	echo "Checking for file conflicts. Please wait."
   eval rsync -au --verbose --dry-run --delete "$from/" "$to" > "$logPath"
-  cat "$logPath" | grep -v "\.git"
+  cat "$logPath" | grep -v "\.git" | grep -v "/$"
 else
 	echo "Skipping conflict check"
 fi
