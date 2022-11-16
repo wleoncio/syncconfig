@@ -36,7 +36,6 @@
     "editor.mouseWheelZoom": false,
     "editor.overviewRulerBorder": false,
     "editor.renderLineHighlight": "all",
-    "editor.renderLineHighlightOnlyWhenFocus": true,
     "editor.rulers": [
         {
             "color": "#ff0000",
@@ -217,6 +216,10 @@
     "window.restoreWindows": "none",
     "workbench.activityBar.visible": false,
     "workbench.colorCustomizations": {
+        "editorIndentGuide.background": "#000",
+        "editorIndentGuide.activeBackground": "#000",
+        "editor.lineHighlightBackground": "#1073cf2d",
+        "editor.lineHighlightBorder": "#9fced11f",
         "terminal.ansiBlack": "#000",
         "terminal.ansiBrightBlack": "#fff",
         "terminal.ansiBrightRed": "#fd6464",
@@ -226,9 +229,7 @@
         "terminal.ansiYellow": "#ffaa00",
         "terminal.background": "#101010",
         "terminal.border": "#888",
-        "terminal.foreground": "#fff",
-        "editor.lineHighlightBackground": "#1073cf2d",
-        "editor.lineHighlightBorder": "#9fced11f"
+        "terminal.foreground": "#fff"
     },
     "workbench.colorTheme": "Monokai Dimmed",
     "workbench.editor.centeredLayoutAutoResize": false,
@@ -240,7 +241,6 @@
     "workbench.enableExperiments": false,
     "workbench.sideBar.location": "right",
     "workbench.startupEditor": "welcomePageInEmptyWorkbench",
-    "workbench.tree.indent": 32,
     "diffEditor.renderSideBySide": false,
     "editor.autoClosingOvertype": "always",
     "editor.autoClosingQuotes": "always",
@@ -289,16 +289,18 @@
     // Language-specific
     "[git-commit]": {"editor.rulers": [{"color": "#ff0000", "column": 50}]},
     "[markdown]": {
-        "editor.rulers": []
+        "editor.rulers": [],
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
     },
     "editor.showFoldingControls": "always",
     "git-graph.commitDetailsView.location": "Docked to Bottom",
     "blockman.n01LineHeight": 0,
     "editor.wordWrap": "off",
     "diffEditor.wordWrap": "off",
-    "editor.guides.indentation": false,
     "editor.inlayHints.enabled": false,
     "notebook.lineNumbers": "on",
     "r.lsp.diagnostics": false,
-    "r.lsp.promptToInstall": false
+    "r.lsp.promptToInstall": false,
+    "workbench.tree.renderIndentGuides": "always",
+    "workbench.tree.indent": 16
 }
