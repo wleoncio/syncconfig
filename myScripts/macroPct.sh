@@ -24,12 +24,32 @@ else
 	total=$((9 * $fat + 4 * $carbs + 4 * $protein + 2 * $fiber))
 fi
 
+# Defining percentages
+pctfat=$((9 * $fat * 100 / $total))
+pctcarbs=$((4 * $carbs * 100 / $total))
+pctfiber=$((2 * $fiber * 100 / $total))
+pctprotein=$((4 * $protein * 100 / $total))
+
+# Defining colors for output
+lowcarb=15
+highcarb=45
+if [ $pctcarbs -le $lowcarb ]
+then
+	carbcolor="\e[32m"
+elif [ $pctcarbs -ge $highcarb ]
+then
+	carbcolor="\e[31m"
+else
+	carbcolor="\e[33m"
+fi
+
+# Output
 echo -e "\e[0mTotal energy: $total kcal"
-echo "From fat:     $((9 * $fat * 100 / $total)) %"
-echo -e "\e[1;34mFrom carbs:   $((4 * $carbs * 100 / $total)) %\e[0m"
+echo "From fat:     $pctfat %"
+echo -e ""$carbcolor"From carbs:   $pctcarbs %\e[0m"
 if [ "$fiber" -gt 0 ]
 then
-	echo "From fiber:    $((2 * $fiber * 100 / $total)) %"
+	echo "From fiber:    $pctfiber %"
 fi
-echo "From protein: $((4 * $protein * 100 / $total)) %"
+echo "From protein: $pctprotein %"
 
