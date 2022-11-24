@@ -46,17 +46,18 @@ fi
 ## Dry run
 logPath="/tmp/uiosync.log"
 touch "$logPath"
-read -p "Check for file conflicts? (Y/n) " check
+read -p "Check for file conflicts? (Y/n) " -t 5 check
 if [ "$check" != "n" ]
 then
 	echo "Checking for file conflicts. Please wait."
   eval rsync -au --verbose --dry-run --delete "$from/" "$to" > "$logPath"
-	echo "Found changes in the following directories"
+	echo -e "\nFound changes in the following directories"
 	cat "$logPath" | grep "/$" | grep -v "\.git/."
+	echo ""
 	read -p "Show changes in files? (y/N) " filechange
-	if [ $filechange = "y" ]
+	if [ "$filechange" = "y" ]
 	then
-		echo "Found changes in the following files"
+		echo -e "\nFound changes in the following files"
 		cat "$logPath" | grep -v "[^(git)]/$" | grep -v "\.git/."
 	fi
 else
