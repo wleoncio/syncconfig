@@ -201,10 +201,9 @@ client.background       $uiowhite
 bar {
 	status_command i3status
 	font pango:Awesome 10
-	output HDMI-2
+	output HDMI-3
 	output DP-1
 	tray_output primary
-	output HDMI-3
 	position top
 	bindsym button3 exec gsimplecal
 	bindsym button2 exec pavucontrol
@@ -224,8 +223,8 @@ bar {
 exec_always --no-startup-id compton --config $HOME/.config/compton.conf
 exec_always --no-startup-id $HOME/Programs/i3-alternating-layout/alternating_layouts.py
 exec --no-startup-id xbindkeys
-exec --no-startup-id xrandr --output DP-1 --primary --output HDMI-2 --left-of DP-1 --output HDMI-3 --right-of DP-1; sleep 5; xrandr --output HDMI-3 --mode 1920x1200; sleep 2; xrandr --output HDMI-3 --rotate left; sleep 2; nitrogen --restore
-exec --no-startup-id i3-msg 'workspace $ws2; exec gnome-terminal --command="$HOME/.local/bin/uiosync.sh pull"; exec evolution -c mail; exec bash /var/lib/flatpak/app/com.todoist.Todoist/current/active/export/bin/com.todoist.Todoist'
+exec --no-startup-id bash $HOME/Programs/syncconfic/myScripts/start_xrandr_imb.sh
+exec --no-startup-id i3-msg 'workspace $ws1; exec gnome-terminal --command="$HOME/.local/bin/uiosync.sh pull"; exec evolution -c mail; exec bash /var/lib/flatpak/app/com.todoist.Todoist/current/active/export/bin/com.todoist.Todoist'
 exec numlockx on
 
 # i3 gaps
@@ -262,16 +261,16 @@ bindsym $mod+F11 exec playerctl next
 bindsym $mod+F12 exec playerctl play-pause
 
 # Defining which workspace opens where (multimonitor setup)
-workspace 1 output HDMI-2
-workspace 2 output DP-1
-workspace 0 output HDMI-3
-workspace 3 output DP-1
-workspace 4 output DP-1
-workspace 5 output DP-1
-workspace 6 output DP-1
-workspace 7 output DP-1
-workspace 8 output DP-1
-workspace 9 output DP-1
+workspace $ws1 output DP-1
+workspace $ws0 output HDMI-3
+workspace $ws2 output DP-1
+workspace $ws3 output DP-1
+workspace $ws4 output DP-1
+workspace $ws5 output DP-1
+workspace $ws6 output DP-1
+workspace $ws7 output DP-1
+workspace $ws8 output DP-1
+workspace $ws9 output DP-1
 
 # Combinations for shutdown, reboot, lock screen
 
