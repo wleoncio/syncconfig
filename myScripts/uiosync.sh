@@ -54,7 +54,7 @@ then
 	echo "Found changes in the following directories"
 	cat "$logPath" | grep "/$" | grep -v "\.git/."
 	read -p "Show changes in files? (y/N) " filechange
-	if [ $filechange = "y" ]
+	if [ "$filechange" = "y" ]
 	then
 		echo "Found changes in the following files"
 		cat "$logPath" | grep -v "[^(git)]/$" | grep -v "\.git/."
