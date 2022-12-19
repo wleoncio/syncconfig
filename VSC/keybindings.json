@@ -634,5 +634,19 @@
     {
         "key": "ctrl+b ctrl+w",
         "command": "workspaceViewer.focus"
+    },
+    {
+        "key": "ctrl+enter",
+        "command": "python.execSelectionInTerminal",
+        "when": "editorTextFocus && !findInputFocussed && !jupyter.ownsSelection && !notebookEditorFocused && !replaceInputFocussed && editorLangId == 'python'"
+    },
+    {
+        "key": "shift+enter",
+        "command": "-python.execSelectionInTerminal",
+        "when": "editorTextFocus && !findInputFocussed && !jupyter.ownsSelection && !notebookEditorFocused && !replaceInputFocussed && editorLangId == 'python'"
+    },
+    {
+        "key": "ctrl+shift+s",
+        "command": "python.execInTerminal-icon"
     }
 ]

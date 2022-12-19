@@ -1,6 +1,7 @@
 alias nvtop="watch -d -n 0.5 nvidia-smi"
 alias open="xdg-open"
 alias r="radian"
+alias python="bpython"
 alias please="sudo"
 alias smaug="ssh waldirln@login.uio.no"
 alias med-biostat="ssh waldirln@login.uio.no -t ssh med-biostat"
