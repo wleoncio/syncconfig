@@ -51,7 +51,7 @@ bindsym $mod+Return exec $default_terminal
 
 # killing windows
 bindsym $mod+q kill
-bindsym $mod+Shift+x exec xkill
+bindsym $mod+Shift+x --release exec --no-startup-id xkill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
@@ -222,8 +222,7 @@ bar {
 # ==============================================================================
 exec_always --no-startup-id compton --config $HOME/.config/compton.conf
 exec_always --no-startup-id $HOME/Programs/i3-alternating-layout/alternating_layouts.py
-exec --no-startup-id xbindkeys
-exec --no-startup-id bash $HOME/Programs/syncconfic/myScripts/start_xrandr_imb.sh
+exec --no-startup-id bash $HOME/Programs/syncconfig/myScripts/start_xrandr_imb.sh
 exec --no-startup-id i3-msg 'workspace $ws1; exec gnome-terminal --command="$HOME/.local/bin/uiosync.sh pull"; exec evolution -c mail; exec bash /var/lib/flatpak/app/com.todoist.Todoist/current/active/export/bin/com.todoist.Todoist'
 exec numlockx on
 
