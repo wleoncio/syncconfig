@@ -5,15 +5,6 @@
             "spaceBefore": 1
         }
     },
-    "bracket-pair-colorizer-2.colors": [
-        "Gold",
-        "Orchid",
-        "LightSkyBlue",
-        "Green",
-        "Gray"
-    ],
-    "bracket-pair-colorizer-2.forceUniqueOpeningColor": false,
-    "bracket-pair-colorizer-2.highlightActiveScope": true,
     "comment-divider.length": 60,
     "comment-divider.mainHeaderAlign": "left",
     "comment-divider.mainHeaderFiller": "=",
@@ -117,7 +108,6 @@
         "local"
     ],
     "git.suggestSmartCommit": false,
-    "github.remoteName": "ocbe-uio",
     "html.preview.doubleClickToSwitchToEditor": false,
     "julia.enableTelemetry": false,
     "julia.symbolCacheDownload": true,
@@ -210,7 +200,6 @@
         }
     },
     "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
-    "todo-tree.tree.showScanModeButton": false,
     "typescript.suggest.paths": false,
     "window.menuBarVisibility": "hidden",
     "window.restoreWindows": "none",
@@ -241,7 +230,6 @@
     "workbench.enableExperiments": false,
     "workbench.sideBar.location": "right",
     "workbench.startupEditor": "welcomePageInEmptyWorkbench",
-    "diffEditor.renderSideBySide": false,
     "editor.autoClosingOvertype": "always",
     "editor.autoClosingQuotes": "always",
     "outline.icons": false,
@@ -294,7 +282,6 @@
     },
     "editor.showFoldingControls": "always",
     "git-graph.commitDetailsView.location": "Docked to Bottom",
-    "blockman.n01LineHeight": 0,
     "editor.wordWrap": "off",
     "diffEditor.wordWrap": "off",
     "editor.inlayHints.enabled": false,
@@ -302,5 +289,6 @@
     "r.lsp.diagnostics": false,
     "r.lsp.promptToInstall": false,
     "workbench.tree.renderIndentGuides": "always",
-    "workbench.tree.indent": 16
+    "workbench.tree.indent": 16,
+    "diffEditor.renderSideBySide": false
 }
