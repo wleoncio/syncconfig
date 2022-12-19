@@ -69,6 +69,8 @@ bindsym $mod+b workspace back_and_forth
 bindsym $mod+Ctrl+Left workspace prev
 bindsym $mod+Ctrl+Right workspace next
 
+# Alt-tab switch between windows
+bindsym mod1+Tab exec $HOME/Programs/syncconfig/myScripts/rofiCustom.sh window
 
 # move focused window
 bindsym $mod+Shift+Left move left
