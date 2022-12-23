@@ -75,8 +75,8 @@
     "editor.fontLigatures": true,
     "editor.fontSize": 12,
     "editor.fontWeight": "bold",
-    "editor.guides.bracketPairs": false,
-    "editor.inlayHints.enabled": false,
+    "editor.guides.bracketPairs": "active",
+    "editor.inlayHints.enabled": "off",
     "editor.minimap.enabled": false,
     "editor.minimap.maxColumn": 80,
     "editor.minimap.showSlider": "always",
@@ -234,35 +234,35 @@
     "todo-tree.highlights.customHighlight": {
         "ASK": {
             "background": "#FFCA02",
-            "foreground": "black",
-            "icon": "question",
-            "iconColour": "#FFCA02"
+            "foreground": "#000",
+            "iconColour": "#FFCA02",
+            "icon": "question"
         },
         "DONE": {
-            "foreground": "green"
+            "foreground": "#0F0"
         },
         "FIXME": {
-            "background": "red",
-            "foreground": "white",
-            "icon": "alert",
-            "iconColour": "red"
+            "background": "#F00",
+            "foreground": "#FFF",
+            "iconColour": "#F00",
+            "icon": "alert"
         },
         "SUGGEST": {
             "background": "#FFCA02",
-            "foreground": "black",
-            "icon": "light-bulb",
-            "iconColour": "#FFCA02"
+            "foreground": "#000",
+            "iconColour": "#FFCA02",
+            "icon": "light-bulb"
         },
         "TEMP": {
             "background": "#707070",
-            "foreground": "black",
+            "foreground": "#000",
+            "iconColour": "#707070",
             "icon": "clock",
-            "iconColour": "gray",
             "type": "line"
         },
         "TODO": {
-            "background": "green",
-            "foreground": "black",
+            "background": "#0F0",
+            "foreground": "#000",
             "icon": "check"
         }
     },
