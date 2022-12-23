@@ -25,6 +25,7 @@
 	cmm = commit -m
 	cma = commit --amend
 	rb = rebase -i --autosquash
+	mg = !sh -c 'mergeIntoDevelop.sh'
 	s = status
 	ls = status
 	ci = !sh -c 'git checkout -b issue-$1' -
