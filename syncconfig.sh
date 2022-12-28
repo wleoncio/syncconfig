@@ -144,6 +144,7 @@ syncFiles () {
 	eval "$operator" "${origin[0]}"/.vimrc "${destination[0]}"
 	eval "$operator" "${origin[0]}"/.keynavrc "${destination[0]}"
 	eval "$operator" "${origin[0]}"/.xbindkeysrc "${destination[0]}"
+	eval "$operator" "${origin[0]}"/.xinitrc "${destination[0]}"
 	eval "$operator" "${origin[0]}"/.Xresources "${destination[0]}"
 	eval "$operator" "${origin[0]}"/.Rprofile "${destination[0]}"
 	eval "$operator" "${origin[1]}"/gromit-mpx.cfg "${destination[1]}"
