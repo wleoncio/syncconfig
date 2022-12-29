@@ -1,9 +1,9 @@
 #!/bin/bash
 
-word=$1
+read -p "Enter word to search: " word
 
 # Retrieving article IDs
-id_url="https://ord.uib.no/api/articles?w="$1"&dict=bm%2Cnn&wc=NOUN&scope=eif"
+id_url="https://ord.uib.no/api/articles?w="$word"&dict=bm%2Cnn&wc=NOUN&scope=eif"
 id_json=$(curl -s -X 'GET' "$id_url" -H 'accept: application/json')
 bm_ids=$(echo $id_json | jq '.["articles"]' | jq '.["bm"]')
 nn_ids=$(echo $id_json | jq '.["articles"]' | jq '.["nn"]')
@@ -25,3 +25,5 @@ do
   definition_clean=$(echo $definition | sed 's/\"//g')
   echo $id ":" $definition_clean
 done
+
+read -p "Press enter to exit"
