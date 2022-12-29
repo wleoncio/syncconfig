@@ -251,6 +251,7 @@ bindsym $mod+F1 exec codium
 bindsym $mod+F2 exec $default_terminal -e qalc
 bindsym $mod+F3 exec $default_terminal -e trans -I :en
 bindsym $mod+F4 exec $default_terminal -e $HOME/Programs/syncconfig/myScripts/bashCalendar.sh
+bindsym $mod+F5 exec $default_terminal -e $HOME/Programs/syncconfig/myScripts/ordbok.sh
 
 ## Multimedia shortcuts
 bindsym $mod+F9 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -20% && $refresh_i3status
