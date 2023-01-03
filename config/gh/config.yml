@@ -14,7 +14,7 @@ aliases:
     ei: issue edit
     li: issue list
     vi: issue view
-    i: issue view
+    i: issue view --comments
     ie: issue edit
     rl: run list
     rlog: run view --log -j
