@@ -232,7 +232,7 @@ exec numlockx on
 gaps inner 4
 
 # My shortcuts
-bindsym $mod+ctrl+l exec i3lock -c 000000 -p default
+bindsym $mod+ctrl+l exec i3lock -c b2b3b7 -p default
 bindsym $mod+Shift+f exec firefox
 bindsym $mod+Shift+n exec $default_terminal -e ranger UiO/
 bindsym $mod+ShiftCtrl+n exec nautilus UiO/
