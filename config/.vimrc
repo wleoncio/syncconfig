@@ -17,7 +17,9 @@ filetype plugin indent on    " required
 
 syntax enable
 set tabstop=2
+set shiftwidth=2
 set number
+set noexpandtab
 
 "Addition from https://github.com/joshdick/onedark.vim"
 
