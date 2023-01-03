@@ -248,10 +248,13 @@ bindsym $mod+k exec keynav
 bindsym $mod+m exec evolution --component=mail
 bindsym $mod+t exec "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=todoist --file-forwarding com.todoist.Todoist @@u %U @@"
 bindsym $mod+F1 exec codium
-bindsym $mod+F2 exec $default_terminal -e qalc
-bindsym $mod+F3 exec $default_terminal -e trans -I :en
-bindsym $mod+F4 exec $default_terminal -e $HOME/Programs/syncconfig/myScripts/bashCalendar.sh
-bindsym $mod+F5 exec $default_terminal -e $HOME/Programs/syncconfig/myScripts/ordbok.sh
+bindsym $mod+F2 exec firefox
+bindsym $mod+F3 exec $default_terminal -e qalc
+bindsym $mod+F4 exec $default_terminal -e bashCalendar.sh
+bindsym $mod+F5 exec $default_terminal -e trans -I :en
+bindsym $mod+F6 exec $default_terminal -e ordbok.sh
+bindsym $mod+F7 exec /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=run.sh tech.feliciano.pocket-casts
+bindsym $mod+F8 exec env LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify %U
 
 ## Multimedia shortcuts
 bindsym $mod+F9 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -20% && $refresh_i3status
