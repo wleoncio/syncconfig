@@ -232,7 +232,7 @@ exec numlockx on
 gaps inner 4
 
 # Spreadaround shortcuts
-bindsym $mod+ctrl+l exec i3lock -c b2b3b7 -p default
+bindsym $mod+ctrl+l exec uio_i3lock.sh
 bindsym $mod+Shift+n exec $default_terminal -e ranger UiO/
 bindsym $mod+ShiftCtrl+n exec nautilus UiO/
 bindsym $mod+w exec libreoffice --nologo -o $HOME/UiO/Docs/Adm/projectManager.ods
