@@ -227,6 +227,7 @@ exec_always --no-startup-id $HOME/Programs/i3-alternating-layout/alternating_lay
 exec --no-startup-id bash $HOME/Programs/syncconfig/myScripts/start_xrandr_imb.sh
 exec --no-startup-id i3-msg 'workspace $ws1; exec gnome-terminal --command="$HOME/.local/bin/uiosync.sh pull"; exec evolution -c mail; exec bash /var/lib/flatpak/app/com.todoist.Todoist/current/active/export/bin/com.todoist.Todoist'
 exec numlockx on
+exec_always --no-startup-id xautolock -time 5 -locker uio_i3lock.sh
 
 # i3 gaps
 gaps inner 4
