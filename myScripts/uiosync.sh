@@ -51,7 +51,7 @@ echo ""
 if [ "$check" != "n" ]
 then
 	echo "Checking for file conflicts. Please wait."
-  eval rsync -au --verbose --dry-run --delete "$from/" "$to" > "$logPath"
+  eval rsync -a --verbose --dry-run --delete "$from/" "$to" > "$logPath"
 	echo -e "\nFound changes in the following directories"
 	cat "$logPath" | grep "/$" | grep -v "\.git/."
 	read -p "Show changes in files? (y/N) " filechange
@@ -70,7 +70,7 @@ echo -e "\nTHIS OPERATION WILL \e[1;31mOVERWRITE\e[0m THE CONTENTS OF \e[1;31m"$
 read -p "Are you sure you want to continue? (y/N) " answer
 if [ "$answer" = "y" ]
 then
-	eval rsync -azu --progress --verbose --delete --delete-excluded "$from/" "$to"
+	eval rsync -az --progress --verbose --delete --delete-excluded "$from/" "$to"
 	echo -e "\n\e[1;34mFinished synchronizing "$direction"\e[0m"
 else
 	echo "Aborting"
