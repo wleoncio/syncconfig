@@ -299,5 +299,6 @@
     "workbench.startupEditor": "welcomePageInEmptyWorkbench",
     "workbench.tree.indent": 16,
     "workbench.tree.renderIndentGuides": "always",
-    "python.defaultInterpreterPath": "/home/waldir/.local/bin/bpython"
+    "python.defaultInterpreterPath": "/home/waldir/.local/bin/bpython",
+    "gitweblinks.preferredRemoteName": "ocbe-uio"
 }
