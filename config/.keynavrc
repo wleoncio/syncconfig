@@ -25,6 +25,7 @@
 daemonize
 
 ctrl+semicolon start, windowzoom
+ctrl+colon start, windowzoom, cut-left, warp, click 1, end
 Escape end
 ctrl+bracketleft end
 h cut-left

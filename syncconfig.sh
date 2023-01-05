@@ -144,6 +144,7 @@ syncFiles () {
 	eval "$operator" "${origin[0]}"/.vimrc "${destination[0]}"
 	eval "$operator" "${origin[0]}"/.keynavrc "${destination[0]}"
 	eval "$operator" "${origin[0]}"/.xbindkeysrc "${destination[0]}"
+	eval "$operator" "${origin[0]}"/.xinitrc "${destination[0]}"
 	eval "$operator" "${origin[0]}"/.Xresources "${destination[0]}"
 	eval "$operator" "${origin[0]}"/.Rprofile "${destination[0]}"
 	eval "$operator" "${origin[1]}"/gromit-mpx.cfg "${destination[1]}"
@@ -184,6 +185,7 @@ if [ "$1" = "push" ]
 then
 	echo -e "\n\e[34m# Copying files to local git repository\e[0m\n"
 	syncFiles cp "${homePaths[*]}" "${locationPaths[*]}"
+	cd $location
 	echo -e "\n\e[34m# Listing modified files\e[0m\n"
 	git status --short
 elif [ "$1" = "pull" ]

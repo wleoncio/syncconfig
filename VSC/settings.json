@@ -1,25 +1,73 @@
 {
+    // Language-specific
+    "[git-commit]": {
+        "editor.rulers": [
+            {
+                "color": "#ff0000",
+                "column": 50
+            }
+        ]
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+        "editor.rulers": []
+    },
     "alignment.chars": {
         "<-": {
             "spaceAfter": 1,
             "spaceBefore": 1
         }
     },
-    "bracket-pair-colorizer-2.colors": [
-        "Gold",
-        "Orchid",
-        "LightSkyBlue",
-        "Green",
-        "Gray"
+    "cSpell.enabled": false,
+    "cSpell.enabledLanguageIds": [
+        "asciidoc",
+        "c",
+        "cpp",
+        "csharp",
+        "css",
+        "git-commit",
+        "go",
+        "graphql",
+        "handlebars",
+        "haskell",
+        "html",
+        "jade",
+        "java",
+        "javascript",
+        "javascriptreact",
+        "json",
+        "jsonc",
+        "jupyter",
+        "latex",
+        "less",
+        "markdown",
+        "php",
+        "plaintext",
+        "python",
+        "pug",
+        "restructuredtext",
+        "rust",
+        "scala",
+        "scss",
+        "swift",
+        "text",
+        "typescript",
+        "typescriptreact",
+        "vue",
+        "yaml",
+        "yml",
+        "r"
     ],
-    "bracket-pair-colorizer-2.forceUniqueOpeningColor": false,
-    "bracket-pair-colorizer-2.highlightActiveScope": true,
     "comment-divider.length": 60,
     "comment-divider.mainHeaderAlign": "left",
     "comment-divider.mainHeaderFiller": "=",
     "comment-divider.mainHeaderHeight": "line",
     "comment-divider.subheaderAlign": "left",
     "diffEditor.ignoreTrimWhitespace": false,
+    "diffEditor.renderSideBySide": false,
+    "diffEditor.wordWrap": "off",
+    "editor.autoClosingOvertype": "always",
+    "editor.autoClosingQuotes": "always",
     "editor.bracketPairColorization.enabled": true,
     "editor.cursorBlinking": "phase",
     "editor.emptySelectionClipboard": false,
@@ -27,7 +75,8 @@
     "editor.fontLigatures": true,
     "editor.fontSize": 12,
     "editor.fontWeight": "bold",
-    "editor.guides.bracketPairs": false,
+    "editor.guides.bracketPairs": "active",
+    "editor.inlayHints.enabled": "off",
     "editor.minimap.enabled": false,
     "editor.minimap.maxColumn": 80,
     "editor.minimap.showSlider": "always",
@@ -43,6 +92,7 @@
         }
     ],
     "editor.scrollBeyondLastColumn": 0,
+    "editor.showFoldingControls": "always",
     "editor.smoothScrolling": true,
     "editor.snippetSuggestions": "top",
     "editor.tabSize": 2,
@@ -90,7 +140,8 @@
             },
             {
                 "scope": [
-                    "variable.parameter.r", "variable.other.r"
+                    "variable.parameter.r",
+                    "variable.other.r"
                 ],
                 "settings": {
                     "fontStyle": "bold",
@@ -99,6 +150,7 @@
             }
         ]
     },
+    "editor.wordWrap": "off",
     "explorer.compactFolders": false,
     "files.associations": {
         "*.docker": "Dockerfile"
@@ -108,6 +160,7 @@
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
+    "git-graph.commitDetailsView.location": "Docked to Bottom",
     "git-graph.dialog.createBranch.checkOut": true,
     "git-graph.repository.commits.fetchAvatars": true,
     "git-graph.repository.fetchAndPrune": true,
@@ -117,7 +170,6 @@
         "local"
     ],
     "git.suggestSmartCommit": false,
-    "github.remoteName": "ocbe-uio",
     "html.preview.doubleClickToSwitchToEditor": false,
     "julia.enableTelemetry": false,
     "julia.symbolCacheDownload": true,
@@ -127,6 +179,7 @@
     "latex-workshop.latex.autoBuild.run": "never",
     "latex-workshop.latex.outDir": "./",
     "latex-workshop.synctex.afterBuild.enabled": true,
+    "latex-workshop.view.outline.commands": [],
     "latex-workshop.view.pdf.viewer": "tab",
     "markdown.extension.print.theme": "dark",
     "markdown.extension.tableFormatter.enabled": true,
@@ -139,8 +192,12 @@
         "./themes/uio-dark.css"
     ],
     "markdown.preview.doubleClickToSwitchToEditor": false,
+    "notebook.lineNumbers": "on",
+    "outline.icons": false,
     "r.alwaysUseActiveTerminal": true,
     "r.bracketedPaste": true,
+    "r.lsp.diagnostics": false,
+    "r.lsp.promptToInstall": false,
     "r.rpath.linux": "/usr/bin/R",
     "r.rterm.linux": "/usr/bin/radian",
     "r.sessionWatcher": true,
@@ -177,49 +234,48 @@
     "todo-tree.highlights.customHighlight": {
         "ASK": {
             "background": "#FFCA02",
-            "foreground": "black",
-            "icon": "question",
-            "iconColour": "#FFCA02"
+            "foreground": "#000",
+            "iconColour": "#FFCA02",
+            "icon": "question"
         },
         "DONE": {
-            "foreground": "green"
+            "foreground": "#0F0"
         },
         "FIXME": {
-            "background": "red",
-            "foreground": "white",
-            "icon": "alert",
-            "iconColour": "red"
+            "background": "#F00",
+            "foreground": "#FFF",
+            "iconColour": "#F00",
+            "icon": "alert"
         },
         "SUGGEST": {
             "background": "#FFCA02",
-            "foreground": "black",
-            "icon": "light-bulb",
-            "iconColour": "#FFCA02"
+            "foreground": "#000",
+            "iconColour": "#FFCA02",
+            "icon": "light-bulb"
         },
         "TEMP": {
             "background": "#707070",
-            "foreground": "black",
+            "foreground": "#000",
+            "iconColour": "#707070",
             "icon": "clock",
-            "iconColour": "gray",
             "type": "line"
         },
         "TODO": {
-            "background": "green",
-            "foreground": "black",
+            "background": "#0F0",
+            "foreground": "#000",
             "icon": "check"
         }
     },
     "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
-    "todo-tree.tree.showScanModeButton": false,
     "typescript.suggest.paths": false,
     "window.menuBarVisibility": "hidden",
     "window.restoreWindows": "none",
     "workbench.activityBar.visible": false,
     "workbench.colorCustomizations": {
-        "editorIndentGuide.background": "#000",
-        "editorIndentGuide.activeBackground": "#000",
         "editor.lineHighlightBackground": "#1073cf2d",
         "editor.lineHighlightBorder": "#9fced11f",
+        "editorIndentGuide.activeBackground": "#000",
+        "editorIndentGuide.background": "#000",
         "terminal.ansiBlack": "#000",
         "terminal.ansiBrightBlack": "#fff",
         "terminal.ansiBrightRed": "#fd6464",
@@ -241,66 +297,7 @@
     "workbench.enableExperiments": false,
     "workbench.sideBar.location": "right",
     "workbench.startupEditor": "welcomePageInEmptyWorkbench",
-    "diffEditor.renderSideBySide": false,
-    "editor.autoClosingOvertype": "always",
-    "editor.autoClosingQuotes": "always",
-    "outline.icons": false,
-    "latex-workshop.view.outline.commands": [],
-    "cSpell.enabledLanguageIds": [
-        "asciidoc",
-        "c",
-        "cpp",
-        "csharp",
-        "css",
-        "git-commit",
-        "go",
-        "graphql",
-        "handlebars",
-        "haskell",
-        "html",
-        "jade",
-        "java",
-        "javascript",
-        "javascriptreact",
-        "json",
-        "jsonc",
-        "jupyter",
-        "latex",
-        "less",
-        "markdown",
-        "php",
-        "plaintext",
-        "python",
-        "pug",
-        "restructuredtext",
-        "rust",
-        "scala",
-        "scss",
-        "swift",
-        "text",
-        "typescript",
-        "typescriptreact",
-        "vue",
-        "yaml",
-        "yml",
-        "r"
-    ],
-    "cSpell.enabled": false,
-    // Language-specific
-    "[git-commit]": {"editor.rulers": [{"color": "#ff0000", "column": 50}]},
-    "[markdown]": {
-        "editor.rulers": [],
-        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
-    },
-    "editor.showFoldingControls": "always",
-    "git-graph.commitDetailsView.location": "Docked to Bottom",
-    "blockman.n01LineHeight": 0,
-    "editor.wordWrap": "off",
-    "diffEditor.wordWrap": "off",
-    "editor.inlayHints.enabled": false,
-    "notebook.lineNumbers": "on",
-    "r.lsp.diagnostics": false,
-    "r.lsp.promptToInstall": false,
+    "workbench.tree.indent": 16,
     "workbench.tree.renderIndentGuides": "always",
-    "workbench.tree.indent": 16
+    "python.defaultInterpreterPath": "/home/waldir/.local/bin/bpython"
 }

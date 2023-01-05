@@ -32,8 +32,8 @@ else
 fi
 
 # Running rsync
-direction="from "$from" to "$to""
-echo -e "Synchronizing direction: \e[1;34m"$direction"\e[0m\n"
+direction="from "$from"\e[1;34m to "$to"\e[0m"
+echo -e "Synchronizing direction: "$direction""
 
 # Checking for internet connection
 connection=$(nmcli -g "STATE" general)

@@ -51,7 +51,7 @@ bindsym $mod+Return exec $default_terminal
 
 # killing windows
 bindsym $mod+q kill
-bindsym $mod+Shift+x exec xkill
+bindsym $mod+Shift+x --release exec --no-startup-id xkill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
@@ -61,14 +61,16 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $mod+Left exec $HOME/Programs/syncconfig/myScripts/mouseFollowsFocus.sh left
+bindsym $mod+Down exec $HOME/Programs/syncconfig/myScripts/mouseFollowsFocus.sh down
+bindsym $mod+Up exec $HOME/Programs/syncconfig/myScripts/mouseFollowsFocus.sh up
+bindsym $mod+Right exec $HOME/Programs/syncconfig/myScripts/mouseFollowsFocus.sh right
 bindsym $mod+b workspace back_and_forth
 bindsym $mod+Ctrl+Left workspace prev
 bindsym $mod+Ctrl+Right workspace next
 
+# Alt-tab switch between windows
+bindsym mod1+Tab exec $HOME/Programs/syncconfig/myScripts/rofiCustom.sh window
 
 # move focused window
 bindsym $mod+Shift+Left move left
@@ -222,17 +224,15 @@ bar {
 # ==============================================================================
 exec_always --no-startup-id compton --config $HOME/.config/compton.conf
 exec_always --no-startup-id $HOME/Programs/i3-alternating-layout/alternating_layouts.py
-exec --no-startup-id xbindkeys
-exec --no-startup-id bash $HOME/Programs/syncconfic/myScripts/start_xrandr_imb.sh
+exec --no-startup-id bash $HOME/Programs/syncconfig/myScripts/start_xrandr_imb.sh
 exec --no-startup-id i3-msg 'workspace $ws1; exec gnome-terminal --command="$HOME/.local/bin/uiosync.sh pull"; exec evolution -c mail; exec bash /var/lib/flatpak/app/com.todoist.Todoist/current/active/export/bin/com.todoist.Todoist'
 exec numlockx on
 
 # i3 gaps
 gaps inner 4
 
-# My shortcuts
-bindsym $mod+ctrl+l exec i3lock -c 000000 -p default
-bindsym $mod+Shift+f exec firefox
+# Spreadaround shortcuts
+bindsym $mod+ctrl+l exec uio_i3lock.sh
 bindsym $mod+Shift+n exec $default_terminal -e ranger UiO/
 bindsym $mod+ShiftCtrl+n exec nautilus UiO/
 bindsym $mod+w exec libreoffice --nologo -o $HOME/UiO/Docs/Adm/projectManager.ods
@@ -242,17 +242,26 @@ bindsym $mod+z exec rofi -show drun -modi drun#window -show-icons -theme oxide
 bindsym $mod+x exec xdg-open "$(locate -e -i --regex "$HOME/[^\.]+" | rofi -dmenu -i -p "File or folder" -threads 0 -show-icons -theme oxide -modi drun)"
 bindsym Print exec flameshot gui
 bindsym $mod+Print exec shutter
-bindsym $mod+p exec scrcpy --stay-awake --hid-keyboard
+bindsym $mod+p exec scrcpy --stay-awake --hid-keyboard --power-off-on-close
 bindsym $mod+k exec keynav
 bindsym $mod+m exec evolution --component=mail
-bindsym $mod+c exec evolution --component=calendar
-bindsym $mod+Mod1+c exec firefox --new-window "http://calendar.google.com/"
 bindsym $mod+t exec "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=todoist --file-forwarding com.todoist.Todoist @@u %U @@"
-bindsym $mod+F1 exec codium
-bindsym $mod+F2 exec $default_terminal -e qalc
-bindsym $mod+F3 exec $default_terminal -e trans -I :no
 
-## Multimedia shortcuts
+# Setting shortcuts to function keys
+
+# Group 1: main tools
+bindsym $mod+F1 exec codium
+bindsym $mod+F2 exec firefox
+bindsym $mod+F3 exec $default_terminal -e qalc
+bindsym $mod+F4 exec $default_terminal -e bashCalendar.sh
+
+# Group 2: auxiliary tools (dictionaries, sounds)
+bindsym $mod+F5 exec $default_terminal -e trans -I :en
+bindsym $mod+F6 exec $default_terminal -e firefoxDictionaries.sh
+bindsym $mod+F7 exec /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=run.sh tech.feliciano.pocket-casts
+bindsym $mod+F8 exec env LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify %U
+
+# Group 3: multimedia
 bindsym $mod+F9 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -20% && $refresh_i3status
 bindsym $mod+Shift+F9 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym $mod+F10 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -309,6 +318,8 @@ for_window [title="Volume Control|Microsoft Teams-varsling|^zoom$"] floating ena
 for_window [title="Zoom - Licensed Account"] floating disable
 for_window [title="gsimplecal"] floating enable, border none
 for_window [instance="shutter|evolution-alarm-notify|r_x11"] floating enable
+for_window [instance="spotify|pocket-casts"] move to workspace number $ws0
+
 
 # Windows that need to be explicitly given borders
 for_window [instance="pocket-casts|musixmatch|telegram-desktop|evince|org.gnome.Nautilus|eog|evolution|gnome-text-editor"] border pixel $bordersize

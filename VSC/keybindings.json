@@ -42,10 +42,6 @@
         "command": "-workbench.action.focusSecondEditorGroup"
     },
     {
-        "key": "ctrl+g ctrl+g",
-        "command": "git-graph.view"
-    },
-    {
         "description": "Build package",
         "key": "ctrl+r ctrl+b",
         "command": "r.build"
@@ -634,5 +630,64 @@
     {
         "key": "ctrl+b ctrl+w",
         "command": "workspaceViewer.focus"
+    },
+    {
+        "key": "ctrl+enter",
+        "command": "python.execSelectionInTerminal",
+        "when": "editorTextFocus && !findInputFocussed && !jupyter.ownsSelection && !notebookEditorFocused && !replaceInputFocussed && editorLangId == 'python'"
+    },
+    {
+        "key": "shift+enter",
+        "command": "-python.execSelectionInTerminal",
+        "when": "editorTextFocus && !findInputFocussed && !jupyter.ownsSelection && !notebookEditorFocused && !replaceInputFocussed && editorLangId == 'python'"
+    },
+    {
+        "key": "ctrl+shift+s",
+        "command": "python.execInTerminal-icon"
+    },
+    {
+        "key": "insert u",
+        "command": "insert-unicode.insertText"
+    },
+    {
+        "key": "ctrl+k ctrl+g",
+        "command": "workbench.action.closeEditorsAndGroup"
+    },
+    {
+        "key": "ctrl+k ctrl+shift+g",
+        "command": "workbench.action.closeAllGroups"
+    },
+    {
+        "key": "ctrl+k ctrl+shift+w",
+        "command": "-workbench.action.closeAllGroups"
+    },
+    {
+        "key": "ctrl+k w",
+        "command": "-workbench.action.closeEditorsInGroup"
+    },
+    {
+        "key": "ctrl+k u",
+        "command": "-workbench.action.closeUnmodifiedEditors"
+    },
+    {
+        "key": "ctrl+k alt+g",
+        "command": "workbench.action.closeEditorsInOtherGroups"
+    },
+    {
+        "key": "ctrl+g ctrl+g",
+        "command": "git-history.history.toggleVisibility"
+    },
+    {
+        "key": "ctrl+g ctrl+shift+g",
+        "command": "git-history.history.refresh"
+    },
+    {
+        "key": "ctrl+k o",
+        "command": "-workbench.action.files.showOpenedFileInNewWindow",
+        "when": "emptyWorkspaceSupport"
+    },
+    {
+        "key": "ctrl+k o",
+        "command": "workbench.action.closeOtherEditors"
     }
 ]
