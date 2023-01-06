@@ -646,7 +646,7 @@
         "command": "python.execInTerminal-icon"
     },
     {
-        "key": "insert u",
+        "key": "ctrl+u",
         "command": "insert-unicode.insertText"
     },
     {
@@ -689,5 +689,10 @@
     {
         "key": "ctrl+k o",
         "command": "workbench.action.closeOtherEditors"
+    },
+    {
+        "key": "ctrl+u",
+        "command": "-cursorUndo",
+        "when": "textInputFocus"
     }
 ]
