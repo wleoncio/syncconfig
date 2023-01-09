@@ -13,4 +13,5 @@ convert "$chosenImagePath" -resize 1x1 "$avgColorFile"
 avgColor=$(cat "$avgColorFile" | grep -Po "#[[:xdigit:]]{6}")
 
 # Locking screen
-i3lock --image="$chosenImagePath" --color="$avgColor" --pointer=default
+#SDL_VIDEO_FULLSCREEN_HEAD=0 i3lock --image="$chosenImagePath" --color="$avgColor" --pointer=default
+i3lock --image="$chosenImagePath" --color="$avgColor" --pointer=default -F
