@@ -203,8 +203,8 @@ client.background       $uiowhite
 bar {
 	status_command i3status
 	font pango:Awesome 10
-	output HDMI-3
 	output DP-1
+	output DP-2
 	tray_output primary
 	position top
 	bindsym button3 exec gsimplecal
@@ -228,6 +228,9 @@ exec --no-startup-id bash $HOME/Programs/syncconfig/myScripts/start_xrandr_imb.s
 exec --no-startup-id i3-msg 'workspace $ws1; exec gnome-terminal --command="$HOME/.local/bin/uiosync.sh pull"; exec evolution -c mail; exec bash /var/lib/flatpak/app/com.todoist.Todoist/current/active/export/bin/com.todoist.Todoist'
 exec numlockx on
 exec_always --no-startup-id xautolock -time 5 -locker uio_i3lock.sh
+# Disabling screen saver and monitor timeout
+exec --no-startup-id xset dpms 0 0 0
+exec --no-startup-id xset s 0 0
 
 # i3 gaps
 gaps inner 4
@@ -272,7 +275,7 @@ bindsym $mod+F12 exec playerctl play-pause
 
 # Defining which workspace opens where (multimonitor setup)
 workspace $ws1 output DP-1
-workspace $ws0 output HDMI-3
+workspace $ws0 output DP-2
 workspace $ws2 output DP-1
 workspace $ws3 output DP-1
 workspace $ws4 output DP-1
