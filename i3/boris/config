@@ -4,9 +4,6 @@
 set $mod Mod4
 set $bordersize 0
 
-# workspace layouts:
-
-
 #default i3 tiling mode
 workspace_layout default
 focus_follows_mouse no
@@ -18,11 +15,6 @@ gaps outer 0
 
 # Border rules
 default_border pixel $bordersize
-
-bindsym $mod+Ctrl+b [class="[.]*"] border pixel $bordersize
-bindsym $mod+Ctrl+Shift+b [class="[.]*"] border pixel 0
-# Applies a little bit of border on one container
-bindsym $mod+Ctrl+Shift+mod1+b border pixel $bordersize
 
 # get auth work with polkit-gnome:
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -42,7 +34,7 @@ set $terminal xfce4-terminal
 bindsym $mod+Return exec $terminal
 
 # kill focused window:
-bindsym $mod+c kill
+bindsym $mod+q kill
 bindsym $mod+Shift+x --release exec --no-startup-id xkill
 bindsym $mod+Escape exec "pkill firefox"
 
@@ -84,10 +76,7 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container:
 bindsym $mod+a focus parent
 
-# focus the child container:
-#bindsym $mod+d focus child
-
-# workspace-edit:
+# workspace-edit: goes to the first empty workspace
 bindsym $mod+s exec --no-startup-id ~/.config/i3/scripts/empty_workspace.sh
 
 # ========================================================================
@@ -98,13 +87,13 @@ bindsym $mod+s exec --no-startup-id ~/.config/i3/scripts/empty_workspace.sh
 exec_always --no-startup-id $HOME/Programs/i3-alternating-layout/alternating_layouts.py
 
 # monitors
-exec xrandr --output DP-0 --mode 2560x1440 --rate 144.00 --primary
+exec xrandr --output DP-0 --mode 2560x1440 --rate 144.00
 
 # dex execute .desktop files:
 exec --no-startup-id dex -a -s /etc/xdg/autostart/:~/.config/autostart
 
 # transparency:
-exec --no-startup-id picom -cCb --config ~/.config/picom.conf;
+exec --no-startup-id picom -b --config ~/.config/picom.conf;
 
 #set wallpaper:
 exec --no-startup-id nitrogen --restore
@@ -315,33 +304,12 @@ workspace $ws10 output DP-0
 # Modes
 # ==============================================================================
 
-set $mode_launcher Launch mode: [w]ork [m]eeting [g]ame nors[k]kurs m[u]sic [n]ormal
+set $mode_launcher Launch mode: [g]ame [n]ormal
 bindsym $mod+m mode "$mode_launcher"
 
 mode "$mode_launcher" {
-        # Work mode
-        bindsym w \
-			exec "\
-				$HOME/Programs/syncconfig/myScripts/mass_change_borders.sh 0; \
-                killall picom; sleep 1; \
-                picom -b --config ~/.config/picom.conf; \
-	            evolution -c mail & \
-        	    $HOME/Programs/bin/$Todoist & \
-	            xbindkeys"; \
-            mode "default"
-        # Meeting mode
-        bindsym m \
-			exec "notify-send 'Entering meeting mode' \
-				'\- Plug in camera\n\- Plug in tablet' -t 10000; \
-	            $HOME/Programs/syncconfig/myScripts/mass_change_borders.sh 9; \
-    	        killall picom evolution pocket-casts-linux \
-					telegram-desktop whatsapp-for-linux evolution-alarm-notify; \
-        	    sleep 1; \
-            	picom -b --config /dev/null; \
-	            gromit-mpx"; \
-            mode "default"
-        # Game mode
-        bindsym g \
+      # Game mode
+       bindsym g \
 			workspace number $ws1; \
             exec "$HOME/Programs/syncconfig/myScripts/mass_change_borders.sh 9; \
                 killall xbindkeys picom gromit-mpx evolution-alarm-notify; \
@@ -349,19 +317,7 @@ mode "$mode_launcher" {
                 nvidia-settings -a ShowVRRVisualIndicator=0 & \
                 steam"; \
             mode "default";
-        # Norskkurs mode
-        bindsym k \
-			exec "notify-send 'Entering Norskkurs mode' \
-				'\- Plug in tablet' -t 10000; \
-	            xbindkeys & xournalpp & \
-				firefox https://speaknorskonline.teachable.com/courses/enrolled/1229539"; \
-            mode "default"
-		# Music mode
-		bindsym u \
-			exec "LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify & musixmatch"; \
-			workspace number $ws7; \
-			mode "default"
-        # Normal mode
+       # Normal mode
         bindsym n \
             exec "$HOME/Programs/syncconfig/myScripts/mass_change_borders.sh 0; \
                 nvidia-settings -a AllowVRR=0; \
@@ -370,7 +326,7 @@ mode "$mode_launcher" {
                 killall gromit-mpx picom; sleep 1; \
                 picom -b --config ~/.config/picom.conf; \
                 xbindkeys"; \
-            mode "default"
+       mode "default"
 		# Cancel mode selection
         bindsym Escape mode "default"
 }
@@ -378,20 +334,10 @@ mode "$mode_launcher" {
 # ==============================================================================
 # Custom window rules
 # ==============================================================================
-for_window [title="Microsoft Teams-varsling" window_role="browser-window"] floating enable
-for_window [title="E-post"] move to workspace number 6. Mail
 for_window [instance="evolution-alarm-notify"] floating disable
 for_window [instance="spotify"] move to workspace number 7. Sounds
 for_window [instance="pocket-casts-linux"] move to workspace number 7. Sounds
 for_window [window_role="pop-up"] floating enable
 for_window [instance="oversteer"] floating disable
-for_window [title="Secure CRAN mirrors|Choose one|Steam - News|^Variety\s|^Regions of Ruin Configuration"] floating enable
-for_window [title="Oversteer"] border pixel $bordersize; floating disable
-for_window [instance="teams|cheese|evince|Steam|telegram-desktop|whatsapp-for-linux|file-roller"] border pixel $bordersize
-for_window [title="Zoom Meeting"] border pixel 5; floating disable
-for_window [title="Zoom - Licensed Account"] floating disable
-for_window [title="^zoom$"] floating enable
-for_window [title="Work rotation.ods - LibreOffice Calc"] move to workspace number 9. Work hours; workspace number $ws9
-
-bindsym $mod+Shift+h exec "i3-msg floating enable & i3-msg sticky toggle & i3-msg move scratchpad"
-bindsym $mod+minus scratchpad show
+for_window [title="Steam - News"] floating enable
+for_window [instance="cheese|evince|Steam|telegram-desktop|whatsapp-for-linux|file-roller"] border pixel $bordersize
