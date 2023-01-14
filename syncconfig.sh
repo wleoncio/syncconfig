@@ -11,12 +11,12 @@ machinename=$(cat /etc/hostname)
 # ==============================================================================
 # Determining location of GitHub files
 # ==============================================================================
-configPath=$HOME/.config/syncconfig.conf
+configPath="$HOME/.config/syncconfig.conf"
 if [ ! -f $configPath ]
 then
 	echo -e "\e[31mNo config file found. Creating one on "$configPath" with default values\e[0m"
 	touch $configPath
-	echo echo location=$HOME/Programs/syncconfig >> $configPath
+	echo location=$HOME/Programs/syncconfig >> $configPath
 fi
 source $configPath
 
@@ -97,7 +97,7 @@ hasi3
 hasNotifier
 hasVSC
 homePaths=(
-  "$HOME"
+    "$HOME"
 	""$HOME"/.config"
 	""$HOME"/.config"
 	""$HOME"/"$i3dir""
