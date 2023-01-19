@@ -5,9 +5,12 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
 _set_my_PS1() {
-    #PS1='[\u@\h \W]\$ '
-    PS1='\[\033[1;30;44m\] \w \[\033[0;37m\] '
+  	PS1='$(parse_git_branch) \[\033[1;30;44m\] \w \[\033[0;37m\] '
     echo -e "\e]12;lightgray\a" # cursor format
     if [ "$(whoami)" = "liveuser" ] ; then
         local iso_version="$(grep ^VERSION= /usr/lib/endeavouros-release 2>/dev/null | cut -d '=' -f 2)"
