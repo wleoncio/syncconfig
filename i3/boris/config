@@ -4,9 +4,6 @@
 set $mod Mod4
 set $bordersize 0
 
-# workspace layouts:
-
-
 #default i3 tiling mode
 workspace_layout default
 focus_follows_mouse no
@@ -15,17 +12,9 @@ focus_wrapping no
 # Set inner/outer gaps
 gaps inner 9
 gaps outer 0
-smart_gaps inverse_outer # yes, true, on, enable, active, inverse_outer Only enable gaps on a workspace when there is at least one container
-smart_borders no_gaps # Smart borders will draw borders on windows only if there is more than one window in a workspace.
-hide_edge_borders none # smart # none vertical horizontal both smart_no_gaps smart 1 yes true on enable active
 
 # Border rules
 default_border pixel $bordersize
-
-bindsym $mod+Ctrl+b [class="[.]*"] border pixel $bordersize
-bindsym $mod+Ctrl+Shift+b [class="[.]*"] border pixel 0
-# Applies a little bit of border on one container
-bindsym $mod+Ctrl+Shift+mod1+b border pixel $bordersize
 
 # get auth work with polkit-gnome:
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -45,7 +34,7 @@ set $terminal xfce4-terminal
 bindsym $mod+Return exec $terminal
 
 # kill focused window:
-bindsym $mod+c kill
+bindsym $mod+q kill
 bindsym $mod+Shift+x --release exec --no-startup-id xkill
 bindsym $mod+Escape exec "pkill firefox"
 
@@ -87,10 +76,7 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container:
 bindsym $mod+a focus parent
 
-# focus the child container:
-#bindsym $mod+d focus child
-
-# workspace-edit:
+# workspace-edit: goes to the first empty workspace
 bindsym $mod+s exec --no-startup-id ~/.config/i3/scripts/empty_workspace.sh
 
 # ========================================================================
@@ -101,13 +87,13 @@ bindsym $mod+s exec --no-startup-id ~/.config/i3/scripts/empty_workspace.sh
 exec_always --no-startup-id $HOME/Programs/i3-alternating-layout/alternating_layouts.py
 
 # monitors
-exec xrandr --output DP-0 --mode 2560x1440 --rate 144.00 --primary
+exec xrandr --output DP-0 --mode 2560x1440 --rate 144.00
 
 # dex execute .desktop files:
 exec --no-startup-id dex -a -s /etc/xdg/autostart/:~/.config/autostart
 
 # transparency:
-exec --no-startup-id picom -cCb --config ~/.config/picom.conf;
+exec --no-startup-id picom -b --config ~/.config/picom.conf;
 
 #set wallpaper:
 exec --no-startup-id nitrogen --restore
@@ -122,19 +108,6 @@ exec --no-startup-id /usr/bin/dunst
 exec --no-startup-id keynav
 exec --no-startup-id xbindkeys
 exec --no-startup-id numlockx on
-
-# set floating (nontiling)for apps needing it:
-for_window [class="Yad" instance="yad"] floating enable
-for_window [class="Galculator" instance="galculator"] floating enable
-for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
-
-# set floating (nontiling) for special apps:
-for_window [class="Xsane" instance="xsane"] floating enable
-for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
-for_window [class="qt5ct" instance="qt5ct"] floating enable
-for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
-for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
-for_window [class="Pamac-manager"] floating enable
 
 # resize floating windows with mouse scroll:
 bindsym --whole-window --border $mod+button4 resize shrink height 5 px or 5 ppt
@@ -291,10 +264,10 @@ bindcode $mod+163 exec gsimplecal
 bindcode 180 exec firefox
 bindcode $mod+180 exec firefox --private-window
 bindcode 181 exec $HOME/Programs/bin/$Todoist
-bindcode 166 exec $HOME/Programs/myScripts/change_background.sh 1
-bindcode $mod+166 exec "$HOME/Programs/myScripts/remove_background.sh 1; sleep 1; $HOME/Programs/myScripts/change_background.sh 1"
-bindcode 167 exec $HOME/Programs/myScripts/change_background.sh 0
-bindcode $mod+167 exec "$HOME/Programs/myScripts/remove_background.sh 0; sleep 1; $HOME/Programs/myScripts/change_background.sh 0"
+bindcode 166 exec $HOME/Programs/syncconfig/myScripts/change_background.sh 1
+bindcode $mod+166 exec "$HOME/Programs/syncconfig/myScripts/remove_background.sh 1; sleep 1; $HOME/Programs/myScripts/change_background.sh 1"
+bindcode 167 exec $HOME/Programs/syncconfig/myScripts/change_background.sh 0
+bindcode $mod+167 exec "$HOME/Programs/syncconfig/myScripts/remove_background.sh 0; sleep 1; $HOME/Programs/myScripts/change_background.sh 0"
 bindcode 164 exec pcmanfm
 bindcode $mod+164 exec $terminal -e ranger
 bindcode 152 exec code
@@ -303,10 +276,10 @@ bindsym Print exec flameshot gui
 bindsym $mod+Print exec shutter
 
 # rofi bindings
-bindsym $mod+z exec $HOME/Programs/myScripts/rofiCustom.sh app
-bindsym mod1+Tab exec $HOME/Programs/myScripts/rofiCustom.sh window
+bindsym $mod+z exec $HOME/Programs/syncconfig/myScripts/rofiCustom.sh app
+bindsym mod1+Tab exec $HOME/Programs/syncconfig/myScripts/rofiCustom.sh window
 bindsym $mod+Ctrl+Shift+z exec bwmenu
-bindsym $mod+x exec $HOME/Programs/myScripts/rofiCustom.sh file
+bindsym $mod+x exec $HOME/Programs/syncconfig/myScripts/rofiCustom.sh file
 
 # ==============================================================================
 # Renaming workspaces
@@ -323,100 +296,48 @@ workspace $ws4 output DP-0
 workspace $ws5 output DP-0
 workspace $ws6 output DP-0
 workspace $ws7 output DP-0
-workspace $ws8 output HDMI-0
-workspace $ws9 output HDMI-0
-workspace $ws10 output HDMI-0
+workspace $ws8 output DP-0
+workspace $ws9 output DP-0
+workspace $ws10 output DP-0
 
 # ==============================================================================
 # Modes
 # ==============================================================================
 
-set $mode_launcher Launch mode: [w]ork [m]eeting [g]ame nors[k]kurs m[u]sic [n]ormal
+set $mode_launcher Launch mode: [g]ame [n]ormal
 bindsym $mod+m mode "$mode_launcher"
 
 mode "$mode_launcher" {
-        # Work mode
-        bindsym w \
-			exec "\
-				$HOME/Programs/myScripts/mass_change_borders.sh 0; \
-                killall picom; sleep 1; \
-                picom -b --config ~/.config/picom.conf; \
-	            evolution -c mail & \
-        	    $HOME/Programs/bin/$Todoist & \
-	            xbindkeys"; \
-            mode "default"
-        # Meeting mode
-        bindsym m \
-			exec "notify-send 'Entering meeting mode' \
-				'\- Plug in camera\n\- Plug in tablet' -t 10000; \
-	            $HOME/Programs/myScripts/mass_change_borders.sh 9; \
-    	        killall picom dropbox evolution pocket-casts-linux \
-					telegram-desktop whatsapp-for-linux; \
-        	    sleep 1; \
-            	picom -b --config /dev/null; \
-	            gromit-mpx"; \
-            mode "default"
-        # Game mode
-        bindsym g \
+      # Game mode
+       bindsym g \
 			workspace number $ws1; \
-            exec "$HOME/Programs/myScripts/mass_change_borders.sh 9; \
-                killall xbindkeys picom dropbox gromit-mpx; \
+            exec "$HOME/Programs/syncconfig/myScripts/mass_change_borders.sh 9; \
+                killall xbindkeys picom gromit-mpx evolution-alarm-notify; \
                 nvidia-settings -a AllowVRR=1 & \
                 nvidia-settings -a ShowVRRVisualIndicator=0 & \
                 steam"; \
             mode "default";
-        # Norskkurs mode
-        bindsym k \
-			exec "notify-send 'Entering Norskkurs mode' \
-				'\- Plug in tablet' -t 10000; \
-	            dropbox start & xbindkeys & xournalpp & \
-				firefox https://speaknorskonline.teachable.com/courses/enrolled/1229539"; \
-            mode "default"
-		# Music mode
-		bindsym u \
-			exec "LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify & musixmatch"; \
-			workspace number $ws7; \
-			mode "default"
-        # Normal mode
+       # Normal mode
         bindsym n \
-            exec "$HOME/Programs/myScripts/mass_change_borders.sh 0; \
+            exec "$HOME/Programs/syncconfig/myScripts/mass_change_borders.sh 0; \
                 nvidia-settings -a AllowVRR=0; \
                 nvidia-settings -a ShowVRRVisualIndicator=0; \
-                $HOME/Programs/myScripts/change_background.sh; \
+                $HOME/Programs/syncconfig/myScripts/change_background.sh; \
                 killall gromit-mpx picom; sleep 1; \
                 picom -b --config ~/.config/picom.conf; \
-                dropbox start & xbindkeys"; \
-            mode "default"
+                xbindkeys"; \
+       mode "default"
 		# Cancel mode selection
         bindsym Escape mode "default"
-}
-
-set $pop_files Open: [w]ork rotation [s]ustentabilidade
-bindsym $mod+Shift+f mode "$pop_files"
-mode "$pop_files" {
-	bindsym w exec libreoffice -o $HOME/UiO/Docs/Adm/Work\ rotation.ods; mode "default"
-	bindsym s exec libreoffice -o $HOME/Dropbox/Finanças/Sustentabilidade.ods; mode "default"
-	bindsym Escape mode "default"
 }
 
 # ==============================================================================
 # Custom window rules
 # ==============================================================================
-for_window [title="Microsoft Teams-varsling" window_role="browser-window"] floating enable
-for_window [title="E-post"] move to workspace number 6. Mail
 for_window [instance="evolution-alarm-notify"] floating disable
 for_window [instance="spotify"] move to workspace number 7. Sounds
 for_window [instance="pocket-casts-linux"] move to workspace number 7. Sounds
-for_window [instance="r_x11"] floating enable # R plots
 for_window [window_role="pop-up"] floating enable
 for_window [instance="oversteer"] floating disable
-for_window [title="Secure CRAN mirrors|Choose one|Steam - News|^Variety\s|^Regions of Ruin Configuration"] floating enable
-for_window [title="Oversteer"] border pixel $bordersize; floating disable
-for_window [instance="teams|cheese|evince|Steam|telegram-desktop|whatsapp-for-linux|file-roller"] border pixel $bordersize
-for_window [title="Zoom Meeting"] border pixel 5; floating disable
-for_window [title="Zoom - Licensed Account"] floating disable
-for_window [title="^zoom$"] floating enable
-for_window [title="Work rotation.ods - LibreOffice Calc"] move to workspace number 9. Work hours; workspace number $ws9
-
-bindsym $mod+Shift+h exec "i3-msg floating enable & i3-msg sticky toggle & i3-msg move scratchpad"
-bindsym $mod+minus scratchpad show
+for_window [title="Steam - News"] floating enable
+for_window [instance="cheese|evince|Steam|telegram-desktop|whatsapp-for-linux|file-roller"] border pixel $bordersize
