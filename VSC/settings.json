@@ -263,7 +263,8 @@
         "TODO": {
             "background": "#0F0",
             "foreground": "#000",
-            "icon": "check"
+            "icon": "check",
+            "type": "text"
         }
     },
     "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
