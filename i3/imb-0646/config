@@ -20,21 +20,6 @@ default_border normal $bordersize
 # is used in the bar {} block below.
 font pango:Ubuntu 10
 
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
-
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -229,8 +214,7 @@ exec --no-startup-id i3-msg 'workspace $ws1; exec gnome-terminal --command="$HOM
 exec numlockx on
 exec_always --no-startup-id xautolock -time 5 -locker uio_i3lock.sh
 # Disabling screen saver and monitor timeout
-exec --no-startup-id xset dpms 0 0 0
-exec --no-startup-id xset s 0 0
+exec --no-startup-id xset dpms 0 0 0 s 0 0
 
 # i3 gaps
 gaps inner 4
