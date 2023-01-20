@@ -238,6 +238,12 @@ bindsym $mod+t exec "/usr/bin/flatpak run --branch=stable --arch=x86_64 --comman
 # Setting shortcuts to function keys
 
 # Group 1: main tools
+set $mode_function_keys (1-Codium, 2-Firefox, 3-qalc, 4-calendar) (5-trans, 6-dict, 7-PocketCasts, 8-Spotify) (9-LowerVol, 10-RaiseVol, 11-Next, 12-Play/Pause)
+bindsym $mod+Escape mode "$mode_function_keys"
+mode "$mode_function_keys" {
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
 bindsym $mod+F1 exec codium
 bindsym $mod+Shift+F2 exec firefox
 bindsym $mod+F2 exec "firefox; sleep .1; i3-msg move to workspace number 0; i3-msg workspace number 0"
