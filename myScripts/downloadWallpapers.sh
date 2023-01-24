@@ -1,5 +1,5 @@
 #!/bin/bash
-# Uses RedditImageGrab (https://github.com/arshjat/RedditImageGrab) to download wallpapers
+# Uses RedditImageGrab (https://github.com/wleoncio/RedditImageGrab) to download wallpapers
 
 # Variables
 subs='Verticalwallpapers HDwallpapers F1porn wallpaper wallpapers highreswallpaper 4kWallpaper'
