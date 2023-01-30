@@ -643,7 +643,8 @@
     },
     {
         "key": "ctrl+shift+s",
-        "command": "python.execInTerminal-icon"
+        "command": "python.execInTerminal-icon",
+        "when": "editorTextFocus && editorLangId == 'python'"
     },
     {
         "key": "ctrl+u",
