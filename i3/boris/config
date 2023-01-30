@@ -16,10 +16,6 @@ gaps outer 0
 # Border rules
 default_border pixel $bordersize
 
-# get auth work with polkit-gnome:
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-
-# Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:Noto Sans Regular 10
 
@@ -83,23 +79,18 @@ bindsym $mod+s exec --no-startup-id ~/.config/i3/scripts/empty_workspace.sh
 # Autostart apps
 # ========================================================================
 
-# Source: https://github.com/olemartinorg/i3-alternating-layout
-exec_always --no-startup-id $HOME/Programs/i3-alternating-layout/alternating_layouts.py
-
 # monitors
 exec xrandr --output DP-0 --mode 2560x1440 --rate 144.00
 
-# dex execute .desktop files:
-exec --no-startup-id dex -a -s /etc/xdg/autostart/:~/.config/autostart
-
-# transparency:
-exec --no-startup-id picom -b --config ~/.config/picom.conf;
+# Game mode
+exec --no-startup-id nvidia-settings -a AllowVRR=1
+exec steam
 
 #set wallpaper:
 exec --no-startup-id nitrogen --restore
 
 #set powersavings for display:
-exec --no-startup-id xset s 480 dpms 600 600 600
+exec --no-startup-id xset s 0 dpms 0 0 0
 
 # Desktop notifications_
 exec --no-startup-id /usr/bin/dunst
