@@ -247,7 +247,7 @@ mode "$mode_function_keys" {
 }
 bindsym $mod+F1 exec codium
 bindsym $mod+Shift+F2 exec firefox
-bindsym $mod+F2 exec "firefox; sleep .1; i3-msg move to workspace number 0; i3-msg workspace number 0"
+bindsym $mod+F2 exec "firefox; sleep .1; i3-msg 'move to workspace number 0'; i3-msg 'workspace number 0'"
 bindsym $mod+F3 exec $default_terminal -e qalc
 bindsym $mod+F4 exec $default_terminal -e bashCalendar.sh
 
