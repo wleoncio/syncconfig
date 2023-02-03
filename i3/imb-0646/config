@@ -50,7 +50,7 @@ bindsym $mod+Left exec $HOME/Programs/syncconfig/myScripts/mouseFollowsFocus.sh 
 bindsym $mod+Down exec $HOME/Programs/syncconfig/myScripts/mouseFollowsFocus.sh down
 bindsym $mod+Up exec $HOME/Programs/syncconfig/myScripts/mouseFollowsFocus.sh up
 bindsym $mod+Right exec $HOME/Programs/syncconfig/myScripts/mouseFollowsFocus.sh right
-bindsym $mod+b workspace back_and_forth
+bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Ctrl+Left workspace prev
 bindsym $mod+Ctrl+Right workspace next
 
