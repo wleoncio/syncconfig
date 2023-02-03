@@ -695,5 +695,9 @@
         "key": "ctrl+u",
         "command": "-cursorUndo",
         "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+t ctrl+k",
+        "command": "workbench.action.terminal.kill"
     }
 ]
