@@ -91,5 +91,10 @@
         "prefix": "subsec",
         "body": "# $1 ---------------------------------------------------------------------------",
         "description": "Subsection"
+    },
+    "Assignment": {
+        "prefix": "<-",
+        "body": " <- $1",
+        "description": "Assignment operator"
     }
 }
