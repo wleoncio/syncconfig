@@ -96,5 +96,10 @@
         "prefix": "<-",
         "body": " <- $1",
         "description": "Assignment operator"
+    },
+    "Assignment (typo)": {
+        "prefix": "z-",
+        "body": " <- $1",
+        "description": "Assignment operator (typo variant)"
     }
 }
