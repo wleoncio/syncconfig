@@ -20,6 +20,7 @@
 	ap = add -p
 	rp = restore -p
 	cm = commit
+	ca = commit --all --untracked-files=no --message
 	cmf = commit --fixup
 	cms = commit --squash
 	cmm = commit -m
@@ -37,6 +38,7 @@
   pa = push --all
 [core]
 	editor = vim
+	autocrlf = input
 [credential]
   helper = store
 [color]
