@@ -74,7 +74,7 @@
     "editor.fontFamily": "Fira Code",
     "editor.fontLigatures": true,
     "editor.fontSize": 12,
-    "editor.fontWeight": "bold",
+    "editor.fontWeight": "normal",
     "editor.guides.bracketPairs": "active",
     "editor.inlayHints.enabled": "off",
     "editor.minimap.enabled": false,
@@ -107,7 +107,7 @@
                     "punctuation.separator.parameters.r"
                 ],
                 "settings": {
-                    "fontStyle": "bold",
+                    "fontStyle": "normal",
                     "foreground": "#f29668"
                 }
             },
@@ -116,7 +116,7 @@
                     "constant.language.r"
                 ],
                 "settings": {
-                    "fontStyle": "bold",
+                    "fontStyle": "normal",
                     "foreground": "#7e7e7e"
                 }
             },
@@ -125,7 +125,7 @@
                     "constant.numeric.float.decimal.r"
                 ],
                 "settings": {
-                    "fontStyle": "bold",
+                    "fontStyle": "normal",
                     "foreground": "#5153b3"
                 }
             },
@@ -134,7 +134,7 @@
                     "support.function.r"
                 ],
                 "settings": {
-                    "fontStyle": "bold",
+                    "fontStyle": "normal",
                     "foreground": "#4381c9"
                 }
             },
@@ -144,7 +144,7 @@
                     "variable.other.r"
                 ],
                 "settings": {
-                    "fontStyle": "bold",
+                    "fontStyle": "normal",
                     "foreground": "#dfeeff"
                 }
             }
