@@ -230,10 +230,6 @@
         "command": "html.preview.refresh"
     },
     {
-        "key": "ctrl+t ctrl+t",
-        "command": "workbench.action.focusPanel"
-    },
-    {
         "key": "ctrl+shift+alt+s",
         "command": "workbench.action.openSettings"
     },
@@ -704,5 +700,41 @@
     {
         "key": "ctrl+t ctrl+k",
         "command": "workbench.action.terminal.kill"
+    },
+    {
+        "key": "ctrl+0",
+        "command": "workbench.action.focusSideBar"
+    },
+    {
+        "key": "ctrl+0",
+        "command": "-workbench.action.focusSideBar"
+    },
+    {
+        "key": "ctrl+[Backquote]",
+        "command": "-editor.action.jumpToBracket",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+[Backquote]",
+        "command": "-workbench.action.terminal.focusTabs",
+        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported || terminalHasBeenCreated && terminalTabsFocus || terminalProcessSupported && terminalTabsFocus"
+    },
+    {
+        "key": "ctrl+t ctrl+t",
+        "command": "workbench.action.terminal.focus"
+    },
+    {
+        "key": "ctrl+b ctrl+a",
+        "command": "workbench.action.toggleActivityBarVisibility"
+    },
+    {
+        "key": "ctrl+t ctrl+l",
+        "command": "workbench.action.terminal.openDetectedLink",
+        "when": "terminalFocus && terminalHasBeenCreated"
+    },
+    {
+        "key": "ctrl+shift+o",
+        "command": "-workbench.action.terminal.openDetectedLink",
+        "when": "terminalFocus && terminalHasBeenCreated"
     }
 ]
