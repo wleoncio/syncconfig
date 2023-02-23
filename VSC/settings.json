@@ -229,40 +229,34 @@
             "iconColour": "#FFCA02",
             "icon": "question"
         },
-        "DONE": {
-            "foreground": "#0F0"
-        },
         "FIXME": {
             "background": "#F00",
             "foreground": "#FFF",
             "iconColour": "#F00",
-            "icon": "alert"
-        },
-        "SUGGEST": {
-            "background": "#FFCA02",
-            "foreground": "#000",
-            "iconColour": "#FFCA02",
-            "icon": "light-bulb"
+            "icon": "alert",
+            "type": "text",
+            "gutterIcon": true
         },
         "TEMP": {
             "background": "#707070",
             "foreground": "#000",
             "iconColour": "#707070",
             "icon": "clock",
-            "type": "line"
+            "type": "line",
+            "gutterIcon": true
         },
         "TODO": {
             "background": "#0F0",
             "foreground": "#000",
             "icon": "check",
-            "type": "text"
+            "type": "text",
+            "gutterIcon": true
         }
     },
     "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
     "typescript.suggest.paths": false,
     "window.menuBarVisibility": "hidden",
     "window.restoreWindows": "none",
-    "workbench.activityBar.visible": false,
     "workbench.colorCustomizations": {
         "editor.lineHighlightBackground": "#1073cf2d",
         "editor.lineHighlightBorder": "#9fced11f",
@@ -279,12 +273,10 @@
         "terminal.border": "#888",
         "terminal.foreground": "#fff"
     },
-    "workbench.colorTheme": "Monokai Dimmed",
     "workbench.editor.centeredLayoutAutoResize": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.mouseBackForwardToNavigate": false,
     "workbench.editor.revealIfOpen": true,
-    "workbench.editor.scrollToSwitchTabs": true,
     "workbench.editor.tabSizing": "shrink",
     "workbench.enableExperiments": false,
     "workbench.sideBar.location": "right",
@@ -311,5 +303,11 @@
     "editor.cursorWidth": 3,
     "editor.find.loop": false,
     "editor.acceptSuggestionOnEnter": "off",
-    "editor.quickSuggestionsDelay": 0
+    "editor.quickSuggestionsDelay": 0,
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": false,
+        "plaintext": false,
+        "markdown": false
+    }
 }

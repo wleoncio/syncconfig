@@ -12,15 +12,8 @@ parse_git_branch() {
 _set_my_PS1() {
   	PS1='\e[33m$(parse_git_branch)\e[0m \[\033[1;30;44m\] \w \[\033[0;37m\] '
     echo -e "\e]12;lightgray\a" # cursor format
-    if [ "$(whoami)" = "liveuser" ] ; then
-        local iso_version="$(grep ^VERSION= /usr/lib/endeavouros-release 2>/dev/null | cut -d '=' -f 2)"
-        if [ -n "$iso_version" ] ; then
-            local prefix="eos-"
-            local iso_info="$prefix$iso_version"
-            PS1="[\u@$iso_info \W]\$ "
-        fi
-    fi
 }
+
 _set_my_PS1
 unset -f _set_my_PS1
 
@@ -32,7 +25,6 @@ ShowInstallerIsoInfo() {
         echo "Sorry, installer ISO info is not available." >&2
     fi
 }
-
 
 alias ls='ls --color=auto'
 alias ll='ls -lav --ignore=..'   # show long listing of all except ".."
