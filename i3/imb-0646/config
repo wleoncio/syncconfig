@@ -215,6 +215,8 @@ exec numlockx on
 exec_always --no-startup-id xautolock -time 5 -locker uio_i3lock.sh
 # Disabling screen saver and monitor timeout
 exec --no-startup-id xset dpms 0 0 0 s 0 0
+# Setting keyboard repeat delay and rate
+exec --no-startup-id xset r rate 250 30
 exec dropbox start
 
 # i3 gaps
