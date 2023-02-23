@@ -149,6 +149,7 @@
     },
     "editor.wordWrap": "off",
     "explorer.compactFolders": false,
+    "extensions.ignoreRecommendations": true,
     "files.associations": {
         "*.docker": "Dockerfile"
     },
