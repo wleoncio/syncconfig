@@ -299,4 +299,23 @@
     "editor.find.loop": false,
     "editor.acceptSuggestionOnEnter": "off",
     "editor.quickSuggestionsDelay": 0,
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+            "path": "bash",
+            "icon": "terminal-bash"
+        },
+        "fish": {
+            "path": "fish",
+            "icon": "terminal-ubuntu",
+            "color": "terminal.ansiYellow"
+        },
+        "R": {
+            "path": "radian",
+            "icon": "package",
+            "color": "terminal.ansiBlue",
+            "overrideName": true
+        }
+    },
+    "terminal.integrated.defaultProfile.linux": "fish",
+
 }
