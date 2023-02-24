@@ -104,7 +104,6 @@
                     "punctuation.separator.parameters.r"
                 ],
                 "settings": {
-                    "fontStyle": "normal",
                     "foreground": "#f29668"
                 }
             },
@@ -113,7 +112,6 @@
                     "constant.language.r"
                 ],
                 "settings": {
-                    "fontStyle": "normal",
                     "foreground": "#7e7e7e"
                 }
             },
@@ -122,7 +120,6 @@
                     "constant.numeric.float.decimal.r"
                 ],
                 "settings": {
-                    "fontStyle": "normal",
                     "foreground": "#5153b3"
                 }
             },
@@ -131,7 +128,6 @@
                     "support.function.r"
                 ],
                 "settings": {
-                    "fontStyle": "normal",
                     "foreground": "#4381c9"
                 }
             },
@@ -141,7 +137,6 @@
                     "variable.other.r"
                 ],
                 "settings": {
-                    "fontStyle": "normal",
                     "foreground": "#dfeeff"
                 }
             }
@@ -198,7 +193,6 @@
     "r.lsp.promptToInstall": false,
     "r.rpath.linux": "/usr/bin/R",
     "r.rterm.linux": "/usr/bin/radian",
-    "r.sessionWatcher": true,
     "scm.defaultViewMode": "tree",
     "security.workspace.trust.untrustedFiles": "open",
     "task.saveBeforeRun": "prompt",
@@ -295,20 +289,14 @@
     "terminal.integrated.showExitAlert": false,
     "terminal.integrated.smoothScrolling": true,
     "terminal.integrated.tabs.focusMode": "singleClick",
-    "terminal.integrated.tabs.title": "${process}${sequence}",
+    "terminal.integrated.tabs.title": "${process}",
     "r.source.focus": "terminal",
     "terminal.integrated.cursorBlinking": true,
-    "editor.cursorBlinking": "phase",
+    "editor.cursorBlinking": "blink",
     "gitweblinks.defaultBranch": "develop",
     "editor.cursorSmoothCaretAnimation": "explicit",
     "editor.cursorWidth": 3,
     "editor.find.loop": false,
     "editor.acceptSuggestionOnEnter": "off",
     "editor.quickSuggestionsDelay": 0,
-    "github.copilot.enable": {
-        "*": true,
-        "yaml": false,
-        "plaintext": false,
-        "markdown": false
-    }
 }
