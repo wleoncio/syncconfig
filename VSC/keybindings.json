@@ -736,5 +736,9 @@
         "key": "ctrl+shift+o",
         "command": "-workbench.action.terminal.openDetectedLink",
         "when": "terminalFocus && terminalHasBeenCreated"
+    },
+    {
+        "key": "ctrl+g ctrl+a",
+        "command": "vscode-chatgpt.freeText"
     }
 ]
