@@ -9,3 +9,6 @@ gh issue edit "$issueNumber" --add-assignee @me
 echo "Crating and checking out branch"
 git checkout -b issue-"$issueNumber"
 
+echo "Summary of issue"
+gh issue view "$issueNumber"
+
