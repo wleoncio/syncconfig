@@ -740,5 +740,9 @@
     {
         "key": "ctrl+g ctrl+a",
         "command": "vscode-chatgpt.freeText"
+    },
+    {
+        "key": "ctrl+b ctrl+d",
+        "command": "ddb50.debugView.focus"
     }
 ]
