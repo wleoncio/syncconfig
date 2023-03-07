@@ -317,5 +317,11 @@
         }
     },
     "terminal.integrated.defaultProfile.linux": "fish",
-
+    "matlab.lintOnSave": false,
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": false,
+        "plaintext": true,
+        "markdown": false
+    }
 }
