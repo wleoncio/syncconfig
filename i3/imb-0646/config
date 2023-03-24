@@ -208,11 +208,11 @@ bar {
 # Startup sequence
 # ==============================================================================
 exec_always --no-startup-id compton --config $HOME/.config/compton.conf
-exec_always --no-startup-id $HOME/Programs/i3-alternating-layout/alternating_layouts.py
+exec --no-startup-id $HOME/Programs/i3-alternating-layout/alternating_layouts.py
 exec --no-startup-id bash $HOME/Programs/syncconfig/myScripts/start_xrandr_imb.sh
 exec --no-startup-id i3-msg 'workspace $ws1; exec gnome-terminal --command="$HOME/.local/bin/uiosync.sh pull"; exec evolution -c mail; exec bash /var/lib/flatpak/app/com.todoist.Todoist/current/active/export/bin/com.todoist.Todoist'
 exec numlockx on
-exec_always --no-startup-id xautolock -time 5 -locker uio_i3lock.sh
+exec --no-startup-id xautolock -time 5 -locker uio_i3lock.sh
 # Disabling screen saver and monitor timeout
 exec --no-startup-id xset dpms 0 0 0 s 0 0
 # Setting keyboard repeat delay and rate
@@ -249,8 +249,8 @@ mode "$mode_function_keys" {
 }
 bindsym $mod+F1 exec codium
 bindsym $mod+Shift+F1 exec $default_terminal -e chatgpt
-bindsym $mod+Shift+F2 exec firefox
-bindsym $mod+F2 exec firefox --new-window about:performance
+bindsym $mod+F2 exec firefox
+bindsym $mod+Shift+F2 exec firefox --new-window about:performance
 bindsym $mod+F3 exec $default_terminal -e qalc
 bindsym $mod+F4 exec $default_terminal -e bashCalendar.sh
 
@@ -318,10 +318,10 @@ for_window [title="Zoom - Licensed Account"] floating disable
 for_window [title="gsimplecal"] floating enable, border none
 for_window [instance="shutter|evolution-alarm-notify|r_x11"] floating enable
 for_window [instance="jetbrains-studio" title="win0"] floating enable
-for_window [instance="evolution-alarm-notify"] sticky enable
+for_window [instance="evolution-alarm-notify"] sticky enable, border pixel 10, move position center
 for_window [instance="spotify|pocket-casts|todoist"] move to workspace number $ws0
 for_window [title="Aktivitetsbehandler"] move to workspace number $ws0, workspace number $ws0 
 
 # Windows that need to be explicitly given borders
-for_window [instance="pocket-casts|musixmatch|telegram-desktop|evince|org.gnome.Nautilus|eog|evolution|gnome-text-editor|baobab|vmware-view|telegram-desktop"] border pixel $bordersize
+for_window [instance="pocket-casts|musixmatch|telegram-desktop|evince|org.gnome.Nautilus|eog|evolution|gnome-text-editor|baobab|vmware-view|telegram-desktop|file-roller"] border pixel $bordersize
 for_window [title="Zoom Meeting|YouTube|Møte \| Microsoft Teams"] border pixel $bordersize
