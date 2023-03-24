@@ -16,5 +16,15 @@
 		"prefix": "pt",
 		"body": "print($1) # TEMP",
 		"description": "Add print() with #TEMP tag"
+	},
+	"H1 comment": {
+		"prefix": "sec",
+		"body": "# $1 =============================================================================",
+		"description": "Section"
+	},
+	"H2 comment": {
+			"prefix": "subsec",
+			"body": "# $1 ---------------------------------------------------------------------------",
+			"description": "Subsection"
 	}
 }
