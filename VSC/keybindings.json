@@ -59,10 +59,10 @@
         "args": "library(lintr); lint_package(linters = list(commented_code_linter(), infix_spaces_linter(), line_length_linter(), single_quotes_linter(), spaces_inside_linter(), spaces_left_parentheses_linter(), unneeded_concatenation_linter()))"
     },
     {
-        "description": "Load package functions",
+        "description": "Load exported package functions",
         "key": "ctrl+r ctrl+r",
         "command": "r.runCommand",
-        "args": "devtools::load_all()"
+        "args": "devtools::load_all(export_all = FALSE)"
     },
     {
         "description": "Document and install package",
