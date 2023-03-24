@@ -323,5 +323,7 @@
         "yaml": false,
         "plaintext": true,
         "markdown": false
-    }
+    },
+    "editor.largeFileOptimizations": false,
+    "excalidraw.theme": "light"
 }
