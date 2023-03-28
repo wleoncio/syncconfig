@@ -139,6 +139,13 @@
                 "settings": {
                     "foreground": "#dfeeff"
                 }
+            },
+            {
+                "scope": "keyword.operator",
+                "settings": {
+                    "foreground": "#6b6de4"
+                }
+
             }
         ]
     },
