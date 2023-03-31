@@ -46,10 +46,10 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+Left exec $HOME/Programs/syncconfig/myScripts/mouseFollowsFocus.sh left
-bindsym $mod+Down exec $HOME/Programs/syncconfig/myScripts/mouseFollowsFocus.sh down
-bindsym $mod+Up exec $HOME/Programs/syncconfig/myScripts/mouseFollowsFocus.sh up
-bindsym $mod+Right exec $HOME/Programs/syncconfig/myScripts/mouseFollowsFocus.sh right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
 bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Ctrl+Left workspace prev
 bindsym $mod+Ctrl+Right workspace next
