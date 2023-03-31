@@ -222,5 +222,6 @@
     "workbench.sideBar.location": "right",
     "workbench.startupEditor": "welcomePageInEmptyWorkbench",
     "workbench.tree.indent": 16,
-    "workbench.tree.renderIndentGuides": "always"
+    "workbench.tree.renderIndentGuides": "always",
+    "remote.SSH.configFile": "/home/waldir/.ssh/config"
 }
