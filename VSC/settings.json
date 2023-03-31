@@ -1,79 +1,30 @@
 {
     // Language-specific
     "[git-commit]": {
-        "editor.rulers": [
-            {
-                "color": "#ff0000",
-                "column": 50
-            }
-        ]
+        "editor.rulers": [{"color": "#ff0000", "column": 50}]
     },
     "[markdown]": {
         "editor.defaultFormatter": "yzhang.markdown-all-in-one",
         "editor.rulers": []
     },
-    "alignment.chars": {
-        "<-": {
-            "spaceAfter": 1,
-            "spaceBefore": 1
-        }
-    },
-    "cSpell.enabled": false,
-    "cSpell.enabledLanguageIds": [
-        "asciidoc",
-        "c",
-        "cpp",
-        "csharp",
-        "css",
-        "git-commit",
-        "go",
-        "graphql",
-        "handlebars",
-        "haskell",
-        "html",
-        "jade",
-        "java",
-        "javascript",
-        "javascriptreact",
-        "json",
-        "jsonc",
-        "jupyter",
-        "latex",
-        "less",
-        "markdown",
-        "php",
-        "plaintext",
-        "python",
-        "pug",
-        "restructuredtext",
-        "rust",
-        "scala",
-        "scss",
-        "swift",
-        "text",
-        "typescript",
-        "typescriptreact",
-        "vue",
-        "yaml",
-        "yml",
-        "r"
-    ],
-    "comment-divider.length": 60,
-    "comment-divider.mainHeaderAlign": "left",
-    "comment-divider.mainHeaderFiller": "=",
-    "comment-divider.mainHeaderHeight": "line",
-    "comment-divider.subheaderAlign": "left",
+    "alignment.chars": {"<-": {"spaceAfter": 1, "spaceBefore": 1}},
     "diffEditor.ignoreTrimWhitespace": false,
     "diffEditor.renderSideBySide": false,
     "diffEditor.wordWrap": "off",
+    "editor.acceptSuggestionOnEnter": "off",
     "editor.bracketPairColorization.enabled": true,
+    "editor.cursorBlinking": "blink",
+    "editor.cursorSmoothCaretAnimation": "explicit",
+    "editor.cursorWidth": 3,
     "editor.emptySelectionClipboard": false,
+    "editor.find.loop": false,
     "editor.fontFamily": "Fira Code",
     "editor.fontLigatures": true,
     "editor.fontSize": 12,
     "editor.fontWeight": "normal",
     "editor.guides.bracketPairs": "active",
     "editor.inlayHints.enabled": "off",
+    "editor.largeFileOptimizations": false,
     "editor.minimap.enabled": false,
     "editor.minimap.maxColumn": 80,
     "editor.minimap.showSlider": "always",
@@ -81,13 +32,9 @@
     "editor.minimap.size": "fit",
     "editor.mouseWheelZoom": false,
     "editor.overviewRulerBorder": false,
+    "editor.quickSuggestionsDelay": 0,
     "editor.renderLineHighlight": "all",
-    "editor.rulers": [
-        {
-            "color": "#ff0000",
-            "column": 80
-        }
-    ],
+    "editor.rulers": [{"color": "#ff0000", "column": 80}],
     "editor.scrollBeyondLastColumn": 0,
     "editor.showFoldingControls": "always",
     "editor.smoothScrolling": true,
@@ -95,66 +42,47 @@
     "editor.tabSize": 2,
     "editor.tokenColorCustomizations": {
         "textMateRules": [
+            // Find scope values by running the following on the code file:
+            // Developer: Inspect Editor Tokens and Scopes
             {
-                // Find scope values by running the following on the code file:
-                // Developer: Inspect Editor Tokens and Scopes
                 "scope": [
                     "meta.function-call.arguments.r",
                     "keyword.operator.assignment.r",
                     "punctuation.separator.parameters.r"
                 ],
-                "settings": {
-                    "foreground": "#f29668"
-                }
+                "settings": {"foreground": "#f29668"}
+            },
+            {
+                "scope": ["constant.language.r"],
+                "settings": {"foreground": "#7e7e7e"}
             },
             {
                 "scope": [
-                    "constant.language.r"
+                    "constant.numeric.float.decimal.r",
+                    "constant.numeric.integer.decimal.r"
+
                 ],
-                "settings": {
-                    "foreground": "#7e7e7e"
-                }
+                "settings": {"foreground": "#5153b3"}
             },
             {
-                "scope": [
-                    "constant.numeric.float.decimal.r"
-                ],
-                "settings": {
-                    "foreground": "#5153b3"
-                }
+                "scope": ["support.function.r"],
+                "settings": {"foreground": "#4381c9"}
             },
             {
-                "scope": [
-                    "support.function.r"
-                ],
-                "settings": {
-                    "foreground": "#4381c9"
-                }
-            },
-            {
-                "scope": [
-                    "variable.parameter.r",
-                    "variable.other.r"
-                ],
-                "settings": {
-                    "foreground": "#dfeeff"
-                }
+                "scope": ["variable.parameter.r", "variable.other.r"],
+                "settings": {"foreground": "#dfeeff"}
             },
             {
                 "scope": "keyword.operator",
-                "settings": {
-                    "foreground": "#6b6de4"
-                }
-
+                "settings": {"foreground": "#6b6de4"}
             }
         ]
     },
     "editor.wordWrap": "off",
+    "excalidraw.theme": "light",
     "explorer.compactFolders": false,
     "extensions.ignoreRecommendations": true,
-    "files.associations": {
-        "*.docker": "Dockerfile"
-    },
+    "files.associations": {"*.docker": "Dockerfile"},
     "files.autoGuessEncoding": true,
     "files.autoSave": "onFocusChange",
     "files.insertFinalNewline": true,
@@ -166,93 +94,103 @@
     "git-graph.repository.fetchAndPrune": true,
     "git-graph.showStatusBarItem": false,
     "git.autofetch": true,
-    "git.checkoutType": [
-        "local"
-    ],
+    "git.checkoutType": ["local"],
     "git.suggestSmartCommit": false,
+    "gitweblinks.defaultBranch": "develop",
+    "gitweblinks.preferredRemoteName": "ocbe-uio",
     "html.preview.doubleClickToSwitchToEditor": false,
     "julia.enableTelemetry": false,
     "julia.symbolCacheDownload": true,
-    "latex-workshop.bibtex-format.tab": "tab",
-    "latex-workshop.intellisense.package.enabled": true,
-    "latex-workshop.intellisense.unimathsymbols.enabled": true,
-    "latex-workshop.latex.autoBuild.run": "never",
-    "latex-workshop.latex.outDir": "./",
-    "latex-workshop.synctex.afterBuild.enabled": true,
-    "latex-workshop.view.outline.commands": [],
-    "latex-workshop.view.pdf.viewer": "tab",
+    "kotlin.debugAdapter.enabled": false,
+    "kotlin.languageServer.enabled": false,
     "markdown.extension.print.theme": "dark",
     "markdown.extension.tableFormatter.enabled": true,
     "markdown.extension.toc.levels": "1..1",
     "markdown.extension.toc.orderedList": true,
     "markdown.marp.enableHtml": true,
     "markdown.marp.exportType": "html",
-    "markdown.marp.themes": [
-        "./themes/uio-light.css",
-        "./themes/uio-dark.css"
-    ],
+    "markdown.marp.themes": ["./themes/uio-light.css", "./themes/uio-dark.css"],
     "markdown.preview.doubleClickToSwitchToEditor": false,
+    "matlab.lintOnSave": false,
     "notebook.lineNumbers": "on",
     "outline.icons": false,
+    "python.defaultInterpreterPath": "/home/waldir/.local/bin/bpython",
     "r.alwaysUseActiveTerminal": true,
     "r.bracketedPaste": true,
-    "r.lsp.diagnostics": false,
-    "r.lsp.promptToInstall": false,
     "r.rpath.linux": "/usr/bin/R",
     "r.rterm.linux": "/usr/bin/radian",
+    "r.source.focus": "terminal",
     "scm.defaultViewMode": "tree",
     "security.workspace.trust.untrustedFiles": "open",
     "task.saveBeforeRun": "prompt",
-    "terminal.integrated.commandsToSkipShell": [
-        "language-julia.interrupt"
-    ],
+    "terminal.integrated.commandsToSkipShell": ["language-julia.interrupt"],
     "terminal.integrated.confirmOnExit": "always",
     "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.cursorWidth": 3,
+    "terminal.integrated.defaultProfile.linux": "fish",
+    "terminal.integrated.drawBoldTextInBrightColors": false,
+    "terminal.integrated.enableMultiLinePasteWarning": false,
     "terminal.integrated.fontFamily": "Fira Code",
     "terminal.integrated.fontSize": 12,
     "terminal.integrated.fontWeight": "500",
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+            "icon": "terminal-bash",
+            "path": "bash"
+        },
+        "fish": {
+            "color": "terminal.ansiYellow",
+            "icon": "terminal-ubuntu",
+            "path": "fish"
+        },
+        "R": {
+            "color": "terminal.ansiBlue",
+            "icon": "package",
+            "overrideName": true,
+            "path": "/usr/bin/R"
+        },
+        "radian": {
+            "color": "terminal.ansiBlue",
+            "icon": "package",
+            "overrideName": true,
+            "path": "/home/waldir/.local/bin/radian"
+        }
+    },
+    "terminal.integrated.showExitAlert": false,
+    "terminal.integrated.smoothScrolling": true,
+    "terminal.integrated.tabs.focusMode": "singleClick",
+    "terminal.integrated.tabs.hideCondition": "never",
     "terminal.integrated.tabs.location": "left",
+    "terminal.integrated.tabs.title": "${process}",
     "todo-tree.general.revealBehaviour": "start of todo",
     "todo-tree.general.statusBar": "tags",
     "todo-tree.general.statusBarClickBehaviour": "reveal",
-    "todo-tree.general.tags": [
-        "TODO",
-        "FIXME",
-        "TEMP",
-        "ASK",
-        "SUGGEST",
-        "[ ]",
-        "[x]"
-    ],
+    "todo-tree.general.tags": ["TODO", "FIXME", "TEMP", "[ ]", "[x]"],
     "todo-tree.highlights.customHighlight": {
-        "ASK": {
-            "background": "#FFCA02",
-            "foreground": "#000",
-            "iconColour": "#FFCA02",
-            "icon": "question"
-        },
         "FIXME": {
             "background": "#F00",
             "foreground": "#FFF",
-            "iconColour": "#F00",
+            "gutterIcon": true,
             "icon": "alert",
-            "type": "text",
-            "gutterIcon": true
+            "iconColour": "#F00",
+            "type": "text"
         },
         "TEMP": {
             "background": "#707070",
             "foreground": "#000",
-            "iconColour": "#707070",
+            "gutterIcon": true,
             "icon": "clock",
-            "type": "line",
-            "gutterIcon": true
+            "iconColour": "#707070",
+            "type": "line"
         },
         "TODO": {
             "background": "#0F0",
             "foreground": "#000",
+            "gutterIcon": true,
             "icon": "check",
-            "type": "text",
-            "gutterIcon": true
+            "type": "text"
         }
     },
     "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
@@ -284,53 +222,5 @@
     "workbench.sideBar.location": "right",
     "workbench.startupEditor": "welcomePageInEmptyWorkbench",
     "workbench.tree.indent": 16,
-    "workbench.tree.renderIndentGuides": "always",
-    "python.defaultInterpreterPath": "/home/waldir/.local/bin/bpython",
-    "gitweblinks.preferredRemoteName": "ocbe-uio",
-    "kotlin.languageServer.enabled": false,
-    "kotlin.debugAdapter.enabled": false,
-    "terminal.integrated.enableMultiLinePasteWarning": false,
-    "terminal.integrated.cursorStyle": "line",
-    "terminal.integrated.cursorWidth": 3,
-    "terminal.integrated.drawBoldTextInBrightColors": false,
-    "terminal.integrated.showExitAlert": false,
-    "terminal.integrated.smoothScrolling": true,
-    "terminal.integrated.tabs.focusMode": "singleClick",
-    "terminal.integrated.tabs.title": "${process}",
-    "r.source.focus": "terminal",
-    "terminal.integrated.cursorBlinking": true,
-    "editor.cursorBlinking": "blink",
-    "gitweblinks.defaultBranch": "develop",
-    "editor.cursorSmoothCaretAnimation": "explicit",
-    "editor.cursorWidth": 3,
-    "editor.find.loop": false,
-    "editor.acceptSuggestionOnEnter": "off",
-    "editor.quickSuggestionsDelay": 0,
-    "terminal.integrated.profiles.linux": {
-        "bash": {
-            "path": "bash",
-            "icon": "terminal-bash"
-        },
-        "fish": {
-            "path": "fish",
-            "icon": "terminal-ubuntu",
-            "color": "terminal.ansiYellow"
-        },
-        "R": {
-            "path": "radian",
-            "icon": "package",
-            "color": "terminal.ansiBlue",
-            "overrideName": true
-        }
-    },
-    "terminal.integrated.defaultProfile.linux": "fish",
-    "matlab.lintOnSave": false,
-    "github.copilot.enable": {
-        "*": true,
-        "yaml": false,
-        "plaintext": true,
-        "markdown": false
-    },
-    "editor.largeFileOptimizations": false,
-    "excalidraw.theme": "light"
+    "workbench.tree.renderIndentGuides": "always"
 }
