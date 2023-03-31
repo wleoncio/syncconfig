@@ -1,5 +1,5 @@
 #! /bin/bash
-# Syncs UiO accounts to Hjemmeområdet
+# Syncs UiO accounts between local and Hjemmeområdet
 
 # Config constants
 configPath=$HOME/.config/uiosync.conf
@@ -43,7 +43,7 @@ then
 	eval sleep 5
 fi
 
-## Dry run
+# Dry run
 logPath="/tmp/uiosync.log"
 touch "$logPath"
 read -p "Check for file conflicts? (Y/n) " -t 5 check
@@ -64,7 +64,7 @@ else
 	echo "Skipping conflict check"
 fi
 
-## Actual run
+# Actual run
 echo -e "\nSynchronizing "$direction""
 echo -e "\nTHIS OPERATION WILL \e[1;31mOVERWRITE\e[0m THE CONTENTS OF \e[1;31m"$to"\e[0m"
 read -p "Are you sure you want to continue? (y/N) " answer
