@@ -171,12 +171,13 @@ bindsym $mod+r mode "resize"
 
 # Colors
 set $uiored "#b60000"
+set $uiolred "#fb6666"
 set $uiowhite "#f4f6ff"
 set $uiogray "#b2b3b7"
 set $menubar "#23252e"
 
 # class                 border  backgr. text      indicator child_border
-client.focused          $uiored $uiored $uiowhite $uiored $uiored
+client.focused          $uiored $uiored $uiowhite $uiolred $uiored
 client.focused_inactive $menubar $menubar #555555 $menubar $menubar
 client.unfocused        $menubar $menubar #555555 $menubar $menubar
 client.urgent           #ffff00 #ffff00 #000000 #ffff00   #ffff00
