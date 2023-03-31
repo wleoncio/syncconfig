@@ -65,6 +65,12 @@
         "args": "devtools::load_all(export_all = FALSE)"
     },
     {
+        "description": "Load all package functions",
+        "key": "ctrl+r ctrl+shift+r",
+        "command": "r.runCommand",
+        "args": "devtools::load_all(export_all = TRUE)"
+    },
+    {
         "description": "Document and install package",
         "key": "ctrl+r ctrl+i",
         "command": "r.runCommand",
@@ -744,5 +750,9 @@
     {
         "key": "ctrl+b ctrl+d",
         "command": "ddb50.debugView.focus"
+    },
+    {
+        "key": "ctrl+g ctrl+g",
+        "command": "git-graph.view"
     }
 ]
