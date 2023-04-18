@@ -256,9 +256,9 @@ bindsym $mod+F3 exec $default_terminal -e qalc
 bindsym $mod+F4 exec $default_terminal -e bashCalendar.sh
 
 # Group 2: auxiliary tools (dictionaries, sounds)
-bindsym $mod+F5 exec $default_terminal -e trans -I :en
-bindsym $mod+F6 exec $default_terminal -e firefoxDictionaries.sh
-bindsym $mod+F7 exec /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=run.sh tech.feliciano.pocket-casts
+bindsym $mod+F5 exec $default_terminal -e $HOME/.cargo/bin/aichat
+bindsym $mod+F6 exec $default_terminal -e trans -I :en
+bindsym $mod+F7 exec $default_terminal -e firefoxDictionaries.sh
 bindsym $mod+F8 exec env LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify %U
 
 # Group 3: multimedia
