@@ -754,5 +754,27 @@
     {
         "key": "ctrl+g ctrl+g",
         "command": "git-graph.view"
+    },
+    {
+        "key": "shift+alt+9",
+        "command": "-workbench.action.moveEditorToLastGroup"
+    },
+    {
+        "key": "ctrl+down",
+        "command": "-selectNextSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion"
+    },
+    {
+        "key": "down",
+        "command": "-selectNextSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion"
+    },
+    {
+        "key": "alt+9",
+        "command": "editor.action.inlineSuggest.showNext"
+    },
+    {
+        "key": "alt+8",
+        "command": "editor.action.inlineSuggest.showPrevious"
     }
 ]

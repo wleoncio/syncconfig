@@ -223,5 +223,7 @@
     "workbench.startupEditor": "welcomePageInEmptyWorkbench",
     "workbench.tree.indent": 16,
     "workbench.tree.renderIndentGuides": "always",
-    "remote.SSH.configFile": "/home/waldir/.ssh/config"
+    "remote.SSH.configFile": "/home/waldir/.ssh/config",
+    "editor.inlineSuggest.enabled": true,
+    "editor.autoClosingBrackets": "never",
 }
