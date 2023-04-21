@@ -17,7 +17,7 @@ set $bordersize 5
 default_border normal $bordersize
 
 # Configuring title
-font pango:DejaVu Sans 12
+font pango:DejaVu Sans 10
 title_align center 
 
 # Use pactl to adjust volume in PulseAudio.
