@@ -226,4 +226,5 @@
     "remote.SSH.configFile": "/home/waldir/.ssh/config",
     "editor.inlineSuggest.enabled": true,
     "editor.autoClosingBrackets": "never",
+    "julia.additionalArgs": ["--threads=4"]
 }
