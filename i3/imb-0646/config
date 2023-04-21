@@ -264,10 +264,10 @@ bindsym $mod+F7 exec $default_terminal -e firefoxDictionaries.sh
 bindsym $mod+F8 exec env LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify %U
 
 # Group 3: multimedia
-bindsym $mod+F9 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -20% && $refresh_i3status
-bindsym $mod+Shift+F9 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym $mod+F10 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym $mod+Shift+F10 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 100% && $refresh_i3status
+bindsym $mod+F9 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -20% && notify-send "Volume lowered 20%"
+bindsym $mod+Shift+F9 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && notify-send "Volume (un)muted"
+bindsym $mod+F10 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && notify-send "Volume increased 10%"
+bindsym $mod+Shift+F10 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 100% && notify-send "Volume maximized"
 bindsym $mod+F11 exec playerctl next
 bindsym $mod+F12 exec playerctl play-pause
 
