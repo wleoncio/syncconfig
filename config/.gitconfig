@@ -35,7 +35,7 @@
 	history = log -p --
 	fap = fetch --all --prune
 	latexdiff = difftool -t latexdiff
-  pa = push --all
+	pa = push --all
 [core]
 	editor = vim
 	autocrlf = input
