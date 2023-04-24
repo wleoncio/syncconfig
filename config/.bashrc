@@ -172,7 +172,7 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # Environment variables
-PATH=$PATH:~/.local/bin
+PATH=$PATH:~/.local/bin:~/.cargo/bin
 
 export COLUMNS
 
