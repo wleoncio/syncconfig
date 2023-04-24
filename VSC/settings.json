@@ -227,5 +227,14 @@
     "remote.SSH.configFile": "/home/waldir/.ssh/config",
     "editor.inlineSuggest.enabled": true,
     "editor.autoClosingBrackets": "never",
-    "julia.additionalArgs": ["--threads=4"]
+    "julia.additionalArgs": [
+        "--threads=4"
+    ],
+    "workbench.activityBar.visible": false,
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": true,
+        "scminput": false
+    }
 }
