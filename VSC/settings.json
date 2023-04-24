@@ -96,6 +96,7 @@
     "git.autofetch": true,
     "git.checkoutType": ["local"],
     "git.suggestSmartCommit": false,
+    "github-actions.remote-name": "ocbe-uio",
     "gitweblinks.defaultBranch": "develop",
     "gitweblinks.preferredRemoteName": "ocbe-uio",
     "html.preview.doubleClickToSwitchToEditor": false,

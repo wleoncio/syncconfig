@@ -730,7 +730,7 @@
         "command": "workbench.action.terminal.focus"
     },
     {
-        "key": "ctrl+b ctrl+a",
+        "key": "ctrl+a ctrl+v",
         "command": "workbench.action.toggleActivityBarVisibility"
     },
     {
@@ -776,5 +776,9 @@
     {
         "key": "alt+8",
         "command": "editor.action.inlineSuggest.showPrevious"
+    },
+    {
+        "key": "ctrl+b ctrl+a",
+        "command": "workbench.view.extension.github-actions"
     }
 ]
