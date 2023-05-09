@@ -12,5 +12,11 @@ avgColorFile="/tmp/avgColor.txt"
 convert "$chosenImagePath" -resize 1x1 "$avgColorFile"
 avgColor=$(cat "$avgColorFile" | grep -Po "#[[:xdigit:]]{6}")
 
+# Suppressing notifications
+pkill -xu $EUID -USR1 dunst
+
 # Locking screen
-i3lock --image="$chosenImagePath" --color="$avgColor" --pointer=default -F
+i3lock --nofork --image="$chosenImagePath" --color="$avgColor" --pointer=default -F
+
+# Resuming notifications
+pkill -xu $EUID -USR2 dunst
