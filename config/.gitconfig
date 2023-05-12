@@ -23,7 +23,7 @@
 	ca = commit --all --untracked-files=no --message
 	cmf = commit --fixup
 	cms = commit --squash
-	cmm = commit -m
+	cmm = commit --message
 	cma = commit --amend
 	rb = rebase -i --autosquash
 	mg = !sh -c 'mergeIntoDevelop.sh'
