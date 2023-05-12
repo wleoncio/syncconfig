@@ -36,6 +36,9 @@
 	fap = fetch --all --prune
 	latexdiff = difftool -t latexdiff
 	pa = push --all
+	deposit = stash push --message
+	withdraw = stash pop
+	unstage = restore --staged
 [core]
 	editor = vim
 	autocrlf = input
