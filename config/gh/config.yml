@@ -22,8 +22,9 @@ aliases:
     prl: pr list
     prv: pr view
     ivw: issue view --web
-    ic: issue create
     rc: run cancel
+    icr: issue create
+    icm: issue comment
 # The path to a unix socket through which send HTTP connections. If blank, HTTP traffic will be handled by net/http.DefaultTransport.
 http_unix_socket:
 # What web browser gh should use when opening URLs. If blank, will refer to environment.
