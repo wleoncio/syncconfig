@@ -241,6 +241,7 @@ bindsym $mod+p exec scrcpy --stay-awake --hid-keyboard
 bindsym $mod+k exec keynav
 bindsym $mod+m exec evolution --component=mail
 bindsym $mod+t exec "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=todoist --file-forwarding com.todoist.Todoist @@u %U @@"
+bindsym $mod+b exec  ./Programs/boomer/boomer
 
 # Setting shortcuts to function keys
 
@@ -258,6 +259,7 @@ bindsym $mod+F2 exec firefox
 bindsym $mod+Shift+F2 exec firefox --new-window about:performance
 bindsym $mod+F3 exec $default_terminal -e qalc
 bindsym $mod+F4 exec $default_terminal -e bashCalendar.sh
+bindsym $mod+Shift+F4 exec $default_terminal -e bashCalendar.sh
 
 # Group 2: auxiliary tools (dictionaries, sounds)
 bindsym $mod+F5 exec $default_terminal -e $HOME/.cargo/bin/aichat
