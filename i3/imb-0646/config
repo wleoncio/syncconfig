@@ -332,3 +332,6 @@ for_window [title="Aktivitetsbehandler"] move to workspace number $ws0, workspac
 for_window [instance="pocket-casts|musixmatch|telegram-desktop|evince|org.gnome.Nautilus|eog|evolution|gnome-text-editor|baobab|vmware-view|telegram-desktop|file-roller|obsidian|gnome-tweaks"] border pixel $bordersize
 for_window [title="Zoom Meeting|YouTube|Møte \| Microsoft Teams"] border pixel $bordersize
 for_window [instance="zoom"] border pixel $bordersize
+
+# Hides title bar
+for_window [class="^.*"] border pixel 0
