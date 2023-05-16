@@ -11,7 +11,7 @@ git checkout -b issue-"$issueNumber"
 
 echo "Updating build number"
 Rscript -e "usethis::use_version('dev')"
-git --all --message "Updated build version number"
+git commit --all --message "Updated build version number"
 
 echo "Summary of issue"
 gh issue view "$issueNumber"
