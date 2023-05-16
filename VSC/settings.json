@@ -116,7 +116,6 @@
     "notebook.lineNumbers": "on",
     "outline.icons": false,
     "python.defaultInterpreterPath": "/home/waldir/.local/bin/bpython",
-    "r.alwaysUseActiveTerminal": true,
     "r.bracketedPaste": true,
     "r.rpath.linux": "/usr/bin/R",
     "r.rterm.linux": "/usr/bin/radian",
@@ -236,5 +235,6 @@
         "plaintext": false,
         "markdown": true,
         "scminput": false
-    }
+    },
+    "terminal.integrated.tabs.showActiveTerminal": "always"
 }
