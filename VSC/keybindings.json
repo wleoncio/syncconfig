@@ -780,5 +780,22 @@
     {
         "key": "ctrl+b ctrl+a",
         "command": "workbench.view.extension.github-actions"
+    },
+    {
+        "key": "ctrl+t f2",
+        "command": "workbench.action.terminal.rename"
+    },
+    {
+        "key": "ctrl+t shift+f2",
+        "command": "workbench.action.terminal.changeColor"
+    },
+    {
+        "key": "ctrl+t ctrl+shift+f2",
+        "command": "workbench.action.terminal.changeIcon"
+    },
+    {
+        "key": "down",
+        "command": "selectNextSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion"
     }
 ]
