@@ -209,9 +209,7 @@
         "terminal.ansiRed": "#ff0000",
         "terminal.ansiWhite": "#fff",
         "terminal.ansiYellow": "#ffaa00",
-        "terminal.background": "#101010",
-        "terminal.border": "#888",
-        "terminal.foreground": "#fff"
+        "terminal.border": "#888"
     },
     "workbench.editor.centeredLayoutAutoResize": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
