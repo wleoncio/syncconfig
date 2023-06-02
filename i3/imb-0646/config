@@ -79,7 +79,7 @@ bindsym $mod+Shift+e layout toggle split
 
 # toggle tiling / floating / sticky
 bindsym $mod+Shift+space floating toggle
-bindsym $mod+Shift++Ctrl+s sticky toggle
+bindsym $mod+Shift+Ctrl+s sticky toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -211,7 +211,7 @@ bar {
 # ==============================================================================
 
 # exec_always --no-startup-id compton --config $HOME/.config/compton.conf
-exec_always --no-startup-id picom --config $HOME/Programs/syncconfig/config/picom.conf
+exec_always --no-startup-id picom --config $HOME/.config/picom.conf
 exec --no-startup-id $HOME/Programs/i3-alternating-layout/alternating_layouts.py
 exec --no-startup-id bash $HOME/Programs/syncconfig/myScripts/start_xrandr_imb.sh
 exec --no-startup-id i3-msg 'workspace $ws1; exec gnome-terminal --command="$HOME/.local/bin/uiosync.sh pull"; exec evolution -c mail'
@@ -241,7 +241,7 @@ bindsym $mod+Print exec shutter
 bindsym $mod+p exec scrcpy --stay-awake --hid-keyboard
 bindsym $mod+k exec keynav
 bindsym $mod+m exec evolution --component=mail
-bindsym $mod+t exec "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=todoist --file-forwarding com.todoist.Todoist @@u %U @@"
+bindsym $mod+t exec flatpak run com.todoist.Todoist
 bindsym $mod+b exec  ./Programs/boomer/boomer
 
 # Setting shortcuts to function keys
