@@ -234,5 +234,6 @@
         "markdown": true,
         "scminput": false
     },
-    "terminal.integrated.tabs.showActiveTerminal": "always"
+    "terminal.integrated.tabs.showActiveTerminal": "always",
+    "git.openRepositoryInParentFolders": "never"
 }
