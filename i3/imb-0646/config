@@ -336,3 +336,4 @@ for_window [instance="zoom"] border pixel $bordersize
 
 # Hides title bar
 for_window [class="^.*"] border pixel 0
+for_window [title="Bilde-i-bilde"] border pixel 10
