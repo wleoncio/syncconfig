@@ -46,7 +46,7 @@ fi
 # Dry run
 logPath="/tmp/uiosync.log"
 touch "$logPath"
-read -p "Check for file conflicts? (Y/n) " -t 5 check
+read -p "Check for file conflicts? (Y/n) " -t 10 check
 echo ""
 if [ "$check" != "n" ]
 then
