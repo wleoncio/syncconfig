@@ -235,5 +235,7 @@
         "scminput": false
     },
     "terminal.integrated.tabs.showActiveTerminal": "always",
-    "git.openRepositoryInParentFolders": "never"
+    "git.openRepositoryInParentFolders": "never",
+    "julia.numTestProcesses": 1,
+    "julia.NumThreads": 6
 }
