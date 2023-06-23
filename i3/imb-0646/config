@@ -227,8 +227,8 @@ gaps inner 4
 
 # Spreadaround shortcuts
 bindsym $mod+ctrl+l exec uio_i3lock.sh
-bindsym $mod+Shift+n exec $default_terminal -e ranger UiO/
-bindsym $mod+ShiftCtrl+n exec nautilus UiO/
+bindsym $mod+Shift+Ctrl+n exec $default_terminal -e ranger
+bindsym $mod+Shift+n exec thunar
 bindsym $mod+w exec libreoffice --nologo -o $HOME/UiO/Docs/Adm/projectManager.ods
 bindsym $mod+Shift+p exec pavucontrol
 bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
