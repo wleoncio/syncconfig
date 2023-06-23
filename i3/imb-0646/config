@@ -210,8 +210,6 @@ bar {
 # Startup sequence
 # ==============================================================================
 
-# exec_always --no-startup-id compton --config $HOME/.config/compton.conf
-exec_always --no-startup-id picom --config $HOME/.config/picom.conf
 exec --no-startup-id $HOME/Programs/i3-alternating-layout/alternating_layouts.py
 exec --no-startup-id bash $HOME/Programs/syncconfig/myScripts/start_xrandr_imb.sh
 exec --no-startup-id i3-msg 'workspace $ws1; exec gnome-terminal --command="$HOME/.local/bin/uiosync.sh pull"; exec evolution -c mail'
@@ -335,5 +333,4 @@ for_window [title="Zoom Meeting|YouTube|Møte \| Microsoft Teams"] border pixel 
 for_window [instance="zoom"] border pixel $bordersize
 
 # Hides title bar
-for_window [class="^.*"] border pixel 0
-for_window [title="Bilde-i-bilde"] border pixel 10
+for_window [class="^.*"] border pixel 10
