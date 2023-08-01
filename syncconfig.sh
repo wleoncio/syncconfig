@@ -88,6 +88,10 @@ hasVSC() {
 		echo -e "\e[31mCould not determine location of VSCode directory\e[0m"
 		VSCdir="none"
 	fi
+	if [ $VSCdir != "none" ]
+	then
+		echo "VSCode configs found in "$VSCdir""
+	fi
 	homePaths+=("$VSCdir")
 }
 
