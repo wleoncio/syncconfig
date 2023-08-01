@@ -11,7 +11,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-set $bordersize 0
+set $bordersize 10
 
 # Setting border style to pixel eliminates title bars. The border style normal allows you to adjust edge border width while keeping your title bar.
 default_border normal $bordersize
@@ -333,4 +333,4 @@ for_window [title="Zoom Meeting|YouTube|Møte \| Microsoft Teams"] border pixel 
 for_window [instance="zoom"] border pixel $bordersize
 
 # Hides title bar
-for_window [class="^.*"] border pixel 10
+for_window [class="^.*"] border pixel $bordersize
