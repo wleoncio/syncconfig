@@ -16,11 +16,12 @@
 	cb = checkout -b
 	db = branch -d
 	drb = push -d
-	aa = add -A
+	aa = add --update
+	aaa = add -A
 	ap = add -p
+	unstage = restore --staged .
 	rp = restore -p
 	cm = commit
-	ca = commit --all --untracked-files=no --message
 	cmf = commit --fixup
 	cms = commit --squash
 	cmm = commit --message
