@@ -252,7 +252,7 @@ mode "$mode_function_keys" {
 	bindsym Escape mode "default"
 }
 
-bindsym $mod+F1 exec codium
+bindsym $mod+F1 exec $HOME/Programs/vscode/scripts/code.sh
 bindsym $mod+Shift+F1 exec $default_terminal -e chatgpt
 bindsym $mod+F2 exec firefox
 bindsym $mod+Shift+F2 exec firefox --new-window about:performance
