@@ -1,17 +1,28 @@
 {
     // Language-specific
     "[git-commit]": {
-        "editor.rulers": [{"color": "#ff0000", "column": 50}]
+        "editor.rulers": [
+            {
+                "color": "#ff0000",
+                "column": 50
+            }
+        ]
     },
     "[markdown]": {
         "editor.defaultFormatter": "yzhang.markdown-all-in-one",
         "editor.rulers": []
     },
-    "alignment.chars": {"<-": {"spaceAfter": 1, "spaceBefore": 1}},
+    "alignment.chars": {
+        "<-": {
+            "spaceAfter": 1,
+            "spaceBefore": 1
+        }
+    },
     "diffEditor.ignoreTrimWhitespace": false,
     "diffEditor.renderSideBySide": false,
     "diffEditor.wordWrap": "off",
     "editor.acceptSuggestionOnEnter": "off",
+    "editor.autoClosingBrackets": "never",
     "editor.bracketPairColorization.enabled": true,
     "editor.cursorBlinking": "blink",
     "editor.cursorSmoothCaretAnimation": "explicit",
@@ -24,6 +35,7 @@
     "editor.fontWeight": "normal",
     "editor.guides.bracketPairs": "active",
     "editor.inlayHints.enabled": "off",
+    "editor.inlineSuggest.enabled": true,
     "editor.largeFileOptimizations": false,
     "editor.minimap.enabled": false,
     "editor.minimap.maxColumn": 80,
@@ -34,7 +46,12 @@
     "editor.overviewRulerBorder": false,
     "editor.quickSuggestionsDelay": 0,
     "editor.renderLineHighlight": "all",
-    "editor.rulers": [{"color": "#ff0000", "column": 80}],
+    "editor.rulers": [
+        {
+            "color": "#ff0000",
+            "column": 80
+        }
+    ],
     "editor.scrollBeyondLastColumn": 0,
     "editor.showFoldingControls": "always",
     "editor.smoothScrolling": true,
@@ -50,31 +67,49 @@
                     "keyword.operator.assignment.r",
                     "punctuation.separator.parameters.r"
                 ],
-                "settings": {"foreground": "#f29668"}
+                "settings": {
+                    "foreground": "#f29668"
+                }
             },
             {
-                "scope": ["constant.language.r"],
-                "settings": {"foreground": "#7e7e7e"}
+                "scope": [
+                    "constant.language.r"
+                ],
+                "settings": {
+                    "foreground": "#7e7e7e"
+                }
             },
             {
                 "scope": [
                     "constant.numeric.float.decimal.r",
                     "constant.numeric.integer.decimal.r"
-
                 ],
-                "settings": {"foreground": "#5153b3"}
+                "settings": {
+                    "foreground": "#5153b3"
+                }
             },
             {
-                "scope": ["support.function.r"],
-                "settings": {"foreground": "#4381c9"}
+                "scope": [
+                    "support.function.r"
+                ],
+                "settings": {
+                    "foreground": "#4381c9"
+                }
             },
             {
-                "scope": ["variable.parameter.r", "variable.other.r"],
-                "settings": {"foreground": "#dfeeff"}
+                "scope": [
+                    "variable.parameter.r",
+                    "variable.other.r"
+                ],
+                "settings": {
+                    "foreground": "#dfeeff"
+                }
             },
             {
                 "scope": "keyword.operator",
-                "settings": {"foreground": "#6b6de4"}
+                "settings": {
+                    "foreground": "#6b6de4"
+                }
             }
         ]
     },
@@ -82,7 +117,9 @@
     "excalidraw.theme": "light",
     "explorer.compactFolders": false,
     "extensions.ignoreRecommendations": true,
-    "files.associations": {"*.docker": "Dockerfile"},
+    "files.associations": {
+        "*.docker": "Dockerfile"
+    },
     "files.autoGuessEncoding": true,
     "files.autoSave": "onFocusChange",
     "files.insertFinalNewline": true,
@@ -94,13 +131,27 @@
     "git-graph.repository.fetchAndPrune": true,
     "git-graph.showStatusBarItem": false,
     "git.autofetch": true,
-    "git.checkoutType": ["local"],
+    "git.checkoutType": [
+        "local"
+    ],
+    "git.openRepositoryInParentFolders": "never",
     "git.suggestSmartCommit": false,
     "github-actions.remote-name": "ocbe-uio",
+    "github.copilot.enable": {
+        "*": true,
+        "markdown": true,
+        "plaintext": false,
+        "scminput": false
+    },
     "gitweblinks.defaultBranch": "develop",
     "gitweblinks.preferredRemoteName": "ocbe-uio",
     "html.preview.doubleClickToSwitchToEditor": false,
+    "julia.additionalArgs": [
+        "--threads=4"
+    ],
     "julia.enableTelemetry": false,
+    "julia.numTestProcesses": 1,
+    "julia.NumThreads": 6,
     "julia.symbolCacheDownload": true,
     "kotlin.debugAdapter.enabled": false,
     "kotlin.languageServer.enabled": false,
@@ -110,20 +161,28 @@
     "markdown.extension.toc.orderedList": true,
     "markdown.marp.enableHtml": true,
     "markdown.marp.exportType": "html",
-    "markdown.marp.themes": ["./themes/uio-light.css", "./themes/uio-dark.css"],
+    "markdown.marp.themes": [
+        "./themes/uio-light.css",
+        "./themes/uio-dark.css"
+    ],
     "markdown.preview.doubleClickToSwitchToEditor": false,
     "matlab.lintOnSave": false,
     "notebook.lineNumbers": "on",
     "outline.icons": false,
     "python.defaultInterpreterPath": "/home/waldir/.local/bin/bpython",
     "r.bracketedPaste": true,
+    "r.lsp.diagnostics": false,
+    "r.lsp.enabled": false,
     "r.rpath.linux": "/usr/bin/R",
     "r.rterm.linux": "/usr/bin/radian",
     "r.source.focus": "terminal",
+    "remote.SSH.configFile": "/home/waldir/.ssh/config",
     "scm.defaultViewMode": "tree",
     "security.workspace.trust.untrustedFiles": "open",
     "task.saveBeforeRun": "prompt",
-    "terminal.integrated.commandsToSkipShell": ["language-julia.interrupt"],
+    "terminal.integrated.commandsToSkipShell": [
+        "language-julia.interrupt"
+    ],
     "terminal.integrated.confirmOnExit": "always",
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.cursorBlinking": true,
@@ -132,7 +191,7 @@
     "terminal.integrated.defaultProfile.linux": "fish",
     "terminal.integrated.drawBoldTextInBrightColors": false,
     "terminal.integrated.enableMultiLinePasteWarning": false,
-    "terminal.integrated.fontFamily": "Fira Code",
+    "terminal.integrated.fontFamily": "FiraCode Nerd Font",
     "terminal.integrated.fontSize": 12,
     "terminal.integrated.fontWeight": "500",
     "terminal.integrated.profiles.linux": {
@@ -163,11 +222,18 @@
     "terminal.integrated.tabs.focusMode": "singleClick",
     "terminal.integrated.tabs.hideCondition": "never",
     "terminal.integrated.tabs.location": "left",
+    "terminal.integrated.tabs.showActiveTerminal": "always",
     "terminal.integrated.tabs.title": "${process}",
     "todo-tree.general.revealBehaviour": "start of todo",
     "todo-tree.general.statusBar": "tags",
     "todo-tree.general.statusBarClickBehaviour": "reveal",
-    "todo-tree.general.tags": ["TODO", "FIXME", "TEMP", "[ ]", "[x]"],
+    "todo-tree.general.tags": [
+        "TODO",
+        "FIXME",
+        "TEMP",
+        "[ ]",
+        "[x]"
+    ],
     "todo-tree.highlights.customHighlight": {
         "FIXME": {
             "background": "#F00",
@@ -197,11 +263,12 @@
     "typescript.suggest.paths": false,
     "window.menuBarVisibility": "hidden",
     "window.restoreWindows": "none",
+    "workbench.activityBar.visible": false,
     "workbench.colorCustomizations": {
         "editor.lineHighlightBackground": "#1073cf2d",
         "editor.lineHighlightBorder": "#9fced11f",
-        "editorIndentGuide.activeBackground": "#000",
-        "editorIndentGuide.background": "#000",
+        "editorIndentGuide.activeBackground1": "#000",
+        "editorIndentGuide.background1": "#000",
         "terminal.ansiBlack": "#000",
         "terminal.ansiBrightBlack": "#fff",
         "terminal.ansiBrightRed": "#fd6464",
@@ -220,22 +287,5 @@
     "workbench.sideBar.location": "right",
     "workbench.startupEditor": "welcomePageInEmptyWorkbench",
     "workbench.tree.indent": 16,
-    "workbench.tree.renderIndentGuides": "always",
-    "remote.SSH.configFile": "/home/waldir/.ssh/config",
-    "editor.inlineSuggest.enabled": true,
-    "editor.autoClosingBrackets": "never",
-    "julia.additionalArgs": [
-        "--threads=4"
-    ],
-    "workbench.activityBar.visible": false,
-    "github.copilot.enable": {
-        "*": true,
-        "plaintext": false,
-        "markdown": true,
-        "scminput": false
-    },
-    "terminal.integrated.tabs.showActiveTerminal": "always",
-    "git.openRepositoryInParentFolders": "never",
-    "julia.numTestProcesses": 1,
-    "julia.NumThreads": 6
+    "workbench.tree.renderIndentGuides": "always"
 }
