@@ -210,6 +210,7 @@ bar {
 # Startup sequence
 # ==============================================================================
 
+exec --no-startup-id nmcli connection up eduroam
 exec --no-startup-id $HOME/Programs/i3-alternating-layout/alternating_layouts.py
 exec --no-startup-id bash $HOME/Programs/syncconfig/myScripts/start_xrandr_imb.sh
 exec --no-startup-id i3-msg 'workspace $ws1; exec gnome-terminal --command="$HOME/.local/bin/uiosync.sh pull"; exec evolution -c mail'
