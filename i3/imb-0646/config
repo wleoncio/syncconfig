@@ -231,13 +231,13 @@ bindsym $mod+ctrl+l exec uio_i3lock.sh
 bindsym $mod+Shift+Ctrl+n exec $default_terminal -e ranger
 bindsym $mod+Shift+n exec thunar
 bindsym $mod+w exec libreoffice --nologo -o $HOME/UiO/Docs/Adm/projectManager.ods
-bindsym $mod+Shift+p exec pavucontrol
 bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
 bindsym $mod+z exec rofi -show drun -modi drun#window -show-icons -theme oxide
 bindsym $mod+x exec xdg-open "$(locate -e -i --regex "$HOME/[^\.]+" | rofi -dmenu -i -p "File or folder" -threads 0 -show-icons -theme oxide -modi drun)"
 bindsym Print exec flameshot gui
 bindsym $mod+Print exec shutter
-bindsym $mod+p exec scrcpy --stay-awake --hid-keyboard --shortcut-mod lalt
+bindsym $mod+p exec scrcpy --stay-awake --hid-keyboard --shortcut-mod=lalt
+bindsym $mod+Shift+p exec scrcpy --stay-awake --hid-keyboard --shortcut-mod=lalt --audio-source=mic
 bindsym $mod+k exec keynav
 bindsym $mod+m exec evolution --component=mail
 bindsym $mod+t exec flatpak run com.todoist.Todoist
@@ -254,12 +254,11 @@ mode "$mode_function_keys" {
 }
 
 bindsym $mod+F1 exec $HOME/Programs/vscode/scripts/code.sh
-bindsym $mod+Shift+F1 exec $default_terminal -e chatgpt
 bindsym $mod+F2 exec firefox
 bindsym $mod+Shift+F2 exec firefox --new-window about:performance
 bindsym $mod+F3 exec $default_terminal -e qalc
 bindsym $mod+F4 exec $default_terminal -e bashCalendar.sh
-bindsym $mod+Shift+F4 exec $default_terminal -e bashCalendar.sh
+bindsym $mod+Shift+F4 exec firefox https://calendar.google.com 
 
 # Group 2: auxiliary tools (dictionaries, sounds)
 bindsym $mod+F5 exec $default_terminal -e $HOME/.cargo/bin/aichat
