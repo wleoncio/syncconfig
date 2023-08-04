@@ -236,8 +236,8 @@ bindsym $mod+z exec rofi -show drun -modi drun#window -show-icons -theme oxide
 bindsym $mod+x exec xdg-open "$(locate -e -i --regex "$HOME/[^\.]+" | rofi -dmenu -i -p "File or folder" -threads 0 -show-icons -theme oxide -modi drun)"
 bindsym Print exec flameshot gui
 bindsym $mod+Print exec shutter
-bindsym $mod+p exec scrcpy --stay-awake --hid-keyboard --shortcut-mod=lalt
-bindsym $mod+Shift+p exec scrcpy --stay-awake --hid-keyboard --shortcut-mod=lalt --audio-source=mic
+bindsym $mod+p exec scrcpy --stay-awake --hid-keyboard --shortcut-mod lalt 
+bindsym $mod+Shift+p exec scrcpy --stay-awake --hid-keyboard --shortcut-mod lalt --no-audio
 bindsym $mod+k exec keynav
 bindsym $mod+m exec evolution --component=mail
 bindsym $mod+t exec flatpak run com.todoist.Todoist
