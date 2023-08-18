@@ -2,7 +2,7 @@
 # Uses RedditImageGrab (https://github.com/wleoncio/RedditImageGrab) to download wallpapers
 
 # Variables
-subs='Verticalwallpapers HDwallpapers F1porn wallpaper wallpapers highreswallpaper 4kWallpaper'
+subs='DualMonitorWallpapers'
 script=~/Programs/RedditImageGrab/redditdl.py
 outpath=~/Bilder/Wallpapers
 opts="--num 10 --sfw --filename-format png"
