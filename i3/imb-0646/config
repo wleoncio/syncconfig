@@ -171,17 +171,20 @@ bindsym $mod+r mode "resize"
 
 # Colors
 set $uiored "#b60000"
+set $uioorange "#FEA11B"
+set $uiogreen "#2EC483"
+set $uiolorange "#FDCB87"
 set $uiolred "#fb6666"
 set $uiowhite "#f4f6ff"
 set $uiogray "#b2b3b7"
 set $menubar "#23252e"
 
-# class                 border  backgr. text      indicator child_border
-client.focused          $uiored $uiored $uiowhite $uiored $uiored
-client.focused_inactive $menubar $menubar #555555 $menubar $menubar
-client.unfocused        $menubar $menubar #555555 $menubar $menubar
-client.urgent           #ffff00 #ffff00 #000000 #ffff00   #ffff00
-client.placeholder      $uiored $uiored $uiowhite $uiored $uiored
+# class                 border     background text      indicator  child_border
+client.focused          $uiogreen  $uiogreen  #000000   $uiogreen  $uiogreen
+client.focused_inactive $menubar   $menubar   #555555   $menubar   $menubar
+client.unfocused        $menubar   $menubar   #555555   $menubar   $menubar
+client.urgent           #ffff00    #ffff00    #000000   #ffff00    #ffff00
+client.placeholder      $uiored    $uiored    $uiowhite $uiored    $uiored
 client.background       $uiowhite
 
 # Start i3bar to display a workspace bar (plus the system information i3status
