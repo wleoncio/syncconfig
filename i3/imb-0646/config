@@ -312,11 +312,12 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # ==============================================================================
-# Other i3 options
+# Focus options
 # ==============================================================================
 
 focus_wrapping no
 focus_follows_mouse no
+no_focus [instance="scrcpy"]
 
 # ==============================================================================
 # Other window rules
@@ -338,3 +339,4 @@ for_window [instance="zoom"] border pixel $bordersize
 
 # Hides title bar
 for_window [class="^.*"] border pixel $bordersize
+
