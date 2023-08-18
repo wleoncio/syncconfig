@@ -23,5 +23,5 @@
 	"Add temporary message": {
 		"prefix": "tmp",
 		"body": "Rcpp::Rcout << \"$1\" << std::endl; //TEMP"
-	},
+	}
 }

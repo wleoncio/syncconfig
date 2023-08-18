@@ -139,8 +139,8 @@
     "github-actions.remote-name": "ocbe-uio",
     "github.copilot.enable": {
         "*": true,
+        "plaintext": true,
         "markdown": true,
-        "plaintext": false,
         "scminput": false
     },
     "gitweblinks.defaultBranch": "develop",
@@ -208,7 +208,7 @@
             "color": "terminal.ansiBlue",
             "icon": "package",
             "overrideName": true,
-            "path": "/usr/bin/R"
+            "path": "/usr/bin/R",
         },
         "radian": {
             "color": "terminal.ansiBlue",
