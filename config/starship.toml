@@ -46,4 +46,4 @@ format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
 symbol='󰟔'
 detect_files=['DESCRIPTION']
 style = "bg:#212736"
-format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+format = '[[ $symbol ](fg:#769ff0 bg:#212736)]($style)'
