@@ -31,16 +31,10 @@
 	mg = !sh -c 'mergeIntoDevelop.sh'
 	s = status
 	ls = status
-	ci = !sh -c 'git checkout -b issue-$1' -
-	di = !sh -c 'git branch -d issue-$1' -
-	mi = !sh -c 'git checkout develop && git merge issue-$1 && git branch -d issue-$1' -
 	history = log -p --
 	fap = fetch --all --prune
 	latexdiff = difftool -t latexdiff
 	pa = push --all
-	deposit = stash push --message
-	withdraw = stash pop
-	unstage = restore --staged
 	pt = push --tags
 	clean = clean -f
 [core]
