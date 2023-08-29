@@ -40,6 +40,7 @@
 	deposit = stash push --message
 	withdraw = stash pop
 	unstage = restore --staged
+	clean = clean -f
 [core]
 	editor = vim
 	autocrlf = input
@@ -77,11 +78,11 @@
 [difftool "latexdiff"]
 	cmd = git-latexdiff-helper \"$LOCAL\" \"$REMOTE\"
 [credential "https://github.com"]
-	helper = 
+	helper =
 	helper = !/usr/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-	helper = 
+	helper =
 	helper = !/usr/bin/gh auth git-credential
 [credential "https://github.uio.no"]
-	helper = 
+	helper =
 	helper = !/usr/bin/gh auth git-credential
