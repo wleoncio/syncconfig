@@ -15,6 +15,7 @@
 	co = checkout
 	cb = checkout -b
 	db = branch -d
+	dbb = branch -D
 	drb = push -d
 	aa = add --update
 	aaa = add -A
@@ -40,6 +41,7 @@
 	deposit = stash push --message
 	withdraw = stash pop
 	unstage = restore --staged
+	pt = push --tags
 	clean = clean -f
 [core]
 	editor = vim
