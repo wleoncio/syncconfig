@@ -12,4 +12,4 @@ read -p $'Add \e[4;31munit tests\e[0m for new code?'
 read -p $'Increment the build \e[4;31mversion\e[0m number?'
 read -p $'Update \e[4;31mNEWS\e[0m.md?'
 git checkout develop
-git merge $feature_branch
+git merge $feature_branch --log
