@@ -200,8 +200,8 @@
             "path": "bash"
         },
         "fish": {
-            "color": "terminal.ansiYellow",
-            "icon": "terminal-ubuntu",
+            "color": "terminal.ansiWhite",
+            "icon": "terminal-linux",
             "path": "fish"
         },
         "R": {
