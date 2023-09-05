@@ -58,60 +58,62 @@
     "editor.snippetSuggestions": "top",
     "editor.tabSize": 2,
     "editor.tokenColorCustomizations": {
-        "textMateRules": [
-            // Find scope values by running the following on the code file:
-            // Developer: Inspect Editor Tokens and Scopes
-            {
-                "scope": [
-                    "meta.function-call.arguments.r",
-                    "keyword.operator.assignment.r",
-                    "punctuation.separator.parameters.r"
-                ],
-                "settings": {
-                    "foreground": "#f29668"
+        "[Default Dark Modern]": {
+            "textMateRules": [
+                // Find scope values by running the following on the code file:
+                // Developer: Inspect Editor Tokens and Scopes
+                {
+                    "scope": [
+                        "meta.function-call.arguments.r",
+                        "keyword.operator.assignment.r",
+                        "punctuation.separator.parameters.r"
+                    ],
+                    "settings": {
+                        "foreground": "#f29668"
+                    }
+                },
+                {
+                    "scope": [
+                        "constant.language.r"
+                    ],
+                    "settings": {
+                        "foreground": "#7e7e7e"
+                    }
+                },
+                {
+                    "scope": [
+                        "constant.numeric.float.decimal.r",
+                        "constant.numeric.integer.decimal.r"
+                    ],
+                    "settings": {
+                        "foreground": "#5153b3"
+                    }
+                },
+                {
+                    "scope": [
+                        "support.function.r"
+                    ],
+                    "settings": {
+                        "foreground": "#4381c9"
+                    }
+                },
+                {
+                    "scope": [
+                        "variable.parameter.r",
+                        "variable.other.r"
+                    ],
+                    "settings": {
+                        "foreground": "#dfeeff"
+                    }
+                },
+                {
+                    "scope": "keyword.operator",
+                    "settings": {
+                        "foreground": "#6b6de4"
+                    }
                 }
-            },
-            {
-                "scope": [
-                    "constant.language.r"
-                ],
-                "settings": {
-                    "foreground": "#7e7e7e"
-                }
-            },
-            {
-                "scope": [
-                    "constant.numeric.float.decimal.r",
-                    "constant.numeric.integer.decimal.r"
-                ],
-                "settings": {
-                    "foreground": "#5153b3"
-                }
-            },
-            {
-                "scope": [
-                    "support.function.r"
-                ],
-                "settings": {
-                    "foreground": "#4381c9"
-                }
-            },
-            {
-                "scope": [
-                    "variable.parameter.r",
-                    "variable.other.r"
-                ],
-                "settings": {
-                    "foreground": "#dfeeff"
-                }
-            },
-            {
-                "scope": "keyword.operator",
-                "settings": {
-                    "foreground": "#6b6de4"
-                }
-            }
-        ]
+            ]
+        }
     },
     "editor.wordWrap": "off",
     "excalidraw.theme": "light",
