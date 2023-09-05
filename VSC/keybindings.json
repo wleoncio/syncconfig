@@ -133,7 +133,7 @@
     {
         "key": "ctrl+r ctrl+shift+u",
         "command": "r.runCommand",
-        "args": "covr::report(package_coverage())"
+        "args": "covr::report(covr::package_coverage())"
     },
     {
         "key": "ctrl+b ctrl+b",
