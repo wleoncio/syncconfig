@@ -9,6 +9,9 @@ gh issue edit "$issue_number" --add-assignee @me
 echo "Creating and checking out branch"
 git checkout -b issue-"$issue_number"
 
+echo "Package cover at checkout"
+Rscript -e "covr::package_coverage()"
+
 echo "Updating build number"
 Rscript -e "usethis::use_version('dev')"
 new_dev_version=$(cat DESCRIPTION | grep Version: | cut -d " " -f 2)

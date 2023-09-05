@@ -6,6 +6,9 @@ feature_branch=$(eval git branch --show-current)
 echo "Unstaged modifications:"
 git status --short
 
+echo "Package coverage on merge"
+Rscript -e "covr::package_coverage()"
+
 echo "Merging $feature_branch into develop. Did you remember to:"
 read -p $'\e[4;31mSquash\e[0m commits on the feature branch?'
 read -p $'Add \e[4;31munit tests\e[0m for new code?'
