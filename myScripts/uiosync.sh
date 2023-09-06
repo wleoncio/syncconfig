@@ -46,9 +46,9 @@ fi
 # Dry run
 logPath="/tmp/uiosync.log"
 touch "$logPath"
-read -p "Check for file conflicts? (Y/n) " -t 10 check
+read -p "Check for file conflicts? (y/N) " -t 10 check
 echo ""
-if [ "$check" != "n" ]
+if [ "$check" = "y" ]
 then
 	echo "Checking for file conflicts. Please wait."
   eval rsync -a --verbose --dry-run --delete "$from/" "$to" > "$logPath"
