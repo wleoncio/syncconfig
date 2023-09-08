@@ -15,3 +15,9 @@ alias av="shutdown"
 alias connect="nmcli connection up eduroam"
 alias matlab="matlab -nodisplay -nosplash"
 alias lstar="tar -ztvf"
+
+# Common folders
+alias work="cd $HOME/UiO/Projects"
+alias sync="cd $HOME/Programs/syncconfig"
+alias pump="cd $HOME/Dropbox/Software/workoutPlan"
+
