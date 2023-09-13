@@ -18,7 +18,6 @@
             "spaceBefore": 1
         }
     },
-    "diffEditor.ignoreTrimWhitespace": false,
     "diffEditor.renderSideBySide": false,
     "diffEditor.wordWrap": "off",
     "editor.acceptSuggestionOnEnter": "off",
