@@ -726,7 +726,7 @@
         "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported || terminalHasBeenCreated && terminalTabsFocus || terminalProcessSupported && terminalTabsFocus"
     },
     {
-        "key": "ctrl+t ctrl+t",
+        "key": "ctrl+[Backquote]",
         "command": "workbench.action.terminal.focus"
     },
     {
