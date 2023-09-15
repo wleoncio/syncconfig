@@ -811,5 +811,15 @@
     {
         "key": "ctrl+a",
         "command": "-editor.action.selectAll"
+    },
+    {
+        "key": "ctrl+r ctrl+w",
+        "command": "workbench.action.reloadWindow",
+        "when": "true"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "-workbench.action.reloadWindow",
+        "when": "isDevelopment"
     }
 ]
