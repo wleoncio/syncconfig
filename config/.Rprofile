@@ -28,5 +28,7 @@ options(repos="https://cran.uib.no")
   detach(pkg_string, unload=TRUE, character.only=TRUE)
   library(pkg, verbose=TRUE, character.only=TRUE)
 }
-message("Updating packages")
-update.packages()
+if (as.numeric(format(Sys.time(), "%H")) < 12) {
+	message("Updating packages")
+	update.packages()
+}
