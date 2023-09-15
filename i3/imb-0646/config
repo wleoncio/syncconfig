@@ -178,9 +178,12 @@ set $uiolred "#fb6666"
 set $uiowhite "#f4f6ff"
 set $uiogray "#b2b3b7"
 set $menubar "#23252e"
+set $uioblaa "#3e31d6"
+set $uiolblaa "#86A4F7"
+set $uioblaatone "e6ecff"
 
 # class                 border     background text      indicator  child_border
-client.focused          $uiogreen  $uiogreen  #000000   $uiogreen  $uiogreen
+client.focused          $uioblaatone $uioblaatone  #000000   $uioblaatone  $uioblaatone
 client.focused_inactive $menubar   $menubar   #555555   $menubar   $menubar
 client.unfocused        $menubar   $menubar   #555555   $menubar   $menubar
 client.urgent           #ffff00    #ffff00    #000000   #ffff00    #ffff00
