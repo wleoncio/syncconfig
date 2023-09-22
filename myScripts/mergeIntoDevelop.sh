@@ -9,7 +9,7 @@ git status --short
 if [ "$1" != "nocov" ]
 then
 	echo "Package coverage on merge"
-	Rscript -e "covr::package_coverage()"
+	Rscript -e "covr::percent_coverage(covr::package_coverage())"
 fi
 
 echo "Merging $feature_branch into develop. Did you remember to:"

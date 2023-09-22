@@ -16,13 +16,12 @@ echo "####################################"
 echo ""
 git checkout -b issue-"$issue_number"
 
-
 echo ""
 echo "################################"
 echo "# Package coverage at checkout #"
 echo "################################"
 echo ""
-Rscript -e "covr::package_coverage()"
+Rscript -e "covr::percent_coverage(covr::package_coverage())"
 
 echo ""
 echo "#########################"
