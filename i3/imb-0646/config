@@ -237,15 +237,20 @@ bindsym Print exec flameshot gui
 bindsym $mod+Print exec shutter
 bindsym $mod+w exec libreoffice --nologo -o $HOME/UiO/Docs/Adm/projectManager.ods
 bindsym $mod+e exec gnome-characters
+# r = resize
 bindsym $mod+t exec flatpak run com.todoist.Todoist
+# y, u, i, o = free
 bindsym $mod+p exec scrcpy --stay-awake --hid-keyboard --shortcut-mod lalt 
 bindsym $mod+Shift+p exec scrcpy --stay-awake --hid-keyboard --shortcut-mod lalt --no-audio
 bindsym $mod+Shift+mod1+p exec scrcpy --no-audio --no-control
+# a, s, d, f = free
 bindsym $mod+g exec ./Programs/boomer/boomer
+# j = free
 bindsym $mod+k exec keynav
 bindsym $mod+ctrl+l exec uio_i3lock.sh
 bindsym $mod+z exec rofi -show drun -modi drun#window -show-icons -theme oxide
 bindsym $mod+x exec xdg-open "$(locate -e -i --regex "$HOME/[^\.]+" | rofi -dmenu -i -p "File or folder" -threads 0 -show-icons -theme oxide -modi drun)"
+# c = free
 bindsym $mod+b exec bitwarden
 bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
 bindsym $mod+Shift+n exec thunar
