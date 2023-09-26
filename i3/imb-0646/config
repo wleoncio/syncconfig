@@ -249,7 +249,8 @@ bindsym $mod+Shift+mod1+p exec scrcpy --no-audio --no-control
 bindsym $mod+k exec keynav
 bindsym $mod+m exec evolution --component=mail
 bindsym $mod+t exec flatpak run com.todoist.Todoist
-bindsym $mod+b exec  ./Programs/boomer/boomer
+bindsym $mod+b exec bitwarden
+bindsym $mod+g exec ./Programs/boomer/boomer
 
 # Setting shortcuts to function keys
 
