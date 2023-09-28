@@ -18,7 +18,7 @@
 	dbb = branch -D
 	drb = push -d
 	aa = add --update
-	aaa = add -A
+	AA = add -A
 	ap = add -p
 	unstage = restore --staged .
 	rp = restore -p
@@ -37,6 +37,7 @@
 	pa = push --all
 	pt = push --tags
 	clean = clean -f
+	stashm = stash push -m
 [core]
 	editor = vim
 	autocrlf = input
