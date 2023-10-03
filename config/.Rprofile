@@ -19,7 +19,7 @@ if (!is_radian && is_interactive) {
 		)
 	}
 	.First <- function() try(loadhistory("~/.Rhistory"))
-	.Last <- function()  try(savehistory("~/.Rhistory"))
+	.Last  <- function() try(savehistory("~/.Rhistory"))
 	tryCatch(
 		options(width = as.integer(system('tput cols',intern=TRUE))),
 		error = function(err) {
@@ -34,12 +34,6 @@ if (!is_radian && is_interactive) {
 options(browser="firefox")
 options(repos="https://cran.uib.no")
 
-.reload <- function(pkg) {
-  pkg_string <- paste0("package:", pkg, collapse="")
-  detach(pkg_string, unload=TRUE, character.only=TRUE)
-  library(pkg, verbose=TRUE, character.only=TRUE)
-}
-
 # Updates packages on monday mornings
 now <- Sys.time()
 is_monday <- format(now, "%u") == 1
@@ -48,3 +42,6 @@ if (is_monday && is_morning) {
 	message("Updating packages")
 	update.packages()
 }
+
+# Cleanup
+rm(is_radian, is_interactive, is_monday, is_morning, now)
