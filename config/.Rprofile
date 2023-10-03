@@ -28,7 +28,12 @@ options(repos="https://cran.uib.no")
   detach(pkg_string, unload=TRUE, character.only=TRUE)
   library(pkg, verbose=TRUE, character.only=TRUE)
 }
-if (as.numeric(format(Sys.time(), "%H")) < 10) {
+
+# Updating packages on monday mornings
+now <- Sys.time()
+is_monday <- format(now, "%u") == 1
+is_morning <- format(now, "%H") < 10
+if (is_monday && is_morning) {
 	message("Updating packages")
 	update.packages()
 }
