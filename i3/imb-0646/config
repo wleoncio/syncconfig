@@ -271,8 +271,8 @@ bindsym $mod+F1 exec $HOME/Programs/vscode/scripts/code.sh
 bindsym $mod+F2 exec firefox
 bindsym $mod+Shift+F2 exec firefox --new-window about:performance
 bindsym $mod+F3 exec $default_terminal -e qalc
-bindsym $mod+F4 exec $default_terminal -e bashCalendar.sh
-bindsym $mod+Shift+F4 exec firefox https://calendar.google.com 
+bindsym $mod+F4 exec firefox https://calendar.google.com 
+bindsym $mod+Shift+F4 exec $default_terminal -e bashCalendar.sh
 
 # Group 2: auxiliary tools (dictionaries, sounds)
 bindsym $mod+F5 exec $default_terminal -e $HOME/.cargo/bin/aichat
