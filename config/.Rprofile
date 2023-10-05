@@ -33,6 +33,7 @@ if (!is_radian && is_interactive) {
 # Custom options
 options(browser="firefox")
 options(repos="https://cran.uib.no")
+Sys.setenv(LANGUAGE = "en_US.UTF-8")
 
 # Updates packages on monday mornings
 now <- Sys.time()
