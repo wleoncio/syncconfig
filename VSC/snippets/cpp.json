@@ -13,15 +13,15 @@
 	// 	"description": "Log output to console"
 	// }
 	"Add temporary R cout": {
-		"prefix": "rcout",
-		"body": "Rcpp::Rcout << \"$1\\n\" << $1 << std::endl; //TEMP"
-	},
-	"Add temporary cout": {
-		"prefix": "cout",
-		"body": "std::cout << \"$1\\n\" << $1 << std::endl; //TEMP"
+		"prefix": "pt",
+		"body": "Rcpp::Rcout << \"$1: \" << $1 << std::endl; //TEMP"
 	},
 	"Add temporary message": {
 		"prefix": "tmp",
 		"body": "Rcpp::Rcout << \"$1\" << std::endl; //TEMP"
-	}
+	},
+	"Add conditional R cout": {
+		"prefix": "ifpt",
+		"body": "if ($1) { Rcpp::Rcout << \"$2\\n\" << $2 << std::endl; } //TEMP"
+	},
 }

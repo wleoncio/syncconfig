@@ -93,13 +93,11 @@
         "description": "Subsection"
     },
     "Assignment": {
-        "prefix": "<-",
-        "body": " <- $1",
+        "prefix": ["<-", "ass", "z-"],
+        "body": "<- $1",
         "description": "Assignment operator"
     },
-    "Assignment (typo)": {
-        "prefix": "z-",
-        "body": " <- $1",
-        "description": "Assignment operator (typo variant)"
-    }
+    "Conditional print debugging": {
+        "prefix": "ifpt",
+        "body": "if ($1) { print($2) } # TEMP"
 }
