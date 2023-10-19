@@ -131,7 +131,7 @@
         "args": "devtools::test()"
     },
     {
-        "key": "ctrl+r ctrl+shift+u",
+        "key": "ctrl+r ctrl+shift+c",
         "command": "r.runCommand",
         "args": "covr::report(covr::package_coverage())"
     },
