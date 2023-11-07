@@ -236,7 +236,7 @@ gaps inner 4
 bindsym Print exec flameshot gui
 bindsym $mod+Print exec shutter
 bindsym $mod+w exec libreoffice --nologo -o $HOME/UiO/Docs/Adm/projectManager.ods
-bindsym $mod+e exec gnome-characters
+bindsym $mod+e exec emote
 # r = resize
 bindsym $mod+t exec flatpak run com.todoist.Todoist
 # y, u, i, o = free
