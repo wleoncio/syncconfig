@@ -27,6 +27,7 @@ unstaged=$(eval git status --short)
 if [ -n "$unstaged" ]; then
 	echo "Unstaged modifications:"
 	git status --short
+	read -p "Press enter to continue, Ctrl+C to cancel"
 fi
 
 echo "Merging $feature_branch into develop. Did you remember to:"
