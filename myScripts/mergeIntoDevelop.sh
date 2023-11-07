@@ -20,18 +20,33 @@ done
 
 feature_branch=$(eval git branch --show-current)
 
-echo "Unstaged modifications:"
-git status --short
+# Making sure pre-work is done
 
-if [ $covr == true ]; then
-	echo "Package coverage on merge"
-	Rscript -e "cat(covr::percent_coverage(covr::package_coverage()))"
+
+unstaged=$(eval git status --short)
+if [ -n "$unstaged" ]; then
+	echo "Unstaged modifications:"
+	git status --short
 fi
 
 echo "Merging $feature_branch into develop. Did you remember to:"
-read -p $'\e[4;31mSquash\e[0m commits on the feature branch?'
-read -p $'Add \e[4;31munit tests\e[0m for new code?'
-read -p $'Update \e[4;31mNEWS\e[0m.md?'
+
+echo -e '- \e[4;31mSquash\e[0m commits on the feature branch?'
+git log --grep "squash" --grep "fixup"
+
+echo -e '- Add \e[4;31munit tests\e[0m for new code?'
+if [ $covr == true ]; then
+	cvrg=$(Rscript -e "cat(covr::percent_coverage(covr::package_coverage()))")
+	echo "  Package coverage on merge: $cvrg"
+fi
+
+echo -e '- Update \e[4;31mNEWS\e[0m.md (see head below)?'
+
+head NEWS.md
+echo ""
+
+read -p "Press enter to continue, Ctrl+C to cancel"
+
 git checkout develop
 git merge $feature_branch --log
 
