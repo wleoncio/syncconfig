@@ -26,6 +26,7 @@ git status --short
 if [ $covr == true ]; then
 	echo "Package coverage on merge"
 	Rscript -e "cat(covr::percent_coverage(covr::package_coverage()))"
+	echo "\n"
 fi
 
 echo "Merging $feature_branch into develop. Did you remember to:"
