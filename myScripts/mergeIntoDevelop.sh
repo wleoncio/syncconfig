@@ -52,5 +52,5 @@ git merge $feature_branch --log
 
 if [ $version == true ]; then
 	echo "Incrementing build number"
-	Rscript -e "usethis::use_version('build')"
+	Rscript -e "usethis::use_version('dev')"
 fi
