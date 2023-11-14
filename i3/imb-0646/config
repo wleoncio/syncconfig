@@ -321,6 +321,7 @@ bindsym $mod+minus scratchpad show
 focus_wrapping no
 focus_follows_mouse no
 no_focus [instance="scrcpy"]
+mouse_warping none
 
 # ==============================================================================
 # Other window rules
