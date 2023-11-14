@@ -262,9 +262,7 @@
     },
     "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
     "typescript.suggest.paths": false,
-    "window.menuBarVisibility": "hidden",
     "window.restoreWindows": "none",
-    "workbench.activityBar.visible": false,
     "workbench.colorCustomizations": {
         "editor.lineHighlightBackground": "#1073cf2d",
         "editor.lineHighlightBorder": "#9fced11f",
@@ -285,11 +283,12 @@
     "workbench.editor.revealIfOpen": true,
     "workbench.editor.tabSizing": "shrink",
     "workbench.enableExperiments": false,
-    "workbench.sideBar.location": "right",
     "workbench.startupEditor": "welcomePageInEmptyWorkbench",
     "workbench.tree.indent": 16,
     "workbench.tree.renderIndentGuides": "always",
     "editor.stickyScroll.enabled": true,
     "notebook.stickyScroll.enabled": true,
-    "editor.stickyTabStops": true
+    "editor.stickyTabStops": true,
+    "window.menuBarVisibility": "toggle",
+    "workbench.sideBar.location": "right"
 }
