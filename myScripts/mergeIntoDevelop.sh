@@ -4,16 +4,16 @@
 # Usage
 echo "Usage: $(basename $0) [options]" 2>&1
 echo "	-t	Skips unit test coverage check"
-echo "	-v	Skips version bump"
+echo "	-v	Bumps build version after merge"
 echo ""
 
 # Parsing options
 covr=true
-version=true
+version=false
 while getopts "tv" option; do
 	case "$option" in
 		t) covr=false ;;
-		v) version=false ;;
+		v) version=true ;;
 		?) echo "Invalid option: -${OPTARG}" ;;
 	esac
 done
