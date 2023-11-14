@@ -173,7 +173,7 @@ set $uiogray "#b2b3b7"
 set $menubar "#23252e"
 set $uioblaa "#3e31d6"
 set $uiolblaa "#86A4F7"
-set $uioblaatone "e6ecff"
+set $uioblaatone "#e6ecff"
 
 # class                 border     background text      indicator  child_border
 client.focused          $uioblaatone $uioblaatone  #000000   $uioblaatone  $uioblaatone
