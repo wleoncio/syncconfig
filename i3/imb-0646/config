@@ -38,13 +38,6 @@ bindsym $mod+Return exec $default_terminal
 bindsym $mod+q kill
 bindsym $mod+Shift+x --release exec --no-startup-id xkill
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-
 # change focus
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -220,7 +213,6 @@ exec --no-startup-id nmcli connection up eduroam
 exec --no-startup-id $HOME/Programs/i3-alternating-layout/alternating_layouts.py
 exec --no-startup-id bash $HOME/Programs/syncconfig/myScripts/start_xrandr_imb.sh
 exec --no-startup-id i3-msg 'workspace $ws1; exec gnome-terminal --command="$HOME/.local/bin/uiosync.sh pull"; exec evolution -c mail'
-exec --no-startup-id i3-msg 'exec sleep 5 && exec flatpak run com.todoist.Todoist'
 exec numlockx on
 exec --no-startup-id xautolock -time 5 -locker uio_i3lock.sh
 # Disabling screen saver and monitor timeout
