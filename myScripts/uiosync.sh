@@ -36,6 +36,7 @@ direction="from "$from"\e[1;34m to "$to"\e[0m"
 echo -e "Synchronizing direction: "$direction""
 
 # Checking for internet connection
+sleep 10 # Give the computer some time to connect
 connection=$(nmcli -g "STATE" general)
 if [ "$connection" != "connected" ]
 then
