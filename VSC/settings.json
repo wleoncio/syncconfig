@@ -290,6 +290,5 @@
     "notebook.stickyScroll.enabled": true,
     "editor.stickyTabStops": true,
     "window.menuBarVisibility": "toggle",
-    "workbench.sideBar.location": "right",
-    "workbench.activityBar.location": "hidden"
+    "workbench.sideBar.location": "right"
 }
