@@ -173,6 +173,7 @@ fi
 
 # Environment variables
 PATH=$PATH:~/.local/bin:~/.cargo/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/MATLAB/2023b/bin/glnxa64
 
 export COLUMNS
 
