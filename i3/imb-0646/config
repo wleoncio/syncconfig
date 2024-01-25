@@ -285,8 +285,8 @@ bindsym $mod+F12 exec playerctl play-pause && notify-send "Paused/resumed" --exp
 
 
 # Defining which workspace opens where (multimonitor setup)
-workspace $ws1 output DP-1
 workspace $ws0 output DP-2
+workspace $ws1 output DP-1
 workspace $ws2 output DP-1
 workspace $ws3 output DP-1
 workspace $ws4 output DP-1
