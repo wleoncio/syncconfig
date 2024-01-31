@@ -268,7 +268,8 @@ bindsym $mod+Shift+F2 exec firefox --new-window about:performance
 bindsym $mod+F3 exec $default_terminal -e julia
 bindsym $mod+Shift+F3 exec $default_terminal -e qalc
 bindsym $mod+F4 exec firefox https://calendar.google.com 
-bindsym $mod+Shift+F4 exec $default_terminal -e bashCalendar.sh
+bindsym $mod+Shift+F4 exec evolution --component=calendar
+bindsym $mod+Ctrl+Shift+F4 exec $default_terminal -e bashCalendar.sh
 
 # Group 2: auxiliary tools (dictionaries, sounds)
 bindsym $mod+F5 exec $default_terminal -e firefox --new-window https://chat.openai.com/
