@@ -72,7 +72,10 @@ hasNotifier() {
 # Determining VSC local folder
 # ==============================================================================
 hasVSC() {
-	if [ -d "$HOME/.config/code-oss-dev" ]
+	if [ -d "$HOME/.config/Code" ]
+	then
+		VSCdir="Code"
+	elif [ -d "$HOME/.config/code-oss-dev" ]
 	then
 		VSCdir="code-oss-dev"
 	elif [ -d "$HOME/.config/VSCodium" ]
