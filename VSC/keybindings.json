@@ -198,11 +198,7 @@
         "when": "remoteFileDialogVisible"
     },
     {
-        "key": "ctrl+p",
-        "command": "-workbench.action.quickOpen"
-    },
-    {
-        "key": "ctrl+g ctrl+f",
+        "key": "ctrl+g ctrl+s",
         "command": "workbench.action.gotoSymbol"
     },
     {
@@ -217,14 +213,6 @@
         "key": "ctrl+p",
         "command": "-workbench.action.quickOpenNavigateNextInFilePicker",
         "when": "inFilesPicker && inQuickOpen"
-    },
-    {
-        "key": "ctrl+p",
-        "command": "workbench.action.quickOpen"
-    },
-    {
-        "key": "ctrl+e",
-        "command": "-workbench.action.quickOpen"
     },
     {
         "key": "ctrl+m ctrl+r",
@@ -244,7 +232,7 @@
         "command": "-workbench.action.openSettings"
     },
     {
-        "key": "alt+left",
+        "key": "ctrl+shift+left",
         "command": "workbench.action.terminal.focusPreviousPane",
         "when": "terminalFocus"
     },
@@ -254,7 +242,7 @@
         "when": "terminalFocus"
     },
     {
-        "key": "alt+right",
+        "key": "ctrl+shift+right",
         "command": "workbench.action.terminal.focusNextPane",
         "when": "terminalFocus"
     },
@@ -821,5 +809,33 @@
         "key": "ctrl+r",
         "command": "-workbench.action.reloadWindow",
         "when": "isDevelopment"
+    },
+    {
+        "key": "ctrl+b ctrl+p",
+        "command": "workbench.panel.chat.view.copilot.focus"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "-workbench.action.quickOpen"
+    },
+    {
+        "key": "ctrl+shift+right",
+        "command": "workbench.action.terminal.focusNextPane",
+        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "alt+right",
+        "command": "-workbench.action.terminal.focusNextPane",
+        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "ctrl+shift+left",
+        "command": "workbench.action.terminal.focusPreviousPane",
+        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "alt+left",
+        "command": "-workbench.action.terminal.focusPreviousPane",
+        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
     }
 ]
