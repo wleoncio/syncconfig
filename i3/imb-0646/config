@@ -337,7 +337,7 @@ for_window [instance="shutter|evolution-alarm-notify|r_x11"] floating enable
 for_window [instance="jetbrains-studio" title="win0"] floating enable
 for_window [instance="evolution-alarm-notify"] sticky enable, resize set 800 800, move position mouse
 for_window [title="Bilde-i-bilde"] sticky enable
-for_window [instance="spotify|pocket-casts|todoist"] move to workspace number $ws0
+for_window [instance="pocket-casts|todoist"] move to workspace number $ws0
 for_window [title="Aktivitetsbehandler"] move to workspace number $ws0, workspace number $ws0 
 
 # Windows that need to be explicitly given borders
