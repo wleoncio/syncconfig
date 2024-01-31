@@ -13,7 +13,7 @@ alias update="sudo nala update; sudo nala upgrade"
 alias cleanR="sudo docker run --rm -ti r-base bash"
 alias av="shutdown"
 alias connect="nmcli connection up eduroam"
-alias matlab="matlab -nodisplay -nosplash"
+alias matlab="/usr/local/MATLAB/R2023b/bin/matlab -nodisplay -nosplash"
 alias lstar="tar -ztvf"
 
 # Common folders
