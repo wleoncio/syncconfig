@@ -49,7 +49,7 @@
     },
     "Browser": {
         "prefix": "bro",
-        "body": "browser() # TEMP",
+        "body": "browser($1) # TEMP. Tip: browserText()",
         "description": "Call to browser with #TEMP tag"
     },
     "Print debug": {
