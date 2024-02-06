@@ -107,6 +107,12 @@
         "args": "print(ls.str(), all.names = TRUE, max.level = 0)"
     },
     {
+        "description": "View environment",
+        "key": "ctrl+r ctrl+e",
+        "command": "r.runCommand",
+        "args": "View(globalenv())"
+    },
+    {
         "description": "Clean working environment",
         "key": "ctrl+r shift+r",
         "command": "r.runCommand",
