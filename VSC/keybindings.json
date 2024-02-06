@@ -56,7 +56,7 @@
         "description": "Lint package",
         "key": "ctrl+r ctrl+l",
         "command": "r.runCommand",
-        "args": "library(lintr); lint_package(linters = list(commented_code_linter(), infix_spaces_linter(), line_length_linter(), single_quotes_linter(), spaces_inside_linter(), spaces_left_parentheses_linter(), unneeded_concatenation_linter()))"
+        "args": "library(lintr); lint_package(linters = list(commented_code_linter(), infix_spaces_linter(), line_length_linter(), quotes_linter(), spaces_inside_linter(), spaces_left_parentheses_linter(), unnecessary_concatenation_linter()))"
     },
     {
         "description": "Load exported package functions",
