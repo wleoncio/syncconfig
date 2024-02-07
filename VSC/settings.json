@@ -119,7 +119,8 @@
     "explorer.compactFolders": false,
     "extensions.ignoreRecommendations": true,
     "files.associations": {
-        "*.docker": "Dockerfile"
+        "*.docker": "Dockerfile",
+        "*.Rnw": "latex"
     },
     "files.autoGuessEncoding": true,
     "files.autoSave": "onFocusChange",
