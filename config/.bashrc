@@ -10,7 +10,7 @@ parse_git_branch() {
 }
 
 _set_my_PS1() {
-  	PS1='\e[33m$(parse_git_branch)\e[0m \[\033[1;30;44m\] \w \[\033[0;37m\]\e[0m '
+  	PS1='\e[33m$(parse_git_branch)\e[0m \[\033[1;30;44m\] \w \[\033[0;37m\] '
     echo -e "\e]12;lightgray\a" # cursor format
 }
 
