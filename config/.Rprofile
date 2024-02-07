@@ -39,7 +39,7 @@ Sys.setenv(LANGUAGE = "en_US.UTF-8")
 now <- Sys.time()
 is_monday <- format(now, "%u") == 1
 is_morning <- format(now, "%H") < 10
-if (is_monday && is_morning && is_interactive) {
+if (is_monday && is_morning && is.interactive()) {
 	message("Updating packages")
 	update.packages()
 }
