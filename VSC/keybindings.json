@@ -56,7 +56,7 @@
         "description": "Lint package",
         "key": "ctrl+r ctrl+l",
         "command": "r.runCommand",
-        "args": "library(lintr); lint_package(linters = list(commented_code_linter(), infix_spaces_linter(), line_length_linter(), single_quotes_linter(), spaces_inside_linter(), spaces_left_parentheses_linter(), unneeded_concatenation_linter()))"
+        "args": "library(lintr); lint_package(linters = list(commented_code_linter(), infix_spaces_linter(), line_length_linter(), quotes_linter(), spaces_inside_linter(), spaces_left_parentheses_linter(), unnecessary_concatenation_linter()))"
     },
     {
         "description": "Load exported package functions",
@@ -105,6 +105,12 @@
         "key": "ctrl+r ctrl+s",
         "command": "r.runCommand",
         "args": "print(ls.str(), all.names = TRUE, max.level = 0)"
+    },
+    {
+        "description": "View environment",
+        "key": "ctrl+r ctrl+e",
+        "command": "r.runCommand",
+        "args": "View(globalenv())"
     },
     {
         "description": "Clean working environment",
@@ -198,11 +204,7 @@
         "when": "remoteFileDialogVisible"
     },
     {
-        "key": "ctrl+p",
-        "command": "-workbench.action.quickOpen"
-    },
-    {
-        "key": "ctrl+g ctrl+f",
+        "key": "ctrl+g ctrl+s",
         "command": "workbench.action.gotoSymbol"
     },
     {
@@ -217,14 +219,6 @@
         "key": "ctrl+p",
         "command": "-workbench.action.quickOpenNavigateNextInFilePicker",
         "when": "inFilesPicker && inQuickOpen"
-    },
-    {
-        "key": "ctrl+p",
-        "command": "workbench.action.quickOpen"
-    },
-    {
-        "key": "ctrl+e",
-        "command": "-workbench.action.quickOpen"
     },
     {
         "key": "ctrl+m ctrl+r",
@@ -244,7 +238,7 @@
         "command": "-workbench.action.openSettings"
     },
     {
-        "key": "alt+left",
+        "key": "ctrl+shift+left",
         "command": "workbench.action.terminal.focusPreviousPane",
         "when": "terminalFocus"
     },
@@ -254,7 +248,7 @@
         "when": "terminalFocus"
     },
     {
-        "key": "alt+right",
+        "key": "ctrl+shift+right",
         "command": "workbench.action.terminal.focusNextPane",
         "when": "terminalFocus"
     },
@@ -821,5 +815,33 @@
         "key": "ctrl+r",
         "command": "-workbench.action.reloadWindow",
         "when": "isDevelopment"
+    },
+    {
+        "key": "ctrl+b ctrl+p",
+        "command": "workbench.panel.chat.view.copilot.focus"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "-workbench.action.quickOpen"
+    },
+    {
+        "key": "ctrl+shift+right",
+        "command": "workbench.action.terminal.focusNextPane",
+        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "alt+right",
+        "command": "-workbench.action.terminal.focusNextPane",
+        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "ctrl+shift+left",
+        "command": "workbench.action.terminal.focusPreviousPane",
+        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "alt+left",
+        "command": "-workbench.action.terminal.focusPreviousPane",
+        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
     }
 ]

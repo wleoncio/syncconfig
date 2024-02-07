@@ -210,9 +210,9 @@ bar {
 # ==============================================================================
 
 exec --no-startup-id nmcli connection up eduroam
-exec --no-startup-id $HOME/Programs/i3-alternating-layout/alternating_layouts.py
 exec --no-startup-id bash $HOME/Programs/syncconfig/myScripts/start_xrandr_imb.sh
 exec --no-startup-id i3-msg 'workspace $ws1; exec gnome-terminal --command="$HOME/.local/bin/uiosync.sh pull"; exec evolution -c mail'
+exec --no-startup-id flatpak run com.todoist.Todoist
 exec numlockx on
 exec --no-startup-id xautolock -time 5 -locker uio_i3lock.sh
 # Disabling screen saver and monitor timeout
@@ -248,6 +248,7 @@ bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for this
 bindsym $mod+Shift+n exec thunar
 bindsym $mod+Shift+Ctrl+n exec $default_terminal -e ranger
 bindsym $mod+m exec evolution --component=mail
+bindsym $mod+Shift+m exec firefox --new-window https://messages.google.com/web/
 
 # Setting shortcuts to function keys
 
@@ -266,7 +267,8 @@ bindsym $mod+Shift+F2 exec firefox --new-window about:performance
 bindsym $mod+F3 exec $default_terminal -e julia
 bindsym $mod+Shift+F3 exec $default_terminal -e qalc
 bindsym $mod+F4 exec firefox https://calendar.google.com 
-bindsym $mod+Shift+F4 exec $default_terminal -e bashCalendar.sh
+bindsym $mod+Shift+F4 exec evolution --component=calendar
+bindsym $mod+Ctrl+Shift+F4 exec $default_terminal -e bashCalendar.sh
 
 # Group 2: auxiliary tools (dictionaries, sounds)
 bindsym $mod+F5 exec $default_terminal -e firefox --new-window https://chat.openai.com/
@@ -284,8 +286,8 @@ bindsym $mod+F12 exec playerctl play-pause && notify-send "Paused/resumed" --exp
 
 
 # Defining which workspace opens where (multimonitor setup)
-workspace $ws1 output DP-1
 workspace $ws0 output DP-2
+workspace $ws1 output DP-1
 workspace $ws2 output DP-1
 workspace $ws3 output DP-1
 workspace $ws4 output DP-1
@@ -335,7 +337,7 @@ for_window [instance="shutter|evolution-alarm-notify|r_x11"] floating enable
 for_window [instance="jetbrains-studio" title="win0"] floating enable
 for_window [instance="evolution-alarm-notify"] sticky enable, resize set 800 800, move position mouse
 for_window [title="Bilde-i-bilde"] sticky enable
-for_window [instance="spotify|pocket-casts|todoist"] move to workspace number $ws0
+for_window [instance="pocket-casts|todoist"] move to workspace number $ws0
 for_window [title="Aktivitetsbehandler"] move to workspace number $ws0, workspace number $ws0 
 
 # Windows that need to be explicitly given borders

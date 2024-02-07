@@ -39,9 +39,14 @@ echo -e "Synchronizing direction: "$direction""
 connection=$(nmcli -g "STATE" general)
 if [ "$connection" != "connected" ]
 then
-	echo "Not connected to the internet! Cancelling in 10 seconds"
-	sleep 10
-	exit 1
+	sleep 10 # Give the computer some time to connect and try again
+	connection=$(nmcli -g "STATE" general)
+	if [ "$connection" != "connected" ]
+	then
+		echo "Not connected to the internet! Cancelling in 10 seconds"
+		sleep 10
+		exit 1
+	fi
 fi
 
 # Dry run

@@ -291,5 +291,6 @@
     "editor.stickyTabStops": true,
     "window.menuBarVisibility": "toggle",
     "workbench.sideBar.location": "right",
-    "workbench.activityBar.location": "hidden"
+    "markdown-pdf.displayHeaderFooter": false,
+    "todo-tree.general.debug": true
 }
