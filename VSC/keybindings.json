@@ -131,6 +131,11 @@
     //     "command": "r.names"
     // },
     {
+        "key": "ctrl+r ctrl+n",
+        "command": "r.runCommand",
+        "args": "notifier::notify('done')"
+    },
+    {
         "key": "ctrl+r ctrl+u",
         // "command": "r.test"
         "command": "r.runCommand",
