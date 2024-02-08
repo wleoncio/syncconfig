@@ -293,5 +293,6 @@
     "window.menuBarVisibility": "toggle",
     "workbench.sideBar.location": "right",
     "markdown-pdf.displayHeaderFooter": false,
-    "todo-tree.general.debug": true
+    "todo-tree.general.debug": true,
+    "background-terminal-notifier.notificationTimeout": 2000
 }
