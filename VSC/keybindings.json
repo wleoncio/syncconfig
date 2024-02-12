@@ -133,7 +133,7 @@
     {
         "key": "ctrl+r ctrl+n",
         "command": "r.runCommand",
-        "args": "notifier::notify('done')"
+        "args": "; notifier::notify('done')"
     },
     {
         "key": "ctrl+r ctrl+u",
