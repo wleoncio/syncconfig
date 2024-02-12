@@ -142,7 +142,7 @@
         "args": "devtools::test()"
     },
     {
-        "key": "ctrl+r ctrl+shift+c",
+        "key": "ctrl+r ctrl+shift+u",
         "command": "r.runCommand",
         "args": "covr::report(covr::package_coverage())"
     },
@@ -424,6 +424,12 @@
         "key": "ctrl+r ctrl+c",
         "command": "r.runCommand",
         "args": "devtools::check()"
+    },
+    {
+        "description": "Check package, skip vignettes",
+        "key": "ctrl+r ctrl+shift+c",
+        "command": "r.runCommand",
+        "args": "devtools::check(vignettes = FALSE)"
     },
     {
         "key": "ctrl+b ctrl+i",
