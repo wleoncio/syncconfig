@@ -54,7 +54,7 @@
     },
     "Print debug": {
         "prefix": "pt",
-        "body": "print($1) # TEMP",
+        "body": "print(\"$1\") # TEMP",
         "description": "Add print() with #TEMP tag"
     },
     "Todo": {
