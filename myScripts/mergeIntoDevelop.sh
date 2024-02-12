@@ -42,7 +42,7 @@ fi
 
 echo -e '- Update \e[4;31mNEWS\e[0m.md (see head below)?'
 
-head NEWS.md
+awk '/^#/ {c++; if (c==2) {exit}} {print}' NEWS.md
 echo ""
 
 read -p "Press enter to continue, Ctrl+C to cancel"
