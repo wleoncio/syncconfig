@@ -22,7 +22,6 @@ feature_branch=$(eval git branch --show-current)
 
 # Making sure pre-work is done
 
-
 unstaged=$(eval git status --short)
 if [ -n "$unstaged" ]; then
 	echo "Unstaged modifications:"
@@ -33,7 +32,7 @@ fi
 echo "Merging $feature_branch into develop. Did you remember to:"
 
 echo -e '- \e[4;31mSquash\e[0m commits on the feature branch?'
-git log --grep "squash" --grep "fixup"
+git log --oneline issue-52.. | grep -i -e "squash" -e "fixup"
 
 echo -e '- Add \e[4;31munit tests\e[0m for new code?'
 if [ $covr == true ]; then
