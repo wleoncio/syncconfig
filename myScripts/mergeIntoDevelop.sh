@@ -32,7 +32,7 @@ fi
 echo "Merging $feature_branch into develop. Did you remember to:"
 
 echo -e '- \e[4;31mSquash\e[0m commits on the feature branch?'
-git log --oneline issue-52.. | grep -i -e "squash" -e "fixup"
+git log --oneline develop.. | grep -i -e "squash" -e "fixup"
 
 echo -e '- Add \e[4;31munit tests\e[0m for new code?'
 if [ $covr == true ]; then
