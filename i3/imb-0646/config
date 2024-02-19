@@ -263,8 +263,8 @@ mode "$mode_function_keys" {
 bindsym $mod+F1 exec code
 bindsym $mod+Shift+F1 exec $HOME/Programs/vscode/scripts/code.sh
 bindsym $mod+F2 exec firefox
-bindsym $mod+F3 exec $default_terminal -e julia
-bindsym $mod+Shift+F3 exec $default_terminal -e qalc
+bindsym $mod+F3 exec $default_terminal -e qalc
+bindsym $mod+Shift+F3 exec $default_terminal -e julia
 bindsym $mod+F4 exec firefox https://calendar.google.com 
 bindsym $mod+Shift+F4 exec evolution --component=calendar
 bindsym $mod+Ctrl+Shift+F4 exec $default_terminal -e bashCalendar.sh
