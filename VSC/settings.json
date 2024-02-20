@@ -262,7 +262,7 @@
             "type": "text"
         }
     },
-    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+    "todo-tree.regex.regex": "(//|#|%|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
     "typescript.suggest.paths": false,
     "window.restoreWindows": "none",
     "workbench.colorCustomizations": {
