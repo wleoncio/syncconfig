@@ -344,6 +344,7 @@ for_window [title="Zoom - Licensed Account"] floating disable
 # Enable floating
 for_window [title="Volume Control|Microsoft Teams-varsling|^zoom$"] floating enable
 for_window [title="gsimplecal"] floating enable, border none
+for_window [title="Bayesian Analysis of Population Structure"] floating enable
 for_window [instance="shutter|evolution-alarm-notify|r_x11"] floating enable
 for_window [instance="jetbrains-studio" title="win0"] floating enable
 
