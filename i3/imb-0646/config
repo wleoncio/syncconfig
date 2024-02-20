@@ -263,7 +263,7 @@ mode "$mode_comm" {
 # Setting shortcuts to function keys
 
 # Group 1: main tools
-set $mode_function_keys (1-Codium, 2-Firefox, 3-qalc, 4-calendar) (5-trans, 6-dict, 7-PocketCasts, 8-Spotify) (9-LowerVol, 10-RaiseVol, 11-Next, 12-Play/Pause)
+set $mode_function_keys (1-Codium, 2-Firefox, 3-qalc, 4-calendar) (5-GPT, 6-trans, 7-dict, 8-Spotify) (9-LoVol, 10-HiVol, 11-Next, 12-Play/Pause)
 bindsym $mod+Escape mode "$mode_function_keys"
 mode "$mode_function_keys" {
 	bindsym Return mode "default"
