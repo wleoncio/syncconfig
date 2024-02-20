@@ -6,6 +6,7 @@
 	dff = diff --word-diff=color
 	dfc = diff --cached
 	dffc = diff --cached --word-diff=color
+	dfs = diff --ignore-all-space
 	lg = log --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all -n 15
 	lgg = log --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
 	lgs = log --graph --pretty=short --abbrev-commit --stat
