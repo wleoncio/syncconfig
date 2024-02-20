@@ -241,13 +241,24 @@ bindsym $mod+k exec keynav
 bindsym $mod+ctrl+l exec uio_i3lock.sh
 bindsym $mod+z exec rofi -show drun -modi drun#window -show-icons -theme oxide
 bindsym $mod+x exec xdg-open "$(locate -e -i --regex "$HOME/[^\.]+" | rofi -dmenu -i -p "File or folder" -threads 0 -show-icons -theme oxide -modi drun)"
-# c = free
+# c = comm mode
 bindsym $mod+b exec bitwarden
 bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
 bindsym $mod+Shift+n exec thunar
 bindsym $mod+Shift+Ctrl+n exec $default_terminal -e ranger
 bindsym $mod+m exec evolution --component=mail
 bindsym $mod+Shift+m exec firefox --new-window https://messages.google.com/web/
+
+# Communication mode
+set $mode_comm [E]volution [M]essager [W]hatsapp
+bindsym $mod+c mode "$mode_comm"
+mode "$mode_comm" {
+	bindsym e exec evolution; mode "default"
+	bindsym m exec firefox https://messages.google.com/web/; mode "default"
+	bindsym w exec flatpak run io.github.mimbrero.WhatsAppDesktop; mode "default"
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
 
 # Setting shortcuts to function keys
 
