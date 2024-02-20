@@ -247,6 +247,7 @@
         },
         "TEMP": {
             "background": "#707070",
+            "opacity": 80,,
             "foreground": "#000",
             "gutterIcon": true,
             "icon": "clock",
