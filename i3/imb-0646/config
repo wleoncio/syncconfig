@@ -232,8 +232,8 @@ bindsym $mod+e exec emote
 # r = resize
 bindsym $mod+t exec flatpak run com.todoist.Todoist
 # y, u, i, o = free
-bindsym $mod+p exec scrcpy --stay-awake --hid-keyboard --forward-all-clicks --no-audio --shortcut-mod=lalt
-bindsym $mod+Shift+p exec scrcpy --stay-awake --hid-keyboard
+bindsym $mod+p exec scrcpy --stay-awake --hid-keyboard --forward-all-clicks --no-audio --shortcut-mod=lalt --hid-mouse
+bindsym $mod+Shift+p exec scrcpy --stay-awake --hid-keyboard --hid-mouse
 # a, s, d, f = free
 bindsym $mod+g exec ./Programs/boomer/boomer
 # j = free
