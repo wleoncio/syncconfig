@@ -3,6 +3,14 @@
 
 issue_number=$1
 
+# Checking if issue branch already exists
+if [ $(git branch | grep issue-"$issue_number") ]
+then
+	echo "Branch already exists. Switching and rebasing"
+	bash resumeWorkOnIssue.sh "$issue_number"
+	exit 0
+fi	
+
 echo "##################################"
 echo "# Self-assigning issue on GitHub #"
 echo "##################################"
