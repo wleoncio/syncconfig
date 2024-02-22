@@ -1,51 +1,51 @@
 [user]
-	email = w.l.netto@medisin.uio.no
-	name = Waldir Leoncio
+  email = w.l.netto@medisin.uio.no
+  name = Waldir Leoncio
 [alias]
-	df = diff
-	dff = diff --word-diff=color
-	dfc = diff --cached
-	dffc = diff --cached --word-diff=color
-	dfs = diff --ignore-all-space
-	lg = log --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all -n 15
-	lgg = log --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
-	lgs = log --graph --pretty=short --abbrev-commit --stat
-	lgss = log --graph --pretty=short --abbrev-commit --shortstat
-	forget = !sh -c 'git filter-branch --index-filter "git rm -rf --cached --ignore-unmatch ${1}" HEAD' -
-	countcomm = rev-list --count
-	cb = checkout
-	nb = checkout -b
-	db = branch -d
-	dbb = branch -D
-	drb = push -d
-	aa = add --update
-	aaa = add -A
-	ap = add -p
-	unstage = restore --staged .
-	rp = restore -p
-	cm = commit
-	cmf = commit --fixup
-	cms = commit --squash
-	cmm = commit --message
-	cma = commit --amend
-	rb = rebase -i --autosquash
-	mg = !sh -c 'mergeIntoDevelop.sh'
-	s = status
-	ls = status
-	history = log -p --
-	fap = fetch --all --prune
-	latexdiff = difftool -t latexdiff
-	pa = push --all
-	pt = push --tags
-	clean = clean -f
-	stashm = stash push -m
+  df = diff
+  dff = diff --word-diff=color
+  dfc = diff --cached
+  dffc = diff --cached --word-diff=color
+  dfs = diff --ignore-all-space
+  lg = log --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all -n 15
+  lgg = log --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
+  lgs = log --graph --pretty=short --abbrev-commit --stat
+  lgss = log --graph --pretty=short --abbrev-commit --shortstat
+  forget = !sh -c 'git filter-branch --index-filter "git rm -rf --cached --ignore-unmatch ${1}" HEAD' -
+  countcomm = rev-list --count
+  cb = checkout
+  nb = checkout -b
+  db = branch -d
+  dbb = branch -D
+  drb = push -d
+  aa = add --update
+  aaa = add -A
+  ap = add -p
+  unstage = restore --staged .
+  rp = restore -p
+  cm = commit
+  cmf = commit --fixup
+  cms = commit --squash
+  cmm = commit --message
+  cma = commit --amend
+  rb = rebase -i --autosquash
+  mg = !sh -c 'mergeIntoDevelop.sh'
+  s = status
+  ls = status
+  history = log -p --
+  fap = fetch --all --prune
+  latexdiff = difftool -t latexdiff
+  pa = push --all
+  pt = push --tags
+  clean = clean -f
+  stashm = stash push -m
 [core]
-	editor = vim
-	autocrlf = input
+  editor = vim
+  autocrlf = input
 [credential]
   helper = store
 [color]
-	ui = auto
+  ui = auto
 [color "branch"]
   current = yellow reverse
   local = yellow
@@ -60,13 +60,13 @@
   changed = green
   untracked = cyan
 [help]
-	autocorrect = 1
+  autocorrect = 1
 [merge]
-	ff = no
+  ff = no
 [pull]
-	ff = yes
+  ff = yes
 [init]
-	defaultBranch = develop
+  defaultBranch = develop
 [diff]
   tool = meld
 [difftool]
@@ -74,10 +74,10 @@
 [difftool "meld"]
   cmd = meld "$LOCAL" "$REMOTE"
 [difftool "latexdiff"]
-	cmd = git-latexdiff-helper \"$LOCAL\" \"$REMOTE\"
+  cmd = git-latexdiff-helper \"$LOCAL\" \"$REMOTE\"
 [credential "https://github.com"]
-	helper = !/usr/bin/gh auth git-credential
+  helper = !/usr/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-	helper = !/usr/bin/gh auth git-credential
+  helper = !/usr/bin/gh auth git-credential
 [credential "https://github.uio.no"]
-	helper = !/usr/bin/gh auth git-credential
+  helper = !/usr/bin/gh auth git-credential
