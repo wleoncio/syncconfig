@@ -28,7 +28,7 @@
     "editor.cursorWidth": 3,
     "editor.emptySelectionClipboard": false,
     "editor.find.loop": false,
-    "editor.fontFamily": "Fira Code",
+    "editor.fontFamily": "FiraCode Nerd Font",
     "editor.fontLigatures": true,
     "editor.fontSize": 12,
     "editor.fontWeight": "normal",
@@ -247,7 +247,7 @@
         },
         "TEMP": {
             "background": "#707070",
-            "opacity": 80,,
+            "opacity": 80,
             "foreground": "#000",
             "gutterIcon": true,
             "icon": "clock",
