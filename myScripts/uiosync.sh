@@ -16,12 +16,12 @@ if [ "$1" = "pull" ] || [ "$1" = "down" ]
 then
 	from="$remote"
 	to="$local"
-	echo -e "\e[1;34mPulling remote copy to local\e[0m"
+	echo -e "Pulling remote copy \e[1;31mto local\e[0m"
 elif [ "$1" = "push" ] || [ "$1" = "up" ]
 then
 	from="$local"
 	to="$remote"
-	echo -e "\e[1;34mPushing local copy to remote\e[0m"
+	echo -e "Pushing local copy \e[1;31mto remote\e[0m"
 else
 	echo "USAGE"
 	echo "  uiosync.sh [command]"
@@ -32,7 +32,7 @@ else
 fi
 
 # Running rsync
-direction="from "$from"\e[1;34m to "$to"\e[0m"
+direction="\e[1;31mto "$to"\e[0m"
 echo -e "Synchronizing direction: "$direction""
 
 # Checking for internet connection
@@ -77,7 +77,8 @@ read -p "Are you sure you want to continue? (y/N) " answer
 if [ "$answer" = "y" ]
 then
 	eval rsync -az --progress --verbose --delete --delete-excluded "$from/" "$to"
-	echo -e "\n\e[1;34mFinished synchronizing "$direction"\e[0m"
+	echo -e "\n\e[1;34mDone!\e[0m"
+	exit 0
 else
 	echo "Aborting"
 fi
