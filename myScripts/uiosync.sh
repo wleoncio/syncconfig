@@ -32,8 +32,7 @@ else
 fi
 
 # Running rsync
-direction="\e[1;31mto "$to"\e[0m"
-echo -e "Synchronizing direction: "$direction""
+echo -e "Synchronizing direction: to \e[1;31m$to\e[0m"
 
 # Checking for internet connection
 connection=$(nmcli -g "STATE" general)
@@ -71,8 +70,8 @@ else
 fi
 
 # Actual run
-echo -e "\nSynchronizing "$direction""
-echo -e "\nTHIS OPERATION WILL \e[1;31mOVERWRITE\e[0m THE CONTENTS OF \e[1;31m"$to"\e[0m"
+echo -e "\nSynchronizing to $to"
+echo -e "\nTHIS OPERATION WILL OVERWRITE THE CONTENTS OF $to"
 read -p "Are you sure you want to continue? (y/N) " answer
 if [ "$answer" = "y" ]
 then
