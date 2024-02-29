@@ -23,10 +23,10 @@
   ap = add -p
   unstage = restore --staged .
   rp = restore -p
-  cm = commit
+  cm = commit --verbose
   cmf = commit --fixup
   cms = commit --squash
-  cmm = commit --message
+  cmm = commit --branch --message
   cma = commit --amend
   rb = rebase -i --autosquash
   mg = !sh -c 'mergeIntoDevelop.sh'
