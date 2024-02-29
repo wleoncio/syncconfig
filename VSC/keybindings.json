@@ -105,10 +105,16 @@
         "args": "print(ls.str(), all.names = TRUE, max.level = 0)"
     },
     {
+        "description": "List object structure",
+        "key": "ctrl+r ctrl+shift+s",
+        "command": "r.runCommand",
+        "args": "View(globalenv())"
+    },
+    {
         "description": "View environment",
         "key": "ctrl+r ctrl+e",
         "command": "r.runCommand",
-        "args": "View(globalenv())"
+        "args": "devtools::document(); devtools::run_examples()"
     },
     {
         "description": "Clean working environment",
@@ -404,7 +410,7 @@
         "description": "Check package, skip vignettes",
         "key": "ctrl+r ctrl+shift+c",
         "command": "r.runCommand",
-        "args": "devtools::check(vignettes = FALSE)"
+        "args": "devtools::check(vignettes = FALSE, args = c('--no-examples', '--no-tests'))"
     },
     {
         "key": "ctrl+b ctrl+i",
