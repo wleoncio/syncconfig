@@ -1,4 +1,3 @@
-// Place your key bindings in this file to override the defaultsauto[]
 [
     {
         "key": "ctrl+2",
@@ -48,7 +47,6 @@
     },
     {
         "key": "ctrl+r ctrl+d",
-        // "command": "r.document"
         "command": "r.runCommand",
         "args": "devtools::document()"
     },
@@ -118,18 +116,6 @@
         "command": "r.runCommand",
         "args": "rm(list = ls())"
     },
-    // {
-    //     "key": "ctrl+r ctrl+v",
-    //     "command": "r.previewDataframe"
-    // },
-    // {
-    //     "key": "ctrl+r ctrl+l",
-    //     "command": "r.length"
-    // },
-    // {
-    //     "key": "ctrl+r ctrl+n",
-    //     "command": "r.names"
-    // },
     {
         "key": "ctrl+r ctrl+n",
         "command": "r.runCommand",
@@ -137,7 +123,6 @@
     },
     {
         "key": "ctrl+r ctrl+u",
-        // "command": "r.test"
         "command": "r.runCommand",
         "args": "devtools::test()"
     },
@@ -389,16 +374,6 @@
         "key": "ctrl+shift+g",
         "command": "workbench.action.gotoLine"
     },
-    // {
-    //     "key": "ctrl+enter",
-    //     "command": "r.runSelection",
-    //     "when": "editorTextFocus && (editorLangId == 'rmd' || editorLangId == 'md')"
-    // },
-    // {
-    //     "key": "ctrl+enter",
-    //     "command": "-r.runSelection",
-    //     "when": "editorTextFocus && (editorLangId == 'rmd' || editorLangId == 'md')"
-    // },
     {
         "key": "ctrl+g",
         "command": "-workbench.action.gotoLine"
