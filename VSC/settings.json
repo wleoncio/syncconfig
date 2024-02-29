@@ -240,6 +240,7 @@
         "FIXME": {
             "background": "#F00",
             "foreground": "#FFF",
+            "opacity": 40,
             "gutterIcon": true,
             "icon": "alert",
             "iconColour": "#F00",
@@ -247,8 +248,8 @@
         },
         "TEMP": {
             "background": "#707070",
-            "opacity": 80,
-            "foreground": "#000",
+            "opacity": 40,
+            "foreground": "#777",
             "gutterIcon": true,
             "icon": "clock",
             "iconColour": "#707070",
@@ -256,7 +257,8 @@
         },
         "TODO": {
             "background": "#0F0",
-            "foreground": "#000",
+            "opacity": 40,
+            "foreground": "#0F3",
             "gutterIcon": true,
             "icon": "check",
             "type": "text"
