@@ -192,7 +192,7 @@
     "terminal.integrated.cursorWidth": 3,
     "terminal.integrated.defaultProfile.linux": "fish",
     "terminal.integrated.drawBoldTextInBrightColors": false,
-    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
     "terminal.integrated.fontFamily": "FiraCode Nerd Font",
     "terminal.integrated.fontSize": 12,
     "terminal.integrated.fontWeight": "500",
