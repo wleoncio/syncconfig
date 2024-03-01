@@ -114,7 +114,7 @@
         "description": "View environment",
         "key": "ctrl+r ctrl+e",
         "command": "r.runCommand",
-        "args": "devtools::document(); devtools::run_examples()"
+        "args": "devtools::run_examples()"
     },
     {
         "description": "Clean working environment",
