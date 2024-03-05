@@ -76,7 +76,7 @@ read -p "Are you sure you want to continue? (y/N) " answer
 if [ "$answer" = "y" ]
 then
 	eval rsync -az --progress --verbose --delete --delete-excluded "$from/" "$to"
-	echo -e "\n\e[1;34mDone!\e[0m"
+	echo -e "\n\e[1;34mDone with $1!\e[0m"
 	exit 0
 else
 	echo "Aborting"
