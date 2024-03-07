@@ -36,7 +36,7 @@ echo "#########################"
 echo "# Updating build number #"
 echo "#########################"
 echo ""
-Rscript -e "usethis::use_version('dev')"
+Rscript -e "require('OCBEdev'); add_feature_version()"
 new_dev_version=$(cat DESCRIPTION | grep Version: | cut -d " " -f 2)
 git commit --all --message "Increment version number to "$new_dev_version""
 
