@@ -347,7 +347,6 @@ for_window [title="gsimplecal"] floating enable, border none
 for_window [title="Bayesian Analysis of Population Structure"] floating enable
 for_window [instance="shutter|evolution-alarm-notify|r_x11"] floating enable
 for_window [instance="jetbrains-studio" title="win0"] floating enable
-for_window [instance="spotify"] floating enable
 
 # Sticky windows
 for_window [instance="evolution-alarm-notify"] sticky enable, resize set 800 800, move position mouse
