@@ -14,7 +14,12 @@
 	// }
 	"Print-debugging": {
 		"prefix": "pt",
-		"body": "disp(['$1 = ', num2str($1)]); % TEMP",
+		"body": "disp($1); % TEMP",
 		"description": "Print debugging"
 	},
+	"Print-debugging with labels": {
+		"prefix": "pt2",
+		"body": "disp(['$1 = ', num2str($1)]); % TEMP",
+		"description": "Print debugging"
+	}
 }
