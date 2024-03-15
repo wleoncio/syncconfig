@@ -107,7 +107,7 @@ hasi3
 hasNotifier
 hasVSC
 homePaths=(
-    "$HOME"
+  "$HOME"
 	""$HOME"/.config"
 	""$HOME"/.config"
 	""$HOME"/"$i3dir""
