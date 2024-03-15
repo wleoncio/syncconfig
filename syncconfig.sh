@@ -1,5 +1,8 @@
 #! /bin/bash
 
+check="\xE2\x9C\x94"
+fail="\xE2\x9D\x8C"
+
 # Script to manually sync files with GitHub
 # Tip: edit the crontab file to make this run automatically
 
@@ -14,7 +17,7 @@ machinename=$(cat /etc/hostname)
 configPath="$HOME/.config/syncconfig.conf"
 if [ ! -f $configPath ]
 then
-	echo -e "\e[31mNo config file found. Creating one on "$configPath" with default values\e[0m"
+	echo -e "$fail \e[31mNo config file found. Creating one on "$configPath" with default values\e[0m"
 	touch $configPath
 	echo location=$HOME/Programs/syncconfig >> $configPath
 fi
@@ -26,14 +29,14 @@ source $configPath
 hasCompositor () {
 	if [ -f "$HOME/.config/picom.conf" ]
 	then
-		echo -e "Compositor found: picom"
+		echo -e "$check Compositor found: picom"
 		compositor="picom.conf"
 	elif [ -f "$HOME/.config/compton.conf" ]
 	then
-		echo -e "Compositor found: compton"
+		echo -e "$check Compositor found: compton"
 		compositor="compton.conf"
 	else
-		echo -e "\e[31mNo supported compositor found (picom or compton)\e[0m"
+		echo -e "$fail No supported compositor found (picom or compton)"
 		compositor="other"
 	fi
 }
@@ -49,7 +52,7 @@ hasi3 () {
 	then
 		i3dir=".config/i3"
 	else
-		echo -e "\e[31mCould not determine location of i3 folder\e[0m"
+		echo -e "$fail Could not determine location of i3 folder"
 		i3dir="none"
 	fi
 }
@@ -60,10 +63,10 @@ hasi3 () {
 hasNotifier() {
 	if [ -d "$HOME/.config/dunst/" ]
 	then
-		echo -e "Notification daemon found: dunst"
+		echo -e "$check Notification daemon found: dunst"
 		notifier="dunstrc"
 	else
-		echo -e "\e[31mNo supported notification daemon found (dunst)\e[0m"
+		echo -e "$fail No supported notification daemon found (dunst)"
 		notifier="other"
 	fi
 }
@@ -74,26 +77,31 @@ hasNotifier() {
 hasVSC() {
 	if [ -d "$HOME/.config/Code" ]
 	then
+		echo -en "$check Syncing MS BFF Visual Studio Code"
 		VSCdir="Code"
 	elif [ -d "$HOME/.config/code-oss-dev" ]
 	then
+		echo -en "$check Syncing Code OSS-dev"
 		VSCdir="code-oss-dev"
 	elif [ -d "$HOME/.config/VSCodium" ]
 	then
+		echo -en "$check Syncing VSCodium"
 		VSCdir="VSCodium"
 	elif [ -d "$HOME/.config/VSCode" ]
 	then
+		echo -en "$check Syncing VSCode"
 		VSCdir="VSCode"
 	elif [ -d "$HOME/.config/Code - OSS" ]
 	then
+		echo -en "$check Syncing Code OSS"
 		VSCdir="Code\ -\ OSS"
 	else
-		echo -e "\e[31mCould not determine location of VSCode directory\e[0m"
+		echo -e "$fail Could not determine location of VSCode directory"
 		VSCdir="none"
 	fi
 	if [ $VSCdir != "none" ]
 	then
-		echo "VSCode configs found in "$VSCdir""
+		echo " (config on "$VSCdir")"
 	fi
 	homePaths+=("$VSCdir")
 }
