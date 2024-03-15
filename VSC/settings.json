@@ -178,12 +178,12 @@
     "r.rpath.linux": "/usr/bin/R",
     "r.rterm.linux": "/usr/bin/radian",
     "r.source.focus": "terminal",
-    "remote.SSH.configFile": "/home/waldir/.ssh/config",
     "scm.defaultViewMode": "tree",
     "security.workspace.trust.untrustedFiles": "open",
     "task.saveBeforeRun": "prompt",
     "terminal.integrated.commandsToSkipShell": [
-        "language-julia.interrupt"
+        "language-julia.interrupt",
+        "matlab.interrupt"
     ],
     "terminal.integrated.confirmOnExit": "always",
     "terminal.integrated.copyOnSelection": true,
@@ -297,5 +297,10 @@
     "workbench.sideBar.location": "right",
     "markdown-pdf.displayHeaderFooter": false,
     "todo-tree.general.debug": true,
-    "background-terminal-notifier.notificationTimeout": 2000
+    "background-terminal-notifier.notificationTimeout": 2000,
+    "quarto.render.renderOnSave": true,
+    "quarto.zotero.library": "none",
+    "remote.SSH.configFile": "/home/waldir/.ssh/config",
+    "remote.SSH.connectTimeout": 30,
+    "remote.SSH.showLoginTerminal": true
 }
