@@ -99,6 +99,12 @@
         "args": "usethis::use_version('dev')"
     },
     {
+        "description": "Bump feature version",
+        "key": "ctrl+r ctrl+shift+v",
+        "command": "r.runCommand",
+        "args": "require('OCBEdev'); add_feature_version()"
+    },
+    {
         "description": "List object structure",
         "key": "ctrl+r ctrl+s",
         "command": "r.runCommand",
@@ -835,5 +841,10 @@
         "key": "alt+left",
         "command": "-workbench.action.terminal.focusPreviousPane",
         "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "ctrl+shift+k",
+        "command": "-quarto.preview",
+        "when": "!quartoRenderScriptActive"
     }
 ]
