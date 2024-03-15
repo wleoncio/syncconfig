@@ -112,6 +112,7 @@ homePaths=(
 	""$HOME"/.config"
 	""$HOME"/"$i3dir""
 	""$HOME"/.config/dunst"
+	""$HOME"/.ssh"
 	""$HOME"/.config/""$VSCdir""/User"
 )
 locationPaths=(
@@ -119,6 +120,7 @@ locationPaths=(
 	""$location"/config"
 	""$location"/config"
 	""$location"/i3/"$machinename""
+	""$location"/config"
 	""$location"/config"
 	""$location"/VSC"
 )
@@ -133,17 +135,17 @@ syncFiles () {
 	destination=($3)
 
 	# Workaround for spaces in VSC path
-	if [ "${#origin[@]}" -gt 6 ]
+	if [ "${#origin[@]}" -gt 7 ]
 	then
-		origin[5]=""${origin[5]}" "${origin[6]}" "${origin[7]}""
-		unset origin[6]
+		origin[6]=""${origin[6]}" "${origin[7]}" "${origin[8]}""
 		unset origin[7]
+		unset origin[8]
 	fi
-	if [ "${#destination[@]}" -gt 6 ]
+	if [ "${#destination[@]}" -gt 7 ]
 	then
-		destination[5]=""${destination[5]}" "${destination[6]}" "${destination[7]}""
-		unset destination[6]
+		destination[6]=""${destination[6]}" "${destination[7]}" "${destination[8]}""
 		unset destination[7]
+		unset destination[8]
 	fi
 
 	# Copying files
@@ -160,6 +162,7 @@ syncFiles () {
 	eval "$operator" "${origin[1]}"/gromit-mpx.cfg "${destination[1]}"
 	eval "$operator" "${origin[1]}"/starship.toml "${destination[1]}"
 	eval "$operator" "${origin[1]}"/gh/config.yml "${destination[1]}"/gh/config.yml
+	eval "$operator" "${origin[5]}"/config "${destination[5]}"
 
 	if [ $compositor != "other" ]
 	then
@@ -178,13 +181,13 @@ syncFiles () {
 
 	if [ "$VSCdir" != "none" ]
 	then
-		eval "$operator" "${origin[5]}"/keybindings.json "${destination[5]}"
-		eval "$operator" "${origin[5]}"/settings.json "${destination[5]}"
+		eval "$operator" "${origin[6]}"/keybindings.json "${destination[6]}"
+		eval "$operator" "${origin[6]}"/settings.json "${destination[6]}"
 		if [[ $1 == "cp" ]]
 		then
-			eval "$operator" -r "${origin[5]}"/snippets "${destination[5]}"
+			eval "$operator" -r "${origin[6]}"/snippets "${destination[6]}"
 		else
-			eval "$operator" -r "${origin[5]}"/snippets "${destination[5]}"/snippets
+			eval "$operator" -r "${origin[6]}"/snippets "${destination[6]}"/snippets
 		fi
 	fi
 }
