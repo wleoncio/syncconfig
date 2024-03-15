@@ -12,12 +12,6 @@
         "editor.defaultFormatter": "yzhang.markdown-all-in-one",
         "editor.rulers": []
     },
-    "alignment.chars": {
-        "<-": {
-            "spaceAfter": 1,
-            "spaceBefore": 1
-        }
-    },
     "diffEditor.renderSideBySide": false,
     "diffEditor.wordWrap": "off",
     "editor.acceptSuggestionOnEnter": "off",
@@ -115,7 +109,6 @@
         }
     },
     "editor.wordWrap": "off",
-    "excalidraw.theme": "light",
     "explorer.compactFolders": false,
     "extensions.ignoreRecommendations": true,
     "files.associations": {
@@ -127,11 +120,6 @@
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
-    "git-graph.commitDetailsView.location": "Docked to Bottom",
-    "git-graph.dialog.createBranch.checkOut": true,
-    "git-graph.repository.commits.fetchAvatars": true,
-    "git-graph.repository.fetchAndPrune": true,
-    "git-graph.showStatusBarItem": false,
     "git.autofetch": true,
     "git.checkoutType": [
         "local"
