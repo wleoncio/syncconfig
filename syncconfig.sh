@@ -191,6 +191,7 @@ syncFiles () {
 	then
 		eval "$operator" "${origin[6]}"/keybindings.json "${destination[6]}"
 		eval "$operator" "${origin[6]}"/settings.json "${destination[6]}"
+		eval "$operator" "${origin[6]}"/tasks.json "${destination[6]}"
 		if [[ $1 == "cp" ]]
 		then
 			eval "$operator" -r "${origin[6]}"/snippets "${destination[6]}"

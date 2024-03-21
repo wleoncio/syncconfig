@@ -1,0 +1,37 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "R",
+			"code": [
+				"devtools::test()"
+			],
+			"problemMatcher": [
+				"$testthat"
+			],
+			"group": {
+				"kind": "test",
+				"isDefault": true
+			},
+			"label": "R: Test"
+		},
+		{
+			"type": "R",
+			"code": [
+				"devtools::check()"
+			],
+			"group": "test",
+			"problemMatcher": [],
+			"label": "R: Check"
+		},
+    {
+			"type": "R",
+			"code": [
+				"devtools::document()"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"label": "R: Document"
+		}
+	]
+}
