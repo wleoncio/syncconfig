@@ -290,5 +290,6 @@
     "quarto.zotero.library": "none",
     "remote.SSH.configFile": "/home/waldir/.ssh/config",
     "remote.SSH.connectTimeout": 30,
-    "remote.SSH.showLoginTerminal": true
+    "remote.SSH.showLoginTerminal": true,
+    "MATLAB.installPath": "/usr/local/MATLAB/R2023b"
 }
