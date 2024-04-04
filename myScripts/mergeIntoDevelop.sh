@@ -41,7 +41,7 @@ if [ $covr == true ]; then
 fi
 
 echo -e '- Update \e[4;31mNEWS\e[0m.md (see head below)?'
-
+echo ""
 awk '/^#/ {c++; if (c==2) {exit}} {print}' NEWS.md
 echo ""
 
