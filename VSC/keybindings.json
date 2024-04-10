@@ -144,6 +144,16 @@
         "args": "covr::report(covr::package_coverage())"
     },
     {
+        "key": "ctrl+r ctrl+p",
+        "command": "r.runCommand",
+        "args": "Rprof()"
+    },
+    {
+        "key": "ctrl+r ctrl+shift+p",
+        "command": "r.runCommand",
+        "args": "Rprof(NULL); summaryRprof(); file.remove('Rprof.out')"
+    },
+    {
         "key": "ctrl+b ctrl+b",
         "command": "workbench.action.toggleSidebarVisibility"
     },
