@@ -12,12 +12,6 @@
         "editor.defaultFormatter": "yzhang.markdown-all-in-one",
         "editor.rulers": []
     },
-    "alignment.chars": {
-        "<-": {
-            "spaceAfter": 1,
-            "spaceBefore": 1
-        }
-    },
     "diffEditor.renderSideBySide": false,
     "diffEditor.wordWrap": "off",
     "editor.acceptSuggestionOnEnter": "off",
@@ -115,7 +109,6 @@
         }
     },
     "editor.wordWrap": "off",
-    "excalidraw.theme": "light",
     "explorer.compactFolders": false,
     "extensions.ignoreRecommendations": true,
     "files.associations": {
@@ -127,11 +120,6 @@
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
-    "git-graph.commitDetailsView.location": "Docked to Bottom",
-    "git-graph.dialog.createBranch.checkOut": true,
-    "git-graph.repository.commits.fetchAvatars": true,
-    "git-graph.repository.fetchAndPrune": true,
-    "git-graph.showStatusBarItem": false,
     "git.autofetch": true,
     "git.checkoutType": [
         "local"
@@ -178,12 +166,12 @@
     "r.rpath.linux": "/usr/bin/R",
     "r.rterm.linux": "/usr/bin/radian",
     "r.source.focus": "terminal",
-    "remote.SSH.configFile": "/home/waldir/.ssh/config",
     "scm.defaultViewMode": "tree",
     "security.workspace.trust.untrustedFiles": "open",
     "task.saveBeforeRun": "prompt",
     "terminal.integrated.commandsToSkipShell": [
-        "language-julia.interrupt"
+        "language-julia.interrupt",
+        "matlab.interrupt"
     ],
     "terminal.integrated.confirmOnExit": "always",
     "terminal.integrated.copyOnSelection": true,
@@ -297,5 +285,11 @@
     "workbench.sideBar.location": "right",
     "markdown-pdf.displayHeaderFooter": false,
     "todo-tree.general.debug": true,
-    "background-terminal-notifier.notificationTimeout": 2000
+    "background-terminal-notifier.notificationTimeout": 2000,
+    "quarto.render.renderOnSave": true,
+    "quarto.zotero.library": "none",
+    "remote.SSH.configFile": "/home/waldir/.ssh/config",
+    "remote.SSH.connectTimeout": 30,
+    "remote.SSH.showLoginTerminal": true,
+    "MATLAB.installPath": "/usr/local/MATLAB/R2023b"
 }

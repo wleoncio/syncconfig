@@ -36,12 +36,13 @@ git log --oneline develop.. | grep -i -e "squash" -e "fixup"
 
 echo -e '- Add \e[4;31munit tests\e[0m for new code?'
 if [ $covr == true ]; then
-	cvrg=$(Rscript -e "cat(covr::percent_coverage(covr::package_coverage()))")
-	echo "  Package coverage on merge: $cvrg"
+	echo -n "  Calculating package coverage on merge: "
+	cvrg=$(Rscript -e "cat(round(covr::percent_coverage(covr::package_coverage()), 2))")
+	echo "$cvrg %"
 fi
 
 echo -e '- Update \e[4;31mNEWS\e[0m.md (see head below)?'
-
+echo ""
 awk '/^#/ {c++; if (c==2) {exit}} {print}' NEWS.md
 echo ""
 
