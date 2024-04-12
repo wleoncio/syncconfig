@@ -16,6 +16,10 @@
 		"prefix": "pt",
 		"body": "Rcpp::Rcout << \"$1: \" << $1 << std::endl; //TEMP"
 	},
+	"Print matrix dimensions": {
+		"prefix": "ptmat",
+		"body": "Rcpp::Rcout << \"$1: \" << $1.n_rows << \" x \" << $1.n_cols << std::endl; //TEMP"
+	},
 	"Add temporary message": {
 		"prefix": "tmp",
 		"body": "Rcpp::Rcout << \"$1\" << std::endl; //TEMP"
