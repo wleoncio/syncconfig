@@ -354,7 +354,6 @@ for_window [instance="evolution-alarm-notify"] sticky enable, resize set 800 800
 for_window [title="Bilde-i-bilde"] sticky enable
 
 # Moving windows
-for_window [instance="pocket-casts|todoist"] move to workspace number $ws0
 for_window [title="Aktivitetsbehandler"] move to workspace number $ws0, workspace number $ws0 
 
 # Windows that need to be explicitly given borders
