@@ -423,10 +423,10 @@
         "args": "devtools::check()"
     },
     {
-        "description": "Check package, skip vignettes",
+        "description": "Check package, skip vignettes and donttest",
         "key": "ctrl+r ctrl+shift+c",
         "command": "r.runCommand",
-        "args": "devtools::check(vignettes = FALSE, args = c('--no-examples', '--no-tests'))"
+        "args": "devtools::check(vignettes = FALSE, args = c('--no-examples', '--no-tests'), cran = FALSE, run_dont_test = FALSE)"
     },
     {
         "key": "ctrl+b ctrl+i",
