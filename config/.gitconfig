@@ -19,8 +19,8 @@
   db = branch -d
   dbb = branch -D
   drb = push -d
-  aa = add --update
-  aaa = add -A
+  aa = add --update --verbose
+  aaa = add -A --verbose
   ap = add -p
   unstage = restore --staged .
   rp = restore -p
