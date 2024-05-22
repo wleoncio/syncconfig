@@ -21,6 +21,7 @@ set tabstop=2
 set shiftwidth=2
 set number
 set noexpandtab
+set relativenumber
 colorscheme OceanicNext " from ~/.vim/colors
 
 "Addition from https://github.com/joshdick/onedark.vim"
