@@ -38,6 +38,7 @@
   latexdiff = difftool -t latexdiff
   pa = push --all
   pt = push --tags
+  pb = push --set-upstream ocbe-uio 
   clean = clean -f
   stashm = stash push -m
 [core]
