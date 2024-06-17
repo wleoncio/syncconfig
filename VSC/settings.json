@@ -295,6 +295,7 @@
     "vim.handleKeys": {
         "<C-f>": false,
         "<C-h>": false,
+        "<C-w>": false,
     },
     "workbench.colorTheme": "Material Theme Ocean",
     "editor.lineNumbers": "relative"
