@@ -154,7 +154,7 @@
         "args": "Rprof(NULL); summaryRprof(); file.remove('Rprof.out')"
     },
     {
-        "key": "ctrl+b ctrl+b",
+        "key": "ctrl+s ctrl+s",
         "command": "workbench.action.toggleSidebarVisibility"
     },
     {
@@ -299,7 +299,7 @@
         "command": "workbench.action.nextPanelView"
     },
     {
-        "key": "ctrl+b ctrl+e",
+        "key": "ctrl+s ctrl+e",
         "command": "workbench.view.explorer"
     },
     {
@@ -317,7 +317,7 @@
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+b ctrl+g",
+        "key": "ctrl+s ctrl+g",
         "command": "workbench.view.scm"
     },
     {
@@ -413,7 +413,7 @@
         "command": "r.createRTerm"
     },
     {
-        "key": "ctrl+b ctrl+r",
+        "key": "ctrl+s ctrl+r",
         "command": "workbench.view.extension.workspaceViewer"
     },
     {
@@ -429,7 +429,7 @@
         "args": "devtools::check(vignettes = FALSE, args = c('--no-examples', '--no-tests'), cran = FALSE, run_dont_test = FALSE)"
     },
     {
-        "key": "ctrl+b ctrl+i",
+        "key": "ctrl+s ctrl+i",
         "command": "issues:github.focus"
     },
     {
@@ -506,11 +506,7 @@
         "command": "editor.action.formatDocument"
     },
     {
-        "key": "ctrl+b ctrl+s",
-        "command": "prStatus:github.focus"
-    },
-    {
-        "key": "ctrl+b ctrl+o",
+        "key": "ctrl+s ctrl+o",
         "command": "outline.focus"
     },
     {
@@ -523,7 +519,7 @@
         "when": "!editorFocus"
     },
     {
-        "key": "ctrl+b ctrl+h",
+        "key": "ctrl+s ctrl+h",
         "command": "timeline.focus"
     },
     {
@@ -546,7 +542,7 @@
         "when": "editorTextFocus && editorLangId == 'rmd'"
     },
     {
-        "key": "ctrl+b ctrl+t",
+        "key": "ctrl+s ctrl+t",
         "command": "workbench.view.extension.todo-tree-container"
     },
     {
@@ -637,7 +633,7 @@
         "when": "editorTextFocus"
     },
     {
-        "key": "ctrl+b ctrl+w",
+        "key": "ctrl+s ctrl+w",
         "command": "workspaceViewer.focus"
     },
     {
@@ -750,7 +746,7 @@
         "command": "vscode-chatgpt.freeText"
     },
     {
-        "key": "ctrl+b ctrl+d",
+        "key": "ctrl+s ctrl+d",
         "command": "ddb50.debugView.focus"
     },
     {
@@ -780,7 +776,7 @@
         "command": "editor.action.inlineSuggest.showPrevious"
     },
     {
-        "key": "ctrl+b ctrl+a",
+        "key": "ctrl+s ctrl+a",
         "command": "workbench.view.extension.github-actions"
     },
     {
@@ -825,7 +821,7 @@
         "when": "isDevelopment"
     },
     {
-        "key": "ctrl+b ctrl+p",
+        "key": "ctrl+s ctrl+p",
         "command": "workbench.panel.chat.view.copilot.focus"
     },
     {
@@ -856,5 +852,14 @@
         "key": "ctrl+shift+k",
         "command": "-quarto.preview",
         "when": "!quartoRenderScriptActive"
+    },
+    {
+        "key": "ctrl+s",
+        "command": "-workbench.action.files.save"
+    },
+    {
+        "key": "ctrl+s",
+        "command": "-issue.createIssueFromFile",
+        "when": "!issues.creatingFromFile && resourceScheme == 'newIssue' && config.files.autoSave != 'off'"
     }
 ]
