@@ -1,12 +1,12 @@
 # Basic packages
-require(utils, quietly=TRUE)
+require(utils, quietly = TRUE)
 
 # Options for base R
 is_radian <- Sys.getenv("RADIAN_VERSION") != ""
 is_interactive <- interactive()
 
 if (!is_radian && is_interactive) {
-	require(colorout, quietly=TRUE)
+	require(colorout, quietly = TRUE)
 	if ("colorout" %in% installed.packages()) {
 		setOutputColors(
 			normal = 39,
@@ -21,18 +21,19 @@ if (!is_radian && is_interactive) {
 	.First <- function() try(loadhistory("~/.Rhistory"))
 	.Last  <- function() try(savehistory("~/.Rhistory"))
 	tryCatch(
-		options(width = as.integer(system('tput cols',intern=TRUE))),
+		options(width = as.integer(system('tput cols',intern = TRUE))),
 		error = function(err) {
 			write("Can't get your terminal width. Put ``export COLUMNS'' in your \
 						 .bashrc. Or something. Setting width to 120 chars",
-						 stderr());
-			options(width=120)}
+						 stderr())
+			options(width = 120)
+		}
 	)
 }
 
 # Custom options
-options(browser="firefox")
-options(repos="https://cran.uib.no")
+options(browser = "firefox")
+options(repos = "https://cran.uib.no")
 Sys.setenv(LANGUAGE = "en_US.UTF-8")
 
 # Updates packages on monday mornings
