@@ -48,7 +48,7 @@ style = "bg:#212736"
 format = '[[ $symbol ](fg:#769ff0 bg:#212736)]($style)'
 
 [cmd_duration]
-min_time = 1_000
+min_time = 36_000
 show_notifications = true
 format = '([previous command took $duration]($style))'
 style = "bg:#1d2230"
