@@ -39,7 +39,7 @@
   pa = push --all
   pt = push --tags
   pb = push --set-upstream ocbe-uio 
-  clean = clean -f
+  CLEAN = clean -f
   stashm = stash push -m
 [core]
   editor = vim

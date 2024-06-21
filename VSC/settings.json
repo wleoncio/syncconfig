@@ -292,11 +292,8 @@
     "remote.SSH.showLoginTerminal": true,
     "MATLAB.installPath": "/usr/local/MATLAB/R2023b",
     "vim.useSystemClipboard": true,
-    "vim.handleKeys": {
-        "<C-f>": false,
-        "<C-h>": false,
-        "<C-w>": false,
-    },
-    "workbench.colorTheme": "Material Theme Ocean",
-    "editor.lineNumbers": "relative"
+    "workbench.colorTheme": "Material Theme High Contrast",
+    "editor.lineNumbers": "relative",
+    "git-graph.date.format": "Relative",
+    "git-graph.repository.commits.fetchAvatars": true
 }
