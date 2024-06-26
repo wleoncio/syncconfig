@@ -652,10 +652,6 @@
         "when": "editorTextFocus && editorLangId == 'python'"
     },
     {
-        "key": "ctrl+u",
-        "command": "insert-unicode.insertText"
-    },
-    {
         "key": "ctrl+k ctrl+g",
         "command": "workbench.action.closeEditorsAndGroup"
     },
@@ -874,5 +870,24 @@
         "key": "ctrl+o",
         "command": "-workbench.action.files.openFile",
         "when": "true"
+    },
+    {
+        "key": "ctrl+shift+o",
+        "command": "-editor.action.accessibleViewGoToSymbol",
+        "when": "accessibilityHelpIsShown && accessibleViewGoToSymbolSupported || accessibleViewGoToSymbolSupported && accessibleViewIsShown"
+    },
+    {
+        "key": "ctrl+shift+o",
+        "command": "workbench.action.files.openFile"
+    },
+    {
+        "key": "shift+u",
+        "command": "extension.vim_ctrl+r",
+        "when": "editorTextFocus && vim.active && vim.use<C-r> && !inDebugRepl"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "-extension.vim_ctrl+r",
+        "when": "editorTextFocus && vim.active && vim.use<C-r> && !inDebugRepl"
     }
 ]

@@ -266,7 +266,12 @@
         "terminal.ansiRed": "#ff0000",
         "terminal.ansiWhite": "#fff",
         "terminal.ansiYellow": "#ffaa00",
-        "terminal.border": "#888"
+        "terminal.border": "#888",
+        "statusBar.background": "#005f5f",
+        "statusBar.noFolderBackground": "#005f5f",
+        "statusBar.debuggingBackground": "#005f5f",
+        "statusBar.foreground": "#ffffff",
+        "statusBar.debuggingForeground": "#ffffff"
     },
     "workbench.editor.centeredLayoutAutoResize": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
@@ -295,5 +300,7 @@
     "workbench.colorTheme": "Material Theme High Contrast",
     "editor.lineNumbers": "relative",
     "git-graph.date.format": "Relative",
-    "git-graph.repository.commits.fetchAvatars": true
+    "git-graph.repository.commits.fetchAvatars": true,
+    "vim.statusBarColorControl": true,
+    "vim.smartRelativeLine": true
 }
