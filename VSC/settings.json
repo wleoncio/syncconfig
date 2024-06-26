@@ -253,6 +253,28 @@
     },
     "todo-tree.regex.regex": "(//|#|%|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
     "typescript.suggest.paths": false,
+    "vim.foldfix": true,
+    "vim.ignorecase": false,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "after": [
+                ""
+            ],
+            "before": [
+                "="
+            ],
+            "commands": [
+                {
+                    "args": [],
+                    "command": "editor.action.reindentlines"
+                }
+            ]
+        }
+    ],
+    "vim.smartRelativeLine": true,
+    "vim.statusBarColorControl": true,
+    "vim.useSystemClipboard": true,
+    "window.menuBarVisibility": "toggle",
     "window.restoreWindows": "none",
     "workbench.colorCustomizations": {
         "editor.lineHighlightBackground": "#1073cf2d",
