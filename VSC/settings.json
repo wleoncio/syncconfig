@@ -163,7 +163,7 @@
     "r.lsp.diagnostics": false,
     "r.lsp.enabled": false,
     "r.rpath.linux": "/usr/bin/R",
-    "r.rterm.linux": "/usr/bin/R",
+    "r.rterm.linux": "${userHome}/venv/bin/radian",
     "r.source.focus": "terminal",
     "scm.defaultViewMode": "tree",
     "security.workspace.trust.untrustedFiles": "open",
