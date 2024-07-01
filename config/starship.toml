@@ -11,7 +11,6 @@ $git_status\
 [](fg:#394260 bg:#212736)\
 $rlang\
 [](fg:#212736 bg:#1d2230)\
-$cmd_duration\
 [ ](fg:#1d2230)\
 \n$character"""
 
