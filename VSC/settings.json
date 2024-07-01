@@ -168,7 +168,7 @@
     "notebook.lineNumbers": "on",
     "notebook.stickyScroll.enabled": true,
     "outline.icons": false,
-    "python.defaultInterpreterPath": "/home/waldir/.local/bin/bpython",
+    "python.defaultInterpreterPath": "/home/waldir/venv/bin/python3",
     "quarto.render.renderOnSave": true,
     "quarto.zotero.library": "none",
     "r.lsp.diagnostics": false,
