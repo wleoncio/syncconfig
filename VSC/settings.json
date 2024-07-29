@@ -175,7 +175,6 @@
     "r.lsp.enabled": false,
     "r.rpath.linux": "/usr/bin/R",
     "r.rterm.linux": "${userHome}/venv/bin/radian",
-    "r.source.focus": "terminal",
     "remote.SSH.configFile": "/home/waldir/.ssh/config",
     "remote.SSH.connectTimeout": 30,
     "remote.SSH.showLoginTerminal": true,
@@ -268,7 +267,6 @@
     },
     "todo-tree.regex.regex": "(//|#|%|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
     "typescript.suggest.paths": false,
-    "vim.foldfix": true,
     "vim.ignorecase": false,
     "vim.normalModeKeyBindingsNonRecursive": [
         {
@@ -320,5 +318,7 @@
     "workbench.sideBar.location": "right",
     "workbench.startupEditor": "welcomePageInEmptyWorkbench",
     "workbench.tree.indent": 16,
-    "workbench.tree.renderIndentGuides": "always"
+    "workbench.tree.renderIndentGuides": "always",
+    "r.bracketedPaste": true,
+    "vim.foldfix": true
 }
