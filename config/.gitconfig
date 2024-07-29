@@ -2,10 +2,10 @@
   email = w.l.netto@medisin.uio.no
   name = Waldir Leoncio
 [alias]
-  df = diff
-  dff = diff --word-diff=color
-  dfc = diff --cached
-  dffc = diff --cached --word-diff=color
+  df = diff --diff-filter=M
+  dff = diff --diff-filter=M --word-diff=color
+  dfc = diff --diff-filter=M --cached
+  dffc = diff --diff-filter=M --cached --word-diff=color
   dfs = diff --ignore-all-space
   lg = log --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all -n 15
   lgg = log --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
