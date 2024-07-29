@@ -42,7 +42,7 @@ is_monday <- format(now, "%u") == 1
 is_morning <- format(now, "%H") < 10
 if (is_monday && is_morning && is_interactive) {
 	message("Updating packages")
-	update.packages()
+	update.packages(.libPaths()[1])
 }
 
 # Cleanup
