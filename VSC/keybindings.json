@@ -859,7 +859,7 @@
         "when": "!issues.creatingFromFile && resourceScheme == 'newIssue' && config.files.autoSave != 'off'"
     },
     {
-        "key": "ctrl+shift+o",
+        "key": "ctrl+p ctrl+o",
         "command": "workbench.action.quickOpen"
     },
     {
@@ -872,19 +872,8 @@
         "when": "accessibilityHelpIsShown && accessibleViewGoToSymbolSupported || accessibleViewGoToSymbolSupported && accessibleViewIsShown"
     },
     {
-        "key": "shift+u",
-        "command": "extension.vim_ctrl+r",
-        "when": "editorTextFocus && vim.active && vim.use<C-r> && !inDebugRepl"
-    },
-    {
-        "key": "ctrl+r",
-        "command": "-extension.vim_ctrl+r",
-        "when": "editorTextFocus && vim.active && vim.use<C-r> && !inDebugRepl"
-    },
-    {
-        "key": "ctrl+shift+o",
-        "command": "workbench.action.files.openFileFolder",
-        "when": "isMacNative && openFolderWorkspaceSupport"
+        "key": "ctrl+p ctrl+shift+o",
+        "command": "workbench.action.files.openFileFolder"
     },
     {
         "key": "ctrl+o",
@@ -939,5 +928,43 @@
     {
         "key": "ctrl+k e",
         "command": "github.copilot.interactiveEditor.explain"
+    },
+    {
+        "key": "ctrl+p ctrl+r",
+        "command": "workbench.action.openRecent"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "-workbench.action.openRecent"
+    },
+    {
+        "key": "ctrl+o",
+        "command": "-workbench.action.files.openFile",
+        "when": "true"
+    },
+    {
+        "key": "ctrl+o",
+        "command": "-workbench.action.files.openFolderViaWorkspace",
+        "when": "!openFolderWorkspaceSupport && workbenchState == 'workspace'"
+    },
+    {
+        "key": "ctrl+o",
+        "command": "-workbench.action.files.openLocalFile",
+        "when": "remoteFileDialogVisible"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "-extension.vim_ctrl+p",
+        "when": "editorTextFocus && vim.active && vim.use<C-p> && !inDebugRepl || vim.active && vim.use<C-p> && !inDebugRepl && vim.mode == 'CommandlineInProgress' || vim.active && vim.use<C-p> && !inDebugRepl && vim.mode == 'SearchInProgressMode'"
+    },
+    {
+        "key": "ctrl+p ctrl+f",
+        "command": "workbench.action.files.openFolder",
+        "when": "openFolderWorkspaceSupport"
+    },
+    {
+        "key": "ctrl+k ctrl+o",
+        "command": "-workbench.action.files.openFolder",
+        "when": "openFolderWorkspaceSupport"
     }
 ]
