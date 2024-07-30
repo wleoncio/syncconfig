@@ -48,7 +48,6 @@
         }
     ],
     "editor.scrollBeyondLastColumn": 0,
-    "editor.showFoldingControls": "always",
     "editor.smoothScrolling": true,
     "editor.snippetSuggestions": "top",
     "editor.stickyScroll.enabled": true,
@@ -320,5 +319,7 @@
     "workbench.tree.indent": 16,
     "workbench.tree.renderIndentGuides": "always",
     "r.bracketedPaste": true,
-    "vim.foldfix": true
+    "vim.foldfix": true,
+    "editor.showFoldingControls": "always",
+    "editor.foldingStrategy": "indentation"
 }
