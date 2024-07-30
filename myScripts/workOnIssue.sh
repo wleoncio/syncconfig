@@ -32,15 +32,6 @@ echo ""
 Rscript -e "covr::percent_coverage(covr::package_coverage())"
 
 echo ""
-echo "#########################"
-echo "# Updating build number #"
-echo "#########################"
-echo ""
-Rscript -e "require('OCBEdev'); add_feature_version()"
-new_dev_version=$(cat DESCRIPTION | grep Version: | cut -d " " -f 2)
-git commit --all --message "Increment version number to "$new_dev_version""
-
-echo ""
 echo "####################"
 echo "# Summary of issue #"
 echo "####################"
