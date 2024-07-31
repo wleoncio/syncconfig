@@ -163,7 +163,8 @@
     },
     {
         "key": "ctrl+t ctrl+c",
-        "command": "workbench.action.terminal.focusNext"
+        "command": "workbench.action.terminal.focusNext",
+        "when": "terminalFocus"
     },
     {
         "key": "ctrl+shift+s",
@@ -284,19 +285,23 @@
     },
     {
         "key": "ctrl+t ctrl+b",
-        "command": "workbench.action.positionPanelBottom"
+        "command": "workbench.action.positionPanelBottom",
+        "when": "terminalFocus"
     },
     {
         "key": "ctrl+t ctrl+r",
-        "command": "workbench.action.positionPanelRight"
+        "command": "workbench.action.positionPanelRight",
+        "when": "terminalFocus"
     },
     {
         "key": "ctrl+t ctrl+m",
-        "command": "workbench.action.toggleMaximizedPanel"
+        "command": "workbench.action.toggleMaximizedPanel",
+        "when": "terminalFocus"
     },
     {
         "key": "ctrl+t ctrl+p",
-        "command": "workbench.action.nextPanelView"
+        "command": "workbench.action.nextPanelView",
+        "when": "terminalFocus"
     },
     {
         "key": "ctrl+s ctrl+e",
@@ -346,11 +351,13 @@
     },
     {
         "key": "ctrl+t down",
-        "command": "workbench.action.terminal.resizePaneDown"
+        "command": "workbench.action.terminal.resizePaneDown",
+        "when": "terminalFocus"
     },
     {
         "key": "ctrl+t up",
-        "command": "workbench.action.terminal.resizePaneUp"
+        "command": "workbench.action.terminal.resizePaneUp",
+        "when": "terminalFocus"
     },
     {
         "key": "ctrl+e down",
@@ -402,7 +409,8 @@
     },
     {
         "key": "ctrl+t ctrl+n",
-        "command": "workbench.action.terminal.new"
+        "command": "workbench.action.terminal.new",
+        "when": "terminalFocus"
     },
     {
         "key": "ctrl+r ctrl+q",
@@ -699,7 +707,8 @@
     },
     {
         "key": "ctrl+t ctrl+k",
-        "command": "workbench.action.terminal.kill"
+        "command": "workbench.action.terminal.kill",
+        "when": "terminalFocus"
     },
     {
         "key": "ctrl+0",
@@ -777,15 +786,18 @@
     },
     {
         "key": "ctrl+t f2",
-        "command": "workbench.action.terminal.rename"
+        "command": "workbench.action.terminal.rename",
+        "when": "terminalFocus"
     },
     {
         "key": "ctrl+t shift+f2",
-        "command": "workbench.action.terminal.changeColor"
+        "command": "workbench.action.terminal.changeColor",
+        "when": "terminalFocus"
     },
     {
         "key": "ctrl+t ctrl+shift+f2",
-        "command": "workbench.action.terminal.changeIcon"
+        "command": "workbench.action.terminal.changeIcon",
+        "when": "terminalFocus"
     },
     {
         "key": "down",
