@@ -978,5 +978,10 @@
         "key": "ctrl+k ctrl+o",
         "command": "-workbench.action.files.openFolder",
         "when": "openFolderWorkspaceSupport"
+    },
+    {
+        "key": "right",
+        "command": "extension.vim_right",
+        "when": "editorTextFocus && vim.active && !inDebugRepl && editorLangId != 'python'"
     }
 ]
