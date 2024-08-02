@@ -321,5 +321,7 @@
     "r.bracketedPaste": true,
     "vim.foldfix": true,
     "editor.showFoldingControls": "always",
-    "editor.foldingStrategy": "indentation"
+    "editor.foldingStrategy": "indentation",
+    "vim.highlightedyank.enable": true,
+    "scm.experimental.showHistoryGraph": true
 }
