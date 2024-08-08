@@ -8,12 +8,12 @@ if (!is_radian && is_interactive) {
 	require(colorout, quietly = TRUE)
 	if ("colorout" %in% installed.packages()) {
 		setOutputColors(
-			normal = 39,
-			number = 51,
-			negnum = 183,
-			date = 43,
-			string = 79,
-			const = 75,
+			normal  = 39,
+			number  = 51,
+			negnum  = 183,
+			date    = 43,
+			string  = 79,
+			const   = 75,
 			verbose = FALSE
 		)
 	}
@@ -30,10 +30,12 @@ if (!is_radian && is_interactive) {
 	)
 }
 
+# Options for Radian can be found on .radian_profile
+
 # Custom options
 options(browser = "firefox")
 options(repos = "https://cran.uib.no")
-options(error = recover)
+options(error = rlang::entrace)
 Sys.setenv(LANGUAGE = "en_US.UTF-8")
 
 # Updates packages on monday mornings
