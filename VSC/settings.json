@@ -40,7 +40,6 @@
     "editor.mouseWheelZoom": false,
     "editor.overviewRulerBorder": false,
     "editor.quickSuggestionsDelay": 0,
-    "editor.renderLineHighlight": "all",
     "editor.rulers": [
         {
             "color": "#ff0000",
@@ -323,5 +322,8 @@
     "editor.showFoldingControls": "always",
     "editor.foldingStrategy": "indentation",
     "vim.highlightedyank.enable": true,
-    "scm.experimental.showHistoryGraph": true
+    "scm.experimental.showHistoryGraph": true,
+    "editor.autoClosingQuotes": "never",
+    "workbench.activityBar.location": "hidden",
+    "editor.renderLineHighlightOnlyWhenFocus": true
 }

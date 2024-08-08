@@ -284,16 +284,6 @@
         "command": "workbench.action.toggleMenuBar"
     },
     {
-        "key": "ctrl+t ctrl+b",
-        "command": "workbench.action.positionPanelBottom",
-        "when": "terminalFocus"
-    },
-    {
-        "key": "ctrl+t ctrl+r",
-        "command": "workbench.action.positionPanelRight",
-        "when": "terminalFocus"
-    },
-    {
         "key": "ctrl+t ctrl+m",
         "command": "workbench.action.toggleMaximizedPanel",
         "when": "terminalFocus"
@@ -983,5 +973,22 @@
         "key": "right",
         "command": "extension.vim_right",
         "when": "editorTextFocus && vim.active && !inDebugRepl && editorLangId != 'python'"
+    },
+    {
+        "key": "ctrl+w",
+        "command": "-workbench.action.closeGroup",
+        "when": "activeEditorGroupEmpty && multipleEditorGroups"
+    },
+    {
+        "key": "ctrl+w",
+        "command": "-workbench.action.closeActiveEditor"
+    },
+    {
+        "key": "ctrl+shift+w",
+        "command": "-workbench.action.closeWindow"
+    },
+    {
+        "key": "ctrl+shift+w",
+        "command": "workbench.action.closeActiveEditor"
     }
 ]
