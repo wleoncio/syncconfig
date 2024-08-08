@@ -24,6 +24,7 @@
   ap = add -p
   unstage = restore --staged .
   rp = restore -p
+	rs = !sh -c 'git diff -w | git apply --cached && git checkout . && git restore --staged .'
   cm = commit --verbose
   cmf = commit --fixup
   cms = commit --squash
@@ -41,6 +42,7 @@
   pb = push --set-upstream ocbe-uio 
   CLEAN = clean -f
   stashm = stash push -m
+	RESET = reset --hard
 [core]
   editor = vim
   autocrlf = input
