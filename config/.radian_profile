@@ -1,9 +1,10 @@
 # Full color list: https://help.farbox.com/pygments.html
 options(radian.color_scheme = "native") # for dark backgrounds
-options(radian.auto_match = TRUE)
+options(radian.editing_mode = "vim")
+options(radian.auto_match = FALSE)
 options(radian.highlight_matching_bracket = TRUE)
-options(radian.complete_while_typing = FALSE)
-options(radian.history_search_ignore_case = FALSE)
+options(radian.complete_while_typing = TRUE)
+options(radian.history_search_ignore_case = TRUE)
 options(radian.escape_key_map = list(
 	# Press <Esc> + <key> to trigger value
     list(key = "-", value = " <- ")
