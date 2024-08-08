@@ -2,6 +2,7 @@
   email = w.l.netto@medisin.uio.no
   name = Waldir Leoncio
 [alias]
+	getalias = !sh -c 'git config --get alias."${1}"' -
   df = diff --diff-filter=M
   dff = diff --diff-filter=M --word-diff=color
   dfc = diff --diff-filter=M --cached
@@ -24,7 +25,7 @@
   ap = add -p
   unstage = restore --staged .
   rp = restore -p
-	rs = !sh -c 'git diff -w | git apply --cached && git checkout . && git restore --staged .'
+	rs = !sh -c 'git diff --ignore-all-space --ignore-blank-lines | git apply --cached --allow-empty && git checkout . && git restore --staged .'
   cm = commit --verbose
   cmf = commit --fixup
   cms = commit --squash
