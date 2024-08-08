@@ -43,115 +43,71 @@
     {
         "description": "Build package",
         "key": "ctrl+r ctrl+b",
-        "command": "r.build"
-    },
-    {
-        "key": "ctrl+r ctrl+d",
-        "command": "r.runCommand",
-        "args": "devtools::document()"
-    },
-    {
-        "description": "Lint package",
-        "key": "ctrl+r ctrl+l",
-        "command": "r.runCommand",
-        "args": "library(lintr); lint_package(linters = list(commented_code_linter(), infix_spaces_linter(), line_length_linter(), quotes_linter(), spaces_inside_linter(), spaces_left_parentheses_linter(), unnecessary_concatenation_linter()))"
-    },
-    {
-        "description": "Load exported package functions",
-        "key": "ctrl+r ctrl+r",
-        "command": "r.runCommand",
-        "args": "devtools::load_all(export_all = FALSE)"
-    },
-    {
-        "description": "Load all package functions",
-        "key": "ctrl+r ctrl+shift+r",
-        "command": "r.runCommand",
-        "args": "devtools::load_all(export_all = TRUE)"
+        "command": "r.build",
+        "when": "terminalFocus"
     },
     {
         "description": "Document and install package",
-        "key": "ctrl+r ctrl+i",
+        "key": "ctrl+r ctrl+shift+c",
         "command": "r.runCommand",
-        "args": "devtools::document(); devtools::install()"
+        "args": "devtools::document(); devtools::install()",
+        "when": "terminalFocus"
     },
     {
         "description": "Update version and install package",
-        "key": "ctrl+r ctrl+shift+i",
+        "key": "ctrl+r ctrl+shift+c",
         "command": "r.runCommand",
-        "args": "usethis::use_version('dev'); devtools::install()"
+        "args": "usethis::use_version('dev'); devtools::install()",
+        "when": "terminalFocus"
     },
     {
         "description": "Update docs, version and install package",
-        "key": "ctrl+shift+r ctrl+shift+i",
+        "key": "ctrl+r ctrl+shift+c",
         "command": "r.runCommand",
-        "args": "devtools::document(); usethis::use_version('dev'); devtools::install()"
+        "args": "devtools::document(); usethis::use_version('dev'); devtools::install()",
+        "when": "terminalFocus"
     },
     {
         "description": "Update version and install package",
-        "key": "ctrl+r ctrl+shift+i",
+        "key": "ctrl+r ctrl+c",
         "command": "r.runCommand",
-        "args": "usethis::use_version('dev'); devtools::install()"
+        "args": "usethis::use_version('dev'); devtools::install()",
+        "when": "terminalFocus"
     },
     {
         "description": "Bump development version",
-        "key": "ctrl+r ctrl+v",
+        "key": "ctrl+r ctrl+shift+p",
         "command": "r.runCommand",
-        "args": "usethis::use_version('dev')"
+        "args": "usethis::use_version('dev')",
+        "when": "terminalFocus"
     },
     {
         "description": "Bump feature version",
-        "key": "ctrl+r ctrl+shift+v",
+        "key": "ctrl+r ctrl+p",
         "command": "r.runCommand",
-        "args": "require('OCBEdev'); add_feature_version()"
+        "args": "require('OCBEdev'); add_feature_version()",
+        "when": "terminalFocus"
     },
     {
         "description": "List object structure",
-        "key": "ctrl+r ctrl+s",
+        "key": "ctrl+r ctrl+shift+u",
         "command": "r.runCommand",
-        "args": "print(ls.str(), all.names = TRUE, max.level = 0)"
+        "args": "print(ls.str(), all.names = TRUE, max.level = 0)",
+        "when": "terminalFocus"
     },
     {
         "description": "List object structure",
-        "key": "ctrl+r ctrl+shift+s",
+        "key": "ctrl+r ctrl+u",
         "command": "r.runCommand",
-        "args": "View(globalenv())"
+        "args": "View(globalenv())",
+        "when": "terminalFocus"
     },
     {
         "description": "View environment",
-        "key": "ctrl+r ctrl+e",
-        "command": "r.runCommand",
-        "args": "devtools::run_examples()"
-    },
-    {
-        "description": "Clean working environment",
-        "key": "ctrl+r shift+r",
-        "command": "r.runCommand",
-        "args": "rm(list = ls())"
-    },
-    {
         "key": "ctrl+r ctrl+n",
         "command": "r.runCommand",
-        "args": "; notifier::notify('done')"
-    },
-    {
-        "key": "ctrl+r ctrl+u",
-        "command": "r.runCommand",
-        "args": "devtools::test()"
-    },
-    {
-        "key": "ctrl+r ctrl+shift+u",
-        "command": "r.runCommand",
-        "args": "covr::report(covr::package_coverage())"
-    },
-    {
-        "key": "ctrl+r ctrl+p",
-        "command": "r.runCommand",
-        "args": "Rprof()"
-    },
-    {
-        "key": "ctrl+r ctrl+shift+p",
-        "command": "r.runCommand",
-        "args": "Rprof(NULL); summaryRprof(); file.remove('Rprof.out')"
+        "args": "devtools::run_examples()",
+        "when": "terminalFocus"
     },
     {
         "key": "ctrl+s ctrl+s",
@@ -404,27 +360,17 @@
     },
     {
         "key": "ctrl+r ctrl+q",
-        "command": "r.helpPanel.showQuickPick"
+        "command": "r.helpPanel.showQuickPick",
+        "when": "terminalFocus"
     },
     {
         "key": "ctrl+r ctrl+t",
-        "command": "r.createRTerm"
+        "command": "r.createRTerm",
+        "when": "terminalFocus"
     },
     {
         "key": "ctrl+s ctrl+r",
         "command": "workbench.view.extension.workspaceViewer"
-    },
-    {
-        "description": "Check package",
-        "key": "ctrl+r ctrl+c",
-        "command": "r.runCommand",
-        "args": "devtools::check()"
-    },
-    {
-        "description": "Check package, skip vignettes and donttest",
-        "key": "ctrl+r ctrl+shift+c",
-        "command": "r.runCommand",
-        "args": "devtools::check(vignettes = FALSE, args = c('--no-examples', '--no-tests'), cran = FALSE, run_dont_test = FALSE)"
     },
     {
         "key": "ctrl+s ctrl+i",
@@ -532,7 +478,7 @@
     {
         "key": "ctrl+r ctrl+k",
         "command": "r.knitRmd",
-        "when": "editorTextFocus && editorLangId == 'rmd'"
+        "when": "terminalFocus && editorTextFocus && editorLangId == 'rmd'"
     },
     {
         "key": "ctrl+shift+k",
@@ -809,11 +755,6 @@
         "command": "-editor.action.selectAll"
     },
     {
-        "key": "ctrl+r ctrl+w",
-        "command": "workbench.action.reloadWindow",
-        "when": "true"
-    },
-    {
         "key": "ctrl+r",
         "command": "-workbench.action.reloadWindow",
         "when": "isDevelopment"
@@ -990,5 +931,10 @@
     {
         "key": "ctrl+shift+w",
         "command": "workbench.action.closeActiveEditor"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "-python.refreshTensorBoard",
+        "when": "python.hasActiveTensorBoardSession"
     }
 ]
