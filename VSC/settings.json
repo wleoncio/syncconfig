@@ -17,12 +17,14 @@
     "diffEditor.wordWrap": "off",
     "editor.acceptSuggestionOnEnter": "off",
     "editor.autoClosingBrackets": "never",
+    "editor.autoClosingQuotes": "never",
     "editor.bracketPairColorization.enabled": true,
     "editor.cursorBlinking": "blink",
     "editor.cursorSmoothCaretAnimation": "explicit",
     "editor.cursorWidth": 3,
     "editor.emptySelectionClipboard": false,
     "editor.find.loop": false,
+    "editor.foldingStrategy": "indentation",
     "editor.fontFamily": "FiraCode Nerd Font",
     "editor.fontLigatures": true,
     "editor.fontSize": 12,
@@ -40,6 +42,7 @@
     "editor.mouseWheelZoom": false,
     "editor.overviewRulerBorder": false,
     "editor.quickSuggestionsDelay": 0,
+    "editor.renderLineHighlightOnlyWhenFocus": true,
     "editor.rulers": [
         {
             "color": "#ff0000",
@@ -47,6 +50,7 @@
         }
     ],
     "editor.scrollBeyondLastColumn": 0,
+    "editor.showFoldingControls": "always",
     "editor.smoothScrolling": true,
     "editor.snippetSuggestions": "top",
     "editor.stickyScroll.enabled": true,
@@ -169,6 +173,7 @@
     "python.defaultInterpreterPath": "/home/waldir/venv/bin/python3",
     "quarto.render.renderOnSave": true,
     "quarto.zotero.library": "none",
+    "r.bracketedPaste": true,
     "r.lsp.diagnostics": false,
     "r.lsp.enabled": false,
     "r.rpath.linux": "/usr/bin/R",
@@ -177,6 +182,7 @@
     "remote.SSH.connectTimeout": 30,
     "remote.SSH.showLoginTerminal": true,
     "scm.defaultViewMode": "tree",
+    "scm.experimental.showHistoryGraph": true,
     "security.workspace.trust.untrustedFiles": "open",
     "task.saveBeforeRun": "prompt",
     "terminal.integrated.commandsToSkipShell": [
@@ -265,6 +271,8 @@
     },
     "todo-tree.regex.regex": "(//|#|%|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
     "typescript.suggest.paths": false,
+    "vim.foldfix": true,
+    "vim.highlightedyank.enable": true,
     "vim.ignorecase": false,
     "vim.normalModeKeyBindingsNonRecursive": [
         {
@@ -287,6 +295,7 @@
     "vim.useSystemClipboard": true,
     "window.menuBarVisibility": "toggle",
     "window.restoreWindows": "none",
+    "workbench.activityBar.location": "hidden",
     "workbench.colorCustomizations": {
         "editor.lineHighlightBackground": "#1073cf2d",
         "editor.lineHighlightBorder": "#9fced11f",
@@ -313,18 +322,9 @@
     "workbench.editor.revealIfOpen": true,
     "workbench.editor.tabSizing": "shrink",
     "workbench.enableExperiments": false,
+    "workbench.iconTheme": "eq-material-theme-icons",
     "workbench.sideBar.location": "right",
     "workbench.startupEditor": "welcomePageInEmptyWorkbench",
     "workbench.tree.indent": 16,
-    "workbench.tree.renderIndentGuides": "always",
-    "r.bracketedPaste": true,
-    "vim.foldfix": true,
-    "editor.showFoldingControls": "always",
-    "editor.foldingStrategy": "indentation",
-    "vim.highlightedyank.enable": true,
-    "scm.experimental.showHistoryGraph": true,
-    "editor.autoClosingQuotes": "never",
-    "workbench.activityBar.location": "hidden",
-    "editor.renderLineHighlightOnlyWhenFocus": true,
-    "workbench.iconTheme": "eq-material-theme-icons"
+    "workbench.tree.renderIndentGuides": "always"
 }
