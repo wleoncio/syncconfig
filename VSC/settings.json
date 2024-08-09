@@ -306,7 +306,7 @@
         "terminal.ansiYellow": "#ffaa00",
         "terminal.border": "#888"
     },
-    "workbench.colorTheme": "Material Theme High Contrast",
+    "workbench.colorTheme": "Material Theme",
     "workbench.editor.centeredLayoutAutoResize": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.mouseBackForwardToNavigate": false,
@@ -325,5 +325,6 @@
     "scm.experimental.showHistoryGraph": true,
     "editor.autoClosingQuotes": "never",
     "workbench.activityBar.location": "hidden",
-    "editor.renderLineHighlightOnlyWhenFocus": true
+    "editor.renderLineHighlightOnlyWhenFocus": true,
+    "workbench.iconTheme": "eq-material-theme-icons"
 }
