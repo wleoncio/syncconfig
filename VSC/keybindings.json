@@ -47,66 +47,130 @@
         "when": "terminalFocus"
     },
     {
+        "key": "ctrl+r ctrl+d",
+        "command": "r.runCommand",
+        "args": "devtools::document()",
+        "when": "terminalFocus"
+    },
+    {
+        "description": "Lint package",
+        "key": "ctrl+r ctrl+l",
+        "command": "r.runCommand",
+        "args": "library(lintr); lint_package(linters = list(commented_code_linter(), infix_spaces_linter(), line_length_linter(), quotes_linter(), spaces_inside_linter(), spaces_left_parentheses_linter(), unnecessary_concatenation_linter()))",
+        "when": "terminalFocus"
+    },
+    {
+        "description": "Load exported package functions",
+        "key": "ctrl+r ctrl+r",
+        "command": "r.runCommand",
+        "args": "devtools::load_all(export_all = FALSE)",
+        "when": "terminalFocus"
+    },
+    {
+        "description": "Load all package functions",
+        "key": "ctrl+r ctrl+shift+r",
+        "command": "r.runCommand",
+        "args": "devtools::load_all(export_all = TRUE)",
+        "when": "terminalFocus"
+    },
+    {
         "description": "Document and install package",
-        "key": "ctrl+r ctrl+shift+c",
+        "key": "ctrl+r ctrl+i",
         "command": "r.runCommand",
         "args": "devtools::document(); devtools::install()",
         "when": "terminalFocus"
     },
     {
         "description": "Update version and install package",
-        "key": "ctrl+r ctrl+shift+c",
+        "key": "ctrl+r ctrl+shift+i",
         "command": "r.runCommand",
         "args": "usethis::use_version('dev'); devtools::install()",
         "when": "terminalFocus"
     },
     {
         "description": "Update docs, version and install package",
-        "key": "ctrl+r ctrl+shift+c",
+        "key": "ctrl+shift+r ctrl+shift+i",
         "command": "r.runCommand",
         "args": "devtools::document(); usethis::use_version('dev'); devtools::install()",
         "when": "terminalFocus"
     },
     {
         "description": "Update version and install package",
-        "key": "ctrl+r ctrl+c",
+        "key": "ctrl+r ctrl+shift+i",
         "command": "r.runCommand",
         "args": "usethis::use_version('dev'); devtools::install()",
         "when": "terminalFocus"
     },
     {
         "description": "Bump development version",
-        "key": "ctrl+r ctrl+shift+p",
+        "key": "ctrl+r ctrl+v",
         "command": "r.runCommand",
         "args": "usethis::use_version('dev')",
         "when": "terminalFocus"
     },
     {
         "description": "Bump feature version",
-        "key": "ctrl+r ctrl+p",
+        "key": "ctrl+r ctrl+shift+v",
         "command": "r.runCommand",
         "args": "require('OCBEdev'); add_feature_version()",
         "when": "terminalFocus"
     },
     {
         "description": "List object structure",
-        "key": "ctrl+r ctrl+shift+u",
+        "key": "ctrl+r ctrl+s",
         "command": "r.runCommand",
         "args": "print(ls.str(), all.names = TRUE, max.level = 0)",
         "when": "terminalFocus"
     },
     {
         "description": "List object structure",
-        "key": "ctrl+r ctrl+u",
+        "key": "ctrl+r ctrl+shift+s",
         "command": "r.runCommand",
         "args": "View(globalenv())",
         "when": "terminalFocus"
     },
     {
         "description": "View environment",
-        "key": "ctrl+r ctrl+n",
+        "key": "ctrl+r ctrl+e",
         "command": "r.runCommand",
         "args": "devtools::run_examples()",
+        "when": "terminalFocus"
+    },
+    {
+        "description": "Clean working environment",
+        "key": "ctrl+r shift+r",
+        "command": "r.runCommand",
+        "args": "rm(list = ls())",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+r ctrl+n",
+        "command": "r.runCommand",
+        "args": "; notifier::notify('done')",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+r ctrl+u",
+        "command": "r.runCommand",
+        "args": "devtools::test()",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+r ctrl+shift+u",
+        "command": "r.runCommand",
+        "args": "covr::report(covr::package_coverage())",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+r ctrl+p",
+        "command": "r.runCommand",
+        "args": "Rprof()",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+r ctrl+shift+p",
+        "command": "r.runCommand",
+        "args": "Rprof(NULL); summaryRprof(); file.remove('Rprof.out')",
         "when": "terminalFocus"
     },
     {
@@ -371,6 +435,20 @@
     {
         "key": "ctrl+s ctrl+r",
         "command": "workbench.view.extension.workspaceViewer"
+    },
+    {
+        "description": "Check package",
+        "key": "ctrl+r ctrl+c",
+        "command": "r.runCommand",
+        "args": "devtools::check()",
+        "when": "terminalFocus"
+    },
+    {
+        "description": "Check package, skip vignettes and donttest",
+        "key": "ctrl+r ctrl+shift+c",
+        "command": "r.runCommand",
+        "args": "devtools::check(vignettes = FALSE, args = c('--no-examples', '--no-tests'), cran = FALSE, run_dont_test = FALSE)",
+        "when": "terminalFocus"
     },
     {
         "key": "ctrl+s ctrl+i",
@@ -755,11 +833,6 @@
         "command": "-editor.action.selectAll"
     },
     {
-        "key": "ctrl+r",
-        "command": "-workbench.action.reloadWindow",
-        "when": "isDevelopment"
-    },
-    {
         "key": "ctrl+s ctrl+p",
         "command": "workbench.panel.chat.view.copilot.focus"
     },
@@ -877,10 +950,6 @@
         "command": "workbench.action.openRecent"
     },
     {
-        "key": "ctrl+r",
-        "command": "-workbench.action.openRecent"
-    },
-    {
         "key": "ctrl+o",
         "command": "-workbench.action.files.openFile",
         "when": "true"
@@ -931,10 +1000,5 @@
     {
         "key": "ctrl+shift+w",
         "command": "workbench.action.closeActiveEditor"
-    },
-    {
-        "key": "ctrl+r",
-        "command": "-python.refreshTensorBoard",
-        "when": "python.hasActiveTensorBoardSession"
     }
 ]
