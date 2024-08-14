@@ -326,5 +326,6 @@
     "workbench.sideBar.location": "right",
     "workbench.startupEditor": "welcomePageInEmptyWorkbench",
     "workbench.tree.indent": 16,
-    "workbench.tree.renderIndentGuides": "always"
+    "workbench.tree.renderIndentGuides": "always",
+    "vim.easymotion": true
 }
