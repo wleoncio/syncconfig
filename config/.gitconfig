@@ -18,8 +18,8 @@
   co = checkout
   cb = checkout
   nb = checkout -b
-  db = branch -d
-  dbb = branch -D
+  db = branch --delete
+  DB = branch --delete --force
   drb = push -d
   aa = add --update --verbose
   aaa = add -A --verbose
