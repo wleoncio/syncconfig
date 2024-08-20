@@ -751,7 +751,7 @@
         "command": "workbench.action.toggleActivityBarVisibility"
     },
     {
-        "key": "ctrl+t ctrl+l",
+        "key": "ctrl+t ctrl+shift+l",
         "command": "workbench.action.terminal.openDetectedLink",
         "when": "terminalFocus && terminalHasBeenCreated"
     },
@@ -1000,5 +1000,9 @@
     {
         "key": "ctrl+shift+w",
         "command": "workbench.action.closeActiveEditor"
+    },
+    {
+        "key": "ctrl+t ctrl+l",
+        "command": "workbench.action.terminal.openUrlLink"
     }
 ]
