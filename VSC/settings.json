@@ -271,7 +271,6 @@
     },
     "todo-tree.regex.regex": "(//|#|%|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
     "typescript.suggest.paths": false,
-    "vim.foldfix": true,
     "vim.highlightedyank.enable": true,
     "vim.ignorecase": false,
     "vim.normalModeKeyBindingsNonRecursive": [
@@ -327,5 +326,6 @@
     "workbench.startupEditor": "welcomePageInEmptyWorkbench",
     "workbench.tree.indent": 16,
     "workbench.tree.renderIndentGuides": "always",
-    "vim.easymotion": true
+    "vim.easymotion": true,
+    "vim.gdefault": true
 }
