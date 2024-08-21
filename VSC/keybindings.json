@@ -1003,6 +1003,11 @@
     },
     {
         "key": "ctrl+t ctrl+l",
-        "command": "workbench.action.terminal.openUrlLink"
+        "command": "workbench.action.terminal.openUrlLink",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+p ctrl+s",
+        "command": "workbench.action.files.saveAs"
     }
 ]
