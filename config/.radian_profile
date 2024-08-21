@@ -1,6 +1,7 @@
 # Full color list: https://help.farbox.com/pygments.html
 options(radian.color_scheme = "native") # for dark backgrounds
 options(radian.editing_mode = "vim")
+options(radian.emacs_bindings_in_vi_insert_mode = TRUE)
 options(radian.auto_match = FALSE)
 options(radian.highlight_matching_bracket = TRUE)
 options(radian.complete_while_typing = TRUE)
