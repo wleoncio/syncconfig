@@ -1,18 +1,24 @@
 # TODO: replace colors with UiO fargepalett
 # Source: https://starship.rs/config/
+# Source for icons: https://www.nerdfonts.com/cheat-sheet
+
 format = """
-[░▒▓](#a3aed2)\
 [  ](bg:#a3aed2 fg:#090c0c)\
 [](bg:#769ff0 fg:#a3aed2)\
 $directory\
-[](fg:#769ff0 bg:#394260)\
-$git_branch\
-$git_status\
-[](fg:#394260 bg:#212736)\
-$rlang\
-[](fg:#212736 bg:#1d2230)\
-[ ](fg:#1d2230)\
-\n$character"""
+[](fg:#769ff0 bg:lysblaa)\
+\n
+($git_branch $git_status $git_state $git_metrics)\
+$character
+"""
+
+[palettes.uio]
+roed = '#b60000'
+svart = '#000000'
+graa = '#b2b3b7'
+blaa = '#3e31d6'
+lysblaa = '#86a4f7'
+blaatone = '#e6ecff'
 
 [directory]
 style = "fg:#e3e5e5 bg:#769ff0"
@@ -25,20 +31,27 @@ truncation_symbol = "…/"
 
 [git_branch]
 symbol = ""
-style = "bg:#394260"
-format = '[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)'
+style = "fg:blaatone"
+format = '[ $symbol $branch]($style)'
 
 [git_status]
-style = "bg:#394260"
-format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'
+style = "bold roed"
+modified = "m$count"
+staged = "s$count"
+deleted = "d$count"
+untracked = "u$count"
+renamed = "r$count"
+stashed = "(+ stash)"
+format = '([\[$all_status$ahead_behind\]]($style) )'
+
+[git_metrics]
+disabled = false
 
 [time]
 disabled = true
 time_format = "%R" # Hour:Minute Format
 style = "bg:#1d2230"
 format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
-
-# Source for icons: https://www.nerdfonts.com/cheat-sheet
 
 [rlang]
 symbol='󰟔'
