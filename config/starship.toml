@@ -1,13 +1,10 @@
-# TODO: replace colors with UiO fargepalett
 # Source: https://starship.rs/config/
 # Source for icons: https://www.nerdfonts.com/cheat-sheet
 
+palette = 'uio'
 format = """
-[  ](bg:#a3aed2 fg:#090c0c)\
-[](bg:#769ff0 fg:#a3aed2)\
-$directory\
-[](fg:#769ff0 bg:lysblaa)\
-\n
+[  ](bg:graa fg:svart)\
+$directory\n
 ($git_branch $git_status $git_state $git_metrics)\
 $character
 """
@@ -19,9 +16,10 @@ graa = '#b2b3b7'
 blaa = '#3e31d6'
 lysblaa = '#86a4f7'
 blaatone = '#e6ecff'
+# Source: https://www.uio.no/om/designmanual/profilelementer/fargepalett/index.html
 
 [directory]
-style = "fg:#e3e5e5 bg:#769ff0"
+style = "bold fg:blaatone bg:roed"
 format = "[ $path ]($style)"
 truncation_length = 4
 truncation_symbol = "…/"
@@ -47,20 +45,8 @@ format = '([\[$all_status$ahead_behind\]]($style) )'
 [git_metrics]
 disabled = false
 
-[time]
-disabled = true
-time_format = "%R" # Hour:Minute Format
-style = "bg:#1d2230"
-format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
-
 [rlang]
 symbol='󰟔'
 detect_files=['DESCRIPTION']
 style = "bg:#212736"
 format = '[[ $symbol ](fg:#769ff0 bg:#212736)]($style)'
-
-[cmd_duration]
-min_time = 36_000
-show_notifications = true
-format = '([previous command took $duration]($style))'
-style = "bg:#1d2230"
