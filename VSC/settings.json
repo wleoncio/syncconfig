@@ -314,7 +314,7 @@
         "terminal.ansiYellow": "#ffaa00",
         "terminal.border": "#888"
     },
-    "workbench.colorTheme": "Material Theme",
+    "workbench.colorTheme": "Material Theme Darker",
     "workbench.editor.centeredLayoutAutoResize": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.mouseBackForwardToNavigate": false,
