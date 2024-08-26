@@ -16,6 +16,12 @@ graa = '#b2b3b7'
 blaa = '#3e31d6'
 lysblaa = '#86a4f7'
 blaatone = '#e6ecff'
+groenn = '#2ec483'
+roed_2 = '#dd0000'
+lysroed = '#fb6666'
+roedtone = '#fee0e0'
+oransje = '#fea11b'
+gul = '#fffea7'
 # Source: https://www.uio.no/om/designmanual/profilelementer/fargepalett/index.html
 
 [directory]
@@ -33,14 +39,14 @@ style = "fg:blaatone"
 format = '[ $symbol $branch]($style)'
 
 [git_status]
-style = "bold roed"
-modified = "m$count"
-staged = "s$count"
-deleted = "d$count"
-untracked = "u$count"
-renamed = "r$count"
+style = "bold lysroed"
+modified = "($count)m"
+staged = "($count)s"
+deleted = "($count)d"
+untracked = "($count)u"
+renamed = "($count)r"
 stashed = "(+ stash)"
-format = '([\[$all_status$ahead_behind\]]($style) )'
+format = '([\[$conflicted$stashed$deleted$renamed[$staged](bold oransje)[$modified](bold groenn)$typechanged[$untracked](bold lysblaa)$ahead_behind\]]($style) )'
 
 [git_metrics]
 disabled = false
