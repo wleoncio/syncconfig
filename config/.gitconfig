@@ -22,7 +22,7 @@
   DB = branch --delete --force
   drb = push -d
   aa = add --update --verbose
-  aaa = add -A --verbose
+  AA = add --all --verbose
   ap = add -p
   unstage = restore --staged .
   rp = restore -p
