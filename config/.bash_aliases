@@ -1,6 +1,6 @@
 alias nvtop="watch -d -n 0.5 nvidia-smi"
 alias open="xdg-open"
-alias r="radian"
+alias r="~/venv/bin/radian"
 alias python="bpython"
 alias please="sudo"
 alias smaug="ssh waldirln@login.uio.no"
