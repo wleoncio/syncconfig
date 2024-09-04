@@ -17,7 +17,7 @@
   countcomm = rev-list --count
   co = checkout
   cb = checkout
-  nb = checkout --branch
+  nb = checkout -b
   db = branch --delete
   DB = branch --delete --force
   drb = push --delete
