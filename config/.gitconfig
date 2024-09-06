@@ -43,7 +43,7 @@
   pt = push --tags
   pb = push --set-upstream ocbe-uio 
   CLEAN = clean --force
-  stashm = stash push --message
+  stashm = stash --include-untracked push --message
 	RESET = reset --hard
 [core]
   editor = vim
