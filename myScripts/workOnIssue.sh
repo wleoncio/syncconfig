@@ -4,8 +4,7 @@
 issue_number=$1
 
 # Checking if issue branch already exists
-if [ $(git branch | grep issue-"$issue_number") ]
-then
+if [[ $(git branch | grep issue-"$issue_number") ]]; then
 	echo "Branch already exists. Switching and rebasing"
 	bash resumeWorkOnIssue.sh "$issue_number"
 	exit 0
@@ -17,6 +16,7 @@ echo "##################################"
 echo ""
 gh issue edit "$issue_number" --add-assignee @me
 
+
 echo ""
 echo "####################################"
 echo "# Creating and checking out branch #"
@@ -24,12 +24,21 @@ echo "####################################"
 echo ""
 git checkout -b issue-"$issue_number"
 
-echo ""
-echo "################################"
-echo "# Package coverage at checkout #"
-echo "################################"
-echo ""
-Rscript -e "covr::percent_coverage(covr::package_coverage())"
+# Checking if the project is an R package
+if [[ -f "DESCRIPTION" ]]; then
+	is_pack=true
+else
+	is_pack=false
+fi
+
+if [[ is_pack == "true" ]]; then
+	echo ""
+	echo "################################"
+	echo "# Package coverage at checkout #"
+	echo "################################"
+	echo ""
+	Rscript -e "covr::percent_coverage(covr::package_coverage())"
+fi
 
 echo ""
 echo "####################"

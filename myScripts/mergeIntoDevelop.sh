@@ -35,16 +35,20 @@ echo -e '- \e[4;31mSquash\e[0m commits on the feature branch?'
 git log --oneline develop.. | grep -i -e "squash" -e "fixup"
 
 echo -e '- Add \e[4;31munit tests\e[0m for new code?'
-if [ $covr == true ]; then
+if [[ $covr == true && -f "DESCRIPTION" ]]; then
 	echo -n "  Calculating package coverage on merge: "
 	cvrg=$(Rscript -e "cat(round(covr::percent_coverage(covr::package_coverage()), 2))")
 	echo "$cvrg %"
 fi
 
-echo -e '- Update \e[4;31mNEWS\e[0m.md (see head below)?'
-echo ""
-awk '/^#/ {c++; if (c==2) {exit}} {print}' NEWS.md
-echo ""
+if [[ -f "NEWS.md" ]]; then
+	echo -e '- Update \e[4;31mNEWS\e[0m.md (see head below)?'
+	echo ""
+	awk '/^#/ {c++; if (c==2) {exit}} {print}' NEWS.md
+	echo ""
+else
+	echo -e "- \e[4;31mNo NEWS.md\e[0m found. Consider using one!"
+fi
 
 read -p "Press enter to continue, Ctrl+C to cancel"
 
