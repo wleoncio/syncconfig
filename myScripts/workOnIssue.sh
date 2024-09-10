@@ -26,12 +26,12 @@ git checkout -b issue-"$issue_number"
 
 # Checking if the project is an R package
 if [[ -f "DESCRIPTION" ]]; then
-	is_pack=true
+	is_pack="true"
 else
-	is_pack=false
+	is_pack="false"
 fi
 
-if [[ is_pack == "true" ]]; then
+if [[ $is_pack = "true" ]]; then
 	echo ""
 	echo "################################"
 	echo "# Package coverage at checkout #"
