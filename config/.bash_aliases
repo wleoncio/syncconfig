@@ -19,6 +19,6 @@ alias copilot="gh copilot"
 # Common folders
 alias work="cd $HOME/UiO/Projects"
 alias sync="cd $HOME/Programs/syncconfig"
-alias pump="cd $HOME/Dropbox/Software/workoutPlan"
+alias pump="cd $HOME/Dropbox/Fitness/workoutPlan"
 
 
