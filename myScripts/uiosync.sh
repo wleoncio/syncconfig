@@ -27,7 +27,8 @@ else
 	echo "  uiosync.sh [command]"
 	echo "  command: 'push', 'pull', 'up' or 'down'"
 	echo ""
-	echo "A uiosync.conf file must be present at $HOME/.config and contain appropriate values for local and remote variables."
+	echo "A uiosync.conf file must be present at $HOME/.config and contain"
+	echo "appropriate values for local and remote variables."
 	exit 0
 fi
 
@@ -81,4 +82,3 @@ then
 else
 	echo "Aborting"
 fi
-
