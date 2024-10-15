@@ -11,16 +11,21 @@ else
   echo "appropriate paths for "local=" and "remote=""
 fi
 
+# Report last sync on local
+echo -e "Last sync on this machine: $(tail -n 1 $local/.uiosync.log)"
+
 # Determine origin and destination
 if [ "$1" = "pull" ] || [ "$1" = "down" ]
 then
 	from="$remote"
 	to="$local"
+	toname=$(hostname)
 	echo -e "Pulling remote copy \e[1;31mto local\e[0m"
 elif [ "$1" = "push" ] || [ "$1" = "up" ]
 then
 	from="$local"
 	to="$remote"
+	toname="Hjemmeområdet"
 	echo -e "Pushing local copy \e[1;31mto remote\e[0m"
 else
 	echo "USAGE"
@@ -49,7 +54,7 @@ then
 fi
 
 # Dry run
-logPath="/tmp/uiosync.log"
+logPath="/tmp/uiosync_files.log"
 touch "$logPath"
 read -p "Check for file conflicts? (y/N) " -t 10 check
 echo ""
@@ -75,10 +80,13 @@ echo -e "\nTHIS OPERATION WILL OVERWRITE THE CONTENTS OF $to"
 read -p "Are you sure you want to continue? (y/N) " answer
 if [ "$answer" = "y" ]
 then
+	# Registeing the sync on the log file
+	echo $(eval date) "sync to" $toname >> $local"/.uiosync.log"
+	# Actual sync
 	eval rsync -az --progress --verbose --delete --delete-excluded "$from/" "$to"
+	# Done
 	echo -e "\n\e[1;34mDone "$1"ing!\e[0m"
 	exit 0
 else
 	echo "Aborting"
 fi
-
