@@ -12,7 +12,8 @@ else
 fi
 
 # Report last sync on local
-echo -e "Last sync on this machine: $(tail -n 1 $local/.uiosync.log)"
+echo -e "\nLast sync on this machine:"
+echo -e "$(tail -n 1 $local/.uiosync.log)\n"
 
 # Determine origin and destination
 hour=$(date +"%H")
