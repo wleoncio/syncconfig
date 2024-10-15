@@ -32,7 +32,7 @@ else
 fi
 
 # Running rsync
-echo -e "Synchronizing direction: to \e[1;31m$to\e[0m"
+echo -e "Synchronizing direction: \e[1;31mto $to\e[0m"
 
 # Checking for internet connection
 connection=$(nmcli -g "STATE" general)
