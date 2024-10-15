@@ -78,21 +78,21 @@ then
 fi
 
 # Dry run
-logPath="/tmp/uiosync_files.log"
-touch "$logPath"
+templog="/tmp/uiosync_files.log"
+touch "$templog"
 read -p "Check for file conflicts? (y/N) " -t 10 check
 echo ""
 if [ "$check" = "y" ]
 then
 	echo "Checking for file conflicts. Please wait."
-  eval rsync -a --verbose --dry-run --delete "$from/" "$to" > "$logPath"
+  eval rsync -a --verbose --dry-run --delete "$from/" "$to" > "$templog"
 	echo -e "\nFound changes in the following directories"
-	cat "$logPath" | grep "/$" | grep -v "\.git/."
+	cat "$templog" | grep "/$" | grep -v "\.git/."
 	read -p "Show changes in files? (y/N) " filechange
 	if [ "$filechange" = "y" ]
 	then
 		echo -e "\nFound changes in the following files"
-		cat "$logPath" | grep -v "[^(git)]/$" | grep -v "\.git/."
+		cat "$templog" | grep -v "[^(git)]/$" | grep -v "\.git/."
 	fi
 else
 	echo "Skipping conflict check"
