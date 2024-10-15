@@ -15,17 +15,40 @@ fi
 echo -e "Last sync on this machine: $(tail -n 1 $local/.uiosync.log)"
 
 # Determine origin and destination
+hour=$(date +"%H")
 if [ "$1" = "pull" ] || [ "$1" = "down" ]
 then
 	from="$remote"
 	to="$local"
 	toname=$(hostname)
+	# Ask for confirmation if pulling in odd hours
+	if [ "$hour" -gt 12 ] && [ "$hour" -lt 18 ] || [ "$hour" -gt 21 ]
+	then
+		echo -e "\e[1;5;31mThis is an odd time to PULL!\e[0m"
+		read -p "Are you sure you want to PULL? (y/N) " answer
+		if [ "$answer" != "y" ]
+		then
+			echo "Aborting"
+			exit 0
+		fi
+	fi
 	echo -e "Pulling remote copy \e[1;31mto local\e[0m"
 elif [ "$1" = "push" ] || [ "$1" = "up" ]
 then
 	from="$local"
 	to="$remote"
 	toname="Hjemmeområdet"
+	# Ask for confirmation if pushing in odd hours
+	if [ "$hour" -lt 6 ] || [ "$hour" -gt 8 ] && [ "$hour" -lt 11 ]
+	then
+		echo -e "\e[1;5;31mThis is an odd time to PUSH!\e[0m"
+		read -p "Are you sure you want to PUSH? (y/N) " answer
+		if [ "$answer" != "y" ]
+		then
+			echo "Aborting"
+			exit 0
+		fi
+	fi
 	echo -e "Pushing local copy \e[1;31mto remote\e[0m"
 else
 	echo "USAGE"
