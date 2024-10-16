@@ -11,9 +11,12 @@ else
   echo "appropriate paths for "local=" and "remote=""
 fi
 
-# Report last sync on local
-echo -e "\nLast sync on this machine:"
-echo -e "$(tail -n 1 $local/.uiosync.log)\n"
+reportLastSync() {
+	# Report last sync on local
+	echo -e "\nLast sync on this machine:"
+	echo -e "$(tail -n 1 $local/.uiosync.log)\n"
+}
+reportLastSync
 
 # Determine origin and destination
 hour=$(date +"%H")
@@ -117,6 +120,7 @@ then
 	fi
 	# Done
 	echo -e "\n\e[1;34mDone "$1"ing!\e[0m"
+	reportLastSync
 	exit 0
 else
 	echo "Aborting"
