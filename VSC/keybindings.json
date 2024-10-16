@@ -1009,5 +1009,9 @@
     {
         "key": "ctrl+p ctrl+s",
         "command": "workbench.action.files.saveAs"
+    },
+    {
+        "key": "ctrl+w ctrl+s",
+        "command": "workbench.action.evenEditorWidths"
     }
 ]
