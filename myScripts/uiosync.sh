@@ -105,10 +105,16 @@ echo -e "\nTHIS OPERATION WILL OVERWRITE THE CONTENTS OF $to"
 read -p "Are you sure you want to continue? (y/N) " answer
 if [ "$answer" = "y" ]
 then
-	# Registeing the sync on the log file
-	echo $(eval date) "sync to" $toname >> $local"/.uiosync.log"
+	if [ "$1" = "push" ]; then
+		# Registering the sync on the log file
+		echo $(eval date) "push to" $toname >> $local"/.uiosync.log"
+	fi
 	# Actual sync
 	eval rsync -az --progress --verbose --delete --delete-excluded "$from/" "$to"
+	if [ "$1" = "pull" ]; then
+		# Registering the sync on the log file
+		echo $(eval date) "pull to" $toname >> $local"/.uiosync.log"
+	fi
 	# Done
 	echo -e "\n\e[1;34mDone "$1"ing!\e[0m"
 	exit 0
