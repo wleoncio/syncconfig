@@ -294,7 +294,6 @@
     "vim.useSystemClipboard": true,
     "window.menuBarVisibility": "toggle",
     "window.restoreWindows": "none",
-    "workbench.activityBar.location": "hidden",
     "workbench.colorCustomizations": {
         "editor.lineHighlightBackground": "#1073cf2d",
         "editor.lineHighlightBorder": "#9fced11f",
@@ -323,9 +322,14 @@
     "workbench.enableExperiments": false,
     "workbench.iconTheme": "eq-material-theme-icons",
     "workbench.sideBar.location": "right",
-    "workbench.startupEditor": "welcomePageInEmptyWorkbench",
     "workbench.tree.indent": 16,
     "workbench.tree.renderIndentGuides": "always",
     "vim.easymotion": true,
-    "vim.gdefault": true
+    "vim.gdefault": true,
+    "vim.inccommand": "append",
+    "python.REPL.sendToNativeREPL": true,
+    "r.alwaysUseActiveTerminal": true,
+    "vim.textwidth": 79,
+    "workbench.activityBar.location": "hidden",
+    "workbench.startupEditor": "none"
 }
