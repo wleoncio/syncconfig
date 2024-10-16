@@ -43,6 +43,7 @@
   pt = push --tags
   pb = push --set-upstream ocbe-uio 
   CLEAN = clean --force
+  stasha = stash --include-untracked
   stashm = stash push --include-untracked --message
 	RESET = reset --hard
 [core]
