@@ -81,7 +81,7 @@ fi
 # Dry run
 templog="/tmp/uiosync_files.log"
 touch "$templog"
-read -p "Check for file conflicts? (y/N) " -t 10 check
+read -p "Check for file conflicts? (y/N) " -t 3 check
 echo ""
 if [ "$check" = "y" ]
 then
