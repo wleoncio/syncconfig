@@ -1,4 +1,4 @@
-Host login
+Host balrog
 	User waldirln
 	HostName login.uio.no
 	IdentityFile /home/waldir/.ssh/id_rsa
@@ -6,9 +6,9 @@ Host med-biostat
 	User waldirln
 	HostName med-biostat.hpc.uio.no
 	IdentityFile ~/.ssh/id_rsa
-	ProxyJump login
+	ProxyJump balrog
 Host med-biostat2
 	User waldirln
 	HostName med-biostat2.hpc.uio.no
 	IdentityFile ~/.ssh/id_rsa
-	ProxyJump login
+	ProxyJump balrog
