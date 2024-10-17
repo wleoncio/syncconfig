@@ -11,9 +11,12 @@ else
   echo "appropriate paths for "local=" and "remote=""
 fi
 
-# Report last sync on local
-echo -e "\nLast sync on this machine:"
-echo -e "$(tail -n 1 $local/.uiosync.log)\n"
+reportLastSync() {
+	# Report last sync on local
+	echo -e "\nLast sync on this machine:"
+	echo -e "$(tail -n 1 $local/.uiosync.log)\n"
+}
+reportLastSync
 
 # Determine origin and destination
 hour=$(date +"%H")
@@ -81,7 +84,7 @@ fi
 # Dry run
 templog="/tmp/uiosync_files.log"
 touch "$templog"
-read -p "Check for file conflicts? (y/N) " -t 10 check
+read -p "Check for file conflicts? (y/N) " -t 3 check
 echo ""
 if [ "$check" = "y" ]
 then
@@ -105,12 +108,19 @@ echo -e "\nTHIS OPERATION WILL OVERWRITE THE CONTENTS OF $to"
 read -p "Are you sure you want to continue? (y/N) " answer
 if [ "$answer" = "y" ]
 then
-	# Registeing the sync on the log file
-	echo $(eval date) "sync to" $toname >> $local"/.uiosync.log"
+	if [ "$1" = "push" ]; then
+		# Registering the sync on the log file
+		echo $(eval date) "push to" $toname >> $local"/.uiosync.log"
+	fi
 	# Actual sync
 	eval rsync -az --progress --verbose --delete --delete-excluded "$from/" "$to"
+	if [ "$1" = "pull" ]; then
+		# Registering the sync on the log file
+		echo $(eval date) "pull to" $toname >> $local"/.uiosync.log"
+	fi
 	# Done
 	echo -e "\n\e[1;34mDone "$1"ing!\e[0m"
+	reportLastSync
 	exit 0
 else
 	echo "Aborting"

@@ -13,15 +13,19 @@
 	// 	"description": "Log output to console"
 	// }
 	"Add temporary R cout": {
-		"prefix": "pt",
+		"prefix": "ptobj",
 		"body": "Rcpp::Rcout << \"$1: \" << $1 << std::endl; //TEMP"
 	},
 	"Print matrix dimensions": {
 		"prefix": "ptmat",
 		"body": "Rcpp::Rcout << \"$1: \" << $1.n_rows << \" x \" << $1.n_cols << std::endl; //TEMP"
 	},
+	"Print vector length": {
+		"prefix": "ptvec",
+		"body": "Rcpp::Rcout << \"$1: \" << $1.n_elem << std::endl; //TEMP"
+	},
 	"Add temporary message": {
-		"prefix": "tmp",
+		"prefix": "pt",
 		"body": "Rcpp::Rcout << \"$1\" << std::endl; //TEMP"
 	},
 	"Add conditional R cout": {
