@@ -26,7 +26,7 @@ then
 	to="$local"
 	toname=$(hostname)
 	# Ask for confirmation if pulling in odd hours
-	if [ "$hour" -gt 12 ] && [ "$hour" -lt 18 ] || [ "$hour" -gt 21 ]
+	if [ "$hour" -gt 7 ] && [ "$hour" -lt 8 ] || [ "$hour" -gt 12 ] && [ "$hour" -lt 18 ] || [ "$hour" -gt 21 ]
 	then
 		echo -e "\e[1;5;31mThis is an odd time to PULL!\e[0m"
 		read -p "Are you sure you want to PULL? (y/N) " answer
