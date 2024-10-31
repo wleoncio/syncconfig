@@ -1,9 +1,10 @@
 {
+    "MATLAB.installPath": "/usr/local/MATLAB/R2023b",
     // Language-specific
     "[git-commit]": {
         "editor.rulers": [
             {
-                "color": "#ff0000",
+                "color": "#b60000",
                 "column": 50
             }
         ]
@@ -25,10 +26,10 @@
     "editor.emptySelectionClipboard": false,
     "editor.find.loop": false,
     "editor.foldingStrategy": "indentation",
-    "editor.fontFamily": "FiraCode Nerd Font",
+    "editor.fontFamily": "'FiraCode Nerd Font'",
     "editor.fontLigatures": true,
-    "editor.fontSize": 12,
-    "editor.fontWeight": "normal",
+    "editor.fontSize": 14,
+    "editor.fontWeight": "700",
     "editor.guides.bracketPairs": "active",
     "editor.inlayHints.enabled": "off",
     "editor.inlineSuggest.enabled": true,
@@ -45,7 +46,7 @@
     "editor.renderLineHighlightOnlyWhenFocus": true,
     "editor.rulers": [
         {
-            "color": "#ff0000",
+            "color": "#b60000",
             "column": 80
         }
     ],
@@ -55,7 +56,6 @@
     "editor.snippetSuggestions": "top",
     "editor.stickyScroll.enabled": true,
     "editor.stickyTabStops": true,
-    "editor.tabSize": 2,
     "editor.tokenColorCustomizations": {
         "[Default Dark Modern]": {
             "textMateRules": [
@@ -118,8 +118,8 @@
     "explorer.compactFolders": false,
     "extensions.ignoreRecommendations": true,
     "files.associations": {
-        "*.docker": "Dockerfile",
-        "*.Rnw": "latex"
+        "*.Rnw": "latex",
+        "*.docker": "Dockerfile"
     },
     "files.autoGuessEncoding": true,
     "files.autoSave": "onFocusChange",
@@ -144,12 +144,12 @@
     "gitweblinks.defaultBranch": "develop",
     "gitweblinks.preferredRemoteName": "ocbe-uio",
     "html.preview.doubleClickToSwitchToEditor": false,
+    "julia.NumThreads": 6,
     "julia.additionalArgs": [
         "--threads=4"
     ],
     "julia.enableTelemetry": false,
     "julia.numTestProcesses": 1,
-    "julia.NumThreads": 6,
     "julia.symbolCacheDownload": true,
     "kotlin.debugAdapter.enabled": false,
     "kotlin.languageServer.enabled": false,
@@ -165,14 +165,15 @@
         "./themes/uio-dark.css"
     ],
     "markdown.preview.doubleClickToSwitchToEditor": false,
-    "MATLAB.installPath": "/usr/local/MATLAB/R2023b",
     "matlab.lintOnSave": false,
     "notebook.lineNumbers": "on",
     "notebook.stickyScroll.enabled": true,
     "outline.icons": false,
+    "python.REPL.sendToNativeREPL": true,
     "python.defaultInterpreterPath": "/home/waldir/venv/bin/python3",
     "quarto.render.renderOnSave": true,
     "quarto.zotero.library": "none",
+    "r.alwaysUseActiveTerminal": true,
     "r.bracketedPaste": true,
     "r.lsp.diagnostics": false,
     "r.lsp.enabled": false,
@@ -184,6 +185,7 @@
     "scm.defaultViewMode": "tree",
     "scm.experimental.showHistoryGraph": true,
     "security.workspace.trust.untrustedFiles": "open",
+    "task.allowAutomaticTasks": "on",
     "task.saveBeforeRun": "prompt",
     "terminal.integrated.commandsToSkipShell": [
         "language-julia.interrupt",
@@ -197,10 +199,14 @@
     "terminal.integrated.defaultProfile.linux": "fish",
     "terminal.integrated.drawBoldTextInBrightColors": false,
     "terminal.integrated.enableMultiLinePasteWarning": "never",
-    "terminal.integrated.fontFamily": "FiraCode Nerd Font",
-    "terminal.integrated.fontSize": 12,
-    "terminal.integrated.fontWeight": "500",
+    "terminal.integrated.fontFamily": "'FiraCode Nerd Font'",
     "terminal.integrated.profiles.linux": {
+        "R": {
+            "color": "terminal.ansiBlue",
+            "icon": "package",
+            "overrideName": true,
+            "path": "/usr/bin/R"
+        },
         "bash": {
             "icon": "terminal-bash",
             "path": "bash"
@@ -209,12 +215,6 @@
             "color": "terminal.ansiWhite",
             "icon": "terminal-linux",
             "path": "fish"
-        },
-        "R": {
-            "color": "terminal.ansiBlue",
-            "icon": "package",
-            "overrideName": true,
-            "path": "/usr/bin/R"
         },
         "radian": {
             "color": "terminal.ansiBlue",
@@ -271,8 +271,11 @@
     },
     "todo-tree.regex.regex": "(//|#|%|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
     "typescript.suggest.paths": false,
+    "vim.easymotion": true,
+    "vim.gdefault": true,
     "vim.highlightedyank.enable": true,
     "vim.ignorecase": false,
+    "vim.inccommand": "append",
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "after": [
@@ -291,19 +294,21 @@
     ],
     "vim.smartRelativeLine": true,
     "vim.statusBarColorControl": true,
+    "vim.textwidth": 79,
     "vim.useSystemClipboard": true,
     "window.menuBarVisibility": "toggle",
     "window.restoreWindows": "none",
+    "workbench.activityBar.location": "hidden",
     "workbench.colorCustomizations": {
         "editor.lineHighlightBackground": "#1073cf2d",
         "editor.lineHighlightBorder": "#9fced11f",
         "editorIndentGuide.activeBackground1": "#000",
         "editorIndentGuide.background1": "#000",
-        "statusBar.background": "#005f5f",
-        "statusBar.debuggingBackground": "#005f5f",
+        "statusBar.background": "#5f00af",
+        "statusBar.debuggingBackground": "#5f00af",
         "statusBar.debuggingForeground": "#ffffff",
         "statusBar.foreground": "#ffffff",
-        "statusBar.noFolderBackground": "#005f5f",
+        "statusBar.noFolderBackground": "#5f00af",
         "terminal.ansiBlack": "#000",
         "terminal.ansiBrightBlack": "#fff",
         "terminal.ansiBrightRed": "#fd6464",
@@ -313,7 +318,7 @@
         "terminal.ansiYellow": "#ffaa00",
         "terminal.border": "#888"
     },
-    "workbench.colorTheme": "Material Theme Darker",
+    "workbench.colorTheme": "Visual Studio Dark",
     "workbench.editor.centeredLayoutAutoResize": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.mouseBackForwardToNavigate": false,
@@ -322,14 +327,7 @@
     "workbench.enableExperiments": false,
     "workbench.iconTheme": "eq-material-theme-icons",
     "workbench.sideBar.location": "right",
+    "workbench.startupEditor": "none",
     "workbench.tree.indent": 16,
-    "workbench.tree.renderIndentGuides": "always",
-    "vim.easymotion": true,
-    "vim.gdefault": true,
-    "vim.inccommand": "append",
-    "python.REPL.sendToNativeREPL": true,
-    "r.alwaysUseActiveTerminal": true,
-    "vim.textwidth": 79,
-    "workbench.activityBar.location": "hidden",
-    "workbench.startupEditor": "none"
+    "workbench.tree.renderIndentGuides": "always"
 }
