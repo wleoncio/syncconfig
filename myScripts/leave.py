@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # Calculate time to leave from work
 import datetime
 import sys
