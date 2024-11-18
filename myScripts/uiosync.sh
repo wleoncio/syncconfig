@@ -25,6 +25,7 @@ then
 	from="$remote"
 	to="$local"
 	toname=$(hostname)
+	icon="\xE2\x86\x93"
 	# Ask for confirmation if pulling in odd hours
 	if [ "$hour" -gt 7 ] && [ "$hour" -lt 8 ] || [ "$hour" -gt 12 ] && [ "$hour" -lt 18 ] || [ "$hour" -gt 21 ]
 	then
@@ -36,12 +37,13 @@ then
 			exit 0
 		fi
 	fi
-	echo -e "Pulling remote copy \e[1;31mto local\e[0m"
+	echo -e "Pulling remote copy to local"
 elif [ "$1" = "push" ] || [ "$1" = "up" ]
 then
 	from="$local"
 	to="$remote"
 	toname="Hjemmeområdet"
+	icon="\xE2\x86\x91"
 	# Ask for confirmation if pushing in odd hours
 	if [ "$hour" -lt 6 ] || [ "$hour" -gt 8 ] && [ "$hour" -lt 11 ]
 	then
@@ -53,7 +55,7 @@ then
 			exit 0
 		fi
 	fi
-	echo -e "Pushing local copy \e[1;31mto remote\e[0m"
+	echo -e "Pushing local copy to remote"
 else
 	echo "USAGE"
 	echo "  uiosync.sh [command]"
@@ -65,7 +67,7 @@ else
 fi
 
 # Running rsync
-echo -e "Synchronizing direction: \e[1;31mto $to\e[0m"
+echo -e "Synchronizing direction: \e[1;31mto $to ($icon)\e[0m"
 
 # Checking for internet connection
 connection=$(nmcli -g "STATE" general)
@@ -103,8 +105,8 @@ else
 fi
 
 # Actual run
-echo -e "\nSynchronizing to $to"
-echo -e "\nTHIS OPERATION WILL OVERWRITE THE CONTENTS OF $to"
+echo -e "\n$icon Synchronizing to $to"
+echo -e "\n\e[1;31m$icon THIS OPERATION WILL OVERWRITE THE CONTENTS OF $to\e[0m"
 read -p "Are you sure you want to continue? (y/N) " answer
 if [ "$answer" = "y" ]
 then
