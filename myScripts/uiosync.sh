@@ -67,7 +67,7 @@ else
 fi
 
 # Running rsync
-echo -e "Synchronizing direction: \e[1;31mto $to ($icon)\e[0m"
+echo -e "Synchronizing direction: to $to ($icon)"
 
 # Checking for internet connection
 connection=$(nmcli -g "STATE" general)
@@ -105,8 +105,15 @@ else
 fi
 
 # Actual run
-echo -e "\n$icon Synchronizing to $to"
-echo -e "\n\e[1;31m$icon THIS OPERATION WILL OVERWRITE THE CONTENTS OF $to\e[0m"
+echo -e "\nSynchronizing to $to"
+echo -e "\e[1;31m"
+printf "%.0s$icon" $(seq 1 49)
+echo -e "\n$icon THIS OPERATION WILL OVERWRITE THE CONTENTS OF $icon"
+spaces_needed=$((46 - ${#to}))
+spaces=$(printf "%*s" "$spaces_needed") 
+echo -e "$icon \e[5m$to\e[25m$spaces$icon"
+printf "%.0s$icon" $(seq 1 49)
+echo -e "\e[0m"
 read -p "Are you sure you want to continue? (y/N) " answer
 if [ "$answer" = "y" ]
 then
