@@ -128,7 +128,11 @@ then
 		echo $(eval date) "pull to" $toname >> $local"/.uiosync.log"
 	fi
 	# Done
-	echo -e "\n\e[1;34mDone "$1"ing!\e[0m"
+	echo -e "\e[1;34m"
+	printf "%.0s$icon" $(seq 1 17)
+	echo -e "\n$icon Done "$1"ing! $icon"
+	printf "%.0s$icon" $(seq 1 17)
+	echo -e "\e[0m"
 	reportLastSync
 	exit 0
 else
