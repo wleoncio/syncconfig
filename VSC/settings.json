@@ -298,17 +298,16 @@
     "vim.useSystemClipboard": true,
     "window.menuBarVisibility": "toggle",
     "window.restoreWindows": "none",
-    "workbench.activityBar.location": "hidden",
     "workbench.colorCustomizations": {
         "editor.lineHighlightBackground": "#1073cf2d",
         "editor.lineHighlightBorder": "#9fced11f",
         "editorIndentGuide.activeBackground1": "#000",
         "editorIndentGuide.background1": "#000",
-        "statusBar.background": "#5f00af",
-        "statusBar.debuggingBackground": "#5f00af",
+        "statusBar.background": "#005f5f",
+        "statusBar.debuggingBackground": "#005f5f",
         "statusBar.debuggingForeground": "#ffffff",
         "statusBar.foreground": "#ffffff",
-        "statusBar.noFolderBackground": "#5f00af",
+        "statusBar.noFolderBackground": "#005f5f",
         "terminal.ansiBlack": "#000",
         "terminal.ansiBrightBlack": "#fff",
         "terminal.ansiBrightRed": "#fd6464",
@@ -329,5 +328,10 @@
     "workbench.sideBar.location": "right",
     "workbench.startupEditor": "none",
     "workbench.tree.indent": 16,
-    "workbench.tree.renderIndentGuides": "always"
+    "workbench.tree.renderIndentGuides": "always",
+    "vim.history": 10,
+    "vim.wrapscan": false,
+    "vim.matchpairs": "(:),{:},[:],r:`",
+    "workbench.activityBar.location": "hidden",
+    "terminal.integrated.inheritEnv": false
 }
