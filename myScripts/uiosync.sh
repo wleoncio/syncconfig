@@ -108,7 +108,7 @@ fi
 echo -e "\nSynchronizing to $to"
 echo -e "\e[1;31m"
 printf "%.0s$icon" $(seq 1 49)
-echo -e "\n$icon THIS OPERATION WILL OVERWRITE THE CONTENTS OF $icon"
+echo -e "\n$icon \e[5mTHIS OPERATION WILL OVERWRITE THE CONTENTS OF\e[25m $icon"
 spaces_needed=$((46 - ${#to}))
 spaces=$(printf "%*s" "$spaces_needed") 
 echo -e "$icon \e[5m$to\e[25m$spaces$icon"
