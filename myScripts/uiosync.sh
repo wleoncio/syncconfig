@@ -98,7 +98,7 @@ then
 	if [ "$filechange" = "y" ]
 	then
 		echo -e "\nFound changes in the following files"
-		cat "$templog" | grep -v "[^(git)]/$" | grep -v "\.git/."
+		cat "$zemplog" | grep -v "[^(git)]/$" | grep -v "\.git/."
 	fi
 else
 	echo "Skipping conflict check"
@@ -122,7 +122,7 @@ then
 		echo $(eval date) "push to" $toname >> $local"/.uiosync.log"
 	fi
 	# Actual sync
-	eval rsync -az --progress --verbose --delete --delete-excluded "$from/" "$to"
+	eval rsync -az --info=name --delete --delete-excluded "$from/" "$to" | grep -v '/$'
 	if [ "$1" = "pull" ]; then
 		# Registering the sync on the log file
 		echo $(eval date) "pull to" $toname >> $local"/.uiosync.log"
