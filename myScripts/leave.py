@@ -6,6 +6,8 @@ import sys
 # Gather arrival time at MF, default to 16:15
 if len(sys.argv) > 1:
     arrival = sys.argv[1]
+    print('Add activities prior to the arrival at your destination at', arrival)
+    print('In cronological order:')
 else:
     print('No input given, defaulting to arrival at 16:15')
     arrival = '16:15'
@@ -14,10 +16,10 @@ else:
 # duration
 activities = []
 while True:
-    activity = input('Activity (leave empty to stop): ')
+    activity = input('  Activity (leave empty to stop): ')
     if activity == '':
         break
-    duration = input('Duration (minutes): ')
+    duration = input('  Duration (minutes): ')
     activities.append((activity, int(duration)))
     print('')
 
@@ -32,7 +34,7 @@ print('\n############# Summary #############\n')
 start = leave
 for activity in activities:
     finish = start + datetime.timedelta(minutes=activity[1])
-    print(activity[0], '\t\tfrom', start.strftime('%H:%M'), 'to', finish.strftime('%H:%M'))
+    print(activity[0], '\t\t\tfrom', start.strftime('%H:%M'), 'to', finish.strftime('%H:%M'))
     start = finish
 
 # Print time to leave
