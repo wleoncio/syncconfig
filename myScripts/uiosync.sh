@@ -129,9 +129,9 @@ then
 	fi
 	# Done
 	echo -e "\e[1;34m"
-	printf "%.0s$icon" $(seq 1 17)
-	echo -e "\n$icon Done "$1"ing! $icon"
-	printf "%.0s$icon" $(seq 1 17)
+	printf "%.0s$icon" $(seq 1 16)
+	echo -e "\n$icon Done "$1"ing $icon"
+	printf "%.0s$icon" $(seq 1 16)
 	echo -e "\e[0m"
 	reportLastSync
 	exit 0
