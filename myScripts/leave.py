@@ -30,11 +30,14 @@ for activity in activities:
     leave -= datetime.timedelta(minutes=activity[1])
 
 # Print details of activities, including start time, duration and end time
-print('\n################ Summary ################\n')
+print('\n# Summary ###############################\n')
 start = leave
 for activity in activities:
     finish = start + datetime.timedelta(minutes=activity[1])
-    print(activity[0].ljust(20), 'from', start.strftime('%H:%M'), 'to', finish.strftime('%H:%M'))
+    print(
+        activity[0].ljust(20), 'from', start.strftime('%H:%M'), 'to',
+        finish.strftime('%H:%M')
+    )
     start = finish
 
 # Print time to leave
