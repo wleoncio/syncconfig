@@ -122,7 +122,7 @@ then
 		echo $(eval date) "push to" $toname >> $local"/.uiosync.log"
 	fi
 	# Actual sync
-	eval rsync -az --info=name --delete --delete-excluded "$from/" "$to" | grep -v '/$'
+	eval rsync -az --info=name --delete --delete-excluded "$from/" "$to" | grep -v '/$' | grep -v '/.git/[^H]'
 	if [ "$1" = "pull" ]; then
 		# Registering the sync on the log file
 		echo $(eval date) "pull to" $toname >> $local"/.uiosync.log"
