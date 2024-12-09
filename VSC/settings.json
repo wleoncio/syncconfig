@@ -151,19 +151,11 @@
     "julia.enableTelemetry": false,
     "julia.numTestProcesses": 1,
     "julia.symbolCacheDownload": true,
-    "kotlin.debugAdapter.enabled": false,
-    "kotlin.languageServer.enabled": false,
     "markdown-pdf.displayHeaderFooter": false,
     "markdown.extension.print.theme": "dark",
     "markdown.extension.tableFormatter.enabled": true,
     "markdown.extension.toc.levels": "1..1",
     "markdown.extension.toc.orderedList": true,
-    "markdown.marp.enableHtml": true,
-    "markdown.marp.exportType": "html",
-    "markdown.marp.themes": [
-        "./themes/uio-light.css",
-        "./themes/uio-dark.css"
-    ],
     "markdown.preview.doubleClickToSwitchToEditor": false,
     "matlab.lintOnSave": false,
     "notebook.lineNumbers": "on",
@@ -331,7 +323,7 @@
     "workbench.tree.renderIndentGuides": "always",
     "vim.history": 10,
     "vim.wrapscan": false,
-    "vim.matchpairs": "(:),{:},[:],r:`",
+    "vim.matchpairs": "(:),{:},[:]",
     "workbench.activityBar.location": "hidden",
     "terminal.integrated.inheritEnv": false
 }
