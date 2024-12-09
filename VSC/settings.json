@@ -112,7 +112,36 @@
                     }
                 }
             ]
-        }
+        },
+        "functions": "#86a4f7",
+        "keywords": "#86a4f7",
+        "comments": "#b2b3b7",
+        "numbers": "#2ec483",
+        "strings": "#fdcb87",
+        "types": "#b60000",
+        "variables": "#e6ecff",
+        "textMateRules": [
+            {
+                "scope": ["keyword.control", "source.css.scss"],
+                "settings": {"foreground": "#86a4f7"}
+            },
+            {
+                "scope": ["entity.name.function"],
+                "settings": {"foreground": "#e6ecff"}
+            },
+            {
+                "scope": ["keyword.operator"],
+                "settings": {"foreground": "#86a4f7"}
+            },
+            {
+                "scope": ["storage.type"],
+                "settings": {"foreground": "#86a4f7"}
+            },
+            {
+                "scope": ["support.type.property-name", "source.css variable"],
+                "settings": {"foreground": "#e6ecff"}
+            }
+        ]
     },
     "editor.wordWrap": "off",
     "explorer.compactFolders": false,
@@ -288,18 +317,27 @@
     "vim.statusBarColorControl": true,
     "vim.textwidth": 79,
     "vim.useSystemClipboard": true,
+    "vim.statusBarColors.normal": ["#2ec483"],
+    "vim.statusBarColors.insert": ["#b60000"],
+    "vim.statusBarColors.visual": ["#3e31d6"],
     "window.menuBarVisibility": "toggle",
     "window.restoreWindows": "none",
     "workbench.colorCustomizations": {
+        "editorBracketHighlight.foreground1": "#2ec483",
+        "editorBracketHighlight.foreground2": "#6ce1ab",
+        "editorBracketHighlight.foreground3": "#ceffdf",
+        "editorBracketHighlight.foreground4": "#fffea7",
+        "editorBracketHighlight.foreground5": "#ffe0e0",
+        "editorBracketHighlight.foreground6": "#fb6666",
         "editor.lineHighlightBackground": "#1073cf2d",
         "editor.lineHighlightBorder": "#9fced11f",
         "editorIndentGuide.activeBackground1": "#000",
         "editorIndentGuide.background1": "#000",
-        "statusBar.background": "#005f5f",
-        "statusBar.debuggingBackground": "#005f5f",
+        "statusBar.background": "#2ec483",
+        "statusBar.debuggingBackground": "#2ec483",
         "statusBar.debuggingForeground": "#ffffff",
         "statusBar.foreground": "#ffffff",
-        "statusBar.noFolderBackground": "#005f5f",
+        "statusBar.noFolderBackground": "#2ec483",
         "terminal.ansiBlack": "#000",
         "terminal.ansiBrightBlack": "#fff",
         "terminal.ansiBrightRed": "#fd6464",
