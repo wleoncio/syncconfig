@@ -13,8 +13,8 @@ fi
 
 reportLastSync() {
 	# Report last sync on local
-	echo -e "\nLast sync on this machine:"
-	echo -e "$(tail -n 1 $local/.uiosync.log)\n"
+	echo -e "\n\e[1;34mLast sync on this machine:"
+	echo -e "$(tail -n 1 $local/.uiosync.log)\e[0m\n"
 }
 reportLastSync
 
