@@ -168,7 +168,8 @@
         "*": true,
         "markdown": true,
         "plaintext": true,
-        "scminput": false
+        "scminput": false,
+        "quarto": true
     },
     "gitweblinks.defaultBranch": "develop",
     "gitweblinks.preferredRemoteName": "ocbe-uio",
@@ -363,5 +364,9 @@
     "vim.wrapscan": false,
     "vim.matchpairs": "(:),{:},[:]",
     "workbench.activityBar.location": "hidden",
-    "terminal.integrated.inheritEnv": false
+    "terminal.integrated.inheritEnv": false,
+    "workbench.editorAssociations": {
+        "*.copilotmd": "vscode.markdown.preview.editor",
+        "*.pdf": "default"
+    },
 }
