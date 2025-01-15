@@ -107,13 +107,13 @@ fi
 # Actual run
 echo -e "\nSynchronizing to $to"
 echo -e "\e[1;31m"
-printf "%.0s$icon" $(seq 1 49)
-echo -e "\n$icon \e[5mTHIS OPERATION WILL OVERWRITE THE CONTENTS OF\e[25m $icon"
+printf "\e[5m%.0s$icon" $(seq 1 49)
+echo -e "\n$icon THIS OPERATION WILL OVERWRITE THE CONTENTS OF $icon"
 spaces_needed=$((46 - ${#to}))
 spaces=$(printf "%*s" "$spaces_needed") 
-echo -e "$icon \e[5m$to\e[25m$spaces$icon"
+echo -e "$icon $to$spaces$icon"
 printf "%.0s$icon" $(seq 1 49)
-echo -e "\e[0m"
+echo -e "\e[0m\e[25m"
 read -p "Are you sure you want to continue? (y/N) " answer
 if [ "$answer" = "y" ]
 then
