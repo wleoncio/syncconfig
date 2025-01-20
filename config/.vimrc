@@ -27,3 +27,6 @@ augroup RelativeNumber
   autocmd InsertEnter,CmdlineEnter * set norelativenumber
   autocmd InsertLeave,CmdlineLeave * set relativenumber
 augroup END
+
+au FocusLost,TabLeave * stopinsert
+au FocusLost,TabLeave * call feedkeys("\<C-\>\<C-n>")
