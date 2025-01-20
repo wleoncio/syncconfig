@@ -8,11 +8,13 @@ starship init fish | source
 zoxide init --cmd cd fish | source
 
 # Fish vim config
-fish_vi_key_bindings
+fish_vi_key_bindings "default"
 set fish_cursor_default block blink
+
 # Emulates vim's cursor shape behavior
 # Set the normal and visual mode cursors to a block
 set fish_cursor_default block blink
+
 # Set the insert mode cursor to a line
 set fish_cursor_insert line blink
 # Set the replace mode cursors to an underscore
