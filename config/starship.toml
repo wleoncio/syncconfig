@@ -58,7 +58,7 @@ style = "bg:#212736"
 format = '[[ $symbol ](fg:#769ff0 bg:#212736)]($style)'
 
 [character]
-vimcmd_symbol = '[N](bold green)'
+vimcmd_symbol = '[N](bold blue)'
 vimcmd_replace_one_symbol = '[R](bold red)'
 vimcmd_replace_symbol = '[R](bold magenta)'
 vimcmd_visual_symbol = '[v](bold purple)'
