@@ -213,14 +213,10 @@
         "language-julia.interrupt",
         "matlab.interrupt"
     ],
-    "terminal.integrated.confirmOnExit": "always",
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.cursorBlinking": true,
-    "terminal.integrated.cursorStyle": "line",
     "terminal.integrated.cursorWidth": 3,
-    "terminal.integrated.defaultProfile.linux": "fish",
     "terminal.integrated.drawBoldTextInBrightColors": false,
-    "terminal.integrated.enableMultiLinePasteWarning": "never",
     "terminal.integrated.fontFamily": "'FiraCode Nerd Font'",
     "terminal.integrated.profiles.linux": {
         "R": {
@@ -364,9 +360,19 @@
     "vim.wrapscan": false,
     "vim.matchpairs": "(:),{:},[:]",
     "workbench.activityBar.location": "hidden",
+    "workbench.editor.splitSizing": "distribute",
     "terminal.integrated.inheritEnv": false,
     "workbench.editorAssociations": {
         "*.copilotmd": "vscode.markdown.preview.editor",
         "*.pdf": "default"
     },
+    "terminal.integrated.fontLigatures": true,
+    "terminal.integrated.stickyScroll.enabled": true,
+    "terminal.integrated.suggest.enabled": true,
+    "terminal.integrated.autoReplies": {
+        "Update? (Yes/no/cancel)": "\r",
+        "use a personal library instead? (yes/No/cancel)": "yes\r",
+        "Save workspace image? [y/n/c]:": "n\r",
+    },
+    "terminal.integrated.shellIntegration.enabled": false
 }
