@@ -5,7 +5,7 @@ palette = 'uio'
 format = """
 [  ](bg:graa fg:svart)\
 $directory\n
-($git_branch $git_status $git_state)\
+($git_branch $git_status$git_state)\
 $character
 """
 
@@ -36,7 +36,7 @@ truncation_symbol = "…/"
 [git_branch]
 symbol = ""
 style = "fg:blaatone"
-format = '[ $symbol $branch]($style)'
+format = '[$symbol $branch]($style)'
 
 [git_status]
 style = "bold lysroed"
