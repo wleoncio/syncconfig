@@ -1,14 +1,15 @@
 if status is-interactive
-  # Commands to run in interactive sessions can go here
+	# Commands to run in interactive sessions can go here
 	source $HOME/.bash_aliases
 	fish_add_path $HOME/Programs/syncconfig/
+	fish_add_path $HOME/Programs/syncconfig/myScripts/
 end
 
 starship init fish | source
 zoxide init --cmd cd fish | source
 
 # Fish vim config
-fish_vi_key_bindings "default"
+fish_vi_key_bindings default
 set fish_cursor_default block blink
 
 # Emulates vim's cursor shape behavior

@@ -374,5 +374,6 @@
         "use a personal library instead? (yes/No/cancel)": "yes\r",
         "Save workspace image? [y/n/c]:": "n\r",
     },
+    "terminal.integrated.defaultProfile.linux": "fish",
     "terminal.integrated.shellIntegration.enabled": false
 }
