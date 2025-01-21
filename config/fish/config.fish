@@ -2,6 +2,7 @@ if status is-interactive
 	# Commands to run in interactive sessions can go here
 	source $HOME/.bash_aliases
 	fish_add_path $HOME/Programs/syncconfig/
+	fish_add_path $HOME/Programs/syncconfig/myScripts/
 end
 
 starship init fish | source
