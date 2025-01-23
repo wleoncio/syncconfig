@@ -5,7 +5,19 @@ options(radian.highlight_matching_bracket = TRUE)
 options(radian.complete_while_typing = TRUE)
 options(radian.history_search_ignore_case = TRUE)
 options(radian.escape_key_map = list(
-	# Press <Esc> + <key> to trigger value
-    list(key = "-", value = " <- ")
+	# Press <alt> + <key> to trigger value
+	list(key = "-", value = " <- "),
+	list(key = "p", value = " |> ")
 ))
 options(radian.prompt = "\033[0;34mR>\033[0m ")
+options(radian.completion_adding_spaces_around_equals = TRUE)
+
+# Vi mode options
+options(radian.editing_mode = "vi")
+options(
+    radian.vi_mode_prompt = list(
+        "ins" = "\033[0;32m[I]\033[0m ",
+        "nav" = "\033[0;31m[N]\033[0m ",
+        "rep" = "\033[0;32m[R]\033[0m "
+    )
+)
