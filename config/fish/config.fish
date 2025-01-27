@@ -6,6 +6,7 @@ end
 
 starship init fish | source
 zoxide init --cmd cd fish | source
+thefuck --alias | source
 
 # Fish vim config
 fish_vi_key_bindings "default"

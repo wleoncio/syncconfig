@@ -15,6 +15,8 @@ alias connect="nmcli connection up eduroam"
 alias matlab="/usr/local/MATLAB/R2023b/bin/matlab -nodesktop -nosplash"
 alias lstar="tar -ztvf"
 alias copilot="gh copilot"
+alias ls="eza"
+alias pqp="fuck"
 
 # Common folders
 alias work="cd $HOME/UiO/Projects"
