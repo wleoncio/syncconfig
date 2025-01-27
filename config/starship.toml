@@ -4,7 +4,7 @@
 palette = 'uio'
 format = """
 [](fg:graa)\
-[ ](bg:graa fg:svart)\
+[  ](bg:graa fg:svart)\
 $directory[](fg:roed)\n
 ($git_branch $git_status$git_state)\
 $character
