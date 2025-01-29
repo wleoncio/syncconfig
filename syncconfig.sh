@@ -169,6 +169,7 @@ syncFiles () {
 	eval "$operator" "${origin[0]}"/.Rprofile "${destination[0]}"
 	eval "$operator" "${origin[1]}"/gromit-mpx.cfg "${destination[1]}"
 	eval "$operator" "${origin[1]}"/starship.toml "${destination[1]}"
+	eval "$operator" "${origin[1]}"/alacritty.toml "${destination[1]}"
 	eval "$operator" "${origin[1]}"/gh/config.yml "${destination[1]}"/gh/config.yml
 	eval "$operator" "${origin[1]}"/fish/config.fish "${destination[1]}"/fish/config.fish
 	eval "$operator" "${origin[5]}"/config "${destination[5]}"
