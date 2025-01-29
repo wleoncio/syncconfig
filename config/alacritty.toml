@@ -1,0 +1,7 @@
+# Source: https://alacritty.org/config-alacritty.html
+[font]
+	normal = {family = "CommitMono Nerd Font"}
+
+[cursor]
+	style = {blinking = "On"}
+	blink_interval = 500
