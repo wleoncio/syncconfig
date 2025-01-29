@@ -213,41 +213,14 @@
         "language-julia.interrupt",
         "matlab.interrupt"
     ],
-    "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.cursorBlinking": true,
-    "terminal.integrated.cursorWidth": 3,
-    "terminal.integrated.drawBoldTextInBrightColors": false,
     "terminal.integrated.fontFamily": "'FiraCode Nerd Font'",
-    "terminal.integrated.profiles.linux": {
-        "R": {
-            "color": "terminal.ansiBlue",
-            "icon": "package",
-            "overrideName": true,
-            "path": "/usr/bin/R"
-        },
-        "bash": {
-            "icon": "terminal-bash",
-            "path": "bash"
-        },
-        "fish": {
-            "color": "terminal.ansiWhite",
-            "icon": "terminal-linux",
-            "path": "fish"
-        },
-        "radian": {
-            "color": "terminal.ansiBlue",
-            "icon": "package",
-            "overrideName": true,
-            "path": "/home/waldir/.local/bin/radian"
-        }
-    },
     "terminal.integrated.showExitAlert": false,
     "terminal.integrated.smoothScrolling": true,
     "terminal.integrated.tabs.focusMode": "singleClick",
     "terminal.integrated.tabs.hideCondition": "never",
     "terminal.integrated.tabs.location": "left",
     "terminal.integrated.tabs.showActiveTerminal": "always",
-    "terminal.integrated.tabs.title": "${process}",
     "todo-tree.general.debug": true,
     "todo-tree.general.revealBehaviour": "start of todo",
     "todo-tree.general.statusBar": "tags",
@@ -363,12 +336,10 @@
     "vim.matchpairs": "(:),{:},[:]",
     "workbench.activityBar.location": "hidden",
     "workbench.editor.splitSizing": "distribute",
-    "terminal.integrated.inheritEnv": false,
     "workbench.editorAssociations": {
         "*.copilotmd": "vscode.markdown.preview.editor",
         "*.pdf": "default"
     },
-    "terminal.integrated.fontLigatures": true,
     "terminal.integrated.stickyScroll.enabled": true,
     "terminal.integrated.suggest.enabled": true,
     "terminal.integrated.autoReplies": {
@@ -387,5 +358,12 @@
     ],
     "extendedTerminalIntegration.statusBar.showTerminalName": true,
     "python.terminal.activateEnvironment": false,
-    "terminal.integrated.shellIntegration.enabled": false
+    "terminal.integrated.shellIntegration.enabled": false,
+    "editor.tabSize": 2,
+    "terminal.external.linuxExec": "alacritty",
+    "terminal.integrated.drawBoldTextInBrightColors": false,
+    "terminal.integrated.fontLigatures": true,
+    "terminal.integrated.inheritEnv": false,
+    "terminal.integrated.lineHeight": 1,
+    "terminal.integrated.fontSize": 13
 }
