@@ -1,7 +1,15 @@
-# Source: https://alacritty.org/config-alacritty.html
-[font]
-	normal = {family = "CommitMono Nerd Font"}
+import = [
+  "/usr/local/lib/node_modules/alacritty-themes/themes/Alabaster.dark.toml"
+]
+
+[font.normal]
+family = "CommitMono Nerd Font"
 
 [cursor]
-	style = {blinking = "On"}
-	blink_interval = 500
+blink_interval = 500
+
+  [cursor.style]
+  blinking = "On"
+
+[window]
+dynamic_title = false
