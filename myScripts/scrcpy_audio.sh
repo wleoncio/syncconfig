@@ -1,5 +1,5 @@
 read -p "Select audio destination ([m]obile, [d]esktop): " output
-COMMON_ARGS="--always-on-top --keyboard=aoa --power-off-on-close"
+COMMON_ARGS="--keyboard=aoa --power-off-on-close"
 
 # Press (1) and release (0) Super (125) + H (35)
 # See /usr/include/linux/input-event-codes.h for more codes
