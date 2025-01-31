@@ -3,9 +3,6 @@ alias open="xdg-open"
 alias r="~/venv/bin/radian"
 alias python="bpython"
 alias please="sudo"
-alias smaug="ssh waldirln@login.uio.no"
-alias mb="ssh waldirln@login.uio.no -t ssh med-biostat"
-alias mb2="ssh waldirln@login.uio.no -t ssh med-biostat2"
 alias copy="xclip -selection clipboard"
 alias bt="bluetoothctl"
 alias update="sudo nala update; sudo nala upgrade"
@@ -17,8 +14,15 @@ alias lstar="tar -ztvf"
 alias copilot="gh copilot"
 alias ls="eza"
 alias pqp="fuck"
+
+# UiO operations
+
 alias pushuio="uiosync.sh push"
 alias pulluio="uiosync.sh pull"
+alias smaug="ssh waldirln@login.uio.no"
+alias mb="ssh waldirln@login.uio.no -t ssh med-biostat"
+alias mb2="ssh waldirln@login.uio.no -t ssh med-biostat2"
+alias fox="ssh ec-waldirln@fox.educloud.no"
 
 # Common folders
 alias work="cd $HOME/UiO/Projects"
