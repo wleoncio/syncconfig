@@ -1,3 +1,12 @@
+function fish_title
+		set --query argv[1]; or set argv "Terminal"
+		if test $argv = "Terminal"
+	    echo $argv
+		else
+			echo (fish_prompt_pwd_dir_length=0 prompt_pwd): $argv;
+		end
+end
+
 if status is-interactive
   # Commands to run in interactive sessions can go here
 	source $HOME/.bash_aliases
