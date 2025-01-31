@@ -7,26 +7,19 @@ if status is-interactive
 	end
 end
 
+# Terminal add-ons
 starship init fish | source
 zoxide init --cmd cd fish | source
 thefuck --alias | source
 
-# Fish vim config
-fish_vi_key_bindings "default"
+# Fish vim config ("default" == normal)
 set fish_cursor_default block blink
+set fish_cursor_insert line 
+set fish_cursor_replace_one block blink
+set fish_cursor_replace block blink
 
-# Emulates vim's cursor shape behavior
-# Set the normal and visual mode cursors to a block
-set fish_cursor_default block blink
+# Override Alacritty cursors
+set fish_vi_force_cursor 
 
-# Set the insert mode cursor to a line
-set fish_cursor_insert line blink
-# Set the replace mode cursors to an underscore
-set fish_cursor_replace_one underscore blink
-set fish_cursor_replace underscore blink
-# Set the external cursor to a line. The external cursor appears when a command is started.
-# The cursor shape takes the value of fish_cursor_default when fish_cursor_external is not specified.
-set fish_cursor_external line blink
-# The following variable can be used to configure cursor shape in
-# visual mode, but due to fish_cursor_default, is redundant here
-set fish_cursor_visual block blink
+# Start on insert mode
+fish_vi_key_bindings insert

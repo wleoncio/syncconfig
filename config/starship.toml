@@ -60,7 +60,7 @@ format = '[[ $symbol ](fg:#769ff0 bg:#212736)]($style)'
 
 [character]
 vimcmd_symbol = '[N](bold red)'
-vimcmd_replace_one_symbol = '[R](bold yellow)'
-vimcmd_replace_symbol = '[R](bold magenta)'
-vimcmd_visual_symbol = '[v](bold purple)'
+vimcmd_replace_one_symbol = '[r](bold yellow)'
+vimcmd_replace_symbol = '[R](bold yellow)'
+vimcmd_visual_symbol = '[V](bold purple)'
 

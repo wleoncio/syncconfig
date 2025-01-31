@@ -12,4 +12,9 @@ blink_interval = 500
   blinking = "On"
 
 [window]
-dynamic_title = false
+dynamic_title = true
+padding = {x = 5, y = 5}
+
+[colors]
+vi_mode_cursor = {text = "#000000", cursor = "#00FFFF"}
+
