@@ -17,6 +17,8 @@ alias lstar="tar -ztvf"
 alias copilot="gh copilot"
 alias ls="eza"
 alias pqp="fuck"
+alias pushuio="uiosync.sh push"
+alias pulluio="uiosync.sh pull"
 
 # Common folders
 alias work="cd $HOME/UiO/Projects"
