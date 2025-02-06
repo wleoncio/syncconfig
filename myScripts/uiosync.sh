@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 # Syncs UiO accounts between local and Hjemmeområdet
 
 # Config constants
