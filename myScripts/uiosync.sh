@@ -1,6 +1,8 @@
 #!/bin/bash
 # Syncs UiO accounts between local and Hjemmeområdet
 
+source uio-colors.sh
+
 # Config constants
 configPath=$HOME/.config/uiosync.conf
 if [ -f $configPath ]
@@ -13,8 +15,8 @@ fi
 
 reportLastSync() {
 	# Report last sync on local
-	echo -e "\n\e[1;36mLast sync on this machine:"
-	echo -e "$(tail -n 1 $local/.uiosync.log)\e[0m\n"
+	echo -e "\n${lysblaa}Last sync on this machine:"
+	echo -e "$(tail -n 1 $local/.uiosync.log)${reset}\n"
 }
 reportLastSync
 
@@ -29,7 +31,7 @@ then
 	# Ask for confirmation if pulling in odd hours
 	if [ "$hour" -gt 7 ] && [ "$hour" -lt 8 ] || [ "$hour" -gt 12 ] && [ "$hour" -lt 18 ] || [ "$hour" -gt 21 ]
 	then
-		echo -e "\e[1;5;31mThis is an odd time to PULL!\e[0m"
+		echo -e "\e[1;5;31mThis is an odd time to PULL!${reset}"
 		read -p "Are you sure you want to PULL? (y/N) " answer
 		if [ "$answer" != "y" ]
 		then
@@ -47,7 +49,7 @@ then
 	# Ask for confirmation if pushing in odd hours
 	if [ "$hour" -lt 6 ] || [ "$hour" -gt 8 ] && [ "$hour" -lt 11 ]
 	then
-		echo -e "\e[1;5;31mThis is an odd time to PUSH!\e[0m"
+		echo -e "\e[1;5;31mThis is an odd time to PUSH!${reset}"
 		read -p "Are you sure you want to PUSH? (y/N) " answer
 		if [ "$answer" != "y" ]
 		then
@@ -106,14 +108,14 @@ fi
 
 # Actual run
 echo -e "\nSynchronizing to $to"
-echo -e "\e[1;31m"
+echo -e "${bold}${roed}"
 printf "\e[5m%.0s$icon" $(seq 1 49)
 echo -e "\n$icon THIS OPERATION WILL OVERWRITE THE CONTENTS OF $icon"
 spaces_needed=$((46 - ${#to}))
 spaces=$(printf "%*s" "$spaces_needed") 
 echo -e "$icon $to$spaces$icon"
 printf "%.0s$icon" $(seq 1 49)
-echo -e "\e[0m\e[25m"
+echo -e "${reset}\e[25m"
 read -p "Are you sure you want to continue? (y/N) " answer
 if [ "$answer" = "y" ]
 then
@@ -128,11 +130,11 @@ then
 		echo $(eval date) "pull to" $toname >> $local"/.uiosync.log"
 	fi
 	# Done
-	echo -e "\e[1;34m"
+	echo -e "${groenn}"
 	printf "%.0s$icon" $(seq 1 16)
 	echo -e "\n$icon Done "$1"ing $icon"
 	printf "%.0s$icon" $(seq 1 16)
-	echo -e "\e[0m"
+	echo -e "${reset}"
 	reportLastSync
 	exit 0
 else
