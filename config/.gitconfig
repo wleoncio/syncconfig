@@ -73,6 +73,8 @@
   ff = no
 [pull]
   ff = yes
+[push]
+	autoSetupRemote = true
 [init]
   defaultBranch = develop
 [diff]
