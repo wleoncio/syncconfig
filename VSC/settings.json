@@ -264,6 +264,7 @@
     "todo-tree.regex.regex": "(//|#|%|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
     "typescript.suggest.paths": false,
     "vim.easymotion": true,
+    "vim.foldfix": true,
     "vim.gdefault": true,
     "vim.highlightedyank.enable": true,
     "vim.ignorecase": false,
