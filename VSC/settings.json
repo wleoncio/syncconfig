@@ -56,6 +56,7 @@
     "editor.snippetSuggestions": "top",
     "editor.stickyScroll.enabled": true,
     "editor.stickyTabStops": true,
+    "editor.tabSize": 2,
     "editor.tokenColorCustomizations": {
         "[Default Dark Modern]": {
             "textMateRules": [
@@ -113,38 +114,61 @@
                 }
             ]
         },
+        "comments": "#b2b3b7",
         "functions": "#86a4f7",
         "keywords": "#86a4f7",
-        "comments": "#b2b3b7",
         "numbers": "#2ec483",
         "strings": "#fdcb87",
-        "types": "#b60000",
-        "variables": "#e6ecff",
         "textMateRules": [
             {
-                "scope": ["keyword.control", "source.css.scss"],
-                "settings": {"foreground": "#86a4f7"}
+                "scope": [
+                    "keyword.control",
+                    "source.css.scss"
+                ],
+                "settings": {
+                    "foreground": "#86a4f7"
+                }
             },
             {
-                "scope": ["entity.name.function"],
-                "settings": {"foreground": "#e6ecff"}
+                "scope": [
+                    "entity.name.function"
+                ],
+                "settings": {
+                    "foreground": "#e6ecff"
+                }
             },
             {
-                "scope": ["keyword.operator"],
-                "settings": {"foreground": "#86a4f7"}
+                "scope": [
+                    "keyword.operator"
+                ],
+                "settings": {
+                    "foreground": "#86a4f7"
+                }
             },
             {
-                "scope": ["storage.type"],
-                "settings": {"foreground": "#86a4f7"}
+                "scope": [
+                    "storage.type"
+                ],
+                "settings": {
+                    "foreground": "#86a4f7"
+                }
             },
             {
-                "scope": ["support.type.property-name", "source.css variable"],
-                "settings": {"foreground": "#e6ecff"}
+                "scope": [
+                    "support.type.property-name",
+                    "source.css variable"
+                ],
+                "settings": {
+                    "foreground": "#e6ecff"
+                }
             }
-        ]
+        ],
+        "types": "#b60000",
+        "variables": "#e6ecff"
     },
     "editor.wordWrap": "off",
     "explorer.compactFolders": false,
+    "extendedTerminalIntegration.statusBar.showTerminalName": true,
     "extensions.ignoreRecommendations": true,
     "files.associations": {
         "*.Rnw": "latex",
@@ -169,8 +193,8 @@
         "*": true,
         "markdown": true,
         "plaintext": true,
-        "scminput": false,
-        "quarto": true
+        "quarto": true,
+        "scminput": false
     },
     "gitweblinks.defaultBranch": "develop",
     "gitweblinks.preferredRemoteName": "ocbe-uio",
@@ -194,6 +218,7 @@
     "outline.icons": false,
     "python.REPL.sendToNativeREPL": true,
     "python.defaultInterpreterPath": "/home/waldir/venv/bin/python3",
+    "python.terminal.activateEnvironment": false,
     "quarto.render.renderOnSave": true,
     "quarto.zotero.library": "none",
     "r.alwaysUseActiveTerminal": true,
@@ -210,14 +235,36 @@
     "security.workspace.trust.untrustedFiles": "open",
     "task.allowAutomaticTasks": "on",
     "task.saveBeforeRun": "prompt",
+    "terminal.external.linuxExec": "alacritty",
+    "terminal.integrated.autoReplies": {
+        "Save workspace image? [y/n/c]:": "n\r",
+        "use a personal library instead? (yes/No/cancel)": "yes\r"
+    },
     "terminal.integrated.commandsToSkipShell": [
         "language-julia.interrupt",
         "matlab.interrupt"
     ],
+    "terminal.integrated.confirmOnExit": "always",
     "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.drawBoldTextInBrightColors": false,
     "terminal.integrated.fontFamily": "'FiraCode Nerd Font'",
+    "terminal.integrated.fontLigatures": true,
+    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.ignoreProcessNames": [
+        "starship",
+        "oh-my-posh",
+        "bash",
+        "zsh",
+        "fish"
+    ],
+    "terminal.integrated.inheritEnv": false,
+    "terminal.integrated.lineHeight": 1,
+    "terminal.integrated.shellIntegration.enabled": false,
     "terminal.integrated.showExitAlert": false,
     "terminal.integrated.smoothScrolling": true,
+    "terminal.integrated.stickyScroll.enabled": true,
+    "terminal.integrated.suggest.enabled": true,
+    "terminal.integrated.tabs.enabled": false,
     "terminal.integrated.tabs.focusMode": "singleClick",
     "terminal.integrated.tabs.hideCondition": "never",
     "terminal.integrated.tabs.location": "left",
@@ -267,8 +314,10 @@
     "vim.foldfix": true,
     "vim.gdefault": true,
     "vim.highlightedyank.enable": true,
+    "vim.history": 10,
     "vim.ignorecase": false,
     "vim.inccommand": "append",
+    "vim.matchpairs": "(:),{:},[:]",
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "after": [
@@ -287,13 +336,21 @@
     ],
     "vim.smartRelativeLine": true,
     "vim.statusBarColorControl": true,
+    "vim.statusBarColors.insert": [
+        "#2ec483"
+    ],
+    "vim.statusBarColors.normal": [
+        "#b60000"
+    ],
+    "vim.statusBarColors.visual": [
+        "#3e31d6"
+    ],
     "vim.textwidth": 79,
     "vim.useSystemClipboard": true,
-    "vim.statusBarColors.insert": ["#2ec483"],
-    "vim.statusBarColors.normal": ["#b60000"],
-    "vim.statusBarColors.visual": ["#3e31d6"],
+    "vim.wrapscan": false,
     "window.menuBarVisibility": "toggle",
     "window.restoreWindows": "none",
+    "workbench.activityBar.location": "hidden",
     "workbench.colorCustomizations": {
         "editorBracketHighlight.foreground1": "#2ec483",
         "editorBracketHighlight.foreground2": "#6ce1ab",
@@ -326,45 +383,16 @@
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.mouseBackForwardToNavigate": false,
     "workbench.editor.revealIfOpen": true,
+    "workbench.editor.splitSizing": "distribute",
     "workbench.editor.tabSizing": "shrink",
+    "workbench.editorAssociations": {
+        "*.copilotmd": "vscode.markdown.preview.editor",
+        "*.pdf": "default"
+    },
     "workbench.enableExperiments": false,
     "workbench.iconTheme": "eq-material-theme-icons",
     "workbench.sideBar.location": "right",
     "workbench.startupEditor": "none",
     "workbench.tree.indent": 16,
-    "workbench.tree.renderIndentGuides": "always",
-    "vim.history": 10,
-    "vim.wrapscan": false,
-    "vim.matchpairs": "(:),{:},[:]",
-    "workbench.activityBar.location": "hidden",
-    "workbench.editor.splitSizing": "distribute",
-    "workbench.editorAssociations": {
-        "*.copilotmd": "vscode.markdown.preview.editor",
-        "*.pdf": "default"
-    },
-    "terminal.integrated.stickyScroll.enabled": true,
-    "terminal.integrated.suggest.enabled": true,
-    "terminal.integrated.autoReplies": {
-        "use a personal library instead? (yes/No/cancel)": "yes\r",
-        "Save workspace image? [y/n/c]:": "n\r",
-    },
-    "terminal.integrated.tabs.enabled": false,
-    "terminal.integrated.confirmOnExit": "always",
-    "terminal.integrated.ignoreProcessNames": [
-        "starship",
-        "oh-my-posh",
-        "bash",
-        "zsh",
-        "fish"
-    ],
-    "extendedTerminalIntegration.statusBar.showTerminalName": true,
-    "python.terminal.activateEnvironment": false,
-    "terminal.integrated.shellIntegration.enabled": false,
-    "editor.tabSize": 2,
-    "terminal.external.linuxExec": "alacritty",
-    "terminal.integrated.drawBoldTextInBrightColors": false,
-    "terminal.integrated.fontLigatures": true,
-    "terminal.integrated.inheritEnv": false,
-    "terminal.integrated.lineHeight": 1,
-    "terminal.integrated.fontSize": 13
+    "workbench.tree.renderIndentGuides": "always"
 }
