@@ -345,7 +345,6 @@
     "terminal.integrated.stickyScroll.enabled": true,
     "terminal.integrated.suggest.enabled": true,
     "terminal.integrated.autoReplies": {
-        "Update? (Yes/no/cancel)": "\r",
         "use a personal library instead? (yes/No/cancel)": "yes\r",
         "Save workspace image? [y/n/c]:": "n\r",
     },
