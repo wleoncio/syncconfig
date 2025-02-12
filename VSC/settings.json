@@ -148,7 +148,8 @@
     "extensions.ignoreRecommendations": true,
     "files.associations": {
         "*.Rnw": "latex",
-        "*.docker": "Dockerfile"
+        "*.docker": "Dockerfile",
+        "renv.lock": "json"
     },
     "files.autoGuessEncoding": true,
     "files.autoSave": "onFocusChange",
