@@ -17,8 +17,8 @@ YDOTOOL_SOCKET="$HOME/.ydotool_socket" ydotool key 125:1 42:1 105:1 125:0 42:0 1
 
 sleep 0.3
 
-# Press (1) and release (0) Super (125) + H (35) to hide window
-YDOTOOL_SOCKET="$HOME/.ydotool_socket" ydotool key 125:1 35:1 35:0 125:0
+# Press (1) and release (0) Ctrl (29) + Alt (56) + H (35) to hide window
+YDOTOOL_SOCKET="$HOME/.ydotool_socket" ydotool key 29:1 56:1 35:1 29:0 56:0 35:0
 
 if [ $output = 'm' ]; then
 	scrcpy --no-audio $COMMON_ARGS
