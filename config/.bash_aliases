@@ -3,6 +3,7 @@ alias r="~/venv/bin/radian"
 alias cleanR="sudo docker run --rm -ti r-base bash"
 alias matlab="/usr/local/MATLAB/R2023b/bin/matlab -nodesktop -nosplash"
 alias copilot="gh copilot"
+alias gt="git"
 
 # System shortcuts
 alias nvtop="watch -d -n 0.5 nvidia-smi"
