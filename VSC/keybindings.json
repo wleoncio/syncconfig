@@ -130,7 +130,7 @@
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+r ctrl+shift+u",
+        "key": "ctrl+r shift+u",
         "command": "r.runCommand",
         "args": "covr::report(covr::package_coverage())",
         "when": "terminalFocus"
