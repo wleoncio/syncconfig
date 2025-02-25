@@ -38,7 +38,7 @@ echo -e '- Add \e[4;31munit tests\e[0m for new code?'
 if [[ $covr == true && -f "DESCRIPTION" ]]; then
 	echo -n "  Calculating package coverage on merge: "
 	cvrg=$(Rscript -e "cat(round(covr::percent_coverage(covr::package_coverage()), 2))")
-	echo "$cvrg %"
+	echo -e "\e[34m$cvrg %\e[0m"
 fi
 
 if [[ -f "NEWS.md" ]]; then
