@@ -14,6 +14,7 @@ options(radian.completion_adding_spaces_around_equals = TRUE)
 
 # Vi mode options
 options(radian.editing_mode = "vi")
+options(radian.emacs_bindings_in_vi_insert_mode = TRUE)
 options(
     radian.vi_mode_prompt = list(
         "ins" = "\033[0;32m[I]\033[0m ",
