@@ -39,7 +39,6 @@ then
 			exit 0
 		fi
 	fi
-	echo -e "Pulling remote copy to local"
 elif [ "$1" = "push" ] || [ "$1" = "up" ]
 then
 	from="$local"
@@ -57,7 +56,6 @@ then
 			exit 0
 		fi
 	fi
-	echo -e "Pushing local copy to remote"
 else
 	echo "USAGE"
 	echo "  uiosync.sh [command]"
