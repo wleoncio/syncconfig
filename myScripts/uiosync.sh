@@ -16,7 +16,7 @@ fi
 reportLastSync() {
 	# Report last sync on local
 	echo -e "\n${lysblaa}Last sync on this machine:"
-	echo -e "$(tail -n 1 $local/.uiosync.log)${reset}\n"
+	echo -e "$(tail -n 1 $local/.uiosync.log)${reset}"
 }
 reportLastSync
 
