@@ -51,101 +51,101 @@
         "key": "ctrl+r ctrl+shift+r",
         "command": "r.runCommand",
         "args": "devtools::load_all(export_all = TRUE)",
-        "when": "terminalFocus"
+        "when": "terminalFocus && editorLangId == 'r'"
     },
     {
         "description": "Document and install package",
         "key": "ctrl+r ctrl+i",
         "command": "r.runCommand",
         "args": "devtools::document(); devtools::install()",
-        "when": "terminalFocus"
+        "when": "terminalFocus && editorLangId == 'r'"
     },
     {
         "description": "Update version and install package",
         "key": "ctrl+r ctrl+shift+i",
         "command": "r.runCommand",
         "args": "usethis::use_version('dev'); devtools::install()",
-        "when": "terminalFocus"
+        "when": "terminalFocus && editorLangId == 'r'"
     },
     {
         "description": "Update docs, version and install package",
         "key": "ctrl+shift+r ctrl+shift+i",
         "command": "r.runCommand",
         "args": "devtools::document(); usethis::use_version('dev'); devtools::install()",
-        "when": "terminalFocus"
+        "when": "terminalFocus && editorLangId == 'r'"
     },
     {
         "description": "Update version and install package",
         "key": "ctrl+r ctrl+shift+i",
         "command": "r.runCommand",
         "args": "usethis::use_version('dev'); devtools::install()",
-        "when": "terminalFocus"
+        "when": "terminalFocus && editorLangId == 'r'"
     },
     {
         "description": "Bump development version",
         "key": "ctrl+r ctrl+v",
         "command": "r.runCommand",
         "args": "usethis::use_version('dev')",
-        "when": "terminalFocus"
+        "when": "terminalFocus && editorLangId == 'r'"
     },
     {
         "description": "Bump feature version",
         "key": "ctrl+r ctrl+shift+v",
         "command": "r.runCommand",
         "args": "require('OCBEdev'); add_feature_version()",
-        "when": "terminalFocus"
+        "when": "terminalFocus && editorLangId == 'r'"
     },
     {
         "description": "List object structure",
         "key": "ctrl+r ctrl+s",
         "command": "r.runCommand",
         "args": "print(ls.str(), all.names = TRUE, max.level = 0)",
-        "when": "terminalFocus"
+        "when": "terminalFocus && editorLangId == 'r'"
     },
     {
         "description": "List object structure",
         "key": "ctrl+r ctrl+shift+s",
         "command": "r.runCommand",
         "args": "View(globalenv())",
-        "when": "terminalFocus"
+        "when": "terminalFocus && editorLangId == 'r'"
     },
     {
         "description": "View environment",
         "key": "ctrl+r ctrl+e",
         "command": "r.runCommand",
         "args": "devtools::run_examples()",
-        "when": "terminalFocus"
+        "when": "terminalFocus && editorLangId == 'r'"
     },
     {
         "description": "Clean working environment",
         "key": "ctrl+r shift+r",
         "command": "r.runCommand",
         "args": "rm(list = ls())",
-        "when": "terminalFocus"
+        "when": "terminalFocus && editorLangId == 'r'"
     },
     {
         "key": "ctrl+r ctrl+n",
         "command": "r.runCommand",
         "args": "; notifier::notify('done')",
-        "when": "terminalFocus"
+        "when": "terminalFocus && editorLangId == 'r'"
     },
     {
         "key": "ctrl+r shift+u",
         "command": "r.runCommand",
         "args": "covr::report(covr::package_coverage())",
-        "when": "terminalFocus"
+        "when": "terminalFocus && editorLangId == 'r'"
     },
     {
         "key": "ctrl+r ctrl+p",
         "command": "r.runCommand",
         "args": "Rprof()",
-        "when": "terminalFocus"
+        "when": "terminalFocus && editorLangId == 'r'"
     },
     {
         "key": "ctrl+r ctrl+shift+p",
         "command": "r.runCommand",
         "args": "Rprof(NULL); summaryRprof(); file.remove('Rprof.out')",
-        "when": "terminalFocus"
+        "when": "terminalFocus && editorLangId == 'r'"
     },
     {
         "key": "ctrl+s ctrl+s",
@@ -404,7 +404,7 @@
     {
         "key": "ctrl+r ctrl+t",
         "command": "r.createRTerm",
-        "when": "terminalFocus"
+        "when": "terminalFocus && editorLangId == 'r'"
     },
     {
         "key": "ctrl+s ctrl+r",
@@ -415,7 +415,7 @@
         "key": "ctrl+r ctrl+shift+c",
         "command": "r.runCommand",
         "args": "devtools::check(vignettes = FALSE, args = c('--no-examples', '--no-tests'), cran = FALSE, run_dont_test = FALSE)",
-        "when": "terminalFocus"
+        "when": "terminalFocus && editorLangId == 'r'"
     },
     {
         "key": "ctrl+s ctrl+i",
