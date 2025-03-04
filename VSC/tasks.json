@@ -13,6 +13,16 @@
 		},
 		{
 			"type": "R",
+			"code": ["devtools::load_all()"],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"label": "R: Load all"
+		},
+		{
+			"type": "R",
 			"code": ["devtools::check()"],
 			"group": "test",
 			"problemMatcher": [],

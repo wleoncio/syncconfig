@@ -955,7 +955,8 @@
     },
     {
         "key": "ctrl+r ctrl+r",
-        "command": "r.loadAll",
+        "command": "workbench.action.tasks.runTask",
+        "args": "R: Load all",
         "when": "terminalFocus"
     },
     {
