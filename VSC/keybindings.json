@@ -404,7 +404,7 @@
     {
         "key": "ctrl+r ctrl+t",
         "command": "r.createRTerm",
-        "when": "terminalFocus && editorLangId == 'r'"
+        "when": "terminalFocus"
     },
     {
         "key": "ctrl+s ctrl+r",
@@ -984,21 +984,21 @@
     {
         "key": "ctrl+r ctrl+c",
         "command": "r.check",
-        "when": "terminalFocus"
+        "when": "terminalFocus && editorLangId == 'r'"
     },
     {
         "key": "ctrl+r ctrl+r",
         "command": "r.loadAll",
-        "when": "terminalFocus"
+        "when": "terminalFocus && editorLangId == 'r'"
     },
     {
         "key": "ctrl+r ctrl+d",
         "command": "r.document",
-        "when": "terminalFocus"
+        "when": "terminalFocus && editorLangId == 'r'"
     },
     {
         "key": "ctrl+r ctrl+u",
         "command": "r.test",
-        "when": "terminalFocus"
+        "when": "terminalFocus && editorLangId == 'r'"
     }
 ]
