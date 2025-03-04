@@ -967,5 +967,10 @@
         "key": "ctrl+r ctrl+u",
         "command": "r.test",
         "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+r ctrl+e",
+        "command": "r.runCommand",
+        "args": "rlang::last_trace()"
     }
 ]
