@@ -29,6 +29,8 @@ alias fox="ssh ec-waldirln@fox.educloud.no"
 # Common folders
 alias work="cd $HOME/UiO/Projects"
 alias sync="cd $HOME/Programs/syncconfig"
-alias pump="cd $HOME/Dropbox/Fitness/workoutPlan"
+
+# Life shortcuts 
+alias pump="python3 $HOME/Dropbox/Fitness/workoutPlan/start.py"
 
 
