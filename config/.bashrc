@@ -201,3 +201,5 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+eval "$(zoxide init bash)"
+eval "$(fzf --bash)"

@@ -11,12 +11,13 @@ if status is-interactive
   # Commands to run in interactive sessions can go here
 	source $HOME/.bash_aliases
 	fish_add_path $HOME/Programs/syncconfig/
-end
 
-# Terminal add-ons
-starship init fish | source
-zoxide init --cmd cd fish | source
-thefuck --alias | source
+	# Terminal add-ons
+	starship init fish | source
+	zoxide init --cmd cd fish | source
+	thefuck --alias | source
+	fzf --fish | source
+end
 
 # Fish vim config ("default" == normal)
 set fish_cursor_default block blink
