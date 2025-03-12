@@ -123,7 +123,7 @@
         "command": "-workbench.action.toggleSidebarVisibility"
     },
     {
-        "key": "ctrl+t ctrl+c",
+        "key": "ctrl+shift+t ctrl+c",
         "command": "workbench.action.terminal.focusNext",
         "when": "terminalFocus"
     },
@@ -245,12 +245,12 @@
         "command": "workbench.action.toggleMenuBar"
     },
     {
-        "key": "ctrl+t ctrl+m",
+        "key": "ctrl+shift+t ctrl+m",
         "command": "workbench.action.toggleMaximizedPanel",
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+t ctrl+p",
+        "key": "ctrl+shift+t ctrl+p",
         "command": "workbench.action.nextPanelView",
         "when": "terminalFocus"
     },
@@ -263,7 +263,7 @@
         "command": "-workbench.view.explorer"
     },
     {
-        "key": "ctrl+t ctrl+s",
+        "key": "ctrl+shift+t ctrl+s",
         "command": "workbench.action.terminal.split",
         "when": "terminalFocus"
     },
@@ -359,7 +359,7 @@
         "command": "-workbench.action.gotoLine"
     },
     {
-        "key": "ctrl+t ctrl+n",
+        "key": "ctrl+shift+t ctrl+n",
         "command": "workbench.action.terminal.new",
         "when": "terminalFocus"
     },
@@ -654,7 +654,7 @@
         "when": "textInputFocus"
     },
     {
-        "key": "ctrl+t ctrl+k",
+        "key": "ctrl+shift+t ctrl+shift+k",
         "command": "workbench.action.terminal.kill",
         "when": "terminalFocus"
     },
@@ -685,7 +685,7 @@
         "command": "workbench.action.toggleActivityBarVisibility"
     },
     {
-        "key": "ctrl+t ctrl+shift+l",
+        "key": "ctrl+shift+t ctrl+shift+l",
         "command": "workbench.action.terminal.openDetectedLink",
         "when": "terminalFocus && terminalHasBeenCreated"
     },
@@ -936,7 +936,7 @@
         "command": "workbench.action.closeActiveEditor"
     },
     {
-        "key": "ctrl+t ctrl+l",
+        "key": "ctrl+shift+t ctrl+l",
         "command": "workbench.action.terminal.openUrlLink",
         "when": "terminalFocus"
     },
