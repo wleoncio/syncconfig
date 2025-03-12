@@ -31,4 +31,5 @@ set fish_vi_force_cursor
 # Start on insert mode
 fish_vi_key_bindings insert
 
+# Startup brew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
