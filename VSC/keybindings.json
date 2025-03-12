@@ -281,33 +281,13 @@
         "command": "-workbench.view.scm"
     },
     {
-        "key": "ctrl+t left",
-        "command": "workbench.action.terminal.resizePaneLeft",
-        "when": "terminalFocus"
-    },
-    {
         "key": "ctrl+shift+left",
         "command": "-workbench.action.terminal.resizePaneLeft",
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+t right",
-        "command": "workbench.action.terminal.resizePaneRight",
-        "when": "terminalFocus"
-    },
-    {
         "key": "ctrl+shift+right",
         "command": "-workbench.action.terminal.resizePaneRight",
-        "when": "terminalFocus"
-    },
-    {
-        "key": "ctrl+t down",
-        "command": "workbench.action.terminal.resizePaneDown",
-        "when": "terminalFocus"
-    },
-    {
-        "key": "ctrl+t up",
-        "command": "workbench.action.terminal.resizePaneUp",
         "when": "terminalFocus"
     },
     {
@@ -731,21 +711,6 @@
     {
         "key": "ctrl+s ctrl+a",
         "command": "workbench.view.extension.github-actions"
-    },
-    {
-        "key": "ctrl+t f2",
-        "command": "workbench.action.terminal.rename",
-        "when": "terminalFocus"
-    },
-    {
-        "key": "ctrl+t shift+f2",
-        "command": "workbench.action.terminal.changeColor",
-        "when": "terminalFocus"
-    },
-    {
-        "key": "ctrl+t ctrl+shift+f2",
-        "command": "workbench.action.terminal.changeIcon",
-        "when": "terminalFocus"
     },
     {
         "key": "down",
