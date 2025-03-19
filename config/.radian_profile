@@ -1,5 +1,5 @@
 # Full color list: https://help.farbox.com/pygments.html
-options(radian.color_scheme = "native") # for dark backgrounds
+options(radian.color_scheme = "fruity") # for dark backgrounds
 options(radian.auto_match = FALSE)
 options(radian.highlight_matching_bracket = TRUE)
 options(radian.complete_while_typing = TRUE)
