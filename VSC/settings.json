@@ -200,10 +200,6 @@
     "gitweblinks.preferredRemoteName": "ocbe-uio",
     "html.preview.doubleClickToSwitchToEditor": false,
     "julia.NumThreads": 6,
-    "julia.additionalArgs": [
-        "--threads=4"
-    ],
-    "julia.enableTelemetry": false,
     "julia.numTestProcesses": 1,
     "julia.symbolCacheDownload": true,
     "markdown-pdf.displayHeaderFooter": false,
@@ -240,13 +236,8 @@
         "Save workspace image? [y/n/c]:": "n\r",
         "use a personal library instead? (yes/No/cancel)": "yes\r"
     },
-    "terminal.integrated.commandsToSkipShell": [
-        "language-julia.interrupt",
-        "matlab.interrupt"
-    ],
     "terminal.integrated.confirmOnExit": "always",
     "terminal.integrated.cursorBlinking": true,
-    "terminal.integrated.drawBoldTextInBrightColors": false,
     "terminal.integrated.fontFamily": "'FiraCode Nerd Font'",
     "terminal.integrated.fontLigatures": true,
     "terminal.integrated.fontSize": 13,
@@ -259,7 +250,6 @@
     ],
     "terminal.integrated.inheritEnv": false,
     "terminal.integrated.lineHeight": 1,
-    "terminal.integrated.shellIntegration.enabled": false,
     "terminal.integrated.showExitAlert": false,
     "terminal.integrated.smoothScrolling": true,
     "terminal.integrated.stickyScroll.enabled": true,
@@ -395,5 +385,13 @@
     "workbench.startupEditor": "none",
     "workbench.tree.indent": 16,
     "workbench.tree.renderIndentGuides": "always",
-    "vim.report": 1
+    "vim.report": 1,
+    "julia.executablePath": "/snap/bin/julia",
+    "terminal.integrated.drawBoldTextInBrightColors": false,
+    "terminal.integrated.shellIntegration.enabled": false,
+    "terminal.integrated.commandsToSkipShell": [
+        "language-julia.interrupt"
+    ],
+    "window.titleBarStyle": "native",
+    "window.customTitleBarVisibility": "never"
 }
