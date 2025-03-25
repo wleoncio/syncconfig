@@ -17,7 +17,7 @@ alias connect="nmcli connection up eduroam"
 alias lstar="tar -ztvf"
 alias ls="eza"
 alias pqp="fuck"
-alias cat="batcat"
+alias cat="batcat --plain"
 alias fd="fdfind"
 
 # UiO servers
