@@ -27,6 +27,7 @@
   unstage = restore --staged .
 	up = restore --staged --patch
   rp = restore --patch
+	ra = restore .
 	rs = !sh -c 'git diff --ignore-all-space --ignore-blank-lines | git apply --cached --allow-empty && git checkout . && git restore --staged .'
   cm = commit --verbose
   cmf = commit --fixup
