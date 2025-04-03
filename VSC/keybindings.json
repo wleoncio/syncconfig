@@ -920,8 +920,8 @@
     },
     {
         "key": "ctrl+r ctrl+r",
-        "command": "workbench.action.tasks.runTask",
-        "args": "R: Load all",
+        "command": "r.runCommand",
+        "args": "devtools::load_all()",
         "when": "terminalFocus"
     },
     {
