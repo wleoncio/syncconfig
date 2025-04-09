@@ -9,27 +9,27 @@
     },
     {
         "description": "Build package",
-        "key": "ctrl+r ctrl+b",
+        "key": "ctrl+shift+r ctrl+b",
         "command": "r.build",
         "when": "terminalFocus"
     },
     {
         "description": "Load all package functions",
-        "key": "ctrl+r ctrl+shift+r",
+        "key": "ctrl+shift+r ctrl+shift+r",
         "command": "r.runCommand",
         "args": "devtools::load_all(export_all = TRUE)",
         "when": "terminalFocus"
     },
     {
         "description": "Document and install package",
-        "key": "ctrl+r ctrl+i",
+        "key": "ctrl+shift+r ctrl+i",
         "command": "r.runCommand",
         "args": "devtools::document(); devtools::install()",
         "when": "terminalFocus"
     },
     {
         "description": "Update version and install package",
-        "key": "ctrl+r ctrl+shift+i",
+        "key": "ctrl+shift+r ctrl+shift+i",
         "command": "r.runCommand",
         "args": "usethis::use_version('dev'); devtools::install()",
         "when": "terminalFocus"
@@ -43,73 +43,73 @@
     },
     {
         "description": "Update version and install package",
-        "key": "ctrl+r ctrl+shift+i",
+        "key": "ctrl+shift+r ctrl+shift+i",
         "command": "r.runCommand",
         "args": "usethis::use_version('dev'); devtools::install()",
         "when": "terminalFocus"
     },
     {
         "description": "Bump development version",
-        "key": "ctrl+r ctrl+v",
+        "key": "ctrl+shift+r ctrl+v",
         "command": "r.runCommand",
         "args": "usethis::use_version('dev')",
         "when": "terminalFocus"
     },
     {
         "description": "Bump feature version",
-        "key": "ctrl+r ctrl+shift+v",
+        "key": "ctrl+shift+r ctrl+shift+v",
         "command": "r.runCommand",
         "args": "require('OCBEdev'); add_feature_version()",
         "when": "terminalFocus"
     },
     {
         "description": "List object structure",
-        "key": "ctrl+r ctrl+s",
+        "key": "ctrl+shift+r ctrl+s",
         "command": "r.runCommand",
         "args": "print(ls.str(), all.names = TRUE, max.level = 0)",
         "when": "terminalFocus"
     },
     {
         "description": "List object structure",
-        "key": "ctrl+r ctrl+shift+s",
+        "key": "ctrl+shift+r ctrl+shift+s",
         "command": "r.runCommand",
         "args": "View(globalenv())",
         "when": "terminalFocus"
     },
     {
         "description": "View environment",
-        "key": "ctrl+r ctrl+e",
+        "key": "ctrl+shift+r ctrl+e",
         "command": "r.runCommand",
         "args": "devtools::run_examples()",
         "when": "terminalFocus"
     },
     {
         "description": "Clean working environment",
-        "key": "ctrl+r shift+r",
+        "key": "ctrl+shift+r shift+r",
         "command": "r.runCommand",
         "args": "rm(list = ls())",
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+r ctrl+n",
+        "key": "ctrl+shift+r ctrl+n",
         "command": "r.runCommand",
         "args": "; notifier::notify('done')",
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+r shift+u",
+        "key": "ctrl+shift+r shift+u",
         "command": "r.runCommand",
         "args": "covr::report(covr::package_coverage())",
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+r ctrl+p",
+        "key": "ctrl+shift+r ctrl+p",
         "command": "r.runCommand",
         "args": "Rprof()",
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+r ctrl+shift+p",
+        "key": "ctrl+shift+r ctrl+shift+p",
         "command": "r.runCommand",
         "args": "Rprof(NULL); summaryRprof(); file.remove('Rprof.out')",
         "when": "terminalFocus"
@@ -344,12 +344,12 @@
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+r ctrl+q",
+        "key": "ctrl+shift+r ctrl+q",
         "command": "r.helpPanel.showQuickPick",
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+r ctrl+t",
+        "key": "ctrl+shift+r ctrl+t",
         "command": "r.createRTerm",
         "when": "terminalFocus"
     },
@@ -359,7 +359,7 @@
     },
     {
         "description": "Check package, skip vignettes and donttest",
-        "key": "ctrl+r ctrl+shift+c",
+        "key": "ctrl+shift+r ctrl+shift+c",
         "command": "r.runCommand",
         "args": "devtools::check(vignettes = FALSE, args = c('--no-examples', '--no-tests'), cran = FALSE, run_dont_test = FALSE)",
         "when": "terminalFocus"
@@ -468,7 +468,7 @@
         "command": "workbench.action.showAllSymbols"
     },
     {
-        "key": "ctrl+r ctrl+k",
+        "key": "ctrl+shift+r ctrl+k",
         "command": "r.knitRmd",
         "when": "terminalFocus && editorTextFocus && editorLangId == 'rmd'"
     },
@@ -914,23 +914,23 @@
         "command": "workbench.action.evenEditorWidths"
     },
     {
-        "key": "ctrl+r ctrl+c",
+        "key": "ctrl+shift+r ctrl+c",
         "command": "r.check",
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+r ctrl+r",
+        "key": "ctrl+shift+r ctrl+r",
         "command": "r.runCommand",
         "args": "devtools::load_all()",
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+r ctrl+d",
+        "key": "ctrl+shift+r ctrl+d",
         "command": "r.document",
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+r ctrl+u",
+        "key": "ctrl+shift+r ctrl+u",
         "command": "r.test",
         "when": "terminalFocus"
     },
