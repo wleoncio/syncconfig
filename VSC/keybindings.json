@@ -935,11 +935,6 @@
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+r ctrl+e",
-        "command": "r.runCommand",
-        "args": "rlang::last_trace()"
-    },
-    {
         "key": "ctrl+shift+t e",
         "command": "workbench.action.terminal.moveToEditor",
         "when": "terminalFocus"
@@ -953,5 +948,19 @@
         "key": "ctrl+shift+t p",
         "command": "workbench.action.terminal.moveToTerminalPanel",
         "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "-workbench.action.openRecent"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "-workbench.action.reloadWindow",
+        "when": "isDevelopment"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "-jupyter.refreshDataViewer",
+        "when": "isWorkspaceTrusted && jupyter.dataViewerActive"
     }
 ]
