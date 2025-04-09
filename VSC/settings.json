@@ -4,7 +4,7 @@
     "[git-commit]": {
         "editor.rulers": [
             {
-                "color": "#b60000",
+                "color": "#dd0000",
                 "column": 50
             }
         ]
@@ -46,7 +46,7 @@
     "editor.renderLineHighlightOnlyWhenFocus": true,
     "editor.rulers": [
         {
-            "color": "#b60000",
+            "color": "#e6ecff",
             "column": 80
         }
     ],
@@ -163,7 +163,7 @@
                 }
             }
         ],
-        "types": "#b60000",
+        "types": "#dd0000",
         "variables": "#e6ecff"
     },
     "editor.wordWrap": "off",
@@ -330,7 +330,7 @@
         "#2ec483"
     ],
     "vim.statusBarColors.normal": [
-        "#b60000"
+        "#dd0000"
     ],
     "vim.statusBarColors.visual": [
         "#3e31d6"
@@ -354,11 +354,11 @@
         "editorIndentGuide.background1": "#000",
         "extendedTerminalIntegration.statusBar.activeForeground": "#000",
         "extendedTerminalIntegration.statusBar.foreground": "#fff",
-        "statusBar.background": "#3e31d6",
-        "statusBar.debuggingBackground": "#3e31d6",
+        "statusBar.background": "#dd0000",
+        "statusBar.debuggingBackground": "#dd0000",
         "statusBar.debuggingForeground": "#ffffff",
         "statusBar.foreground": "#ffffff",
-        "statusBar.noFolderBackground": "#3e31d6",
+        "statusBar.noFolderBackground": "#dd0000",
         "terminal.ansiBlack": "#000",
         "terminal.ansiBrightBlack": "#fff",
         "terminal.ansiBrightRed": "#fd6464",
