@@ -1,5 +1,4 @@
 {
-    "MATLAB.installPath": "/usr/local/MATLAB/R2023b",
     // Language-specific
     "[git-commit]": {
         "editor.rulers": [
@@ -171,8 +170,8 @@
     "extendedTerminalIntegration.statusBar.showTerminalName": true,
     "extensions.ignoreRecommendations": true,
     "files.associations": {
-        "*.Rnw": "latex",
         "*.docker": "Dockerfile",
+        "*.Rnw": "latex",
         "renv.lock": "json"
     },
     "files.autoGuessEncoding": true,
@@ -205,12 +204,13 @@
     "markdown.extension.toc.levels": "1..1",
     "markdown.extension.toc.orderedList": true,
     "markdown.preview.doubleClickToSwitchToEditor": false,
+    "MATLAB.installPath": "/usr/local/MATLAB/R2023b",
     "matlab.lintOnSave": false,
     "notebook.lineNumbers": "on",
     "notebook.stickyScroll.enabled": true,
     "outline.icons": false,
-    "python.REPL.sendToNativeREPL": true,
     "python.defaultInterpreterPath": "/home/waldir/venv/bin/python3",
+    "python.REPL.sendToNativeREPL": true,
     "python.terminal.activateEnvironment": false,
     "quarto.render.renderOnSave": true,
     "quarto.zotero.library": "none",
@@ -235,6 +235,7 @@
     },
     "terminal.integrated.confirmOnExit": "always",
     "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.drawBoldTextInBrightColors": false,
     "terminal.integrated.fontFamily": "'FiraCode Nerd Font'",
     "terminal.integrated.fontLigatures": true,
     "terminal.integrated.fontSize": 13,
@@ -247,6 +248,7 @@
     ],
     "terminal.integrated.inheritEnv": false,
     "terminal.integrated.lineHeight": 1,
+    "terminal.integrated.shellIntegration.enabled": false,
     "terminal.integrated.showExitAlert": false,
     "terminal.integrated.smoothScrolling": true,
     "terminal.integrated.stickyScroll.enabled": true,
@@ -321,6 +323,7 @@
             ]
         }
     ],
+    "vim.report": 1,
     "vim.smartRelativeLine": true,
     "vim.statusBarColorControl": true,
     "vim.statusBarColors.insert": [
@@ -335,18 +338,20 @@
     "vim.textwidth": 79,
     "vim.useSystemClipboard": true,
     "vim.wrapscan": false,
+    "window.customTitleBarVisibility": "never",
     "window.menuBarVisibility": "toggle",
     "window.restoreWindows": "none",
+    "window.titleBarStyle": "native",
     "workbench.activityBar.location": "hidden",
     "workbench.colorCustomizations": {
+        "editor.lineHighlightBackground": "#1073cf2d",
+        "editor.lineHighlightBorder": "#9fced11f",
         "editorBracketHighlight.foreground1": "#2ec483",
         "editorBracketHighlight.foreground2": "#6ce1ab",
         "editorBracketHighlight.foreground3": "#ceffdf",
         "editorBracketHighlight.foreground4": "#fffea7",
         "editorBracketHighlight.foreground5": "#ffe0e0",
         "editorBracketHighlight.foreground6": "#fb6666",
-        "editor.lineHighlightBackground": "#1073cf2d",
-        "editor.lineHighlightBorder": "#9fced11f",
         "editorIndentGuide.activeBackground1": "#000",
         "editorIndentGuide.background1": "#000",
         "extendedTerminalIntegration.statusBar.activeForeground": "#000",
@@ -381,10 +386,5 @@
     "workbench.sideBar.location": "right",
     "workbench.startupEditor": "none",
     "workbench.tree.indent": 16,
-    "workbench.tree.renderIndentGuides": "always",
-    "vim.report": 1,
-    "terminal.integrated.drawBoldTextInBrightColors": false,
-    "terminal.integrated.shellIntegration.enabled": false,
-    "window.titleBarStyle": "native",
-    "window.customTitleBarVisibility": "never"
+    "workbench.tree.renderIndentGuides": "always"
 }
