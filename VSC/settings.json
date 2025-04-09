@@ -199,9 +199,6 @@
     "gitweblinks.defaultBranch": "develop",
     "gitweblinks.preferredRemoteName": "ocbe-uio",
     "html.preview.doubleClickToSwitchToEditor": false,
-    "julia.NumThreads": 6,
-    "julia.numTestProcesses": 1,
-    "julia.symbolCacheDownload": true,
     "markdown-pdf.displayHeaderFooter": false,
     "markdown.extension.print.theme": "dark",
     "markdown.extension.tableFormatter.enabled": true,
@@ -386,12 +383,8 @@
     "workbench.tree.indent": 16,
     "workbench.tree.renderIndentGuides": "always",
     "vim.report": 1,
-    "julia.executablePath": "/snap/bin/julia",
     "terminal.integrated.drawBoldTextInBrightColors": false,
     "terminal.integrated.shellIntegration.enabled": false,
-    "terminal.integrated.commandsToSkipShell": [
-        "language-julia.interrupt"
-    ],
     "window.titleBarStyle": "native",
     "window.customTitleBarVisibility": "never"
 }
