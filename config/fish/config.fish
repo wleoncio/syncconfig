@@ -12,6 +12,13 @@ if status is-interactive
 	source $HOME/.bash_aliases
 	fish_add_path $HOME/Programs/syncconfig/
 
+	# RSE-related quotes on work machine instead of fish greet
+	if test $hostname = "imb-0646";
+		gh inspire
+		set fish_greeting
+	end
+
+
 	# Terminal add-ons
 	starship init fish | source
 	zoxide init --cmd cd fish | source
