@@ -22,10 +22,11 @@ set noexpandtab
 colorscheme slate
 
 " Enable relative number in normal mode
+set relativenumber
 augroup RelativeNumber
   autocmd!
-  autocmd InsertEnter,CmdlineEnter * set norelativenumber
-  autocmd InsertLeave,CmdlineLeave * set relativenumber
+  autocmd InsertEnter * set norelativenumber
+  autocmd InsertLeave * set relativenumber
 augroup END
 
 au FocusLost,TabLeave * stopinsert
