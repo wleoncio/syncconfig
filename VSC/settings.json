@@ -297,7 +297,6 @@
     "vim.gdefault": true,
     "vim.highlightedyank.enable": true,
     "vim.history": 10,
-    "vim.ignorecase": false,
     "vim.inccommand": "append",
     "vim.matchpairs": "(:),{:},[:]",
     "vim.normalModeKeyBindingsNonRecursive": [
