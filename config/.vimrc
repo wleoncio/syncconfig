@@ -29,5 +29,8 @@ augroup RelativeNumber
   autocmd InsertLeave * set relativenumber
 augroup END
 
-au FocusLost,TabLeave * stopinsert
-au FocusLost,TabLeave * call feedkeys("\<C-\>\<C-n>")
+augroup ExitToNormal
+	autocmd!
+	autocmd FocusLost,TabLeave * stopinsert
+	autocmd FocusLost,TabLeave * call feedkeys("\<C-\>\<C-n>")
+augroup END
