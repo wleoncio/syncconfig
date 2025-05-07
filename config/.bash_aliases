@@ -34,5 +34,5 @@ alias sync="cd $HOME/Programs/syncconfig"
 
 # Life shortcuts 
 alias pump="python3 $HOME/Dropbox/Fitness/workoutPlan/start.py"
-
+alias ai="tgpt --interactive --provider pollinations"
 
