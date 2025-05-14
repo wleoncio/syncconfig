@@ -329,7 +329,6 @@
     ],
     "vim.textwidth": 79,
     "vim.useSystemClipboard": true,
-    "vim.wrapscan": false,
     "window.customTitleBarVisibility": "never",
     "window.menuBarVisibility": "toggle",
     "window.restoreWindows": "none",
