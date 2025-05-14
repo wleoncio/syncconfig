@@ -207,7 +207,7 @@
     "python.defaultInterpreterPath": "/home/waldir/venv/bin/python3",
     "python.REPL.sendToNativeREPL": true,
     "python.terminal.activateEnvironment": false,
-    "quarto.render.renderOnSave": true,
+    "quarto.render.previewType": "external",
     "quarto.zotero.library": "none",
     "r.alwaysUseActiveTerminal": true,
     "r.bracketedPaste": true,
