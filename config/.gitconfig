@@ -36,7 +36,7 @@
   cma = commit --amend
   rb = rebase --interactive --autosquash
   mg = !sh -c 'mergeIntoDevelop.sh'
-  s = status
+  s = status --short --branch
   ls = status
   history = log --patch --
   fap = fetch --all --prune
