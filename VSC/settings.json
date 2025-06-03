@@ -214,7 +214,7 @@
     "r.lsp.diagnostics": false,
     "r.lsp.enabled": false,
     "r.rpath.linux": "/usr/bin/R",
-    "r.rterm.linux": "${userHome}/venv/bin/radian",
+    "r.rterm.linux": "${userHome}/.local/bin/radian",
     "remote.SSH.configFile": "/home/waldir/.ssh/config",
     "remote.SSH.connectTimeout": 30,
     "remote.SSH.showLoginTerminal": true,
