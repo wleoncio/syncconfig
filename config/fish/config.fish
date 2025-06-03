@@ -45,3 +45,6 @@ set fish_vi_force_cursor
 
 # Start on insert mode
 fish_vi_key_bindings insert
+
+# Created by `pipx` on 2025-06-03 08:24:23
+set PATH $PATH /home/waldir/.local/bin
