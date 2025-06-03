@@ -14,7 +14,15 @@ if status is-interactive
 
 	# RSE-related quotes on work machine instead of fish greet
 	if test $hostname = "imb-0646";
-		gh inspire
+		gh inspire | awk '
+			/^~/ {
+				gsub(/^~ /, "", $0)
+				gsub(/\033\[[0-9;]*m/, "", $0)
+				print > "/tmp/author.txt"
+			}
+			{ print }
+		'
+		cat /tmp/author.txt | tgpt "Please tell me, in one short sentence, about this quote author. Please start your answer with 'a'"
 		set fish_greeting
 	end
 
