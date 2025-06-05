@@ -22,7 +22,7 @@ if status is-interactive
 			}
 			{ print }
 		'
-		cat /tmp/author.txt | tgpt "Please tell me, in one short sentence, about this quote author. Please start your answer with 'a'"
+		cat /tmp/author.txt | tgpt --quiet "Please tell me, in one short sentence, about this quote author. Please start your answer with 'a'. Put the entire answer between ()" --provider isou
 		set fish_greeting
 	end
 
