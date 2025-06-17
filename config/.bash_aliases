@@ -36,4 +36,4 @@ alias tmp="cd /tmp"
 # Life shortcuts 
 alias pump="python3 $HOME/Dropbox/Fitness/workoutPlan/start.py"
 alias ai="tgpt --interactive --provider pollinations"
-
+alias quem="cat /tmp/author.txt | tgpt --quiet 'Write a short sentence about this person from the world of software development' --provider isou"
