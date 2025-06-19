@@ -20,6 +20,7 @@ set shiftwidth=2
 set number
 set noexpandtab
 colorscheme slate
+let g:loaded_matchparen = 1
 
 " Enable relative number in normal mode
 set relativenumber
