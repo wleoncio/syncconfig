@@ -13,7 +13,6 @@ alias please="sudo !!"
 alias copy="xclip -selection clipboard"
 alias bt="bluetoothctl"
 alias update="sudo nala update; sudo nala upgrade"
-alias av="shutdown"
 alias connect="nmcli connection up eduroam"
 alias lstar="tar -ztvf"
 alias ls="eza"
@@ -35,5 +34,4 @@ alias sync="cd $HOME/Programs/syncconfig"
 alias tmp="cd /tmp"
 
 # Life shortcuts 
-alias pump="python3 $HOME/Dropbox/Fitness/workoutPlan/start.py"
 alias ai="tgpt --interactive --provider pollinations"
