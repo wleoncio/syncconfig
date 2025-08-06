@@ -12,7 +12,10 @@ alias open="xdg-open"
 alias please="sudo !!"
 alias copy="xclip -selection clipboard"
 alias bt="bluetoothctl"
-alias update="echo -e '\n# Nala\n'; sudo nala update; sudo nala upgrade; echo -e '\n# Snap\n'; sudo snap refresh; echo -e '\n# Flatpak\n'; flatpak update"
+alias update="sudo --validate;\
+	echo -e '\n# Nala\n'; sudo nala update; sudo nala upgrade; sudo --validate;\
+	echo -e '\n# Snap\n'; sudo snap refresh; sudo --validate;\
+	echo -e '\n# Flatpak\n'; flatpak update"
 alias connect="nmcli connection up eduroam"
 alias lstar="tar -ztvf"
 alias ls="eza"
