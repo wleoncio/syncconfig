@@ -9,7 +9,7 @@ alias quem="cat /tmp/author.txt | tgpt --quiet 'Who is this person from the worl
 # System shortcuts
 alias nvtop="watch -d -n 0.5 nvidia-smi"
 alias open="xdg-open"
-alias please="sudo"
+alias please="sudo !!"
 alias copy="xclip -selection clipboard"
 alias bt="bluetoothctl"
 alias update="sudo nala update; sudo nala upgrade"
