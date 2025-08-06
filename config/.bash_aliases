@@ -4,6 +4,7 @@ alias cleanR="sudo docker run --rm -ti r-base bash"
 alias matlab="/usr/local/MATLAB/R2023b/bin/matlab -nodesktop -nosplash"
 alias copilot="tgpt --interactive"
 alias gt="git"
+alias quem="cat /tmp/author.txt | tgpt --quiet 'Who is this person from the world of software development?' --provider isou"
 
 # System shortcuts
 alias nvtop="watch -d -n 0.5 nvidia-smi"
@@ -36,4 +37,3 @@ alias tmp="cd /tmp"
 # Life shortcuts 
 alias pump="python3 $HOME/Dropbox/Fitness/workoutPlan/start.py"
 alias ai="tgpt --interactive --provider pollinations"
-alias quem="cat /tmp/author.txt | tgpt --quiet 'Write a short sentence about this person from the world of software development' --provider isou"
