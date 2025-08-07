@@ -13,7 +13,7 @@ alias please="sudo !!"
 alias copy="xclip -selection clipboard"
 alias bt="bluetoothctl"
 alias update="sudo --validate;\
-	echo -e '\n# Nala\n'; sudo nala update; sudo nala upgrade; sudo --validate;\
+	echo -e '\n# Nala\n'; sudo nala upgrade; sudo --validate;\
 	echo -e '\n# Snap\n'; sudo snap refresh; sudo --validate;\
 	echo -e '\n# Flatpak\n'; flatpak update"
 alias connect="nmcli connection up eduroam"
