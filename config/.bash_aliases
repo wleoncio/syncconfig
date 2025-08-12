@@ -14,7 +14,7 @@ alias bt="bluetoothctl"
 alias update="sudo --validate;\
 	echo -e '\n# Nala\n'; sudo nala upgrade --assume-yes;\
 	echo -e '\n# Snap\n'; sudo snap refresh;\
-	echo -e '\n# Flatpak\n'; flatpak update"
+	echo -e '\n# Flatpak\n'; flatpak update --assumeyes"
 alias connect="nmcli connection up eduroam"
 alias lstar="tar -ztvf"
 alias ls="eza"
