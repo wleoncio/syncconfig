@@ -77,7 +77,7 @@ hasNotifier() {
 hasVSC() {
 	if [ -d "$HOME/.config/Code" ]
 	then
-		echo -en "$check Syncing MS BFF Visual Studio Code"
+		echo -en "$check Syncing Microsoft Visual Studio Code"
 		VSCdir="Code"
 	elif [ -d "$HOME/.config/code-oss-dev" ]
 	then
