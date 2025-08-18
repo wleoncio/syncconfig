@@ -19,6 +19,6 @@ fi
 # Checking for upgrades
 sudo --validate
 if [ -n "$package_manager_name" ]; then 
-	echo -e '\# "$package_manager_name"'
+	echo -e "# " $package_manager_name "\n"
 	$package_manager_command
 fi
