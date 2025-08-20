@@ -28,8 +28,6 @@ alias mb2="ssh waldirln@login.uio.no -t ssh med-biostat2"
 alias fox="ssh ec-waldirln@fox.educloud.no"
 
 # Common folders
-alias work="cd $HOME/UiO/Projects"
-alias sync="cd $HOME/Programs/syncconfig"
 alias tmp="cd /tmp"
 
 # Life shortcuts 
