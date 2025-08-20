@@ -1,0 +1,76 @@
+prSections:
+- title: Waiting for my review
+  filters: is:open review-requested:@me
+  type: null
+- title: To remind colleague
+  filters: is:open author:@me org:ocbe-uio updated:>={{nowModify "-6mo"}}
+issuesSections:
+- title: Assigned to me
+  filters: is:open assignee:@me
+- title: Opened by me at OCBE
+  filters: is:open author:@me org:ocbe-uio
+- title: Unassigned from OCBE
+  filters: is:open org:ocbe-uio -assignee:@me
+repo:
+  branchesRefetchIntervalSeconds: 30
+  prsRefetchIntervalSeconds: 60
+defaults:
+  preview:
+    open: false
+    width: 50
+  prsLimit: 20
+  prApproveComment: LGTM
+  issuesLimit: 20
+  view: prs
+  layout:
+    prs:
+      updatedAt:
+        width: 5
+      createdAt:
+        width: 5
+      repo:
+        width: 20
+      author:
+        width: 15
+      authorIcon:
+        hidden: false
+      assignees:
+        width: 20
+        hidden: true
+      base:
+        width: 15
+        hidden: true
+      lines:
+        width: 15
+    issues:
+      updatedAt:
+        width: 5
+      createdAt:
+        width: 5
+      repo:
+        width: 15
+      creator:
+        width: 10
+      creatorIcon:
+        hidden: false
+      assignees:
+        width: 20
+        hidden: true
+  refetchIntervalMinutes: 30
+keybindings:
+  universal: []
+  issues: []
+  prs: []
+  branches: []
+repoPaths: {}
+theme:
+  ui:
+    sectionsShowCount: true
+    table:
+      showSeparator: true
+      compact: false
+pager:
+  diff: ""
+confirmQuit: true
+showAuthorIcons: true
+smartFilteringAtLaunch: true
