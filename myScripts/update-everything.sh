@@ -5,31 +5,34 @@
 package_manager_name=""
 package_manager_path=""
 if [ -e /bin/yay ]; then
-	package_manager_name="Yay"
+	package_manager_name="Yay "
 	package_manager_command="yay -Syu"
 elif [ -e /bin/nala ]; then
 	package_manager_name="Nala"
-	package_manager_command="nala upgrade --assume-yes"
+	package_manager_command="sudo nala upgrade --assume-yes"
 fi
+
+bold_orange=$(tput bold; tput setaf 3)
+normal=$(tput sgr0)
 
 # Checking for upgrades
 sudo --validate
 if [ -n "$package_manager_name" ]; then 
-	echo -e "# " $package_manager_name "\n"
+	printf "${bold_orange}# %s ###########################################${normal}\n" "$package_manager_name"
 	$package_manager_command
 fi
 
 if [ -e /bin/snap ]; then
-	echo -e "# Snap\n"
+	printf "\n${bold_orange}# Snap ###########################################${normal}\n"
 	sudo snap refresh
 fi
 
 if [ -e /bin/flatpak ]; then
-	echo -e "# Flatpak\n"
+	printf "\n${bold_orange}# Flatpak ########################################${normal}\n"
 	flatpak update --assumeyes
 fi
 
 if [ -e /bin/gh ]; then
-	echo -e "# GitHub CLI\n"
-	gh extension upgrade --all
+	printf "\n${bold_orange}# GitHub CLI #####################################${normal}\n"
+	gh extension upgrade --all 
 fi
