@@ -56,6 +56,8 @@ defaults:
       assignees:
         width: 20
         hidden: true
+      reactions:
+        hidden: true
   refetchIntervalMinutes: 30
 keybindings:
   universal: []
