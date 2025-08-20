@@ -1,4 +1,5 @@
 # Coding shortcuts
+alias work="gh dash"
 alias r="~/venv/bin/radian"
 alias cleanR="sudo docker run --rm -ti r-base bash"
 alias matlab="/usr/local/MATLAB/R2023b/bin/matlab -nodesktop -nosplash"
