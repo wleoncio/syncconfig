@@ -36,3 +36,6 @@ if [ -e /bin/gh ]; then
 	printf "\n${bold_orange}# GitHub CLI #####################################${normal}\n"
 	gh extension upgrade --all 
 fi
+
+# TODO: consider adding R packages with
+# Rscript -e "update.packages(lib.loc=.libPaths()[1], ask=FALSE)"
