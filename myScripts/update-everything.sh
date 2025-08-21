@@ -37,5 +37,7 @@ if [ -e /bin/gh ]; then
 	gh extension upgrade --all 
 fi
 
-# TODO: consider adding R packages with
-# Rscript -e "update.packages(lib.loc=.libPaths()[1], ask=FALSE)"
+if [ -e /usr/bin/R ]; then
+	printf "\n${bold_orange}# R ##############################################${normal}\n"
+	Rscript -e "update.packages(lib.loc=.libPaths()[1], ask=FALSE)"
+fi
