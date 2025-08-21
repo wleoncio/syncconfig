@@ -2,7 +2,7 @@
 alias work="gh dash"
 alias r="~/venv/bin/radian"
 alias cleanR="sudo docker run --rm -ti r-base bash"
-alias matlab="/usr/local/MATLAB/R2023b/bin/matlab -nodesktop -nosplash"
+alias matlab-cli="/usr/local/bin/matlab -nodesktop -nosplash"
 alias copilot="tgpt --interactive"
 alias gt="git"
 alias quem="cat /tmp/author.txt | tgpt --quiet 'Who is this person from the world of software development?' --provider isou"
