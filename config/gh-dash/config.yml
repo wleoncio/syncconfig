@@ -3,7 +3,7 @@ prSections:
   filters: is:open review-requested:@me
   type: null
 - title: To remind colleague
-  filters: is:open author:@me org:ocbe-uio updated:>={{nowModify "-6mo"}}
+  filters: is:open author:@me org:ocbe-uio 
 issuesSections:
 - title: Assigned to me
   filters: is:open assignee:@me
