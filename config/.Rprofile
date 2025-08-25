@@ -38,15 +38,5 @@ options(repos = "https://cran.uib.no")
 options(error = rlang::entrace)
 Sys.setenv(LANGUAGE = "en_US.UTF-8")
 
-# Updates packages on monday mornings
-now <- Sys.time()
-is_monday <- format(now, "%u") == 1
-is_morning <- format(now, "%H") < 12
-if (is_monday && is_morning && is_interactive) {
-	message("Updating packages")
-	local_package_path <- .libPaths()[1]
-	update.packages(lib.loc = local_package_path, ask = FALSE)
-}
-
 # Cleanup
-rm(is_radian, is_interactive, is_monday, is_morning, now)
+rm(is_radian, is_interactive)
