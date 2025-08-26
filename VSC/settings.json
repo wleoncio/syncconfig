@@ -374,8 +374,9 @@
     },
     "workbench.enableExperiments": false,
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.sideBar.location": "right",
     "workbench.startupEditor": "none",
     "workbench.tree.indent": 16,
-    "workbench.tree.renderIndentGuides": "always"
+    "workbench.tree.renderIndentGuides": "always",
+    "workbench.sideBar.location": "right",
+    "editor.stickyScroll.defaultModel": "indentationModel"
 }
