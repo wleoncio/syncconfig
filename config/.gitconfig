@@ -2,9 +2,9 @@
   email = w.l.netto@medisin.uio.no
   name = Waldir Leoncio
 [alias]
-	fix = !sh -c 'git add --all && git commit --amend' 
-	getalias = !sh -c 'git config --get alias."${1}"' -
-	ds = diff --stat
+  fix = !sh -c 'git add --all && git commit --amend' 
+  getalias = !sh -c 'git config --get alias."${1}"' -
+  ds = diff --stat
   df = diff --diff-filter=M
   dff = diff --diff-filter=M --word-diff=color
   dfc = diff --diff-filter=M --cached
@@ -26,10 +26,10 @@
   AA = add --all --verbose
   ap = add --patch
   unstage = restore --staged .
-	up = restore --staged --patch
+  up = restore --staged --patch
   rp = restore --patch
-	ra = restore .
-	rs = !sh -c 'git diff --ignore-all-space --ignore-blank-lines | git apply --cached --allow-empty && git checkout . && git restore --staged .'
+  ra = restore .
+  rs = !sh -c 'git diff --ignore-all-space --ignore-blank-lines | git apply --cached --allow-empty && git checkout . && git restore --staged .'
   cm = commit --verbose
   cmf = commit --fixup
   cms = commit --squash
@@ -41,14 +41,14 @@
   ls = status
   history = log --patch --
   fap = fetch --all --prune
-	latexdiff = difftool --tool=latexdiff
+  latexdiff = difftool --tool=latexdiff
   pa = push --all
   pt = push --tags
   pb = push --set-upstream ocbe-uio 
   CLEAN = clean --force
   stasha = stash --include-untracked
   stashm = stash push --include-untracked --message
-	RESET = reset --hard
+  RESET = reset --hard
 [core]
   editor = vim
   autocrlf = input
@@ -76,7 +76,7 @@
 [pull]
   ff = yes
 [push]
-	autoSetupRemote = true
+  autoSetupRemote = true
 [init]
   defaultBranch = develop
 [diff]
