@@ -49,9 +49,9 @@ fish_vi_key_bindings insert
 set PATH $PATH /home/waldir/.local/bin
 
 if type -q bat
-    alias cat "bat --plain"
+	alias cat "bat --plain"
 else if type -q batcat
-    alias cat "batcat --plain"
+	alias cat "batcat --plain"
 else
-    alias cat "cat"
+	alias cat "cat"
 end
