@@ -22,9 +22,9 @@ echo -e "Searching for \"$SEARCH_TERM\" in $LOCATION\n"
 read -p "Case-sensitive [y/N]? " sensitive
 if [ "$sensitive" = "y" ]
 then
-	opts=name
+  opts=name
 else
-	opts=iname
+  opts=iname
 fi
 
 find $LOCATION -$opts *$SEARCH_TERM* -print 2>/dev/null
