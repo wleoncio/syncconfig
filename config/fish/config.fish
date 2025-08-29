@@ -35,15 +35,23 @@ end
 
 # Fish vim config ("default" == normal)
 set fish_cursor_default block blink
-set fish_cursor_insert line 
+set fish_cursor_insert line
 set fish_cursor_replace_one block blink
 set fish_cursor_replace block blink
 
 # Override Alacritty cursors
-set fish_vi_force_cursor 
+set fish_vi_force_cursor
 
 # Start on insert mode
 fish_vi_key_bindings insert
 
 # Created by `pipx` on 2025-06-03 08:24:23
 set PATH $PATH /home/waldir/.local/bin
+
+if type -q bat
+    alias cat "bat --plain"
+else if type -q batcat
+    alias cat "batcat --plain"
+else
+    alias cat "cat"
+end
