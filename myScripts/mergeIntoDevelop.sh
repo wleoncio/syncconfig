@@ -2,9 +2,10 @@
 # Script to merge feature branches into develop
 
 # Usage
-echo "Usage: $(basename $0) [options]" 2>&1
-echo "	-t	Skips unit test coverage check"
-echo "	-v	Bumps build version after merge"
+echo "Usage: $(basename $0) [options] [target_branch]" 2>&1
+echo "\t-t\tSkips unit test coverage check"
+echo "\t-v\tBumps build version after merge"
+echo "\ttarget_branch\tBranch to merge into (default: develop)"
 echo ""
 
 # Parsing options
@@ -18,6 +19,9 @@ while getopts "tv" option; do
 	esac
 done
 
+shift $((OPTIND-1))
+target_branch=${1:-develop}
+
 feature_branch=$(eval git branch --show-current)
 
 # Making sure pre-work is done
@@ -29,7 +33,7 @@ if [ -n "$unstaged" ]; then
 	read -p "Press enter to continue, Ctrl+C to cancel"
 fi
 
-echo "Merging $feature_branch into develop. Did you remember to:"
+echo "Merging $feature_branch into $target_branch. Did you remember to:"
 
 echo -e '- \e[4;31mSquash\e[0m commits on the feature branch?'
 git log --oneline develop.. | grep -i -e "squash" -e "fixup"
@@ -52,7 +56,7 @@ fi
 
 read -p "Press enter to continue, Ctrl+C to cancel"
 
-git checkout develop
+git checkout $target_branch
 git merge $feature_branch --log
 
 if [ $version == true ]; then
