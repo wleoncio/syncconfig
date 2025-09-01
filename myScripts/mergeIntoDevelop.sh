@@ -20,7 +20,24 @@ while getopts "tv" option; do
 done
 
 shift $((OPTIND-1))
-target_branch=${1:-develop}
+
+# Determine target branch: use argument, or search for develop/main/master (local only)
+if [[ -n $1 ]]; then
+	target_branch="$1"
+else
+	branches=$(git branch --list)
+	if echo "$branches" | grep -q develop; then
+		target_branch="develop"
+	elif echo "$branches" | grep -q main; then
+		target_branch="main"
+	elif echo "$branches" | grep -q master; then
+		target_branch="master"
+	else
+		echo "Error: No suitable base branch found (develop, main, or master). Please specify a branch."
+		exit 1
+	fi
+fi
+echo -e "\nUsing target branch: \e[1;34m$target_branch\e[0m\n"
 
 feature_branch=$(eval git branch --show-current)
 
