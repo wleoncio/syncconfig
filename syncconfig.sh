@@ -173,6 +173,7 @@ syncFiles () {
 	eval "$operator" "${origin[1]}"/gh/config.yml "${destination[1]}"/gh/config.yml
 	eval "$operator" "${origin[1]}"/gh-dash/config.yml "${destination[1]}"/gh-dash/config.yml
 	eval "$operator" "${origin[1]}"/fish/config.fish "${destination[1]}"/fish/config.fish
+	eval "$operator" "${origin[1]}"/superfile/*.toml "${destination[1]}"/superfile
 	eval "$operator" "${origin[5]}"/config "${destination[5]}"
 
 	if [ $compositor != "other" ]
