@@ -37,9 +37,14 @@ else
 		exit 1
 	fi
 fi
-echo -e "\nUsing target branch: \e[1;34m$target_branch\e[0m\n"
 
-feature_branch=$(eval git branch --show-current)
+# Warn if the user entered a non-existent branch (before proceeding)
+if ! git branch --list | grep -q "$target_branch"; then
+	echo -e "\e[1;31mError: Branch '$target_branch' does not exist locally.\e[0m"
+	exit 1
+else
+	echo -e "\nUsing target branch: \e[1;34m$target_branch\e[0m\n"
+fi
 
 # Making sure pre-work is done
 
