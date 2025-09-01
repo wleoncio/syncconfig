@@ -2,10 +2,10 @@
 # Script to merge feature branches into develop
 
 # Usage
-echo "Usage: $(basename $0) [options] [target_branch]" 2>&1
-echo "\t-t\tSkips unit test coverage check"
-echo "\t-v\tBumps build version after merge"
-echo "\ttarget_branch\tBranch to merge into (default: develop)"
+echo -e "Usage: $(basename $0) [options] [target_branch]" 2>&1
+echo -e "\t-t\t\tSkips unit test coverage check"
+echo -e "\t-v\t\tBumps build version after merge"
+echo -e "\ttarget_branch\tBranch to merge into (default: develop)"
 echo ""
 
 # Parsing options
