@@ -119,7 +119,7 @@ echo -e "${bold}${roed}"
 printf "\e[5m%.0s$icon" $(seq 1 49)
 echo -e "\n$icon THIS OPERATION WILL OVERWRITE THE CONTENTS OF $icon"
 spaces_needed=$((46 - ${#to}))
-spaces=$(printf "%*s" "$spaces_needed") 
+spaces=$(printf "%*s" "$spaces_needed")
 echo -e "$icon $to$spaces$icon"
 printf "%.0s$icon" $(seq 1 49)
 echo -e "${reset}\e[25m"
