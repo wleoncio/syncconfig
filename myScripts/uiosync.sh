@@ -97,8 +97,17 @@ then
 	read -p "Show changes in files? (y/N) " filechange
 	if [ "$filechange" = "y" ]
 	then
-		echo -e "\nFound changes in the following files"
-		cat "$zemplog" | grep -v "[^(git)]/$" | grep -v "\.git/."
+		if [ -n "$zemplog" ] && [ -f "$zemplog" ]; then
+		    files=$(grep -v "[^(git)]/$" "$zemplog" | grep -v "\.git/.")
+		    if [ -n "$files" ]; then
+						echo -e "\nFound changes in the following files"
+		        echo "$files"
+		    else
+		        echo -e "${oransje:-\e[38;5;214m}No changes found${reset}"
+		    fi
+		else
+		    echo -e "${oransje:-\e[38;5;214m}No changes found${reset}"
+		fi
 	fi
 else
 	echo "Skipping conflict check"
