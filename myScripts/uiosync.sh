@@ -5,8 +5,7 @@ source uio-colors.sh
 
 # Config constants
 configPath=$HOME/.config/uiosync.conf
-if [ -f $configPath ]
-then
+if [ -f $configPath ]; then
   source $HOME/.config/uiosync.conf
 else
   echo "No config file found. Please create one on "$configPath" with"
@@ -22,36 +21,30 @@ reportLastSync
 
 # Determine origin and destination
 hour=$(date +"%H")
-if [ "$1" = "pull" ] || [ "$1" = "down" ]
-then
+if [ "$1" = "pull" ] || [ "$1" = "down" ]; then
 	from="$remote"
 	to="$local"
 	toname=$(hostname)
 	icon="\xE2\x86\x93"
 	# Ask for confirmation if pulling in odd hours
-	if [ "$hour" -gt 7 ] && [ "$hour" -lt 8 ] || [ "$hour" -gt 12 ] && [ "$hour" -lt 18 ] || [ "$hour" -gt 21 ]
-	then
+	if [ "$hour" -gt 7 ] && [ "$hour" -lt 8 ] || [ "$hour" -gt 12 ] && [ "$hour" -lt 18 ] || [ "$hour" -gt 21 ]; then
 		echo -e "\e[1;5;31mThis is an odd time to PULL!${reset}"
 		read -p "Are you sure you want to PULL? (y/N) " answer
-		if [ "$answer" != "y" ]
-		then
+		if [ "$answer" != "y" ]; then
 			echo "Aborting"
 			exit 0
 		fi
 	fi
-elif [ "$1" = "push" ] || [ "$1" = "up" ]
-then
+elif [ "$1" = "push" ] || [ "$1" = "up" ]; then
 	from="$local"
 	to="$remote"
 	toname="Hjemmeområdet"
 	icon="\xE2\x86\x91"
 	# Ask for confirmation if pushing in odd hours
-	if [ "$hour" -lt 6 ] || [ "$hour" -gt 8 ] && [ "$hour" -lt 11 ]
-	then
+	if [ "$hour" -lt 6 ] || [ "$hour" -gt 8 ] && [ "$hour" -lt 11 ]; then
 		echo -e "\e[1;5;31mThis is an odd time to PUSH!${reset}"
 		read -p "Are you sure you want to PUSH? (y/N) " answer
-		if [ "$answer" != "y" ]
-		then
+		if [ "$answer" != "y" ]; then
 			echo "Aborting"
 			exit 0
 		fi
@@ -71,12 +64,10 @@ echo -e "Synchronizing direction: to $to (${bold}${roed}$icon${reset})"
 
 # Checking for internet connection
 connection=$(nmcli -g "STATE" general)
-if [ "$connection" != "connected" ]
-then
+if [ "$connection" != "connected" ]; then
 	sleep 10 # Give the computer some time to connect and try again
 	connection=$(nmcli -g "STATE" general)
-	if [ "$connection" != "connected" ]
-	then
+	if [ "$connection" != "connected" ]; then
 		echo "Not connected to the internet! Cancelling in 10 seconds"
 		sleep 10
 		exit 1
@@ -88,9 +79,8 @@ templog="/tmp/uiosync_files.log"
 touch "$templog"
 read -p "Check for file conflicts? (y/N) " -t 3 check
 echo ""
-if [ "$check" = "y" ]
-then
- 	# Check for conflicts
+if [ "$check" = "y" ]; then
+  	# Check for conflicts
 	echo "Checking for file conflicts. Please wait."
   eval rsync -a --verbose --dry-run --delete "$from/" "$to" > "$templog"
 	dirs=$(cat "$templog" | grep "/$" | grep -v "\.git/.")
@@ -98,8 +88,7 @@ then
 		echo -e "\nFound changes in the following ${oransje:-\e[38;5;214m}directories${reset}"
 	  echo -e "${lysblaa}${dirs}${reset}\n"
 		read -p "List changed files? (y/N) " filechange
-		if [ "$filechange" = "y" ]
-		then
+		if [ "$filechange" = "y" ]; then
 			files=$(cat "$templog" \
 				| grep -v "sending incremental file list" \
 				| grep -v "[^(git)]/$" \
@@ -129,8 +118,7 @@ echo -e "$icon $to$spaces$icon"
 printf "%.0s$icon" $(seq 1 49)
 echo -e "${reset}\e[25m"
 read -p "Are you sure you want to continue? (y/N) " answer
-if [ "$answer" = "y" ]
-then
+if [ "$answer" = "y" ]; then
 	if [ "$1" = "push" ]; then
 		# Registering the sync on the log file
 		echo $(eval date) "push to" $toname >> $local"/.uiosync.log"
