@@ -67,7 +67,7 @@ else
 fi
 
 # Running rsync
-echo -e "Synchronizing direction: to $to ($icon)"
+echo -e "Synchronizing direction: to $to (${bold}${roed}$icon${reset})"
 
 # Checking for internet connection
 connection=$(nmcli -g "STATE" general)
@@ -90,24 +90,29 @@ read -p "Check for file conflicts? (y/N) " -t 3 check
 echo ""
 if [ "$check" = "y" ]
 then
+ 	# Check for conflicts
 	echo "Checking for file conflicts. Please wait."
   eval rsync -a --verbose --dry-run --delete "$from/" "$to" > "$templog"
-	echo -e "\nFound changes in the following directories"
-	cat "$templog" | grep "/$" | grep -v "\.git/."
-	read -p "Show changes in files? (y/N) " filechange
-	if [ "$filechange" = "y" ]
-	then
-		if [ -n "$zemplog" ] && [ -f "$zemplog" ]; then
-		    files=$(grep -v "[^(git)]/$" "$zemplog" | grep -v "\.git/.")
-		    if [ -n "$files" ]; then
-						echo -e "\nFound changes in the following files"
-		        echo "$files"
-		    else
-		        echo -e "${oransje:-\e[38;5;214m}No changes found${reset}"
-		    fi
-		else
-		    echo -e "${oransje:-\e[38;5;214m}No changes found${reset}"
+	dirs=$(cat "$templog" | grep "/$" | grep -v "\.git/.")
+	if [ -n "$dirs" ]; then
+		echo -e "\nFound changes in the following ${oransje:-\e[38;5;214m}directories${reset}"
+	  echo -e "${lysblaa}${dirs}${reset}\n"
+		read -p "List changed files? (y/N) " filechange
+		if [ "$filechange" = "y" ]
+		then
+			files=$(cat "$templog" \
+				| grep -v "sending incremental file list" \
+				| grep -v "[^(git)]/$" \
+				| grep -v "\.git/." \
+				| grep -v '^sent ' \
+				| grep -v '^received ' \
+				| grep -v '^total size is' \
+				| grep -v '^speedup is')
+			echo -e "\nFound changes in the following ${oransje:-\e[38;5;214m}files${reset}"
+			echo -e "${lysblaa}${files}${reset}"
 		fi
+	else
+	  echo -e "${oransje:-\e[38;5;214m}No changes found${reset}"
 	fi
 else
 	echo "Skipping conflict check"
@@ -131,7 +136,10 @@ then
 		echo $(eval date) "push to" $toname >> $local"/.uiosync.log"
 	fi
 	# Actual sync
-	eval rsync -az --info=name --delete --delete-excluded "$from/" "$to" | grep -v '/$' | grep -v '/.git/[^H]'
+	eval rsync -az --info=name --delete --delete-excluded "$from/" "$to" \
+		| grep -v "sending incremental file list" \
+		| grep -v '/$' \
+		| grep -v '/.git/[^H]'
 	if [ "$1" = "pull" ]; then
 		# Registering the sync on the log file
 		echo $(eval date) "pull from" $toname >> $local"/.uiosync.log"

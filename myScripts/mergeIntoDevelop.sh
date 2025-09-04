@@ -46,6 +46,8 @@ else
 	echo -e "\nUsing target branch: \e[1;34m$target_branch\e[0m\n"
 fi
 
+feature_branch=$(eval git branch --show-current)
+
 # Making sure pre-work is done
 
 unstaged=$(eval git status --short)
@@ -58,7 +60,7 @@ fi
 echo "Merging $feature_branch into $target_branch. Did you remember to:"
 
 echo -e '- \e[4;31mSquash\e[0m commits on the feature branch?'
-git log --oneline develop.. | grep -i -e "squash" -e "fixup"
+git log --oneline $target_branch.. | grep -i -e "squash" -e "fixup"
 
 echo -e '- Add \e[4;31munit tests\e[0m for new code?'
 if [[ $covr == true && -f "DESCRIPTION" ]]; then
