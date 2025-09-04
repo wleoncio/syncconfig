@@ -96,6 +96,8 @@ if [ "$check" = "y" ]; then
 				| grep -v '^received ' \
 				| grep -v '^total size is' \
 				| grep -v '^speedup is')
+			# Color 'deleting' using the 'roed' color variable (use awk for reliability)
+			files=$(echo "$files" | awk -v r="$roed" -v x="$lysblaa" '{if ($1=="deleting") {$1=r $1 x} print}')
 			echo -e "\nFound changes in the following ${oransje}files${reset}"
 			echo -e "${lysblaa}${files}${reset}"
 		fi
@@ -128,6 +130,7 @@ if [ "$answer" = "y" ]; then
 		| grep -v "sending incremental file list" \
 		| grep -v '/$' \
 		| grep -v '/.git/[^H]')
+	log=$(echo "$log" | awk -v r="$roed" -v x="$lysblaa" '{if ($1=="deleting") {$1=r $1 x} print}')
 	echo -e "${lysblaa}$log${reset}"
 	if [ "$1" = "pull" ]; then
 		# Registering the sync on the log file
