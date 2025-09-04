@@ -42,7 +42,7 @@ fi
 
 # Warn if the user entered a non-existent branch (before proceeding)
 if ! git branch --list | grep -q "$target_branch"; then
-	echo -e "\e[1;31mError: Branch '$target_branch' does not exist locally.\e[0m"
+	echo -e "${roed}Error: Branch '$target_branch' does not exist locally.${reset}"
 	exit 1
 else
 	echo -e "\nUsing target branch: ${blaa}${target_branch}${reset}\n"
@@ -56,28 +56,29 @@ unstaged=$(eval git status --short)
 if [ -n "$unstaged" ]; then
 	echo "Unstaged modifications:"
 	git status --short
+	echo
 	read -p "Press enter to continue, Ctrl+C to cancel"
 fi
 
-echo -e "Merging ${blaa}${feature_branch}${reset} into ${blaa}${target_branch}${reset}. Did you remember to:"
+echo -e "\nMerging ${blaa}${feature_branch}${reset} into ${blaa}${target_branch}${reset}. Did you remember to:"
 
-echo -e '- \e[4;31mSquash\e[0m commits on the feature branch?'
+echo -e "- ${roed}Squash${reset} commits on the feature branch?"
 git log --oneline $target_branch.. | grep -i -e "squash" -e "fixup"
 
-echo -e '- Add \e[4;31munit tests\e[0m for new code?'
+echo -e "- Add unit ${roed}tests${reset} for new code?"
 if [[ $covr == true && -f "DESCRIPTION" ]]; then
 	echo -n "  Calculating package coverage on merge: "
 	cvrg=$(Rscript -e "cat(round(covr::percent_coverage(covr::package_coverage()), 2))")
-	echo -e "\e[34m$cvrg %\e[0m"
+	echo -e "${roed}$cvrg %${reset}"
 fi
 
 if [[ -f "NEWS.md" ]]; then
-	echo -e '- Update \e[4;31mNEWS\e[0m.md (see head below)?'
+	echo -e '- Update ${roed}NEWS${reset}.md (see head below)?'
 	echo ""
 	awk '/^#/ {c++; if (c==2) {exit}} {print}' NEWS.md
 	echo ""
 else
-	echo -e "- \e[4;31mNo NEWS.md\e[0m found. Consider using one!"
+	echo -e "- ${roed}No NEWS.md${reset} found. Consider using one!"
 fi
 
 read -p "Press enter to continue, Ctrl+C to cancel"
