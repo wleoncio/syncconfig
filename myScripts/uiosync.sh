@@ -128,7 +128,7 @@ if [ "$answer" = "y" ]; then
 		| grep -v "sending incremental file list" \
 		| grep -v '/$' \
 		| grep -v '/.git/[^H]')
-	echo -e "\n${lysblaa}$log${reset}"
+	echo -e "${lysblaa}$log${reset}"
 	if [ "$1" = "pull" ]; then
 		# Registering the sync on the log file
 		echo $(eval date) "pull from" $toname >> $local"/.uiosync.log"
