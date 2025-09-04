@@ -67,7 +67,7 @@ else
 fi
 
 # Running rsync
-echo -e "Synchronizing direction: to $to ($icon)"
+echo -e "Synchronizing direction: to $to (${bold}${roed}$icon${reset})"
 
 # Checking for internet connection
 connection=$(nmcli -g "STATE" general)
