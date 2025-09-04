@@ -96,12 +96,13 @@ then
 	dirs=$(cat "$templog" | grep "/$" | grep -v "\.git/.")
 	if [ -n "$dirs" ]; then
 		echo -e "\nFound changes in the following ${oransje:-\e[38;5;214m}directories${reset}"
-	  echo "$dirs"
+	  echo -e "${lysblaa}${dirs}${reset}\n"
 		read -p "List changed files? (y/N) " filechange
 		if [ "$filechange" = "y" ]
 		then
+			files=$(cat "$templog" | grep -v "sending incremental file list" | grep -v "[^(git)]/$" | grep -v "\.git/.")
 			echo -e "\nFound changes in the following ${oransje:-\e[38;5;214m}files${reset}"
-			cat "$templog" | grep -v "sending incremental file list" | grep -v "[^(git)]/$" | grep -v "\.git/."
+			echo -e "${lysblaa}${files}${reset}\n"
 		fi
 	else
 	  echo -e "${oransje:-\e[38;5;214m}No changes found${reset}"
