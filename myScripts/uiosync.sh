@@ -116,7 +116,7 @@ spaces_needed=$((46 - ${#to}))
 spaces=$(printf "%*s" "$spaces_needed")
 echo -e "$icon $to$spaces$icon"
 printf "%.0s$icon" $(seq 1 49)
-echo -e "${reset}\e[25m"
+echo -e "${reset}\e[25m\n"
 read -p "Are you sure you want to continue? (y/N) " answer
 if [ "$answer" = "y" ]; then
 	if [ "$1" = "push" ]; then
