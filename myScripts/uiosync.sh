@@ -100,9 +100,16 @@ then
 		read -p "List changed files? (y/N) " filechange
 		if [ "$filechange" = "y" ]
 		then
-			files=$(cat "$templog" | grep -v "sending incremental file list" | grep -v "[^(git)]/$" | grep -v "\.git/.")
+			files=$(cat "$templog" \
+				| grep -v "sending incremental file list" \
+				| grep -v "[^(git)]/$" \
+				| grep -v "\.git/." \
+				| grep -v '^sent ' \
+				| grep -v '^received ' \
+				| grep -v '^total size is' \
+				| grep -v '^speedup is')
 			echo -e "\nFound changes in the following ${oransje:-\e[38;5;214m}files${reset}"
-			echo -e "${lysblaa}${files}${reset}\n"
+			echo -e "${lysblaa}${files}${reset}"
 		fi
 	else
 	  echo -e "${oransje:-\e[38;5;214m}No changes found${reset}"
