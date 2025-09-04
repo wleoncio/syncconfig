@@ -45,7 +45,7 @@ if ! git branch --list | grep -q "$target_branch"; then
 	echo -e "${roed}Error: Branch '$target_branch' does not exist locally.${reset}"
 	exit 1
 else
-	echo -e "\nUsing target branch: ${blaa}${target_branch}${reset}\n"
+	echo -e "\nUsing target branch: ${blaa}${target_branch}${reset}"
 fi
 
 feature_branch=$(eval git branch --show-current)
