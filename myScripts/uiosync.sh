@@ -109,7 +109,6 @@ else
 fi
 
 # Actual run
-echo -e "\nSynchronizing to $to"
 echo -e "${bold}${roed}"
 printf "\e[5m%.0s$icon" $(seq 1 49)
 echo -e "\n$icon THIS OPERATION WILL OVERWRITE THE CONTENTS OF $icon"
