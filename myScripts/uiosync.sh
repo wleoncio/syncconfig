@@ -101,7 +101,7 @@ then
 		if [ "$filechange" = "y" ]
 		then
 			echo -e "\nFound changes in the following ${oransje:-\e[38;5;214m}files${reset}"
-			grep -v "[^(git)]/$" "$zemplog" | grep -v "\.git/."
+			cat "$templog" | grep -v "[^(git)]/$" | grep -v "\.git/."
 		fi
 	else
 	  echo -e "${oransje:-\e[38;5;214m}No changes found${reset}"
