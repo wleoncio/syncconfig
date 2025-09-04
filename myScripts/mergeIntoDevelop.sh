@@ -1,6 +1,8 @@
 #!/usr/bin/bash
 # Script to merge feature branches into develop
 
+source uio-colors.sh
+
 # Usage
 echo -e "Usage: $(basename $0) [options] [target_branch]" 2>&1
 echo -e "\t-t\t\tSkips unit test coverage check"
@@ -43,7 +45,7 @@ if ! git branch --list | grep -q "$target_branch"; then
 	echo -e "\e[1;31mError: Branch '$target_branch' does not exist locally.\e[0m"
 	exit 1
 else
-	echo -e "\nUsing target branch: \e[1;34m$target_branch\e[0m\n"
+	echo -e "\nUsing target branch: ${blaa}${target_branch}${reset}\n"
 fi
 
 feature_branch=$(eval git branch --show-current)
@@ -57,7 +59,7 @@ if [ -n "$unstaged" ]; then
 	read -p "Press enter to continue, Ctrl+C to cancel"
 fi
 
-echo "Merging $feature_branch into $target_branch. Did you remember to:"
+echo -e "Merging ${blaa}${feature_branch}${reset} into ${blaa}${target_branch}${reset}. Did you remember to:"
 
 echo -e '- \e[4;31mSquash\e[0m commits on the feature branch?'
 git log --oneline $target_branch.. | grep -i -e "squash" -e "fixup"
