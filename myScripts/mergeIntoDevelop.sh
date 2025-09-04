@@ -81,6 +81,7 @@ else
 	echo -e "- ${roed}No NEWS.md${reset} found. Consider using one!"
 fi
 
+echo
 read -p "Press enter to continue, Ctrl+C to cancel"
 
 git checkout $target_branch
