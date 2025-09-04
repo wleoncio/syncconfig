@@ -101,7 +101,7 @@ then
 		if [ "$filechange" = "y" ]
 		then
 			echo -e "\nFound changes in the following ${oransje:-\e[38;5;214m}files${reset}"
-			cat "$templog" | grep -v "[^(git)]/$" | grep -v "\.git/."
+			cat "$templog" | grep -v "sending incremental file list" | grep -v "[^(git)]/$" | grep -v "\.git/."
 		fi
 	else
 	  echo -e "${oransje:-\e[38;5;214m}No changes found${reset}"
@@ -128,7 +128,7 @@ then
 		echo $(eval date) "push to" $toname >> $local"/.uiosync.log"
 	fi
 	# Actual sync
-	eval rsync -az --info=name --delete --delete-excluded "$from/" "$to" | grep -v '/$' | grep -v '/.git/[^H]'
+	eval rsync -az --info=name --delete --delete-excluded "$from/" "$to" | grep -v "sending incremental file list" | grep -v '/$' | grep -v '/.git/[^H]'
 	if [ "$1" = "pull" ]; then
 		# Registering the sync on the log file
 		echo $(eval date) "pull from" $toname >> $local"/.uiosync.log"
