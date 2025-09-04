@@ -91,8 +91,7 @@ if [ "$check" = "y" ]; then
 		if [ "$filechange" = "y" ]; then
 			files=$(cat "$templog" \
 				| grep -v "sending incremental file list" \
-				| grep -v "[^(git)]/$" \
-				| grep -v "\.git/." \
+				| grep -v "/$" \
 				| grep -v '^sent ' \
 				| grep -v '^received ' \
 				| grep -v '^total size is' \
