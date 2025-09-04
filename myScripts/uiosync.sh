@@ -85,7 +85,7 @@ if [ "$check" = "y" ]; then
   eval rsync -a --verbose --dry-run --delete "$from/" "$to" > "$templog"
 	dirs=$(cat "$templog" | grep "/$" | grep -v "\.git/.")
 	if [ -n "$dirs" ]; then
-		echo -e "\nFound changes in the following ${oransje:-\e[38;5;214m}directories${reset}"
+		echo -e "\nFound changes in the following ${oransje}directories${reset}"
 	  echo -e "${lysblaa}${dirs}${reset}\n"
 		read -p "List changed files? (y/N) " filechange
 		if [ "$filechange" = "y" ]; then
@@ -97,7 +97,7 @@ if [ "$check" = "y" ]; then
 				| grep -v '^received ' \
 				| grep -v '^total size is' \
 				| grep -v '^speedup is')
-			echo -e "\nFound changes in the following ${oransje:-\e[38;5;214m}files${reset}"
+			echo -e "\nFound changes in the following ${oransje}files${reset}"
 			echo -e "${lysblaa}${files}${reset}"
 		fi
 	else
