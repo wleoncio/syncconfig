@@ -93,22 +93,18 @@ then
  	# Check for conflicts
 	echo "Checking for file conflicts. Please wait."
   eval rsync -a --verbose --dry-run --delete "$from/" "$to" > "$templog"
-	echo -e "\nFound changes in the following ${oransje:-\e[38;5;214m}directories${reset}"
-	cat "$templog" | grep "/$" | grep -v "\.git/."
-	read -p "List changed files? (y/N) " filechange
-	if [ "$filechange" = "y" ]
-	then
-		if [ -n "$zemplog" ] && [ -f "$zemplog" ]; then
-		    files=$(grep -v "[^(git)]/$" "$zemplog" | grep -v "\.git/.")
-		    if [ -n "$files" ]; then
-						echo -e "\nFound changes in the following ${oransje:-\e[38;5;214m}files${reset}"
-		        echo "$files"
-		    else
-		        echo -e "${oransje:-\e[38;5;214m}No changes found${reset}"
-		    fi
-		else
-		    echo -e "${oransje:-\e[38;5;214m}No changes found${reset}"
+	dirs=$(cat "$templog" | grep "/$" | grep -v "\.git/.")
+	if [ -n "$dirs" ]; then
+		echo -e "\nFound changes in the following ${oransje:-\e[38;5;214m}directories${reset}"
+	  echo "$dirs"
+		read -p "List changed files? (y/N) " filechange
+		if [ "$filechange" = "y" ]
+		then
+			echo -e "\nFound changes in the following ${oransje:-\e[38;5;214m}files${reset}"
+			grep -v "[^(git)]/$" "$zemplog" | grep -v "\.git/."
 		fi
+	else
+	  echo -e "${oransje:-\e[38;5;214m}No changes found${reset}"
 	fi
 else
 	echo "Skipping conflict check"
