@@ -127,6 +127,7 @@ if [ "$answer" = "y" ]; then
 	eval rsync -az --info=name --delete --delete-excluded "$from/" "$to" > "$templog"
 	log=$(cat "$templog" \
 		| grep -v "sending incremental file list" \
+		| grep -v '.uiosync.log' \
 		| grep -v '/$' \
 		| grep -v '/.git/[^H]')
 	log=$(echo "$log" | awk -v r="$roed" -v x="$lysblaa" '{if ($1=="deleting") {$1=r $1 x} print}')
