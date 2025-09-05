@@ -97,7 +97,7 @@ if [ "$check" = "y" ]; then
 				| grep -v '^total size is' \
 				| grep -v '^speedup is')
 			# Color 'deleting' using the 'roed' color variable (use awk for reliability)
-			files=$(echo "$files" | awk -v r="$roed" -v x="$lysblaa" '{if ($1=="deleting") {$1=r $1 x} print}')
+			files=$(echo "$files" | awk -v r="$roed" -v x="$lysblaa" '{if ($1=="deleting") {print $2, r "(" $1 ")" x} else {print}}')
 			echo -e "\nFound changes in the following ${oransje}files${reset}"
 			echo -e "${lysblaa}${files}${reset}"
 		fi
@@ -130,7 +130,7 @@ if [ "$answer" = "y" ]; then
 		| grep -v '.uiosync.log' \
 		| grep -v '/$' \
 		| grep -v '/.git/[^H]')
-	log=$(echo "$log" | awk -v r="$roed" -v x="$lysblaa" '{if ($1=="deleting") {$1=r $1 x} print}')
+	log=$(echo "$log" | awk -v r="$roed" -v x="$lysblaa" '{if ($1=="deleting") {print $2, r "(" $1 ")"t  x} print}')
 	echo -e "${lysblaa}$log${reset}"
 	if [ "$1" = "pull" ]; then
 		# Registering the sync on the log file
