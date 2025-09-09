@@ -25,7 +25,6 @@ if status is-interactive
 		set fish_greeting
 	end
 
-
 	# Terminal add-ons
 	starship init fish | source
 	zoxide init --cmd cd fish | source

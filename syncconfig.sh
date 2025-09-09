@@ -15,8 +15,7 @@ machinename=$(cat /etc/hostname)
 # Determining location of GitHub files
 # ==============================================================================
 configPath="$HOME/.config/syncconfig.conf"
-if [ ! -f $configPath ]
-then
+if [ ! -f $configPath ]; then
 	echo -e "$fail \e[31mNo config file found. Creating one on "$configPath" with default values\e[0m"
 	touch $configPath
 	echo location=$HOME/Programs/syncconfig >> $configPath
@@ -27,12 +26,10 @@ source $configPath
 # Determining compositor
 # ==============================================================================
 hasCompositor () {
-	if [ -f "$HOME/.config/picom.conf" ]
-	then
+	if [ -f "$HOME/.config/picom.conf" ]; then
 		echo -e "$check Compositor found: picom"
 		compositor="picom.conf"
-	elif [ -f "$HOME/.config/compton.conf" ]
-	then
+	elif [ -f "$HOME/.config/compton.conf" ]; then
 		echo -e "$check Compositor found: compton"
 		compositor="compton.conf"
 	else
@@ -45,11 +42,9 @@ hasCompositor () {
 # Determining i3 config folder
 # =============================================================================
 hasi3 () {
-	if [ -d "$HOME/.i3" ]
-	then
+	if [ -d "$HOME/.i3" ]; then
 		i3dir=".i3"
-	elif [ -d "$HOME/.config/i3" ]
-	then
+	elif [ -d "$HOME/.config/i3" ]; then
 		i3dir=".config/i3"
 	else
 		echo -e "$fail Could not determine location of i3 folder"
@@ -61,8 +56,7 @@ hasi3 () {
 # Determining notification daemon
 # ==============================================================================
 hasNotifier() {
-	if [ -d "$HOME/.config/dunst/" ]
-	then
+	if [ -d "$HOME/.config/dunst/" ]; then
 		echo -e "$check Notification daemon found: dunst"
 		notifier="dunstrc"
 	else
@@ -75,32 +69,26 @@ hasNotifier() {
 # Determining VSC local folder
 # ==============================================================================
 hasVSC() {
-	if [ -d "$HOME/.config/Code" ]
-	then
+	if [ -d "$HOME/.config/Code" ]; then
 		echo -en "$check Syncing Microsoft Visual Studio Code"
 		VSCdir="Code"
-	elif [ -d "$HOME/.config/code-oss-dev" ]
-	then
+	elif [ -d "$HOME/.config/code-oss-dev" ]; then
 		echo -en "$check Syncing Code OSS-dev"
 		VSCdir="code-oss-dev"
-	elif [ -d "$HOME/.config/VSCodium" ]
-	then
+	elif [ -d "$HOME/.config/VSCodium" ]; then
 		echo -en "$check Syncing VSCodium"
 		VSCdir="VSCodium"
-	elif [ -d "$HOME/.config/VSCode" ]
-	then
+	elif [ -d "$HOME/.config/VSCode" ]; then
 		echo -en "$check Syncing VSCode"
 		VSCdir="VSCode"
-	elif [ -d "$HOME/.config/Code - OSS" ]
-	then
+	elif [ -d "$HOME/.config/Code - OSS" ]; then
 		echo -en "$check Syncing Code OSS"
 		VSCdir="Code\ -\ OSS"
 	else
 		echo -e "$fail Could not determine location of VSCode directory"
 		VSCdir="none"
 	fi
-	if [ $VSCdir != "none" ]
-	then
+	if [ $VSCdir != "none" ]; then
 		echo " (config on "$VSCdir")"
 	fi
 	homePaths+=("$VSCdir")
@@ -143,14 +131,12 @@ syncFiles () {
 	destination=($3)
 
 	# Workaround for spaces in VSC path
-	if [ "${#origin[@]}" -gt 7 ]
-	then
+	if [ "${#origin[@]}" -gt 7 ]; then
 		origin[6]=""${origin[6]}" "${origin[7]}" "${origin[8]}""
 		unset origin[7]
 		unset origin[8]
 	fi
-	if [ "${#destination[@]}" -gt 7 ]
-	then
+	if [ "${#destination[@]}" -gt 7 ]; then
 		destination[6]=""${destination[6]}" "${destination[7]}" "${destination[8]}""
 		unset destination[7]
 		unset destination[8]
@@ -177,28 +163,23 @@ syncFiles () {
 	eval "$operator" "${origin[1]}"/superfile/hotkeys.toml "${destination[1]}"/superfile/hotkeys.toml
 	eval "$operator" "${origin[5]}"/config "${destination[5]}"
 
-	if [ $compositor != "other" ]
-	then
+	if [ $compositor != "other" ]; then
 		eval "$operator" "${origin[2]}"/"$compositor" "${destination[2]}"
 	fi
 
-	if [ "$i3dir" != "none" ]
-	then
+	if [ "$i3dir" != "none" ]; then
 		eval "$operator" -r "${origin[3]}"/* "${destination[3]}"
 	fi
 
-	if [ "$notifier" != "other" ]
-	then
+	if [ "$notifier" != "other" ]; then
  		eval "$operator" "${origin[4]}"/"$notifier" "${destination[4]}"
 	fi
 
-	if [ "$VSCdir" != "none" ]
-	then
+	if [ "$VSCdir" != "none" ]; then
 		eval "$operator" "${origin[6]}"/keybindings.json "${destination[6]}"
 		eval "$operator" "${origin[6]}"/settings.json "${destination[6]}"
 		eval "$operator" "${origin[6]}"/tasks.json "${destination[6]}"
-		if [[ $1 == "cp" ]]
-		then
+		if [[ $1 == "cp" ]]; then
 			eval "$operator" -r "${origin[6]}"/snippets "${destination[6]}"
 		else
 			eval "$operator" -r "${origin[6]}"/snippets "${destination[6]}"/snippets
@@ -209,27 +190,23 @@ syncFiles () {
 # ==============================================================================
 # Actually performing requested operation
 # ==============================================================================
-if [ "$1" = "push" ]
-then
+if [ "$1" = "push" ]; then
 	echo -e "\n\e[34m# Copying files to local git repository\e[0m\n"
 	syncFiles cp "${homePaths[*]}" "${locationPaths[*]}"
 	cd $location
 	echo -e "\n\e[34m# Listing modified files\e[0m\n"
 	git status --short
-elif [ "$1" = "pull" ]
-then
+elif [ "$1" = "pull" ]; then
 	echo -e "\n\e[34m# Copying files from local git repository\e[0m\n"
 	changedFiles=$(syncFiles diff "${homePaths[*]}" "${locationPaths[*]}" "--brief")
-	if [ "$changedFiles" = "" ]
-	then
+	if [ "$changedFiles" = "" ]; then
 		proceed="y"
 	else
 		echo -e "THIS OPERATION WILL \e[1;31mOVERWRITE\e[0m THE CONTENTS OF:\e[0m"
 		echo "$changedFiles" | awk '{print $2'\r'}'
 		read -p "Are you sure you want to continue? (y/N) " proceed
 	fi
-	if [ "$proceed" = "y" ]
-	then
+	if [ "$proceed" = "y" ]; then
 		syncFiles cp "${locationPaths[*]}" "${homePaths[*]}"
 	else
 		echo "Cancelling. Run syncconfig.sh diff to see the change details"
@@ -237,8 +214,7 @@ then
 else
 	echo -e "\n\e[34m# Dry-run: comparing local files with local git repository\e[0m\n"
 	diffFlags="--recursive --color=always"
-	if [ "$1" = "diff" ]
-	then
+	if [ "$1" = "diff" ]; then
 		echo -e "Showing changes to be made to local files\n"
 		diffFlags=""$diffFlags" --suppress-common-lines -bZB -C 1"
 	else
