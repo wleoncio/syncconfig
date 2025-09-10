@@ -6,7 +6,7 @@ package_manager_name=""
 package_manager_path=""
 if [ -e /bin/yay ]; then
 	package_manager_name="Yay "
-	package_manager_command="yay -Syu"
+	package_manager_command="yay --sync --refresh --sysupgrade --noconfirm"
 elif [ -e /bin/nala ]; then
 	package_manager_name="Nala"
 	package_manager_command="sudo nala upgrade --assume-yes"
