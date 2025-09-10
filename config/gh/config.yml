@@ -29,7 +29,7 @@ aliases:
     it: issue view --json "title"
     rvl: run view --log-failed --job
     contrib: graph -i -p %20 -s blue
-    plot: contribs --glyph block --xgap
+    plot: contribs --glyph block --xgap --labels
 # The path to a unix socket through which send HTTP connections. If blank, HTTP traffic will be handled by net/http.DefaultTransport.
 http_unix_socket:
 # What web browser gh should use when opening URLs. If blank, will refer to environment.
