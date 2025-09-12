@@ -25,7 +25,7 @@ if [ "$1" = "pull" ] || [ "$1" = "down" ]; then
 	from="$remote"
 	to="$local"
 	toname=$(hostname)
-	icon="\xE2\x86\x93"
+	icon=${roed}"\xE2\x86\x93"
 	# Ask for confirmation if pulling in odd hours
 	if [ "$hour" -gt 7 ] && [ "$hour" -lt 8 ] || [ "$hour" -gt 12 ] && [ "$hour" -lt 18 ] || [ "$hour" -gt 21 ]; then
 		echo -e "\e[1;5;31mThis is an odd time to PULL!${reset}"
@@ -39,7 +39,7 @@ elif [ "$1" = "push" ] || [ "$1" = "up" ]; then
 	from="$local"
 	to="$remote"
 	toname="Hjemmeområdet"
-	icon="\xE2\x86\x91"
+	icon=${oransje}"\xE2\x86\x91"
 	# Ask for confirmation if pushing in odd hours
 	if [ "$hour" -lt 6 ] || [ "$hour" -gt 8 ] && [ "$hour" -lt 11 ]; then
 		echo -e "\e[1;5;31mThis is an odd time to PUSH!${reset}"
@@ -60,7 +60,7 @@ else
 fi
 
 # Running rsync
-echo -e "Synchronizing direction: to $to (${bold}${roed}$icon${reset})"
+echo -e "Synchronizing direction: to $to (${bold}$icon${reset})"
 
 # Checking for internet connection
 connection=$(nmcli -g "STATE" general)
