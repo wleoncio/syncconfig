@@ -24,6 +24,7 @@ hour=$(date +"%H")
 if [ "$1" = "pull" ] || [ "$1" = "down" ]; then
 	from="$remote"
 	to="$local"
+	fromname="Hjemmeområdet"
 	toname=$(hostname)
 	icon=${roed}"\xE2\x86\x93"
 	# Ask for confirmation if pulling in odd hours
@@ -38,6 +39,7 @@ if [ "$1" = "pull" ] || [ "$1" = "down" ]; then
 elif [ "$1" = "push" ] || [ "$1" = "up" ]; then
 	from="$local"
 	to="$remote"
+	fromname=$(hostname)
 	toname="Hjemmeområdet"
 	icon=${oransje}"\xE2\x86\x91"
 	# Ask for confirmation if pushing in odd hours
@@ -119,10 +121,12 @@ printf "%.0s$icon" $(seq 1 49)
 echo -e "${reset}\e[25m\n"
 read -p "Are you sure you want to continue? (y/N) " answer
 if [ "$answer" = "y" ]; then
+
 	if [ "$1" = "push" ]; then
-		# Registering the sync on the log file
-		echo $(eval date) "push to" $toname >> $local"/.uiosync.log"
+		# Register the sync on the log file
+		echo $(eval date) "from" $fromname "to" $toname >> $local"/.uiosync.log"
 	fi
+
 	# Actual sync
 	eval rsync -az --info=name --delete --delete-excluded "$from/" "$to" > "$templog"
 	log=$(cat "$templog" \
@@ -132,10 +136,15 @@ if [ "$answer" = "y" ]; then
 		| grep -v '/.git/[^H]')
 	log=$(echo "$log" | awk -v r="$roed" -v x="$lysblaa" '{if ($1=="deleting") {print $2, r "(" $1 ")" x} else {print}}')
 	echo -e "${lysblaa}$log${reset}"
+
 	if [ "$1" = "pull" ]; then
-		# Registering the sync on the log file
-		echo $(eval date) "pull from" $toname >> $local"/.uiosync.log"
+		# Register the sync on the log file
+		# This needs to be done at a different point in time from the push
+		# so the log file is always updated on the local machine and doesn't
+		# get overwritten by the remote version
+		echo $(eval date) "from" $fromname "to" $toname >> $local"/.uiosync.log"
 	fi
+
 	# Done
 	echo -e "${groenn}"
 	printf "%.0s$icon" $(seq 1 16)
