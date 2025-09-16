@@ -11,6 +11,7 @@ else
   echo "No config file found. Please create one on "$configPath" with"
   echo "appropriate paths for "local=" and "remote=""
 fi
+blink="\e[5m"
 
 reportLastSync() {
 	# Report last sync on local
@@ -112,7 +113,7 @@ fi
 
 # Actual run
 echo -e "${bold}${roed}"
-printf "\e[5m%.0s$icon" $(seq 1 49)
+printf "$icon"%.0s $(seq 1 49)
 echo -e "\n$icon THIS OPERATION WILL OVERWRITE THE CONTENTS OF $icon"
 spaces_needed=$((46 - ${#to}))
 spaces=$(printf "%*s" "$spaces_needed")
