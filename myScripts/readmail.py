@@ -9,8 +9,14 @@ if len(sys.argv) < 2:
     sys.exit(1)
 
 mbox_file = sys.argv[1]
-mbox = mailbox.mbox(mbox_file)
-
+try:
+    mbox = mailbox.mbox(mbox_file)
+except FileNotFoundError:
+    print(f"Error: File '{mbox_file}' not found.")
+    sys.exit(1)
+except OSError as e:
+    print(f"Error: Could not open '{mbox_file}': {e}")
+    sys.exit(1)
 for message in mbox:
     print("From:", message.get('From'))
     print("To:", message.get('To'))
