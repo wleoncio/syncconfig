@@ -3,6 +3,13 @@
 
 source uio-colors.sh
 
+# === DEPRECATED WORKFLOW WARNING ===
+echo -e "${blink}${roed}WARNING: This script is deprecated!${reset}"
+echo -e "${roed}Please open a PR and use Copilot to review it.${reset}"
+echo -e "${roed}Direct merges are no longer encouraged.${reset}"
+echo
+exit 0
+
 # Usage
 echo -e "Usage: $(basename $0) [options] [target_branch]" 2>&1
 echo -e "\t-t\t\tSkips unit test coverage check"
