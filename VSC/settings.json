@@ -378,5 +378,6 @@
     "workbench.tree.indent": 16,
     "workbench.tree.renderIndentGuides": "always",
     "workbench.sideBar.location": "right",
-    "editor.stickyScroll.defaultModel": "indentationModel"
+    "editor.stickyScroll.defaultModel": "indentationModel",
+    "vim.highlightedyank.textColor": "#fff"
 }

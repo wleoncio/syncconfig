@@ -30,6 +30,8 @@ aliases:
     rvl: run view --log-failed --job
     contrib: graph -i -p %20 -s blue
     plot: contribs --glyph block --xgap --labels
+    prc: pr create
+    sky: skyline --art-only --year 2020-2025
 # The path to a unix socket through which send HTTP connections. If blank, HTTP traffic will be handled by net/http.DefaultTransport.
 http_unix_socket:
 # What web browser gh should use when opening URLs. If blank, will refer to environment.
