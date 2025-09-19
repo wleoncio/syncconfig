@@ -51,7 +51,7 @@
   RESET = reset --hard
 [core]
   editor = vim
-  autocrlf = input
+	autocrlf = input
 [credential]
   helper = store
 [color]
