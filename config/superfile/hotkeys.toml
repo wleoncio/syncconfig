@@ -3,7 +3,7 @@
 # =================================================================================================
 # Global hotkeys (cannot conflict with other hotkeys)
 confirm = ['enter', '']
-quit = ['ctrl+c', ''] # also know as, theprimeagen troller
+quit = ['ctrl+c', ''] # also known as, theprimeagen troller
 # movement
 list_up = ['k', '']
 list_down = ['j', '']
