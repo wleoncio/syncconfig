@@ -662,7 +662,8 @@
     },
     {
         "key": "ctrl+a ctrl+v",
-        "command": "workbench.action.toggleActivityBarVisibility"
+        "command": "workbench.action.toggleActivityBarVisibility",
+        "when": "editorFocus"
     },
     {
         "key": "ctrl+shift+t ctrl+shift+l",
