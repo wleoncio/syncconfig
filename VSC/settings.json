@@ -379,5 +379,6 @@
     "workbench.tree.renderIndentGuides": "always",
     "workbench.sideBar.location": "right",
     "editor.stickyScroll.defaultModel": "indentationModel",
-    "vim.highlightedyank.textColor": "#fff"
+    "vim.highlightedyank.textColor": "#fff",
+    "diffEditor.ignoreTrimWhitespace": true
 }
