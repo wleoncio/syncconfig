@@ -912,7 +912,8 @@
     },
     {
         "key": "ctrl+w ctrl+s",
-        "command": "workbench.action.evenEditorWidths"
+        "command": "workbench.action.evenEditorWidths",
+        "when": "editorTextFocus"
     },
     {
         "key": "ctrl+shift+r ctrl+c",
@@ -949,5 +950,10 @@
         "key": "ctrl+shift+t p",
         "command": "workbench.action.terminal.moveToTerminalPanel",
         "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+w",
+        "command": "-workbench.action.terminal.killEditor",
+        "when": "terminalEditorFocus && terminalFocus && terminalHasBeenCreated || terminalEditorFocus && terminalFocus && terminalProcessSupported"
     }
 ]
