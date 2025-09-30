@@ -19,6 +19,7 @@ alias lstar="tar -ztvf"
 alias ls="eza"
 alias pqp="fuck"
 alias fd="fdfind"
+alias mistral="ollama run mistral"
 
 # UiO servers
 alias pushuio="uiosync.sh push"
