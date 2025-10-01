@@ -3,8 +3,8 @@
 # Created by argbash-init v2.11.0
 # ARG_POSITIONAL_SINGLE([stash_message],[Message for the stash push],[])
 # ARG_POSITIONAL_SINGLE([new_branch],[   Name of the new branch to switch to],[develop])
-# ARG_HELP([Quickly switch between tasks that should belong to different branches])
-# ARG_VERSION_AUTO([0.2.0])
+# ARG_HELP([Quickly switch between tasks that should belong to different branches],[],[h],[help],[     Prints help])
+# ARG_VERSION_AUTO([0.3.0],[],[v],[version],[  Prints version])
 # ARGBASH_SET_INDENT([  ])
 # ARGBASH_GO()
 # needed because of Argbash --> m4_ignore([
@@ -41,8 +41,8 @@ print_help()
   printf 'Usage: %s [-h|--help] [-v|--version] <stash_message> [<new_branch>]\n' "$0"
   printf '\t%s\n' "<stash_message>: Message for the stash push"
   printf '\t%s\n' "<new_branch>:    Name of the new branch to switch to (default: 'develop')"
-  printf '\t%s\n' "-h, --help: Prints help"
-  printf '\t%s\n' "-v, --version: Prints version"
+  printf '\t%s\n' "-h, --help:      Prints help"
+  printf '\t%s\n' "-v, --version:   Prints version"
 }
 
 
@@ -63,11 +63,11 @@ parse_commandline()
         exit 0
         ;;
       -v|--version)
-        printf '%s %s\n\n%s\n' "change-gears.sh" "0.2.0" 'Quickly switch between tasks that should belong to different branches'
+        printf '%s %s\n\n%s\n' "change-gears.sh" "0.3.0" 'Quickly switch between tasks that should belong to different branches'
         exit 0
         ;;
       -v*)
-        printf '%s %s\n\n%s\n' "change-gears.sh" "0.2.0" 'Quickly switch between tasks that should belong to different branches'
+        printf '%s %s\n\n%s\n' "change-gears.sh" "0.3.0" 'Quickly switch between tasks that should belong to different branches'
         exit 0
         ;;
       *)
