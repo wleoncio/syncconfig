@@ -3,8 +3,8 @@
 usage() {
 	cat << EOU
 Usage:
-	copy2med.sh [-of] FILE
-	copy2med.sh [-of] FILE -u USERNAME
+	copy2med.sh FILE
+	copy2med.sh FILE -u USERNAME
 	copy2med.sh -h | --help
 	copy2med.sh -v | --version
 
@@ -15,8 +15,6 @@ Arguments:
 	USERNAME username on the remote server (will be prompted if not provided)
 
 Options:
-	-o  selects med-biostat as the remote (defaults to med-biostat2)
-	-f  transfer from the server (defaults to "to")
 	-u  username on the remote server (will be prompted if not provided)
 	-h --help
 	-v --version
