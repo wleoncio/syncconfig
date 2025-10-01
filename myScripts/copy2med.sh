@@ -2,7 +2,7 @@
 
 usage() {
 	cat << EOU
-	Usage: $(basename $0) [options] FILE [(-u USERNAME)]
+	Usage: $(basename $0) [-hpf] FILE [(-u USERNAME)]
 
 	Simplifies file transfer between a local machine and the med-biostat servers
 
@@ -34,7 +34,8 @@ servername="med-biostat2"
 origin="./"
 
 # Copying files
-scp -J "$username"@login.uio.no "${ARGS['FILE']}" "$username"@"$servername".hpc.uio.no:/data/"$username"
+destination="$username@$servername".hpc.uio.no:/data/"$username"
+scp -J "$username"@login.uio.no "${ARGS['FILE']}" "$destination"
 
 echo Done
 exit 0
