@@ -1,23 +1,23 @@
 #!/usr/bin/bash
 
 usage() {
-	cat << EOU
+    cat << EOU
 Usage:
-	copy2med.sh FILE
-	copy2med.sh FILE -u USERNAME
-	copy2med.sh -h | --help
-	copy2med.sh -v | --version
+    copy2med.sh FILE
+    copy2med.sh FILE -u USERNAME
+    copy2med.sh -h | --help
+    copy2med.sh -v | --version
 
 Simplifies file transfer between a local machine and the med-biostat servers
 
 Arguments:
-	FILE  	 file to be transferred
-	USERNAME username on the remote server (will be prompted if not provided)
+    FILE      file to be transferred
+    USERNAME  username on the remote server (will be prompted if not provided)
 
 Options:
-	-u  username on the remote server (will be prompted if not provided)
-	-h --help
-	-v --version
+    -u        username on the remote server (will be prompted if not provided)
+    -h        --help
+    -v        --version
 EOU
 }
 
