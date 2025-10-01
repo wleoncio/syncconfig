@@ -45,4 +45,4 @@ origin="./"
 destination="$username@$servername".hpc.uio.no:/data/"$username"
 scp -J "$username"@login.uio.no "${ARGS['FILE']}" "$destination"
 
-exit 0
+exit $?
