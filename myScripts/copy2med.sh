@@ -1,20 +1,22 @@
 #!/usr/bin/bash
 
-# This script simplifies the file transfer between a local machine and the med-biostat servers
-#
+usage() {
+	cat << EOU
+	Usage: $(basename $0) [options] FILE
 
-# Printing usage when script is called without arguments
+	This script simplifies the file transfer between a local machine and the med-biostat servers
 
-function usage {
-	echo "Usage: $(basename $0) [options] filename" 2>&1
-	echo "	-o	selects med-biostat as the remote (defaults to med-biostat2)"
-	echo "	-f	transfer from the server (defaults to \"to\")"
-	exit 1
+	Arguments:
+		FILE  file to be transferred
+
+	Options:
+		-h --help
+		-o  selects med-biostat as the remote (defaults to med-biostat2)
+		-f  transfer from the server (defaults to "to")
+EOU
 }
 
-if [[ ${#} -eq 0 ]]; then
-	usage
-fi
+eval "$(docopts -A ARGS -h "$(usage)" : "$@")"
 
 # Retrieving username on remote
 read -p "Username on remote: " username
@@ -23,20 +25,9 @@ read -p "Username on remote: " username
 servername="med-biostat2"
 origin="./"
 
-# Defining list of accepted arguments
-optstring=":of"
-
-# Parsing options
-while getopts ${optstring} arg; do
-	case "${arg}" in
-		o) servername="med-biostat" ;;
-		f) echo "-f not yet implemented" ;;
-		?)
-			echo "Invalid option: -${OPTARG}"
-			echo
-			usage
-			;;
-	esac
+# Processing options
+for a in ${!ARGS[@]} ; do
+    echo "$a = ${ARGS[$a]}"
 done
 
 # Copying files
