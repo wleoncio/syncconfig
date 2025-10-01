@@ -4,7 +4,7 @@ usage() {
 	cat << EOU
 	Usage: $(basename $0) [options] FILE [-u USERNAME]
 
-	This script simplifies the file transfer between a local machine and the med-biostat servers
+	Simplifies file transfer between a local machine and the med-biostat servers
 
 	Arguments:
 		FILE  file to be transferred
@@ -17,7 +17,10 @@ usage() {
 EOU
 }
 
-eval "$(docopts -A ARGS -h "$(usage)" : "$@")"
+# Processing options
+parsed=$(docopts -A ARGS -h "$(usage)" : "$@")
+eval $parsed
+echo "$parsed"
 
 # Retrieving username on remote
 if [ -z "${ARGS['USERNAME']}" ]; then
@@ -31,13 +34,9 @@ fi
 servername="med-biostat2"
 origin="./"
 
-# Processing options
-for a in ${!ARGS[@]} ; do
-    echo "$a = ${ARGS[$a]}"
-done
 
 # Copying files
-scp -J "$username"@login.uio.no $1 "$username"@"$servername".hpc.uio.no:/data/"$username"
+scp -J "$username"@login.uio.no "${ARGS['FILE']}" "$username"@"$servername".hpc.uio.no:/data/"$username"
 
 echo Done
-exit 1
+exit 0
