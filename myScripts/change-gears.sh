@@ -118,10 +118,10 @@ assign_positional_args 1 "${_positionals[@]}"
 # vvv  PLACE YOUR CODE HERE  vvv
 
 echo "Stashing working directory"
-git stash push --all --message "$1"
+git stash push --all --message "$_arg_stash_message"
 
-echo "Checking out branch $2"
-git checkout -b $2
+echo "Checking out branch "$_arg_new_branch""
+git checkout -b $_arg_new_branch
 
 # ^^^  TERMINATE YOUR CODE BEFORE THE BOTTOM ARGBASH MARKER  ^^^
 
