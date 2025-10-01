@@ -2,10 +2,9 @@
 
 # Created by argbash-init v2.11.0
 # ARG_POSITIONAL_SINGLE([stash_message],[Message for the stash push],[])
-# ARG_POSITIONAL_SINGLE([new_branch],[Name of the new branch to switch to],[])
-# ARG_DEFAULTS_POS()
+# ARG_POSITIONAL_SINGLE([new_branch],[   Name of the new branch to switch to],[develop])
 # ARG_HELP([Quickly switch between tasks that should belong to different branches])
-# ARG_VERSION([echo $0 v0.1.0])
+# ARG_VERSION_AUTO([0.2.0])
 # ARGBASH_SET_INDENT([  ])
 # ARGBASH_GO()
 # needed because of Argbash --> m4_ignore([
@@ -32,17 +31,16 @@ begins_with_short_option()
 
 # THE DEFAULTS INITIALIZATION - POSITIONALS
 _positionals=()
-_arg_stash_message=
-_arg_new_branch=
+_arg_new_branch="develop"
 # THE DEFAULTS INITIALIZATION - OPTIONALS
 
 
 print_help()
 {
   printf '%s\n' "Quickly switch between tasks that should belong to different branches"
-  printf 'Usage: %s [-h|--help] [-v|--version] <stash_message> <new_branch>\n' "$0"
+  printf 'Usage: %s [-h|--help] [-v|--version] <stash_message> [<new_branch>]\n' "$0"
   printf '\t%s\n' "<stash_message>: Message for the stash push"
-  printf '\t%s\n' "<new_branch>: Name of the new branch to switch to"
+  printf '\t%s\n' "<new_branch>:    Name of the new branch to switch to (default: 'develop')"
   printf '\t%s\n' "-h, --help: Prints help"
   printf '\t%s\n' "-v, --version: Prints version"
 }
@@ -65,11 +63,11 @@ parse_commandline()
         exit 0
         ;;
       -v|--version)
-        echo $0 v0.1.0
+        printf '%s %s\n\n%s\n' "change-gears.sh" "0.2.0" 'Quickly switch between tasks that should belong to different branches'
         exit 0
         ;;
       -v*)
-        echo $0 v0.1.0
+        printf '%s %s\n\n%s\n' "change-gears.sh" "0.2.0" 'Quickly switch between tasks that should belong to different branches'
         exit 0
         ;;
       *)
@@ -85,9 +83,9 @@ parse_commandline()
 
 handle_passed_args_count()
 {
-  local _required_args_string="'stash_message' and 'new_branch'"
-  test "${_positionals_count}" -ge 2 || _PRINT_HELP=yes die "FATAL ERROR: Not enough positional arguments - we require exactly 2 (namely: $_required_args_string), but got only ${_positionals_count}." 1
-  test "${_positionals_count}" -le 2 || _PRINT_HELP=yes die "FATAL ERROR: There were spurious positional arguments --- we expect exactly 2 (namely: $_required_args_string), but got ${_positionals_count} (the last one was: '${_last_positional}')." 1
+  local _required_args_string="'stash_message'"
+  test "${_positionals_count}" -ge 1 || _PRINT_HELP=yes die "FATAL ERROR: Not enough positional arguments - we require between 1 and 2 (namely: $_required_args_string), but got only ${_positionals_count}." 1
+  test "${_positionals_count}" -le 2 || _PRINT_HELP=yes die "FATAL ERROR: There were spurious positional arguments --- we expect between 1 and 2 (namely: $_required_args_string), but got ${_positionals_count} (the last one was: '${_last_positional}')." 1
 }
 
 
