@@ -1,46 +1,46 @@
 #!/usr/bin/bash
 
-# This script simplifies the file transfer between a local machine and the med-biostat servers
-#
+usage() {
+    cat << EOU
+Usage:
+    copy2med.sh FILE
+    copy2med.sh FILE -u USERNAME
+    copy2med.sh -h | --help
+    copy2med.sh -v | --version
 
-# Printing usage when script is called without arguments
+Simplifies file transfer between a local machine and the med-biostat servers
 
-function usage {
-	echo "Usage: $(basename $0) [options] filename" 2>&1
-	echo "	-o	selects med-biostat as the remote (defaults to med-biostat2)"
-	echo "	-f	transfer from the server (defaults to \"to\")"
-	exit 1
+Arguments:
+    FILE      file to be transferred
+    USERNAME  username on the remote server (will be prompted if not provided)
+
+Options:
+    -u        username on the remote server (will be prompted if not provided)
+    -h        --help
+    -v        --version
+EOU
 }
 
-if [[ ${#} -eq 0 ]]; then
-	usage
-fi
+help=$(usage)
+version="0.1.0 under GPLv3 (https://choosealicense.com/licenses/gpl-3.0/)"
+
+# Processing options
+eval "$(docopts -A ARGS -h "$help" -V "$version" : "$@")"
 
 # Retrieving username on remote
-read -p "Username on remote: " username
+if [ -z "${ARGS['USERNAME']}" ]; then
+	echo -n "Username on remote: "
+	read username
+else
+	username="${ARGS['USERNAME']}"
+fi
 
 # Defining defaults
 servername="med-biostat2"
 origin="./"
 
-# Defining list of accepted arguments
-optstring=":of"
-
-# Parsing options
-while getopts ${optstring} arg; do
-	case "${arg}" in
-		o) servername="med-biostat" ;;
-		f) echo "-f not yet implemented" ;;
-		?)
-			echo "Invalid option: -${OPTARG}"
-			echo
-			usage
-			;;
-	esac
-done
-
 # Copying files
-scp -J "$username"@login.uio.no $1 "$username"@"$servername".hpc.uio.no:/data/"$username"
+destination="$username@$servername".hpc.uio.no:/data/"$username"
+scp -J "$username"@login.uio.no "${ARGS['FILE']}" "$destination"
 
-echo Done
-exit 1
+exit $?
