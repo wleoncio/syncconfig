@@ -119,7 +119,7 @@ echo "Stashing working directory"
 git stash push --all --message "$_arg_stash_message"
 
 echo "Checking out branch "$_arg_new_branch""
-git checkout -b $_arg_new_branch
+git checkout -b "$_arg_new_branch"
 
 # ^^^  TERMINATE YOUR CODE BEFORE THE BOTTOM ARGBASH MARKER  ^^^
 
