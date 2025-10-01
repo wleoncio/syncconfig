@@ -2,7 +2,7 @@
 
 usage() {
 	cat << EOU
-	Usage: $(basename $0) [options] FILE [-u USERNAME]
+	Usage: $(basename $0) [options] FILE [(-u USERNAME)]
 
 	Simplifies file transfer between a local machine and the med-biostat servers
 
@@ -20,7 +20,6 @@ EOU
 # Processing options
 parsed=$(docopts -A ARGS -h "$(usage)" : "$@")
 eval $parsed
-echo "$parsed"
 
 # Retrieving username on remote
 if [ -z "${ARGS['USERNAME']}" ]; then
@@ -33,7 +32,6 @@ fi
 # Defining defaults
 servername="med-biostat2"
 origin="./"
-
 
 # Copying files
 scp -J "$username"@login.uio.no "${ARGS['FILE']}" "$username"@"$servername".hpc.uio.no:/data/"$username"
