@@ -2,24 +2,32 @@
 
 usage() {
 	cat << EOU
-	Usage: $(basename $0) [-hpf] FILE [(-u USERNAME)]
+	Usage:
+		copy2med.sh [-of] FILE
+		copy2med.sh [-of] FILE -u USERNAME
+		copy2med.sh -h | --help
+		copy2med.sh -v | --version
 
 	Simplifies file transfer between a local machine and the med-biostat servers
 
 	Arguments:
-		FILE  file to be transferred
+		FILE  	 file to be transferred
+		USERNAME username on the remote server (will be prompted if not provided)
 
 	Options:
 		-h --help
+		-v --version
 		-o  selects med-biostat as the remote (defaults to med-biostat2)
 		-f  transfer from the server (defaults to "to")
 		-u  username on the remote server (will be prompted if not provided)
 EOU
 }
 
+help=$(usage)
+version="0.1.0 under GPLv3 (https://choosealicense.com/licenses/gpl-3.0/)"
+
 # Processing options
-parsed=$(docopts -A ARGS -h "$(usage)" : "$@")
-eval $parsed
+eval "$(docopts -A ARGS -h "$help" -V "$version" : "$@")"
 
 # Retrieving username on remote
 if [ -z "${ARGS['USERNAME']}" ]; then
@@ -37,5 +45,4 @@ origin="./"
 destination="$username@$servername".hpc.uio.no:/data/"$username"
 scp -J "$username"@login.uio.no "${ARGS['FILE']}" "$destination"
 
-echo Done
 exit 0
