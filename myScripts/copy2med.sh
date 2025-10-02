@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-version="0.2.0 under GPLv3 (https://choosealicense.com/licenses/gpl-3.0/)"
+version="0.3.0 under GPLv3 (https://choosealicense.com/licenses/gpl-3.0/)"
 
 usage() {
     cat << EOU
@@ -12,14 +12,14 @@ Usage:
 Simplifies file transfer between a local machine and the med-biostat servers
 
 Arguments:
-    FILE      file to be transferred
-    USERNAME  username on the remote server (will be prompted if not provided)
+    FILE         file to be transferred
+    USERNAME     username on the remote server (will be prompted if not provided)
 
 Options:
-    -f        copy from remote to local
-    -u        username on the remote server (will be prompted if not provided)
-    -h        --help
-    -v        --version
+    -f            copy from remote to local
+    -u            username on the remote server (will be prompted if not provided)
+    -h --help     Print this help and exit
+    -v --version  Print version and exit
 EOU
 }
 
