@@ -1,25 +1,25 @@
 #!/usr/bin/bash
-version="0.3.0 under GPLv3 (https://choosealicense.com/licenses/gpl-3.0/)"
+version="0.3.1 under GPLv3 (https://choosealicense.com/licenses/gpl-3.0/)"
 
 usage() {
     cat << EOU
 Usage:
-    copy2med.sh [-f] FILE
-    copy2med.sh [-f] FILE -u USERNAME
+    copy2med.sh [--from] FILE
+    copy2med.sh [--from] FILE -u USERNAME
     copy2med.sh -h | --help
-    copy2med.sh -v | --version
+    copy2med.sh --version
 
 Simplifies file transfer between a local machine and the med-biostat servers
 
 Arguments:
-    FILE         file to be transferred
-    USERNAME     username on the remote server (will be prompted if not provided)
+    FILE       file to be transferred
+    USERNAME   username on the remote server (will be prompted if not provided)
 
 Options:
-    -f            copy from remote to local
-    -u            username on the remote server (will be prompted if not provided)
-    -h --help     Print this help and exit
-    -v --version  Print version and exit
+    --from     copy from remote to local
+    -u         username on the remote server (will be prompted if not provided)
+    -h --help  Print this help and exit
+    --version  Print version and exit
 EOU
 }
 
@@ -43,7 +43,7 @@ fi
 host="$username@login.uio.no"
 server="$username@$servername.hpc.uio.no:/data/$username"
 scp_args="$host $file $server"
-if [ "${ARGS['-f']}" = true ]; then
+if [ "${ARGS['--from']}" = true ]; then
     scp_args="$host $server/$file ."
 fi
 
