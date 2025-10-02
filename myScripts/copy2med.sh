@@ -1,31 +1,35 @@
 #!/usr/bin/bash
+version="0.3.0 under GPLv3 (https://choosealicense.com/licenses/gpl-3.0/)"
 
 usage() {
     cat << EOU
 Usage:
-    copy2med.sh FILE
-    copy2med.sh FILE -u USERNAME
+    copy2med.sh [-f] FILE
+    copy2med.sh [-f] FILE -u USERNAME
     copy2med.sh -h | --help
     copy2med.sh -v | --version
 
 Simplifies file transfer between a local machine and the med-biostat servers
 
 Arguments:
-    FILE      file to be transferred
-    USERNAME  username on the remote server (will be prompted if not provided)
+    FILE         file to be transferred
+    USERNAME     username on the remote server (will be prompted if not provided)
 
 Options:
-    -u        username on the remote server (will be prompted if not provided)
-    -h        --help
-    -v        --version
+    -f            copy from remote to local
+    -u            username on the remote server (will be prompted if not provided)
+    -h --help     Print this help and exit
+    -v --version  Print version and exit
 EOU
 }
 
+# Setting variables
 help=$(usage)
-version="0.1.0 under GPLv3 (https://choosealicense.com/licenses/gpl-3.0/)"
+servername="med-biostat2"
 
 # Processing options
 eval "$(docopts -A ARGS -h "$help" -V "$version" : "$@")"
+file="${ARGS['FILE']}"
 
 # Retrieving username on remote
 if [ -z "${ARGS['USERNAME']}" ]; then
@@ -35,12 +39,15 @@ else
 	username="${ARGS['USERNAME']}"
 fi
 
-# Defining defaults
-servername="med-biostat2"
-origin="./"
+# Origin and destination depend on direction
+host="$username@login.uio.no"
+server="$username@$servername.hpc.uio.no:/data/$username"
+scp_args="$host $file $server"
+if [ "${ARGS['-f']}" = true ]; then
+    scp_args="$host $server/$file ."
+fi
 
 # Copying files
-destination="$username@$servername".hpc.uio.no:/data/"$username"
-scp -J "$username"@login.uio.no "${ARGS['FILE']}" "$destination"
+scp -J $scp_args
 
 exit $?
