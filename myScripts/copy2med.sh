@@ -42,12 +42,12 @@ fi
 # Origin and destination depend on direction
 host="$username@login.uio.no"
 server="$username@$servername.hpc.uio.no:/data/$username"
-operation="$host $file $server"
+scp_args="$host $file $server"
 if [ "${ARGS['-f']}" = true ]; then
-    operation="$host $server/$file ."
+    scp_args="$host $server/$file ."
 fi
 
 # Copying files
-scp -J $operation
+scp -J $scp_args
 
 exit $?
