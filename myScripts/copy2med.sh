@@ -1,4 +1,5 @@
 #!/usr/bin/bash
+version="0.2.0 under GPLv3 (https://choosealicense.com/licenses/gpl-3.0/)"
 
 usage() {
     cat << EOU
@@ -24,7 +25,6 @@ EOU
 
 # Setting variables
 help=$(usage)
-version="0.1.0 under GPLv3 (https://choosealicense.com/licenses/gpl-3.0/)"
 servername="med-biostat2"
 
 # Processing options
