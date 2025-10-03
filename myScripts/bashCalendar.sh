@@ -24,6 +24,8 @@ Example:
     $(basename $0) 02-04 2025
     $(basename $0) 02 2025-2030
     $(basename $0) 2030
+
+Send bug reports and feature requests to: https://github.com/wleoncio/syncconfig/issues
 EOU
 }
 
