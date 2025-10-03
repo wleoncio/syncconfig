@@ -1,5 +1,4 @@
 #!/bin/bash
-source ic.sh
 version="0.1.0 licensed under GPLv3"
 
 usage() {
