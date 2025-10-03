@@ -1,5 +1,41 @@
 #!/bin/bash
+version="0.1.0 licensed under GPLv3"
 
-read -p "Enter MM, MM YYYY or press enter for current month: " gcal_input
-gcal -K $gcal_input
-read -p "Press enter to exit"
+usage() {
+  cat << EOU
+Usage:
+  $(basename $0) [MONTH] [YEAR]
+  $(basename $0) -h | --help
+  $(basename $0) --version
+
+Generates a calendar for a specified month and year, or the current month if
+none is provided.
+
+Arguments:
+  MONTH      month as MM, may also be a range [default: current month]
+  YEAR       year as YYYY, may be range if MM is given [default: current year]
+
+Options:
+  -h --help  Print this help and exit
+  --version  Print version and exit
+
+Example:
+  $(basename $0) 02 2025
+  $(basename $0) 02-04 2025
+  $(basename $0) 02 2025-2030
+  $(basename $0) 2030
+
+Send bug reports and feature requests to: https://github.com/wleoncio/syncconfig/issues
+EOU
+}
+
+# Setting variables
+eval "$(docopts -A ARGS -h "$(usage)" -V "$version" : "$@")"
+
+# Get MONTH and YEAR from ARGS, default to current if not provided
+MONTH="${ARGS['MONTH']}"
+YEAR="${ARGS['YEAR']}"
+
+gcal --with-week-number $MONTH $YEAR
+
+exit $?
