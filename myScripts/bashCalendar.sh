@@ -18,6 +18,12 @@ Arguments:
 Options:
     -h --help  Print this help and exit
     --version  Print version and exit
+
+Example:
+    $(basename $0) 02 2025
+    $(basename $0) 02-04 2025
+    $(basename $0) 02 2025-2030
+    $(basename $0) 2030
 EOU
 }
 
