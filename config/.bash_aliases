@@ -34,3 +34,6 @@ alias tmp="cd /tmp"
 
 # Life shortcuts 
 alias ai="tgpt --interactive --provider pollinations"
+
+# Environment variables hidden on (uncommited) .sensitive_env
+[ -f "$HOME/.sensitive_env" ] && source "$HOME/.sensitive_env"
