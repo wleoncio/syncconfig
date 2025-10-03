@@ -37,3 +37,5 @@ MONTH="${ARGS['MONTH']}"
 YEAR="${ARGS['YEAR']}"
 
 gcal --with-week-number $MONTH $YEAR
+
+exit $?
