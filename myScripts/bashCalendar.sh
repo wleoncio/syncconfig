@@ -2,28 +2,28 @@
 version="0.1.0 licensed under GPLv3"
 
 usage() {
-    cat << EOU
+  cat << EOU
 Usage:
-    $(basename $0) [MONTH] [YEAR]
-    $(basename $0) -h | --help
-    $(basename $0) --version
+  $(basename $0) [MONTH] [YEAR]
+  $(basename $0) -h | --help
+  $(basename $0) --version
 
 Generates a calendar for a specified month and year, or the current month if
 none is provided.
 
 Arguments:
-    MONTH      month as MM, may also be a range [default: current month]
-    YEAR       year as YYYY, may be range if MM is given [default: current year]
+  MONTH      month as MM, may also be a range [default: current month]
+  YEAR       year as YYYY, may be range if MM is given [default: current year]
 
 Options:
-    -h --help  Print this help and exit
-    --version  Print version and exit
+  -h --help  Print this help and exit
+  --version  Print version and exit
 
 Example:
-    $(basename $0) 02 2025
-    $(basename $0) 02-04 2025
-    $(basename $0) 02 2025-2030
-    $(basename $0) 2030
+  $(basename $0) 02 2025
+  $(basename $0) 02-04 2025
+  $(basename $0) 02 2025-2030
+  $(basename $0) 2030
 
 Send bug reports and feature requests to: https://github.com/wleoncio/syncconfig/issues
 EOU
