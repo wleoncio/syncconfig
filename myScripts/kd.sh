@@ -16,6 +16,7 @@ Arguments:
 Options:
   -l LOCATION, --location LOCATION  Directory to search in [default: $HOME]
   --ignore-case                     Perform case-insensitive search
+  --middle                          Search for files that contain SEARCH_TERM
   --starts-with                     Search for files that start with SEARCH_TERM
   --ends-with                       Search for files that end with SEARCH_TERM
   -h --help                         Print this help and exit
@@ -26,6 +27,7 @@ Examples:
   $(basename $0) bASh --ignore-case -l /usr/bin
   $(basename $0) bash --starts-with -l /usr/bin
   $(basename $0) bash --ends-with
+  $(basename $0) bash --middle -l /etc
 
 Send bug reports and feature requests to: https://github.com/wleoncio/syncconfig/issues
 EOU
@@ -37,9 +39,14 @@ eval "$(docopts -A ARGS -h "$(usage)" -V "$version" : "$@")"
 SEARCH_TERM="${ARGS['SEARCH_TERM']}"
 LOCATION="${ARGS['--location']:-${ARGS['-l']:-$HOME}}"
 CASE=$([ "${ARGS['--ignore-case']}" = true ] && echo iname || echo name)
-PREFIX=$([ "${ARGS['--ends-with']}" = true ] && echo "*" || echo "")
-SUFFIX=$([ "${ARGS['--starts-with']}" = true ] && echo "*" || echo "")
+if [ "${ARGS['--middle']}" = true ]; then
+  PREFIX="*"
+  SUFFIX="*"
+else
+  PREFIX=$([ "${ARGS['--ends-with']}" = true ] && echo "*" || echo "")
+  SUFFIX=$([ "${ARGS['--starts-with']}" = true ] && echo "*" || echo "")
+fi
 
 echo -e "Searching for \"$PREFIX$SEARCH_TERM$SUFFIX\" in $LOCATION\n"
 
-find $LOCATION -$CASE $PREFIX$SEARCH_TERM$SUFFIX -print 2>/dev/null
+find $LOCATION -$CASE $PREFIX$SEARCH_TERM$SUFFIX -print 2> /dev/null
