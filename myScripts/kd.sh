@@ -11,13 +11,13 @@ Usage:
 A find wrapper to conveniently and cleanly search for files and directories.
 
 Arguments:
-  SEARCH_TERM      term to search for (wildcards * are allowed)
+  SEARCH_TERM                       term to search for (wildcards * are allowed)
 
 Options:
   -l LOCATION, --location LOCATION  Directory to search in [default: $HOME]
-  --ignore-case                    Perform case-insensitive search
-  -h --help                        Print this help and exit
-  --version                        Print version and exit
+  --ignore-case                     Perform case-insensitive search
+  -h --help                         Print this help and exit
+  --version                         Print version and exit
 
 Examples:
   $(basename $0) .bashrc
