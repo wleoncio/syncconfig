@@ -48,16 +48,26 @@ cecho() {
     # Usage: cecho "$RED" "Your message"
     local color="$1"
     shift
-    echo -e "${color}$*${RESET}"
+    echo -e "${color}$*${RESET} Back to normal"
 }
 
 cprintf() {
     # Usage: cprintf "$BOLD_GREEN" "Your message"
     local color="$1"
     shift
-    printf "${color}%s${RESET}" "$*"
+    printf "${color}%s${RESET} Back to normal" "$*"
+    echo
 }
 
-# Example usage (commented out)
-# cecho "$BOLD_YELLOW" "Warning: Something happened!"
-# cprintf "$UNDERLINE_BLUE" "Info: All systems go."
+# --- Test script for color and format options ---
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+    echo -e "${BOLD}BOLD${RESET} | ${UNDERLINE}UNDERLINE${RESET} | ${BOLD}${UNDERLINE}BOLD+UNDERLINE${RESET}"
+    echo
+    echo -e "${RED}RED${RESET} | ${GREEN}GREEN${RESET} | ${YELLOW}YELLOW${RESET} | ${BLUE}BLUE${RESET} | ${MAGENTA}MAGENTA${RESET} | ${CYAN}CYAN${RESET} | ${WHITE}WHITE${RESET} | ${BLACK}BLACK${RESET}"
+    echo -e "${BOLD_RED}BOLD_RED${RESET} | ${BOLD_GREEN}BOLD_GREEN${RESET} | ${BOLD_YELLOW}BOLD_YELLOW${RESET} | ${BOLD_BLUE}BOLD_BLUE${RESET} | ${BOLD_MAGENTA}BOLD_MAGENTA${RESET} | ${BOLD_CYAN}BOLD_CYAN${RESET} | ${BOLD_WHITE}BOLD_WHITE${RESET}"
+    echo -e "${UNDERLINE_RED}UNDERLINE_RED${RESET} | ${UNDERLINE_GREEN}UNDERLINE_GREEN${RESET} | ${UNDERLINE_YELLOW}UNDERLINE_YELLOW${RESET} | ${UNDERLINE_BLUE}UNDERLINE_BLUE${RESET} | ${UNDERLINE_MAGENTA}UNDERLINE_MAGENTA${RESET} | ${UNDERLINE_CYAN}UNDERLINE_CYAN${RESET} | ${UNDERLINE_WHITE}UNDERLINE_WHITE${RESET}"
+    echo -e "${BG_RED}BG_RED${RESET} | ${BG_GREEN}BG_GREEN${RESET} | ${BG_YELLOW}BG_YELLOW${RESET} | ${BG_BLUE}BG_BLUE${RESET} | ${BG_MAGENTA}BG_MAGENTA${RESET} | ${BG_CYAN}BG_CYAN${RESET} | ${BG_WHITE}BG_WHITE${RESET} | ${BG_BLACK}BG_BLACK${RESET}"
+    echo
+    cecho "$BOLD_YELLOW" "cecho: This is a bold yellow warning!"
+    cprintf "$UNDERLINE_BLUE" "cprintf: This is underlined blue info!"
+fi
