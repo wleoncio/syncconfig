@@ -59,6 +59,6 @@ fi
 
 echo -e "Searching for \"$PREFIX$SEARCH_TERM$SUFFIX\" in $LOCATION\n"
 
-find $LOCATION -$CASE $PREFIX$SEARCH_TERM$SUFFIX -print 2> /dev/null
+find $LOCATION -$CASE "$PREFIX""$SEARCH_TERM""$SUFFIX" -print 2> /dev/null
 
 exit 0
