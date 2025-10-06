@@ -1,4 +1,8 @@
 #!/bin/bash
+# Error codes:
+# 0 - success
+# 1 - missing required argument (not used, docopts handles it)
+# 2 - missing dependencies
 version="0.1.0 licensed under GPLv3"
 
 usage() {
@@ -33,6 +37,12 @@ Send bug reports and feature requests to: https://github.com/wleoncio/syncconfig
 EOU
 }
 
+# Check if docopts is installed
+if ! command -v docopts &> /dev/null; then
+  echo "Error: docopts is not installed." >&2
+  exit 2
+fi
+
 # Setting variables
 eval "$(docopts -A ARGS -h "$(usage)" -V "$version" : "$@")"
 
@@ -50,3 +60,5 @@ fi
 echo -e "Searching for \"$PREFIX$SEARCH_TERM$SUFFIX\" in $LOCATION\n"
 
 find $LOCATION -$CASE $PREFIX$SEARCH_TERM$SUFFIX -print 2> /dev/null
+
+exit 0
