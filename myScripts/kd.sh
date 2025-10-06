@@ -4,7 +4,7 @@ version="0.1.0 licensed under GPLv3"
 usage() {
   cat << EOU
 Usage:
-  $(basename $0) SEARCH_TERM [--location LOCATION] [--ignore-case]
+  $(basename $0) SEARCH_TERM [-l LOCATION | --location LOCATION] [--ignore-case]
   $(basename $0) -h | --help
   $(basename $0) --version
 
@@ -14,14 +14,14 @@ Arguments:
   SEARCH_TERM      term to search for (wildcards * are allowed)
 
 Options:
-  --location LOCATION  Directory to search in [default: $HOME]
-  --ignore-case       Perform case-insensitive search
-  -h --help           Print this help and exit
-  --version           Print version and exit
+  -l LOCATION, --location LOCATION  Directory to search in [default: $HOME]
+  --ignore-case                    Perform case-insensitive search
+  -h --help                        Print this help and exit
+  --version                        Print version and exit
 
 Examples:
   $(basename $0) .bashrc
-  $(basename $0) bASh --ignore-case --location /usr/bin
+  $(basename $0) bASh --ignore-case -l /usr/bin
 
 Send bug reports and feature requests to: https://github.com/wleoncio/syncconfig/issues
 EOU
@@ -31,7 +31,7 @@ EOU
 eval "$(docopts -A ARGS -h "$(usage)" -V "$version" : "$@")"
 
 SEARCH_TERM="${ARGS['SEARCH_TERM']}"
-LOCATION="${ARGS['--location']:-$HOME}"
+LOCATION="${ARGS['--location']:-${ARGS['-l']:-$HOME}}"
 
 if [ "${ARGS['--ignore-case']}" = true ]; then
   opts=iname
