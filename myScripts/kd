@@ -3,7 +3,7 @@
 # 0 - success
 # 1 - missing required argument (not used, docopts handles it)
 # 2 - missing dependencies
-version="0.1.0 licensed under GPLv3"
+version="0.1.1 licensed under GPLv3"
 
 usage() {
   cat << EOU
@@ -57,8 +57,16 @@ else
   SUFFIX=$([ "${ARGS['--starts-with']}" = true ] && echo "*" || echo "")
 fi
 
-echo -e "Searching for \"$PREFIX$SEARCH_TERM$SUFFIX\" in $LOCATION\n"
+TERM="${PREFIX}${SEARCH_TERM}${SUFFIX}"
 
-find $LOCATION -$CASE $PREFIX$SEARCH_TERM$SUFFIX -print 2> /dev/null
+echo -e "Searching for \"$TERM\" in $LOCATION\n"
+
+MATCHES=$(find $LOCATION -$CASE "$TERM" -print 2> /dev/null)
+if [ -z "$MATCHEs" ]; then
+  echo "No results found."
+  echo "Tip: Try rerunning with different options (see --help)."
+else
+  echo "$MATCHES"
+fi
 
 exit 0
