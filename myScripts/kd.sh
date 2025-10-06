@@ -4,7 +4,7 @@ version="0.1.0 licensed under GPLv3"
 usage() {
   cat << EOU
 Usage:
-  $(basename $0) SEARCH_TERM [-l LOCATION | --location LOCATION] [--ignore-case] [--starts-with] [--ends-with]
+  $(basename $0) SEARCH_TERM [options]
   $(basename $0) -h | --help
   $(basename $0) --version
 
@@ -24,7 +24,7 @@ Options:
 Examples:
   $(basename $0) .bashrc
   $(basename $0) bASh --ignore-case -l /usr/bin
-  $(basename $0) bash --starts-with
+  $(basename $0) bash --starts-with -l /usr/bin
   $(basename $0) bash --ends-with
 
 Send bug reports and feature requests to: https://github.com/wleoncio/syncconfig/issues
