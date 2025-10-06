@@ -34,12 +34,12 @@ eval "$(docopts -A ARGS -h "$(usage)" -V "$version" : "$@")"
 SEARCH_TERM="${ARGS['SEARCH_TERM']}"
 LOCATION="${ARGS['LOCATION']:-$HOME}"
 
-echo -e "Searching for \"$SEARCH_TERM\" in $LOCATION\n"
-
 if [ "${ARGS['--ignore-case']}" = true ]; then
   opts=iname
 else
   opts=name
 fi
+
+echo -e "Searching for \"$SEARCH_TERM\" in $LOCATION\n"
 
 find $LOCATION -$opts *$SEARCH_TERM* -print 2>/dev/null
