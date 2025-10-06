@@ -43,8 +43,8 @@ gul_bg="\033[48;2;255;254;167m"
 hvit="\033[38;2;255;255;255m"
 hvit_bg="\033[48;2;255;255;255m"
 
-# Demo
-if [[ $1 = "demo" ]]; then
+# Demo (works when running the script directly instead of sourcing it)
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
 	colors=("$graa $blaa $lysblaa $blaatone $groenn $lysgroenn $groenntone $roed $lysroed $roedtone $oransje $lysoransje $oransjetone $gul")
 	colors_bg=("$graa_bg $blaa_bg $lysblaa_bg $blaatone_bg $groenn_bg $lysgroenn_bg $groenntone_bg $roed_bg $lysroed_bg $roedtone_bg $oransje_bg $lysoransje_bg $oransjetone_bg $gul_bg")
 	for fg in $colors; do
