@@ -21,6 +21,7 @@
   co = checkout
   cb = checkout
   nb = checkout -b
+  new = checkout -b
   db = branch --delete
   DB = branch --delete --force
   drb = push --delete
