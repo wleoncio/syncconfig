@@ -3,7 +3,7 @@
 # 0 - success
 # 1 - missing required argument (not used, docopts handles it)
 # 2 - missing dependencies
-version="0.1.0 licensed under GPLv3"
+version="0.1.1 licensed under GPLv3"
 
 usage() {
   cat << EOU
