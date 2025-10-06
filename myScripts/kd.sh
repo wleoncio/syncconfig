@@ -1,45 +1,64 @@
 #!/bin/bash
+# Error codes:
+# 0 - success
+# 1 - missing required argument (not used, docopts handles it)
+# 2 - missing dependencies
 version="0.1.0 licensed under GPLv3"
 
 usage() {
   cat << EOU
 Usage:
-  $(basename $0) SEARCH_TERM [LOCATION] [--ignore-case]
+  $(basename $0) SEARCH_TERM [options]
   $(basename $0) -h | --help
   $(basename $0) --version
 
 A find wrapper to conveniently and cleanly search for files and directories.
 
 Arguments:
-  SEARCH_TERM      term to search for (wildcards * are allowed)
-  LOCATION         directory to search in [default: $HOME]
+  SEARCH_TERM                       term to search for (wildcards * are allowed)
 
 Options:
-  --ignore-case  Perform case-insensitive search
-  -h --help      Print this help and exit
-  --version      Print version and exit
+  -l LOCATION, --location LOCATION  Directory to search in [default: $HOME]
+  --ignore-case                     Perform case-insensitive search
+  --middle                          Search for files that contain SEARCH_TERM
+  --starts-with                     Search for files that start with SEARCH_TERM
+  --ends-with                       Search for files that end with SEARCH_TERM
+  -h --help                         Print this help and exit
+  --version                         Print version and exit
 
 Examples:
   $(basename $0) .bashrc
-  $(basename $0) bASh --ignore-case /usr/bin
+  $(basename $0) bASh --ignore-case -l /usr/bin
+  $(basename $0) bash --starts-with -l /usr/bin
+  $(basename $0) bash --ends-with
+  $(basename $0) bash --middle -l /etc
 
 Send bug reports and feature requests to: https://github.com/wleoncio/syncconfig/issues
 EOU
 }
 
+# Check if docopts is installed
+if ! command -v docopts &> /dev/null; then
+  echo "Error: docopts is not installed." >&2
+  exit 2
+fi
+
 # Setting variables
 eval "$(docopts -A ARGS -h "$(usage)" -V "$version" : "$@")"
 
-# Get MONTH and YEAR from ARGS, default to current if not provided
 SEARCH_TERM="${ARGS['SEARCH_TERM']}"
-LOCATION="${ARGS['LOCATION']:-$HOME}"
-
-if [ "${ARGS['--ignore-case']}" = true ]; then
-  opts=iname
+LOCATION="${ARGS['--location']:-${ARGS['-l']:-$HOME}}"
+CASE=$([ "${ARGS['--ignore-case']}" = true ] && echo iname || echo name)
+if [ "${ARGS['--middle']}" = true ]; then
+  PREFIX="*"
+  SUFFIX="*"
 else
-  opts=name
+  PREFIX=$([ "${ARGS['--ends-with']}" = true ] && echo "*" || echo "")
+  SUFFIX=$([ "${ARGS['--starts-with']}" = true ] && echo "*" || echo "")
 fi
 
-echo -e "Searching for \"$SEARCH_TERM\" in $LOCATION\n"
+echo -e "Searching for \"$PREFIX$SEARCH_TERM$SUFFIX\" in $LOCATION\n"
 
-find $LOCATION -$opts *$SEARCH_TERM* -print 2>/dev/null
+find $LOCATION -$CASE $PREFIX$SEARCH_TERM$SUFFIX -print 2> /dev/null
+
+exit 0
