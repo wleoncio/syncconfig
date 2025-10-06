@@ -61,6 +61,12 @@ TERM="${PREFIX}${SEARCH_TERM}${SUFFIX}"
 
 echo -e "Searching for \"$TERM\" in $LOCATION\n"
 
-find $LOCATION -$CASE "$TERM" -print 2> /dev/null
+MATCHES=$(find $LOCATION -$CASE "$TERM" -print 2> /dev/null)
+if [ -z "$MATCHEs" ]; then
+  echo "No results found."
+  echo "Tip: Try rerunning with different options (see --help)."
+else
+  echo "$MATCHES"
+fi
 
 exit 0
