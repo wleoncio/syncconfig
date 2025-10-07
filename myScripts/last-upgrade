@@ -1,0 +1,43 @@
+#!/usr/bin/bash
+# Error codes:
+# 0 - success
+# 1 - missing required argument (not used, docopts handles it)
+# 2 - missing dependencies
+version="0.1.0 licensed under GPLv3"
+
+usage() {
+  cat << EOU
+Usage:
+  $(basename $0)
+
+Prints the list of packages upgraded in the last system upgrades
+
+Arguments:
+  SEARCH_TERM                       term to search for (wildcards * are allowed)
+
+Options:
+  -h --help                         Print this help and exit
+  --version                         Print version and exit
+
+Examples:
+  $(basename $0)
+
+Send bug reports and feature requests to: https://github.com/wleoncio/syncconfig/issues
+EOU
+}
+
+# Check if docopts is installed
+if ! command --search docopts &> /dev/null; then
+  echo "Error: docopts is not installed."
+  exit 2
+fi
+
+# Check if docopts is installed
+if command -v yay &> /dev/null; then
+	cat /var/log/pacman.log | grep upgraded
+else
+	echo "Error: no supported package manager found"
+	exit 2
+fi
+
+exit 0
