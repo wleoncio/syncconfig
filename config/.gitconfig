@@ -37,8 +37,8 @@
   cmfx = commit --fixup
   cmsq = commit --squash
 	cmms = commit --branch --message
-  cmft = !sh -c 'git commit --branch --message \"feat: ${0}\"'
-  cmpt= !sh -c 'git commit --branch --message \"fix: ${0}\"'
+  cmft = !sh -c 'git commit --branch --message \"Feat: ${0}\"'
+  cmpt= !sh -c 'git commit --branch --message \"Fix: ${0}\"'
   cma = commit --amend
   rb = rebase --interactive --autosquash
   mg = !sh -c 'mergeIntoDevelop.sh'
