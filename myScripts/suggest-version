@@ -3,7 +3,7 @@
 # 0 - success
 # 1 - missing required argument (not used, docopts handles it)
 # 2 - missing dependencies
-version="1.0.1 licensed under GPLv3"
+version="1.1.0 licensed under GPLv3"
 source uio-colors.sh
 
 usage() {
@@ -76,9 +76,9 @@ suggest_bump() {
     local first_words=$(echo "$msgs" | sed -n 's/^\([^:]*\):.*/\1/p')
     if echo "$first_words" | grep -q "^BREAKING CHANGE$"; then
         echo "MAJOR"
-    elif echo "$first_words" | grep -q "^feat$"; then
+    elif echo "$first_words" | grep -q "^Feat$"; then
         echo "minor"
-    elif echo "$first_words" | grep -q "^fix$"; then
+    elif echo "$first_words" | grep -q "^Fix$"; then
         echo "patch"
     else
         echo "No version change"
