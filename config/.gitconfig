@@ -34,9 +34,11 @@
   ra = restore .
   rs = !sh -c 'git diff --ignore-all-space --ignore-blank-lines | git apply --cached --allow-empty && git checkout . && git restore --staged .'
   cm = commit --verbose
-  cmf = commit --fixup
-  cms = commit --squash
-  cmm = commit --branch --message
+  cmfx = commit --fixup
+  cmsq = commit --squash
+	cmms = commit --branch --message
+  cmft = !sh -c 'git commit --branch --message \"feat: ${0}\"'
+  cmpt= !sh -c 'git commit --branch --message \"fix: ${0}\"'
   cma = commit --amend
   rb = rebase --interactive --autosquash
   mg = !sh -c 'mergeIntoDevelop.sh'
