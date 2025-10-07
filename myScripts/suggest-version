@@ -175,7 +175,7 @@ if [[ $version_changed -eq 1 ]]; then
             file="${entry%%:*}"
             git add "$file"
         done
-        commit_msg="chore: bump version(s)
+        commit_msg="Bump version(s)
 
 "
         for entry in "${updated_files[@]}"; do
