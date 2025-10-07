@@ -6,7 +6,7 @@
 version="0.1.2 licensed under GPLv3"
 
 usage() {
-  cat << EOU
+  less << EOU
 Usage:
   $(basename $0)
 
@@ -35,9 +35,11 @@ fi
 # Setting variables
 eval "$(docopts -A ARGS -h "$(usage)" -V "$version" : "$@")"
 
-# Check if docopts is installed
+# Print upgrade log
 if command -v yay &> /dev/null; then
-	cat /var/log/pacman.log | grep upgraded
+	less /var/log/pacman.log | grep upgraded
+elif command -v apt &> /dev/null; then
+  less /var/log/apt/history.log
 else
 	echo "Error: no supported package manager found"
 	exit 2
