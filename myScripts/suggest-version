@@ -131,6 +131,9 @@ elif [[ -n "$choice" ]]; then
     done
 fi
 
+version_changed=0
+updated_files=()
+
 for num in "${selected[@]}"; do
     entry="${bump_choices[$num]}"
     file="${entry%%:*}"
@@ -141,5 +144,29 @@ for num in "${selected[@]}"; do
     if [[ "$suggested_ver" != "$current_ver" && "$suggested_ver" != "unknown" ]]; then
         sed -i "0,/$current_ver/{s/$current_ver/$suggested_ver/}" "$file"
         echo "Updated $file: $current_ver -> $suggested_ver"
+        version_changed=1
+        updated_files+=("$file:$suggested_ver")
     fi
 done
+
+if [[ $version_changed -eq 1 ]]; then
+    echo
+    echo "Do you want to commit these version changes? [y/N]"
+    read -r commit_choice
+    if [[ "$commit_choice" =~ ^[Yy]$ ]]; then
+        for entry in "${updated_files[@]}"; do
+            file="${entry%%:*}"
+            git add "$file"
+        done
+        msg="chore: bump version(s):"
+        for entry in "${updated_files[@]}"; do
+            file="${entry%%:*}"
+            ver="${entry##*:}"
+            msg+=" $file to $ver;"
+        done
+        git commit -m "$msg"
+        echo "Committed version changes."
+    else
+        echo "Version changes not committed."
+    fi
+fi
