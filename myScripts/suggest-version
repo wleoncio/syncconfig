@@ -1,0 +1,175 @@
+#!/bin/bash
+# Error codes:
+# 0 - success
+# 1 - missing required argument (not used, docopts handles it)
+# 2 - missing dependencies
+version="0.4.1 licensed under GPLv3"
+
+usage() {
+  less << EOU
+Usage:
+  $(basename $0)
+
+Suggest a version bump (Major, Minor, Patch) based on conventional commit
+messages since the last merge.
+
+Options:
+  -h --help                         Print this help and exit
+  --version                         Print version and exit
+
+Examples:
+  $(basename $0)
+
+Send bug reports and feature requests to: https://github.com/wleoncio/syncconfig/issues
+EOU
+}
+
+# Check if docopts is installed
+if ! command -v docopts &> /dev/null; then
+  echo "Error: docopts is not installed."
+  exit 2
+fi
+
+# Setting variables
+eval "$(docopts -A ARGS -h "$(usage)" -V "$version" : "$@")"
+
+# Find the last merge commit hash
+last_merge=$(git log --merges --pretty=format:"%H" -n 1)
+
+# Get commit hashes since the last merge (excluding the merge itself)
+if [ -n "$last_merge" ]; then
+    commit_hashes=$(git log "$last_merge"..HEAD --pretty=format:"%H")
+else
+    commit_hashes=$(git log --pretty=format:"%H")
+fi
+
+declare -A file_commits
+
+# Map files to their commit messages
+for hash in $commit_hashes; do
+    # Get commit message
+    msg=$(git log -1 --pretty=format:"%s" "$hash")
+    # Get files changed in this commit
+    files=$(git diff-tree --no-commit-id --name-only -r "$hash")
+    for file in $files; do
+        file_commits["$file"]+="$msg"$'\n'
+    done
+done
+
+# Function to determine bump for a set of commit messages
+suggest_bump() {
+    local msgs="$1"
+    local first_words=$(echo "$msgs" | sed -n 's/^\([^:]*\):.*/\1/p')
+    if echo "$first_words" | grep -q "^BREAKING CHANGE$"; then
+        echo "Major"
+    elif echo "$first_words" | grep -q "^feat$"; then
+        echo "Minor"
+    elif echo "$first_words" | grep -q "^fix$"; then
+        echo "Patch"
+    else
+        echo "No version change"
+    fi
+}
+
+extract_version() {
+    # Try to find x.y.z version in the file
+    grep -Eo '[0-9]+\.[0-9]+\.[0-9]+' "$1" | head -n1
+}
+
+bump_version() {
+    local current="$1"
+    local bump="$2"
+    if [[ ! "$current" =~ ^([0-9]+)\.([0-9]+)\.([0-9]+)$ ]]; then
+        echo "unknown"
+        return
+    fi
+    local major=${BASH_REMATCH[1]}
+    local minor=${BASH_REMATCH[2]}
+    local patch=${BASH_REMATCH[3]}
+    case "$bump" in
+        Major)
+            echo "$((major+1)).0.0"
+            ;;
+        Minor)
+            echo "$major.$((minor+1)).0"
+            ;;
+        Patch)
+            echo "$major.$minor.$((patch+1))"
+            ;;
+        *)
+            echo "$current"
+            ;;
+    esac
+}
+
+declare -A bump_choices
+declare -a file_list
+i=1
+
+# Collect suggestions and display them with numbers
+for file in "${!file_commits[@]}"; do
+    bump=$(suggest_bump "${file_commits[$file]}")
+    current_ver=$(extract_version "$file")
+    suggested_ver=$(bump_version "$current_ver" "$bump")
+    echo "$i) $file: $current_ver -> $suggested_ver ($bump)"
+    bump_choices[$i]="$file:$current_ver:$suggested_ver"
+    file_list+=("$file")
+    ((i++))
+done
+
+echo
+echo "Which files do you want to update with the suggested version bump?"
+echo "Enter space-separated numbers, 'a' for all, or leave empty for none:"
+read -r choice
+
+selected=()
+if [[ "$choice" == "a" ]]; then
+    selected=("${!bump_choices[@]}")
+elif [[ -n "$choice" ]]; then
+    for num in $choice; do
+        selected+=("$num")
+    done
+fi
+
+version_changed=0
+updated_files=()
+
+for num in "${selected[@]}"; do
+    entry="${bump_choices[$num]}"
+    file="${entry%%:*}"
+    current_ver="${entry#*:}"
+    current_ver="${current_ver%%:*}"
+    suggested_ver="${entry##*:}"
+    # Replace first occurrence of current version with suggested version in file
+    if [[ "$suggested_ver" != "$current_ver" && "$suggested_ver" != "unknown" ]]; then
+        sed -i "0,/$current_ver/{s/$current_ver/$suggested_ver/}" "$file"
+        echo "Updated $file: $current_ver -> $suggested_ver"
+        version_changed=1
+        updated_files+=("$file:$suggested_ver")
+    fi
+done
+
+if [[ $version_changed -eq 1 ]]; then
+    echo
+    echo "Do you want to commit these version changes? [y/N]"
+    read -r commit_choice
+    if [[ "$commit_choice" =~ ^[Yy]$ ]]; then
+        for entry in "${updated_files[@]}"; do
+            file="${entry%%:*}"
+            git add "$file"
+        done
+        commit_msg="chore: bump version(s)
+
+"
+        for entry in "${updated_files[@]}"; do
+            file="${entry%%:*}"
+            ver="${entry##*:}"
+            commit_msg+=" $file to $ver
+"
+        done
+        git commit -F <(echo "$commit_msg")
+        echo "Committed version changes."
+    else
+        echo "Version changes not committed."
+    fi
+fi
