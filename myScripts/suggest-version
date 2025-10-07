@@ -3,15 +3,18 @@
 # 0 - success
 # 1 - missing required argument (not used, docopts handles it)
 # 2 - missing dependencies
-version="0.4.2 licensed under GPLv3"
+version="0.5.0 licensed under GPLv3"
 
 usage() {
   less << EOU
 Usage:
-  $(basename $0)
+  $(basename $0) [options] [COMMIT-HASH]
 
 Suggest a version bump (Major, Minor, Patch) based on conventional commit
 messages since the last merge.
+
+Arguments:
+  COMMIT-HASH                       Optional commit hash to start from [default: last merge]
 
 Options:
   -h --help                         Print this help and exit
@@ -33,12 +36,16 @@ fi
 # Setting variables
 eval "$(docopts -A ARGS -h "$(usage)" -V "$version" : "$@")"
 
-# Find the last merge commit hash
-last_merge=$(git log --merges --pretty=format:"%H" -n 1)
+# Extract COMMIT_HASH argument or use last merge as default
+if [[ -n "${ARGS['COMMIT_HASH']}" ]]; then
+    ref_merge="${ARGS['COMMIT_HASH']}"
+else
+    ref_merge=$(git log --merges --pretty=format:"%H" -n 1)
+fi
 
-# Get commit hashes since the last merge (excluding the merge itself)
-if [ -n "$last_merge" ]; then
-    commit_hashes=$(git log "$last_merge"..HEAD --pretty=format:"%H")
+# Get commit hashes since the reference commit (excluding the commit itself)
+if [ -n "$ref_merge" ]; then
+    commit_hashes=$(git log "$ref_merge"..HEAD --pretty=format:"%H")
 else
     commit_hashes=$(git log --pretty=format:"%H")
 fi
@@ -168,7 +175,7 @@ if [[ $version_changed -eq 1 ]]; then
             file="${entry%%:*}"
             git add "$file"
         done
-        commit_msg="chore: bump version(s)
+        commit_msg="Bump version(s)
 
 "
         for entry in "${updated_files[@]}"; do
