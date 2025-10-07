@@ -208,7 +208,7 @@ if [[ $version_changed -eq 1 ]]; then
         for entry in "${updated_files[@]}"; do
             file="${entry%%:*}"
             ver="${entry##*:}"
-            commit_msg+=" $file to $ver
+            commit_msg+="$file to $ver
 "
         done
         git commit -F <(echo "$commit_msg")
