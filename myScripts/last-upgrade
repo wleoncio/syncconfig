@@ -37,7 +37,9 @@ eval "$(docopts -A ARGS -h "$(usage)" -V "$version" : "$@")"
 
 # Print upgrade log
 if command -v yay &> /dev/null; then
-	cat /var/log/pacman.log | grep upgraded
+	less /var/log/pacman.log | grep upgraded
+elif command -v apt &> /dev/null; then
+  less /var/log/apt/history.log
 else
 	echo "Error: no supported package manager found"
 	exit 2
