@@ -183,4 +183,3 @@ if [[ $version_changed -eq 1 ]]; then
         echo "Version changes not committed."
     fi
 fi
-fi
