@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Find the last merge commit hash
+last_merge=$(git log --merges --pretty=format:"%H" -n 1)
+
+# Get commit titles since the last merge (excluding the merge itself)
+if [ -n "$last_merge" ]; then
+    commits=$(git log "$last_merge"..HEAD --pretty=format:"%s")
+else
+    commits=$(git log --pretty=format:"%s")
+fi
+
+# Extract first word before colon from each commit title
+first_words=$(echo "$commits" | sed -n 's/^\([^:]*\):.*/\1/p')
+
+if echo "$first_words" | grep -q "^BREAKING CHANGE$"; then
+    echo "Major"
+elif echo "$first_words" | grep -q "^feat$"; then
+    echo "Minor"
+elif echo "$first_words" | grep -q "^fix$"; then
+    echo "Patch"
+else
+    echo "No version change"
+fi
