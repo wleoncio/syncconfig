@@ -3,7 +3,7 @@
 # 0 - success
 # 1 - missing required argument (not used, docopts handles it)
 # 2 - missing dependencies
-version="0.4.2 licensed under GPLv3"
+version="0.5.0 licensed under GPLv3"
 
 usage() {
   less << EOU
