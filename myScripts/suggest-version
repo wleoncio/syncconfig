@@ -36,23 +36,43 @@ eval "$(docopts -A ARGS -h "$(usage)" -V "$version" : "$@")"
 # Find the last merge commit hash
 last_merge=$(git log --merges --pretty=format:"%H" -n 1)
 
-# Get commit titles since the last merge (excluding the merge itself)
+# Get commit hashes since the last merge (excluding the merge itself)
 if [ -n "$last_merge" ]; then
-    commits=$(git log "$last_merge"..HEAD --pretty=format:"%s")
+    commit_hashes=$(git log "$last_merge"..HEAD --pretty=format:"%H")
 else
-    commits=$(git log --pretty=format:"%s")
+    commit_hashes=$(git log --pretty=format:"%H")
 fi
 
-# Extract first word before colon from each commit title
-first_words=$(echo "$commits" | sed -n 's/^\([^:]*\):.*/\1/p')
+declare -A file_commits
 
-# Determine version bump
-if echo "$first_words" | grep -q "^BREAKING CHANGE$"; then
-    echo "Major"
-elif echo "$first_words" | grep -q "^feat$"; then
-    echo "Minor"
-elif echo "$first_words" | grep -q "^fix$"; then
-    echo "Patch"
-else
-    echo "No version change"
-fi
+# Map files to their commit messages
+for hash in $commit_hashes; do
+    # Get commit message
+    msg=$(git log -1 --pretty=format:"%s" "$hash")
+    # Get files changed in this commit
+    files=$(git diff-tree --no-commit-id --name-only -r "$hash")
+    for file in $files; do
+        file_commits["$file"]+="$msg"$'\n'
+    done
+done
+
+# Function to determine bump for a set of commit messages
+suggest_bump() {
+    local msgs="$1"
+    local first_words=$(echo "$msgs" | sed -n 's/^\([^:]*\):.*/\1/p')
+    if echo "$first_words" | grep -q "^BREAKING CHANGE$"; then
+        echo "Major"
+    elif echo "$first_words" | grep -q "^feat$"; then
+        echo "Minor"
+    elif echo "$first_words" | grep -q "^fix$"; then
+        echo "Patch"
+    else
+        echo "No version change"
+    fi
+}
+
+# Print version bump suggestion for each file
+for file in "${!file_commits[@]}"; do
+    bump=$(suggest_bump "${file_commits[$file]}")
+    echo "$file: $bump"
+done
