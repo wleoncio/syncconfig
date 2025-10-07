@@ -3,22 +3,21 @@
 # 0 - success
 # 1 - missing required argument (not used, docopts handles it)
 # 2 - missing dependencies
-version="0.5.0 licensed under GPLv3"
+version="1.0.0 licensed under GPLv3"
+source uio-colors.sh
 
 usage() {
   less << EOU
 Usage:
-  $(basename $0) [options] [COMMIT-HASH]
+  $(basename $0) [options] [--since COMMIT]
 
-Suggest a version bump (Major, Minor, Patch) based on conventional commit
+Suggest a version bump (MAJOR, minor, patch) based on conventional commit
 messages since the last merge.
 
-Arguments:
-  COMMIT-HASH                       Optional commit hash to start from [default: last merge]
-
 Options:
-  -h --help                         Print this help and exit
-  --version                         Print version and exit
+  --since    Optional commit hash to start from [default: last merge]
+  -h --help  Print this help and exit
+  --version  Print version and exit
 
 Examples:
   $(basename $0)
@@ -29,7 +28,7 @@ EOU
 
 # Check if docopts is installed
 if ! command -v docopts &> /dev/null; then
-  echo "Error: docopts is not installed."
+  echo "${roed}Error: docopts is not installed.${reset}"
   exit 2
 fi
 
@@ -37,11 +36,19 @@ fi
 eval "$(docopts -A ARGS -h "$(usage)" -V "$version" : "$@")"
 
 # Extract COMMIT_HASH argument or use last merge as default
-if [[ -n "${ARGS['COMMIT_HASH']}" ]]; then
-    ref_merge="${ARGS['COMMIT_HASH']}"
+if [[ -n "${ARGS['COMMIT']}" ]]; then
+    ref_merge="${ARGS['COMMIT']}"
 else
     ref_merge=$(git log --merges --pretty=format:"%H" -n 1)
 fi
+
+# Print short hash and commit title
+if [ -n "$ref_merge" ]; then
+    short_hash=$(git rev-parse --short=7 "$ref_merge")
+    ref_title=$(git log -1 --pretty=format:"%s" "$ref_merge")
+    echo -e "${lysblaa}Observing changes since\n$short_hash - $ref_title${reset}"
+fi
+echo
 
 # Get commit hashes since the reference commit (excluding the commit itself)
 if [ -n "$ref_merge" ]; then
@@ -68,11 +75,11 @@ suggest_bump() {
     local msgs="$1"
     local first_words=$(echo "$msgs" | sed -n 's/^\([^:]*\):.*/\1/p')
     if echo "$first_words" | grep -q "^BREAKING CHANGE$"; then
-        echo "Major"
+        echo "MAJOR"
     elif echo "$first_words" | grep -q "^feat$"; then
-        echo "Minor"
+        echo "minor"
     elif echo "$first_words" | grep -q "^fix$"; then
-        echo "Patch"
+        echo "patch"
     else
         echo "No version change"
     fi
@@ -90,18 +97,18 @@ bump_version() {
         echo "unknown"
         return
     fi
-    local major=${BASH_REMATCH[1]}
+    local MAJOR=${BASH_REMATCH[1]}
     local minor=${BASH_REMATCH[2]}
     local patch=${BASH_REMATCH[3]}
     case "$bump" in
-        Major)
-            echo "$((major+1)).0.0"
+        MAJOR)
+            echo "$((MAJOR+1)).0.0"
             ;;
-        Minor)
-            echo "$major.$((minor+1)).0"
+        minor)
+            echo "$MAJOR.$((minor+1)).0"
             ;;
-        Patch)
-            echo "$major.$minor.$((patch+1))"
+        patch)
+            echo "$MAJOR.$minor.$((patch+1))"
             ;;
         *)
             echo "$current"
@@ -119,7 +126,26 @@ for file in "${!file_commits[@]}"; do
     bump=$(suggest_bump "${file_commits[$file]}")
     current_ver=$(extract_version "$file")
     suggested_ver=$(bump_version "$current_ver" "$bump")
-    echo "$i) $file: $current_ver -> $suggested_ver ($bump)"
+    # Extract just the filename after the last slash
+    filename="${file##*/}"
+
+    # Color bump type
+    case "$bump" in
+        MAJOR)
+            bump_colored="${bold}${roed}${bump}${reset}"
+            ;;
+        minor)
+            bump_colored="${groenn}${bump}${reset}"
+            ;;
+        patch)
+            bump_colored="${bold}${groenn}${bump}${reset}"
+            ;;
+        *)
+            bump_colored="$bump"
+            ;;
+    esac
+
+    echo -e "$i) ${lysblaa}${filename}${reset} ($file): $current_ver -> $suggested_ver ($bump_colored)"
     bump_choices[$i]="$file:$current_ver:$suggested_ver"
     file_list+=("$file")
     ((i++))
@@ -160,7 +186,8 @@ for num in "${selected[@]}"; do
     # Replace first occurrence of current version with suggested version in file
     if [[ "$suggested_ver" != "$current_ver" && "$suggested_ver" != "unknown" ]]; then
         sed -i "0,/$current_ver/{s/$current_ver/$suggested_ver/}" "$file"
-        echo "Updated $file: $current_ver -> $suggested_ver"
+        echo
+        echo -e "${roed}Updated $file: $current_ver -> $suggested_ver${reset}"
         version_changed=1
         updated_files+=("$file:$suggested_ver")
     fi
@@ -190,3 +217,5 @@ if [[ $version_changed -eq 1 ]]; then
         echo "Version changes not committed."
     fi
 fi
+
+exit 0
