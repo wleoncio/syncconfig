@@ -11,7 +11,7 @@ usage() {
 Usage:
   $(basename $0) [options] [--since COMMIT]
 
-Suggest a version bump (Major, Minor, Patch) based on conventional commit
+Suggest a version bump (MAJOR, minor, patch) based on conventional commit
 messages since the last merge.
 
 Options:
@@ -75,11 +75,11 @@ suggest_bump() {
     local msgs="$1"
     local first_words=$(echo "$msgs" | sed -n 's/^\([^:]*\):.*/\1/p')
     if echo "$first_words" | grep -q "^BREAKING CHANGE$"; then
-        echo "Major"
+        echo "MAJOR"
     elif echo "$first_words" | grep -q "^feat$"; then
-        echo "Minor"
+        echo "minor"
     elif echo "$first_words" | grep -q "^fix$"; then
-        echo "Patch"
+        echo "patch"
     else
         echo "No version change"
     fi
@@ -97,18 +97,18 @@ bump_version() {
         echo "unknown"
         return
     fi
-    local major=${BASH_REMATCH[1]}
+    local MAJOR=${BASH_REMATCH[1]}
     local minor=${BASH_REMATCH[2]}
     local patch=${BASH_REMATCH[3]}
     case "$bump" in
-        Major)
-            echo "$((major+1)).0.0"
+        MAJOR)
+            echo "$((MAJOR+1)).0.0"
             ;;
-        Minor)
-            echo "$major.$((minor+1)).0"
+        minor)
+            echo "$MAJOR.$((minor+1)).0"
             ;;
-        Patch)
-            echo "$major.$minor.$((patch+1))"
+        patch)
+            echo "$MAJOR.$minor.$((patch+1))"
             ;;
         *)
             echo "$current"
@@ -131,7 +131,7 @@ for file in "${!file_commits[@]}"; do
 
     # Color bump type
     case "$bump" in
-        Major)
+        MAJOR)
             bump_colored="${roed}${bump}${reset}"
             ;;
         minor)
