@@ -132,13 +132,13 @@ for file in "${!file_commits[@]}"; do
     # Color bump type
     case "$bump" in
         MAJOR)
-            bump_colored="${roed}${bump}${reset}"
+            bump_colored="${bold}${roed}${bump}${reset}"
             ;;
         minor)
             bump_colored="${groenn}${bump}${reset}"
             ;;
         patch)
-            bump_colored="${lysgroenn}${bump}${reset}"
+            bump_colored="${bold}${groenn}${bump}${reset}"
             ;;
         *)
             bump_colored="$bump"
