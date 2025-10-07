@@ -49,6 +49,7 @@ if [ -n "$ref_merge" ]; then
 else
     echo "Reference commit: (none)"
 fi
+echo
 
 # Get commit hashes since the reference commit (excluding the commit itself)
 if [ -n "$ref_merge" ]; then
@@ -167,6 +168,7 @@ for num in "${selected[@]}"; do
     # Replace first occurrence of current version with suggested version in file
     if [[ "$suggested_ver" != "$current_ver" && "$suggested_ver" != "unknown" ]]; then
         sed -i "0,/$current_ver/{s/$current_ver/$suggested_ver/}" "$file"
+        echo
         echo "Updated $file: $current_ver -> $suggested_ver"
         version_changed=1
         updated_files+=("$file:$suggested_ver")
