@@ -8,17 +8,15 @@ version="0.5.0 licensed under GPLv3"
 usage() {
   less << EOU
 Usage:
-  $(basename $0) [options] [COMMIT-HASH]
+  $(basename $0) [options] [--since COMMIT]
 
 Suggest a version bump (Major, Minor, Patch) based on conventional commit
 messages since the last merge.
 
-Arguments:
-  COMMIT-HASH                       Optional commit hash to start from [default: last merge]
-
 Options:
-  -h --help                         Print this help and exit
-  --version                         Print version and exit
+  --since    Optional commit hash to start from [default: last merge]
+  -h --help  Print this help and exit
+  --version  Print version and exit
 
 Examples:
   $(basename $0)
@@ -37,8 +35,8 @@ fi
 eval "$(docopts -A ARGS -h "$(usage)" -V "$version" : "$@")"
 
 # Extract COMMIT_HASH argument or use last merge as default
-if [[ -n "${ARGS['COMMIT_HASH']}" ]]; then
-    ref_merge="${ARGS['COMMIT_HASH']}"
+if [[ -n "${ARGS['COMMIT']}" ]]; then
+    ref_merge="${ARGS['COMMIT']}"
 else
     ref_merge=$(git log --merges --pretty=format:"%H" -n 1)
 fi
