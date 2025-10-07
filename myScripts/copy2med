@@ -32,7 +32,9 @@ eval "$(docopts -A ARGS -h "$help" -V "$version" : "$@")"
 file="${ARGS['FILE']}"
 
 # Retrieving username on remote
-if [ -z "${ARGS['USERNAME']}" ]; then
+if [ -n "$UIO_USERNAME" ]; then
+    username="$UIO_USERNAME"
+elif [ -z "${ARGS['USERNAME']}" ]; then
 	echo -n "Username on remote: "
 	read username
 else
