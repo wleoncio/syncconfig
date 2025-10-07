@@ -102,10 +102,44 @@ bump_version() {
     esac
 }
 
-# Print version bump suggestion for each file
+declare -A bump_choices
+declare -a file_list
+i=1
+
+# Collect suggestions and display them with numbers
 for file in "${!file_commits[@]}"; do
     bump=$(suggest_bump "${file_commits[$file]}")
     current_ver=$(extract_version "$file")
     suggested_ver=$(bump_version "$current_ver" "$bump")
-    echo "$file: $current_ver -> $suggested_ver ($bump)"
+    echo "$i) $file: $current_ver -> $suggested_ver ($bump)"
+    bump_choices[$i]="$file:$current_ver:$suggested_ver"
+    file_list+=("$file")
+    ((i++))
+done
+
+echo
+echo "Which files do you want to update with the suggested version bump?"
+echo "Enter space-separated numbers, 'a' for all, or leave empty for none:"
+read -r choice
+
+selected=()
+if [[ "$choice" == "a" ]]; then
+    selected=("${!bump_choices[@]}")
+elif [[ -n "$choice" ]]; then
+    for num in $choice; do
+        selected+=("$num")
+    done
+fi
+
+for num in "${selected[@]}"; do
+    entry="${bump_choices[$num]}"
+    file="${entry%%:*}"
+    current_ver="${entry#*:}"
+    current_ver="${current_ver%%:*}"
+    suggested_ver="${entry##*:}"
+    # Replace first occurrence of current version with suggested version in file
+    if [[ "$suggested_ver" != "$current_ver" && "$suggested_ver" != "unknown" ]]; then
+        sed -i "0,/$current_ver/{s/$current_ver/$suggested_ver/}" "$file"
+        echo "Updated $file: $current_ver -> $suggested_ver"
+    fi
 done
