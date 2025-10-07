@@ -158,13 +158,16 @@ if [[ $version_changed -eq 1 ]]; then
             file="${entry%%:*}"
             git add "$file"
         done
-        msg="chore: bump version(s)\n\n"
+        commit_msg="chore: bump version(s)
+
+"
         for entry in "${updated_files[@]}"; do
             file="${entry%%:*}"
             ver="${entry##*:}"
-            msg+=" $file to $ver;\n"
+            commit_msg+=" $file to $ver
+"
         done
-        git commit -m "$msg"
+        git commit -F <(echo "$commit_msg")
         echo "Committed version changes."
     else
         echo "Version changes not committed."
