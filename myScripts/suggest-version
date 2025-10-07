@@ -71,8 +71,41 @@ suggest_bump() {
     fi
 }
 
+extract_version() {
+    # Try to find x.y.z version in the file
+    grep -Eo '[0-9]+\.[0-9]+\.[0-9]+' "$1" | head -n1
+}
+
+bump_version() {
+    local current="$1"
+    local bump="$2"
+    if [[ ! "$current" =~ ^([0-9]+)\.([0-9]+)\.([0-9]+)$ ]]; then
+        echo "unknown"
+        return
+    fi
+    local major=${BASH_REMATCH[1]}
+    local minor=${BASH_REMATCH[2]}
+    local patch=${BASH_REMATCH[3]}
+    case "$bump" in
+        Major)
+            echo "$((major+1)).0.0"
+            ;;
+        Minor)
+            echo "$major.$((minor+1)).0"
+            ;;
+        Patch)
+            echo "$major.$minor.$((patch+1))"
+            ;;
+        *)
+            echo "$current"
+            ;;
+    esac
+}
+
 # Print version bump suggestion for each file
 for file in "${!file_commits[@]}"; do
     bump=$(suggest_bump "${file_commits[$file]}")
-    echo "$file: $bump"
+    current_ver=$(extract_version "$file")
+    suggested_ver=$(bump_version "$current_ver" "$bump")
+    echo "$file: $current_ver -> $suggested_ver ($bump)"
 done
