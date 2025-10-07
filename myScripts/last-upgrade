@@ -35,7 +35,7 @@ fi
 # Setting variables
 eval "$(docopts -A ARGS -h "$(usage)" -V "$version" : "$@")"
 
-# Check if docopts is installed
+# Print upgrade log
 if command -v yay &> /dev/null; then
 	cat /var/log/pacman.log | grep upgraded
 else
