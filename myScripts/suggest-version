@@ -43,6 +43,15 @@ else
     ref_merge=$(git log --merges --pretty=format:"%H" -n 1)
 fi
 
+# Print short hash and commit title
+if [ -n "$ref_merge" ]; then
+    short_hash=$(git rev-parse --short=7 "$ref_merge")
+    ref_title=$(git log -1 --pretty=format:"%s" "$ref_merge")
+    echo "Reference commit: $short_hash - $ref_title"
+else
+    echo "Reference commit: (none)"
+fi
+
 # Get commit hashes since the reference commit (excluding the commit itself)
 if [ -n "$ref_merge" ]; then
     commit_hashes=$(git log "$ref_merge"..HEAD --pretty=format:"%H")
