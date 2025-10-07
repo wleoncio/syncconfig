@@ -6,7 +6,7 @@
 version="0.1.2 licensed under GPLv3"
 
 usage() {
-  cat << EOU
+  less << EOU
 Usage:
   $(basename $0)
 
