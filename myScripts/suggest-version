@@ -105,6 +105,7 @@ bump_version() {
 declare -A bump_choices
 declare -a file_list
 i=1
+suggested_count=0
 
 # Collect suggestions and display them with numbers
 for file in "${!file_commits[@]}"; do
@@ -115,12 +116,21 @@ for file in "${!file_commits[@]}"; do
     bump_choices[$i]="$file:$current_ver:$suggested_ver"
     file_list+=("$file")
     ((i++))
+    # Count only files with a real bump (not "No version change")
+    if [[ "$bump" != "No version change" ]]; then
+        suggested_count=$((suggested_count + 1))
+    fi
 done
 
-echo
-echo "Which files do you want to update with the suggested version bump?"
-echo "Enter space-separated numbers, 'a' for all, or leave empty for none:"
-read -r choice
+if [ $suggested_count -gt 0 ]; then
+    echo
+    echo "Which files do you want to update with the suggested version bump?"
+    echo "Enter space-separated numbers, 'a' for all, or leave empty for none:"
+    read -r choice
+else
+    echo "No version changes suggested based on commit messages."
+    exit 0
+fi
 
 selected=()
 if [[ "$choice" == "a" ]]; then
@@ -172,4 +182,5 @@ if [[ $version_changed -eq 1 ]]; then
     else
         echo "Version changes not committed."
     fi
+fi
 fi
