@@ -195,7 +195,7 @@ done
 
 if [[ $version_changed -eq 1 ]]; then
     echo
-    echo "Do you want to commit these version changes? [y/N]"
+    echo -n "Do you want to commit these version changes? [y/N] "
     read -r commit_choice
     if [[ "$commit_choice" =~ ^[Yy]$ ]]; then
         for entry in "${updated_files[@]}"; do
