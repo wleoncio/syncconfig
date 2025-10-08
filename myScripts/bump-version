@@ -212,9 +212,10 @@ if [[ $version_changed -eq 1 ]]; then
 "
         done
         git commit -F <(echo "$commit_msg")
-        echo "Committed version changes."
+        echo -e "${groenn}Committed version changes.${reset}"
+        echo "Consider executing ${graa}mergeIntoDevelop${reset} now"
     else
-        echo "Version changes not committed."
+        echo "${roed}Version changes not committed.${reset}"
     fi
 fi
 
