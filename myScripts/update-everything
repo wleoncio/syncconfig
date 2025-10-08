@@ -1,5 +1,5 @@
 # /bin/bash
-# Checks everythin in the system for upgrades
+# Checks several package managers for upgrades
 
 # Picking up OS package manager
 package_manager_name=""
@@ -17,7 +17,7 @@ normal=$(tput sgr0)
 
 # Checking for upgrades
 sudo --validate
-if [ -n "$package_manager_name" ]; then 
+if [ -n "$package_manager_name" ]; then
 	printf "${bold_orange}# %s ###########################################${normal}\n" "$package_manager_name"
 	$package_manager_command
 fi
@@ -34,7 +34,7 @@ fi
 
 if [ -e /bin/gh ]; then
 	printf "\n${bold_orange}# GitHub CLI #####################################${normal}\n"
-	gh extension upgrade --all 
+	gh extension upgrade --all
 fi
 
 if [ -e /usr/bin/R ]; then
