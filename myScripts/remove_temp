@@ -49,3 +49,5 @@ grep -E '\s*# TEMP$' "$file"
 sed -i"$bak_file" '/\s*# TEMP$/d' "$file"
 
 echo "Backup of original file saved to: $bak_file"
+echo "Run the following to check the differences:"
+echo "  diff $bak_file $file"
