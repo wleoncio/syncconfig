@@ -22,8 +22,8 @@ alias fd="fdfind"
 alias mistral="ollama run mistral"
 
 # UiO servers
-alias pushuio="uiosync.sh push"
-alias pulluio="uiosync.sh pull"
+alias pushuio="uiosync push"
+alias pulluio="uiosync pull"
 alias smaug="ssh waldirln@login.uio.no"
 alias mb="ssh waldirln@login.uio.no -t ssh med-biostat"
 alias mb2="ssh waldirln@login.uio.no -t ssh med-biostat2"
