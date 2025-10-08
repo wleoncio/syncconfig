@@ -18,7 +18,7 @@ Options:
   --version     Show version and exit
 
 Examples:
-  $(basename $0) firefox
+  $(basename $0) todoist
 
 EOU
 }
