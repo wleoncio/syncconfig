@@ -7,7 +7,7 @@ version="0.0.0 licensed under GPLv3"
 usage() {
   less << EOU
 Usage:
-  $(basename $0) <pkg>
+  $(basename $0) PKG
   $(basename $0) -h | --help
   $(basename $0) --version
 
@@ -31,7 +31,7 @@ fi
 
 eval "$(docopts -A ARGS -h "$(usage)" -V "$version" : "$@")"
 
-pkg="${ARGS['<pkg>']}"
+pkg="${ARGS['PKG']}"
 
 echo "Searching apt"
 echo
