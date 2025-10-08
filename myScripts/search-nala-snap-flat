@@ -2,7 +2,7 @@
 #
 # Searches for a package on APT, Snap and Flatpak repositories
 
-version="0.0.0 licensed under GPLv3"
+version="0.1.0 licensed under GPLv3"
 
 usage() {
   less << EOU
