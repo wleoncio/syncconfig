@@ -39,6 +39,7 @@
 	cmms = commit --branch --message
   cmft = !sh -c 'git commit --branch --message \"✨ Feat: ${0}\"'
   cmfx = !sh -c 'git commit --branch --message \"🐞 Fix: ${0}\"'
+  cmbr = !sh -c 'git commit --branch --message \"💥 BREAKING CHANGE: ${0}\"'
   cma = commit --amend
   rb = rebase --interactive --autosquash
   mg = !sh -c 'mergeIntoDevelop.sh'
