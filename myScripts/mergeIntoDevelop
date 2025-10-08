@@ -8,23 +8,20 @@ version="0.0.0 licensed under GPLv3"
 usage() {
   less << EOU
 Usage:
-  $(basename $0) [OPTIONS] [TARGET_BRANCH]
+  $(basename $0) --target BRANCH
   $(basename $0) -h | --help
   $(basename $0) --version
 
 Options:
-  --skip-cov      Skip unit test coverage check
-  --bump-version  Bump build version after merge
-  -h --help       Show this help message and exit
-  --version       Show version and exit
-
-Arguments:
-  TARGET_BRANCH   Branch to merge into (default: develop/main/master)
+  --target BRANCH  Branch to merge into [default, in order: develop, main, master]
+  --skip-cov       Skip unit test coverage check
+  --bump-version   Bump build version after merge
+  -h --help        Show this help message and exit
+  --version        Show version and exit
 
 Examples:
   $(basename $0) --skip-cov
-  $(basename $0) feature-branch
-
+  $(basename $0) --target the-main-branch
 EOU
 }
 
@@ -55,9 +52,9 @@ if [[ "${ARGS['--bump-version']}" == "true" ]]; then
     version=true
 fi
 
-# Determine target branch: use argument, or search for develop/main/master (local only)
-if [[ -n "${ARGS['TARGET_BRANCH']}" ]]; then
-    target_branch="${ARGS['TARGET_BRANCH']}"
+# Determine target branch: use --target, or search for local develop/main/master
+if [[ -n "${ARGS['--target']}" ]]; then
+    target_branch="${ARGS['--target']}"
 else
 	branches=$(git branch --list)
 	if echo "$branches" | grep -q develop; then
