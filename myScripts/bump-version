@@ -1,5 +1,5 @@
 #!/bin/bash
-version="1.3.0 licensed under GPLv3"
+version="1.3.1 licensed under GPLv3"
 source uio-colors.sh
 
 usage() {
@@ -217,7 +217,7 @@ if [[ $version_changed -eq 1 ]]; then
         done
         git commit -F <(echo "$commit_msg")
         echo -e "${groenn}Committed version changes.${reset}"
-        echo -e "Consider executing ${graa}mergeIntoDevelop${reset} now"
+        echo -e "Consider executing ${underlined}mergeIntoDevelop${reset} now"
     else
         echo "${roed}Version changes not committed.${reset}"
     fi

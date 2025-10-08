@@ -1,13 +1,13 @@
 #!/usr/bin/bash
-version="0.4.0 under GPLv3 (https://choosealicense.com/licenses/gpl-3.0/)"
+version="0.4.1 under GPLv3 (https://choosealicense.com/licenses/gpl-3.0/)"
 
 usage() {
     cat << EOU
 Usage:
-    copy2med.sh [--from] FILE
-    copy2med.sh [--from] FILE -u USERNAME
-    copy2med.sh -h | --help
-    copy2med.sh --version
+    copy2med [--from] FILE
+    copy2med [--from] FILE -u USERNAME
+    copy2med -h | --help
+    copy2med --version
 
 Simplifies file transfer between a local machine and the med-biostat servers
 
