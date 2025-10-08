@@ -1,10 +1,43 @@
 #!/bin/bash
-# Calculates dates
+# Error codes:
+# 0 - success
+# 1 - missing required argument (not used, docopts handles it)
+# 2 - missing dependencies
+version="0.0.0 licensed under GPLv3"
 
-increment="$1 $2"
+usage() {
+  cat << EOU
+Usage:
+  $(basename $0) INCREMENT [--from DATE]
+  $(basename $0) -h | --help
+  $(basename $0) --version
 
-# Calculate date
-date=$4
+Calculates and displays a date incremented by a given amount of time.
+
+Arguments:
+  INCREMENT    Time increment (+1d, -2w, +3m, -1y; use quotes as needed)
+
+Options:
+  --from DATE  Starting date in YYYY-MM-DD format (default: today)
+  -h --help    Print this help and exit
+  --version    Print version and exit
+
+Send bug reports and feature requests to: https://github.com/wleoncio/syncconfig/issues
+EOU
+}
+
+# Check if docopts is installed
+if ! command -v docopts &> /dev/null; then
+  echo "Error: docopts is not installed." >&2
+  exit 2
+fi
+
+# Setting variables
+eval "$(docopts -A ARGS -h "$(usage)" -V "$version" : "$@")"
+date=${ARGS['DATE']}
+increment=${ARGS['INCREMENT']}
+
+# Calculate date, if necessary
 if [ -z $date ]; then
   dateymd=\"$(date "+%Y-%m-%d")\"
 else
@@ -12,7 +45,6 @@ else
 fi
 
 # format $date as yyyy-mm-dd, if necessary
-
 operation=$(qalc $dateymd + $increment)
 echo "Operation: $operation"
 echo ""
