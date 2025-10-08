@@ -41,7 +41,7 @@ fi
 
 # Determine target branch: use --target, or search for local develop/main/master
 if [[ -n "${ARGS['--target']}" ]]; then
-    target_branch="${ARGS['--target']}"
+	target_branch="${ARGS['--target']}"
 else
 	branches=$(git branch --list)
 	if echo "$branches" | grep -q develop; then
