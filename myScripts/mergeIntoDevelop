@@ -1,31 +1,44 @@
 #!/usr/bin/bash
-# Script to merge feature branches into develop
-
 source uio-colors.sh
 
-# Usage
-echo -e "Usage: $(basename $0) [options] [target_branch]" 2>&1
-echo -e "\t-t\t\tSkips unit test coverage check"
-echo -e "\t-v\t\tBumps build version after merge"
-echo -e "\ttarget_branch\tBranch to merge into (default: develop)"
-echo ""
+version="1.0.0 licensed under GPLv3"
 
-# Parsing options
+usage() {
+  less << EOU
+Usage:
+  $(basename $0) [--target BRANCH]
+  $(basename $0) -h | --help
+  $(basename $0) --version
+
+Options:
+  --target BRANCH  Branch to merge into [default, in order: develop, main, master]
+  --skip-cov       Skip unit test coverage check (R packages only)
+  -h --help        Show this help message and exit
+  --version        Show version and exit
+
+Examples:
+  $(basename $0) --skip-cov
+  $(basename $0) --target the-main-branch
+EOU
+}
+
+# Check if docopts is installed
+if ! command -v docopts &> /dev/null; then
+  echo "${roed}Error: docopts is not installed.${reset}"
+  exit 2
+fi
+
+# Setting variables
+eval "$(docopts -A ARGS -h "$(usage)" -V "$version" : "$@")"
+
 covr=true
-version=false
-while getopts "tv" option; do
-	case "$option" in
-		t) covr=false ;;
-		v) version=true ;;
-		?) echo "Invalid option: -${OPTARG}" ;;
-	esac
-done
+if [[ "${ARGS['--skip-cov']}" ]]; then
+    covr=false
+fi
 
-shift $((OPTIND-1))
-
-# Determine target branch: use argument, or search for develop/main/master (local only)
-if [[ -n $1 ]]; then
-	target_branch="$1"
+# Determine target branch: use --target, or search for local develop/main/master
+if [[ -n "${ARGS['--target']}" ]]; then
+	target_branch="${ARGS['--target']}"
 else
 	branches=$(git branch --list)
 	if echo "$branches" | grep -q develop; then
@@ -88,7 +101,4 @@ read -p "Press enter to continue, Ctrl+C to cancel"
 git checkout $target_branch
 git merge $feature_branch --log
 
-if [ $version == true ]; then
-	echo "Incrementing build number"
-	Rscript -e "usethis::use_version('dev')"
-fi
+exit 0
