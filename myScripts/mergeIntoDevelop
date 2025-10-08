@@ -3,29 +3,61 @@
 
 source uio-colors.sh
 
-# Usage
-echo -e "Usage: $(basename $0) [options] [target_branch]" 2>&1
-echo -e "\t-t\t\tSkips unit test coverage check"
-echo -e "\t-v\t\tBumps build version after merge"
-echo -e "\ttarget_branch\tBranch to merge into (default: develop)"
-echo ""
+version="0.0.0 licensed under GPLv3"
 
-# Parsing options
+usage() {
+  less << EOU
+Usage:
+  $(basename $0) [OPTIONS] [TARGET_BRANCH]
+  $(basename $0) -h | --help
+  $(basename $0) --version
+
+Options:
+  -t           Skip unit test coverage check
+  -v           Bump build version after merge
+  -h --help    Show this help message and exit
+  --version    Show version and exit
+
+Arguments:
+  TARGET_BRANCH  Branch to merge into (default: develop/main/master)
+
+Examples:
+  $(basename $0) -t
+  $(basename $0) feature-branch
+
+EOU
+}
+
+# Check if docopts is installed
+if ! command -v docopts &> /dev/null; then
+  echo "${roed}Error: docopts is not installed.${reset}"
+  exit 2
+fi
+
+eval "$(docopts -A ARGS -h "$(usage)" -V "$version" : "$@")"
+
+if [[ "${ARGS['--help']}" == "true" ]]; then
+    usage
+    exit 0
+fi
+
+if [[ "${ARGS['--version']}" == "true" ]]; then
+    echo "$version"
+    exit 0
+fi
+
 covr=true
 version=false
-while getopts "tv" option; do
-	case "$option" in
-		t) covr=false ;;
-		v) version=true ;;
-		?) echo "Invalid option: -${OPTARG}" ;;
-	esac
-done
-
-shift $((OPTIND-1))
+if [[ "${ARGS['-t']}" == "true" ]]; then
+    covr=false
+fi
+if [[ "${ARGS['-v']}" == "true" ]]; then
+    version=true
+fi
 
 # Determine target branch: use argument, or search for develop/main/master (local only)
-if [[ -n $1 ]]; then
-	target_branch="$1"
+if [[ -n "${ARGS['TARGET_BRANCH']}" ]]; then
+    target_branch="${ARGS['TARGET_BRANCH']}"
 else
 	branches=$(git branch --list)
 	if echo "$branches" | grep -q develop; then
