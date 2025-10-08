@@ -13,16 +13,16 @@ Usage:
   $(basename $0) --version
 
 Options:
-  -t           Skip unit test coverage check
-  -v           Bump build version after merge
-  -h --help    Show this help message and exit
-  --version    Show version and exit
+  --skip-cov      Skip unit test coverage check
+  --bump-version  Bump build version after merge
+  -h --help       Show this help message and exit
+  --version       Show version and exit
 
 Arguments:
-  TARGET_BRANCH  Branch to merge into (default: develop/main/master)
+  TARGET_BRANCH   Branch to merge into (default: develop/main/master)
 
 Examples:
-  $(basename $0) -t
+  $(basename $0) --skip-cov
   $(basename $0) feature-branch
 
 EOU
@@ -48,10 +48,10 @@ fi
 
 covr=true
 version=false
-if [[ "${ARGS['-t']}" == "true" ]]; then
+if [[ "${ARGS['--skip-cov']}" == "true" ]]; then
     covr=false
 fi
-if [[ "${ARGS['-v']}" == "true" ]]; then
+if [[ "${ARGS['--bump-version']}" == "true" ]]; then
     version=true
 fi
 
