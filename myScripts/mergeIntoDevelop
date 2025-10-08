@@ -1,6 +1,4 @@
 #!/usr/bin/bash
-# Script to merge feature branches into develop
-
 source uio-colors.sh
 
 version="0.0.0 licensed under GPLv3"
@@ -14,7 +12,7 @@ Usage:
 
 Options:
   --target BRANCH  Branch to merge into [default, in order: develop, main, master]
-  --skip-cov       Skip unit test coverage check
+  --skip-cov       Skip unit test coverage check (R packages only)
   -h --help        Show this help message and exit
   --version        Show version and exit
 
@@ -34,8 +32,7 @@ fi
 eval "$(docopts -A ARGS -h "$(usage)" -V "$version" : "$@")"
 
 covr=true
-version=false
-if [[ "${ARGS['--skip-cov']}" == "true" ]]; then
+if [[ "${ARGS['--skip-cov']}" ]]; then
     covr=false
 fi
 
