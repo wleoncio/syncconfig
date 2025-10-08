@@ -34,15 +34,13 @@ fi
 
 # Setting variables
 eval "$(docopts -A ARGS -h "$(usage)" -V "$version" : "$@")"
-date=${ARGS['DATE']}
-increment=${ARGS['INCREMENT']}
-
-# Calculate date, if necessary
-if [ -z $date ]; then
+date="${ARGS['--from']}"
+if [[ -z $date ]]; then
   dateymd=\"$(date "+%Y-%m-%d")\"
 else
   dateymd=\"$date\"
 fi
+increment=${ARGS['INCREMENT']}
 
 # format $date as yyyy-mm-dd, if necessary
 operation=$(qalc $dateymd + $increment)
