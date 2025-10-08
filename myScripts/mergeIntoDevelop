@@ -100,3 +100,5 @@ read -p "Press enter to continue, Ctrl+C to cancel"
 
 git checkout $target_branch
 git merge $feature_branch --log
+
+exit 0
