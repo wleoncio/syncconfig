@@ -1,11 +1,39 @@
 #!/bin/bash
+# Error codes:
+# 0 - success
+# 1 - missing required argument (not used, docopts handles it)
+# 2 - missing dependencies
+version="0.1.0 licensed under GPLv3"
 
-if [ $# -ne 1 ]; then
-  echo "Usage: $0 <file_path>"
-  exit 1
+usage() {
+  cat << EOU
+Usage:
+  $(basename $0) <file_path>
+  $(basename $0) -h | --help
+  $(basename $0) --version
+
+Lists and removes all lines ending with '# TEMP' from the specified file.
+
+Arguments:
+  <file_path>  Path to the file to process
+
+Options:
+  -h --help    Print this help and exit
+  --version    Print version and exit
+
+Send bug reports and feature requests to: https://github.com/wleoncio/syncconfig/issues
+EOU
+}
+
+# Check if docopts is installed
+if ! command -v docopts &> /dev/null; then
+  echo "Error: docopts is not installed." >&2
+  exit 2
 fi
 
-file="$1"
+# Parse arguments
+eval "$(docopts -A ARGS -h "$(usage)" -V "$version" : "$@")"
+file="${ARGS['<file_path>']}"
 
 if [ ! -f "$file" ]; then
   echo "File not found: $file"
