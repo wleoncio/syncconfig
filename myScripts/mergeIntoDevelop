@@ -15,7 +15,6 @@ Usage:
 Options:
   --target BRANCH  Branch to merge into [default, in order: develop, main, master]
   --skip-cov       Skip unit test coverage check
-  --bump-version   Bump build version after merge
   -h --help        Show this help message and exit
   --version        Show version and exit
 
@@ -38,9 +37,6 @@ covr=true
 version=false
 if [[ "${ARGS['--skip-cov']}" == "true" ]]; then
     covr=false
-fi
-if [[ "${ARGS['--bump-version']}" == "true" ]]; then
-    version=true
 fi
 
 # Determine target branch: use --target, or search for local develop/main/master
@@ -107,8 +103,3 @@ read -p "Press enter to continue, Ctrl+C to cancel"
 
 git checkout $target_branch
 git merge $feature_branch --log
-
-if [ $version == true ]; then
-	echo "Incrementing build number"
-	Rscript -e "usethis::use_version('dev')"
-fi
