@@ -42,7 +42,7 @@ fi
 if [ -n "$ref_merge" ]; then
     short_hash=$(git rev-parse --short=7 "$ref_merge")
     ref_title=$(git log -1 --pretty=format:"%s" "$ref_merge")
-    echo -e "${lysblaa}Observing changes since\n$short_hash - $ref_title${reset}"
+    echo -e "${lysblaa}Observing changes after\n$short_hash - $ref_title${reset}"
 fi
 echo
 
