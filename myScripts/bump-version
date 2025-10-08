@@ -45,7 +45,6 @@ if [ -n "$ref_merge" ]; then
     echo -e "${lysblaa}Observing changes after ${lysoransje}$short_hash${reset}"
     echo -e "- $ref_title"
 fi
-echo
 
 # Get commit hashes since the reference commit (excluding the commit itself)
 if [ -n "$ref_merge" ]; then
@@ -53,6 +52,14 @@ if [ -n "$ref_merge" ]; then
 else
     commit_hashes=$(git log --pretty=format:"%H")
 fi
+
+# Print commit that will be analyzed
+echo -e "\n${lysblaa}Commits to be considered${reset}"
+for hash in $commit_hashes; do
+    title=$(git log -1 --pretty=format:"%s" "$hash")
+    echo "- $title"
+done
+echo
 
 declare -A file_commits
 
