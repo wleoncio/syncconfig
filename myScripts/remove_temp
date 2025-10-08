@@ -40,14 +40,14 @@ if [ ! -f "$file" ]; then
   exit 1
 fi
 
-bak_file="/tmp/$(basename "$file").bak"
 
 echo "Lines ending with '# TEMP':"
 grep -E '\s*# TEMP$' "$file"
 
 # Remove lines ending with '# TEMP' and save backup to /tmp
-sed -i"$bak_file" '/\s*# TEMP$/d' "$file"
+sed -i".bak" '/\s*# TEMP$/d' "$file"
+mv "$file.bak" /tmp
 
 echo "Backup of original file saved to: $bak_file"
 echo "Run the following to check the differences:"
-echo "  diff $bak_file $file"
+echo "  diff /tmp/$file.bak $file"
