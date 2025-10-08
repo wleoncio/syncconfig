@@ -1,8 +1,4 @@
 #!/bin/bash
-# Error codes:
-# 0 - success
-# 1 - missing required argument (not used, docopts handles it)
-# 2 - missing dependencies
 version="1.3.0 licensed under GPLv3"
 source uio-colors.sh
 
@@ -46,9 +42,9 @@ fi
 if [ -n "$ref_merge" ]; then
     short_hash=$(git rev-parse --short=7 "$ref_merge")
     ref_title=$(git log -1 --pretty=format:"%s" "$ref_merge")
-    echo -e "${lysblaa}Observing changes since\n$short_hash - $ref_title${reset}"
+    echo -e "${lysblaa}Observing changes after ${lysoransje}$short_hash${reset}"
+    echo -e "- $ref_title"
 fi
-echo
 
 # Get commit hashes since the reference commit (excluding the commit itself)
 if [ -n "$ref_merge" ]; then
@@ -56,6 +52,14 @@ if [ -n "$ref_merge" ]; then
 else
     commit_hashes=$(git log --pretty=format:"%H")
 fi
+
+# Print commit that will be analyzed
+echo -e "\n${lysblaa}Commits to be considered${reset}"
+for hash in $commit_hashes; do
+    title=$(git log -1 --pretty=format:"%s" "$hash")
+    echo "- $title"
+done
+echo
 
 declare -A file_commits
 
@@ -74,11 +78,11 @@ done
 suggest_bump() {
     local msgs="$1"
     local first_words=$(echo "$msgs" | sed -n 's/^\([^:]*\):.*/\1/p')
-    if echo "$first_words" | grep -q "^BREAKING CHANGE$"; then
+    if echo "$first_words" | grep -q ".*BREAKING CHANGE$"; then
         echo "MAJOR"
-    elif echo "$first_words" | grep -q "^Feat$"; then
+    elif echo "$first_words" | grep -q ".*Feat$"; then
         echo "minor"
-    elif echo "$first_words" | grep -q "^Fix$"; then
+    elif echo "$first_words" | grep -q ".*Fix$"; then
         echo "patch"
     else
         echo "No version change"
@@ -213,7 +217,7 @@ if [[ $version_changed -eq 1 ]]; then
         done
         git commit -F <(echo "$commit_msg")
         echo -e "${groenn}Committed version changes.${reset}"
-        echo "Consider executing ${graa}mergeIntoDevelop${reset} now"
+        echo -e "Consider executing ${graa}mergeIntoDevelop${reset} now"
     else
         echo "${roed}Version changes not committed.${reset}"
     fi
