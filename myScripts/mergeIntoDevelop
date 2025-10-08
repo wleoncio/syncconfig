@@ -8,7 +8,7 @@ version="0.0.0 licensed under GPLv3"
 usage() {
   less << EOU
 Usage:
-  $(basename $0) --target BRANCH
+  $(basename $0) [--target BRANCH]
   $(basename $0) -h | --help
   $(basename $0) --version
 
