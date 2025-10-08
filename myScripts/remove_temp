@@ -1,0 +1,23 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+  echo "Usage: $0 <file_path>"
+  exit 1
+fi
+
+file="$1"
+
+if [ ! -f "$file" ]; then
+  echo "File not found: $file"
+  exit 1
+fi
+
+bak_file="/tmp/$(basename "$file").bak"
+
+echo "Lines ending with '# TEMP':"
+grep -E '\s*# TEMP$' "$file"
+
+# Remove lines ending with '# TEMP' and save backup to /tmp
+sed -i"$bak_file" '/\s*# TEMP$/d' "$file"
+
+echo "Backup of original file saved to: $bak_file"
