@@ -2,21 +2,43 @@
 #
 # Searches for a package on APT, Snap and Flatpak repositories
 
-pkg=$1
+version="0.1.0 licensed under GPLv3"
 
-echo "Searching apt"
-echo
+usage() {
+  less << EOU
+Usage:
+  $(basename $0) PKG
+  $(basename $0) -h | --help
+  $(basename $0) --version
 
-nala search $pkg
+Search for a package on APT, Snap, and Flatpak repositories.
 
-echo
-echo "Searching snap"
-echo
+Options:
+  -h --help     Show this help message and exit
+  --version     Show version and exit
 
-snap search $pkg
+Examples:
+  $(basename $0) todoist
 
-echo
-echo "Searching flatpak"
-echo
+EOU
+}
 
-flatpak search $pkg
+source bash-colors.sh
+
+# Check if docopts is installed
+if ! command -v docopts &> /dev/null; then
+  echo "${RED}Error: docopts is not installed.${RESET}"
+  exit 2
+fi
+
+eval "$(docopts -A ARGS -h "$(usage)" -V "$version" : "$@")"
+pkg="${ARGS['PKG']}"
+
+echo -e "${MAGENTA}Searching apt #########################################${RESET}\n"
+nala search "$pkg"
+
+echo -e "${MAGENTA}Searching snap ########################################${RESET}\n"
+snap search "$pkg"
+
+echo -e "\n${MAGENTA}Searching flatpak #####################################${RESET}\n"
+flatpak search "$pkg"
