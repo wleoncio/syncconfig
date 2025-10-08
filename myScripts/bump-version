@@ -70,11 +70,11 @@ done
 suggest_bump() {
     local msgs="$1"
     local first_words=$(echo "$msgs" | sed -n 's/^\([^:]*\):.*/\1/p')
-    if echo "$first_words" | grep -q "^BREAKING CHANGE$"; then
+    if echo "$first_words" | grep -q ".*BREAKING CHANGE$"; then
         echo "MAJOR"
-    elif echo "$first_words" | grep -q "^Feat$"; then
+    elif echo "$first_words" | grep -q ".*Feat$"; then
         echo "minor"
-    elif echo "$first_words" | grep -q "^Fix$"; then
+    elif echo "$first_words" | grep -q ".*Fix$"; then
         echo "patch"
     else
         echo "No version change"
