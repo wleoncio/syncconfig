@@ -74,23 +74,23 @@ for f in $changed_files; do
 done
 
 if [ "$version_related" = true ]; then
-	# Check if any commit actually changes a line containing "version"
-	version_bump_found=false
-	commits=$(git log --format="%H" $target_branch..$feature_branch)
-	for c in $commits; do
-		if git show "$c" | grep -e "\(\+\|\-\)version" &>/dev/null; then
-			version_bump_found=true
-			break
+	for f in $changed_files; do
+		if git diff $target_branch..$feature_branch -- "$f" | grep -i "version" &>/dev/null; then
+			version_bump_found=false
+			commits=$(git log --format="%H" $target_branch..$feature_branch -- "$f")
+			for c in $commits; do
+				diff_output=$(git show "$c" -- "$f")
+				# Look for consecutive -version/+version lines
+				if echo "$diff_output" | awk '/^-version/ {prev=1; next} /^\+version/ {if(prev==1){found=1}; prev=0} {prev=0} END{exit !found}'; then
+					version_bump_found=true
+					break
+				fi
+			done
+			if [ "$version_bump_found" = false ]; then
+				echo -e "${oransje}Warning: '$f' changed and contains 'version', but no commit detected bumping the version.${reset}"
+			fi
 		fi
 	done
-	if [ "$version_bump_found" = false ]; then
-		echo -e "${oransje}Warning: Versioned files changed without change in version number:${reset}"
-		for f in $changed_files; do
-			if git diff $target_branch..$feature_branch -- "$f" | grep -i "version" &>/dev/null; then
-				echo -e "  ${oransje}$f${reset}"
-			fi
-		done
-	fi
 fi
 
 # Making sure pre-work is done
