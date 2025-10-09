@@ -1,7 +1,32 @@
-#! /bin/bash
+#!/bin/bash
+
+version="0.1.0 under GPLv3 (https://choosealicense.com/licenses/gpl-3.0/)"
+
+usage() {
+	cat << EOU
+Usage:
+	syncconfig COMMAND
+	syncconfig -h | --help
+	syncconfig --version
+
+Manually sync dotfiles and config files with a local GitHub repository.
+
+Arguments:
+	COMMAND    Operation (push | pull | diff)
+
+Options:
+	-h --help  Print this help and exit
+	--version  Print version and exit
+EOU
+}
 
 check="\xE2\x9C\x94"
 fail="\xE2\x9D\x8C"
+
+# Setting variables
+help=$(usage)
+eval "$(docopts -A ARGS -h "$help" -V "$version" : "$@")"
+command="${ARGS['COMMAND']}"
 
 # Script to manually sync files with GitHub
 # Tip: edit the crontab file to make this run automatically
@@ -190,36 +215,47 @@ syncFiles () {
 # ==============================================================================
 # Actually performing requested operation
 # ==============================================================================
-if [ "$1" = "push" ]; then
-	echo -e "\n\e[34m# Copying files to local git repository\e[0m\n"
-	syncFiles cp "${homePaths[*]}" "${locationPaths[*]}"
-	cd $location
-	echo -e "\n\e[34m# Listing modified files\e[0m\n"
-	git status --short
-elif [ "$1" = "pull" ]; then
-	echo -e "\n\e[34m# Copying files from local git repository\e[0m\n"
-	changedFiles=$(syncFiles diff "${homePaths[*]}" "${locationPaths[*]}" "--brief")
-	if [ "$changedFiles" = "" ]; then
-		proceed="y"
-	else
-		echo -e "THIS OPERATION WILL \e[1;31mOVERWRITE\e[0m THE CONTENTS OF:\e[0m"
-		echo "$changedFiles" | awk '{print $2'\r'}'
-		read -p "Are you sure you want to continue? (y/N) " proceed
-	fi
-	if [ "$proceed" = "y" ]; then
-		syncFiles cp "${locationPaths[*]}" "${homePaths[*]}"
-	else
-		echo "Cancelling. Run syncconfig.sh diff to see the change details"
-	fi
-else
-	echo -e "\n\e[34m# Dry-run: comparing local files with local git repository\e[0m\n"
-	diffFlags="--recursive --color=always"
-	if [ "$1" = "diff" ]; then
+case "$command" in
+	push)
+		echo -e "\n\e[34m# Copying files to local git repository\e[0m\n"
+		syncFiles cp "${homePaths[*]}" "${locationPaths[*]}"
+		cd $location
+		echo -e "\n\e[34m# Listing modified files\e[0m\n"
+		git status --short
+		;;
+	pull)
+		echo -e "\n\e[34m# Copying files from local git repository\e[0m\n"
+		changedFiles=$(syncFiles diff "${homePaths[*]}" "${locationPaths[*]}" "--brief")
+		if [ "$changedFiles" = "" ]; then
+			proceed="y"
+		else
+			echo -e "THIS OPERATION WILL \e[1;31mOVERWRITE\e[0m THE CONTENTS OF:\e[0m"
+			echo "$changedFiles" | awk '{print $2'\r'}'
+			read -p "Are you sure you want to continue? (y/N) " proceed
+		fi
+		if [ "$proceed" = "y" ]; then
+			syncFiles cp "${locationPaths[*]}" "${homePaths[*]}"
+		else
+			echo "Cancelling. Run syncconfig.sh diff to see the change details"
+		fi
+		;;
+	diff)
+		echo -e "\n\e[34m# Dry-run: comparing local files with local git repository\e[0m\n"
+		diffFlags="--recursive --color=always"
 		echo -e "Showing changes to be made to local files\n"
 		diffFlags=""$diffFlags" --suppress-common-lines -bZB -C 1"
-	else
+		syncFiles diff "${homePaths[*]}" "${locationPaths[*]}" "$diffFlags"
+		;;
+	"")
+		echo -e "\n\e[34m# Dry-run: comparing local files with local git repository\e[0m\n"
+		diffFlags="--recursive --color=always"
 		echo -e "To get diff details, run this script with 'diff' as the first argument\n"
 		diffFlags=""$diffFlags" --brief"
-	fi
-	syncFiles diff "${homePaths[*]}" "${locationPaths[*]}" "$diffFlags"
-fi
+		syncFiles diff "${homePaths[*]}" "${locationPaths[*]}" "$diffFlags"
+		;;
+	*)
+		echo -e "$fail Unknown command: $command"
+		echo "$help"
+		exit 1
+		;;
+esac
