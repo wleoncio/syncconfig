@@ -63,7 +63,7 @@ fi
 
 feature_branch=$(eval git branch --show-current)
 
-# Check for version bump if relevant files changed
+# Check for changes in file containing a "version" variable
 changed_files=$(git diff --name-only $target_branch..$feature_branch)
 version_related=false
 for f in $changed_files; do
@@ -84,7 +84,12 @@ if [ "$version_related" = true ]; then
 		fi
 	done
 	if [ "$version_bump_found" = false ]; then
-		echo -e "${oransje}Warning: Files with 'version' changed, but no commit detected bumping the version.${reset}"
+		echo -e "${oransje}Warning: Versioned files changed without change in version number:${reset}"
+		for f in $changed_files; do
+			if git diff $target_branch..$feature_branch -- "$f" | grep -i "version" &>/dev/null; then
+				echo -e "  ${oransje}$f${reset}"
+			fi
+		done
 	fi
 fi
 
