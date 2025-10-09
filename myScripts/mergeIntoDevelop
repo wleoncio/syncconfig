@@ -78,7 +78,7 @@ if [ "$version_related" = true ]; then
 	version_bump_found=false
 	commits=$(git log --format="%H" $target_branch..$feature_branch)
 	for c in $commits; do
-		if git show "$c" | grep -E "^\+.*version" &>/dev/null; then
+		if git show "$c" | grep -E "^version" &>/dev/null; then
 			version_bump_found=true
 			break
 		fi
