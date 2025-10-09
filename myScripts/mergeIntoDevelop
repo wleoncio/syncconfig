@@ -12,7 +12,6 @@ Usage:
 
 Options:
   --target BRANCH  Branch to merge into [default, in order: develop, main, master]
-  --skip-cov       Skip unit test coverage check (R packages only)
   -h --help        Show this help message and exit
   --version        Show version and exit
 
