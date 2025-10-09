@@ -43,8 +43,8 @@ blink="\e[5m"
 
 reportLastSync() {
 	# Report last sync on local
-	echo -e "\n${lysblaa}Last sync on this machine:"
-	echo -e "$(tail -n 1 $local/.uiosync.log)${reset}"
+	echo -e "${lysblaa}Last sync on this machine:"
+	echo -e "$(tail -n 1 $local/.uiosync.log)${reset}\n"
 }
 reportLastSync
 
