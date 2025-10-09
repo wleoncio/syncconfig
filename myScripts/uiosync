@@ -3,6 +3,34 @@
 
 source uio-colors.sh
 
+version="1.0.0 licensed under GPLv3"
+
+usage() {
+  less << EOU
+Usage:
+  $(basename $0) COMMAND
+  $(basename $0) -h | --help
+  $(basename $0) --version
+
+Arguments:
+	COMMAND    Operation (push | pull)
+
+Options:
+  -h --help  Show this help message and exit
+  --version  Show version and exit
+EOU
+}
+
+# Check if docopts is installed
+if ! command -v docopts &> /dev/null; then
+  echo "${roed}Error: docopts is not installed.${reset}"
+  exit 2
+fi
+
+# Setting variables
+eval "$(docopts -A ARGS -h "$(usage)" -V "$version" : "$@")"
+command="${ARGS['COMMAND']}"
+
 # Config constants
 configPath=$HOME/.config/uiosync.conf
 if [ -f $configPath ]; then
@@ -15,14 +43,14 @@ blink="\e[5m"
 
 reportLastSync() {
 	# Report last sync on local
-	echo -e "\n${lysblaa}Last sync on this machine:"
-	echo -e "$(tail -n 1 $local/.uiosync.log)${reset}"
+	echo -e "${lysblaa}Last sync on this machine:"
+	echo -e "$(tail -n 1 $local/.uiosync.log)${reset}\n"
 }
 reportLastSync
 
 # Determine origin and destination
 hour=$(date +"%H")
-if [ "$1" = "pull" ] || [ "$1" = "down" ]; then
+if [ $command = "pull" ]; then
 	from="$remote"
 	to="$local"
 	fromname="Hjemmeområdet"
@@ -37,7 +65,7 @@ if [ "$1" = "pull" ] || [ "$1" = "down" ]; then
 			exit 0
 		fi
 	fi
-elif [ "$1" = "push" ] || [ "$1" = "up" ]; then
+elif [ $command = "push" ]; then
 	from="$local"
 	to="$remote"
 	fromname=$(hostname)
@@ -52,14 +80,6 @@ elif [ "$1" = "push" ] || [ "$1" = "up" ]; then
 			exit 0
 		fi
 	fi
-else
-	echo "USAGE"
-	echo "  uiosync.sh [command]"
-	echo "  command: 'push', 'pull', 'up' or 'down'"
-	echo ""
-	echo "A uiosync.conf file must be present at $HOME/.config and contain"
-	echo "appropriate values for local and remote variables."
-	exit 0
 fi
 
 # Running rsync

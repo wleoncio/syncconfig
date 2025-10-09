@@ -1,18 +1,18 @@
 #!/usr/bin/bash
 source uio-colors.sh
 
-version="1.1.0 licensed under GPLv3"
+version="1.2.0 licensed under GPLv3"
 
 usage() {
   less << EOU
 Usage:
-  $(basename $0) [--target BRANCH]
+  $(basename $0) [--dry-run] [--target BRANCH]
   $(basename $0) -h | --help
   $(basename $0) --version
 
 Options:
   --target BRANCH  Branch to merge into [default, in order: develop, main, master]
-  --skip-cov       Skip unit test coverage check (R packages only)
+  --dry-run        Show what would be done, without making any changes
   -h --help        Show this help message and exit
   --version        Show version and exit
 
@@ -63,6 +63,36 @@ fi
 
 feature_branch=$(eval git branch --show-current)
 
+# Check for changes in file containing a "version" variable
+changed_files=$(git diff --name-only $target_branch..$feature_branch)
+version_related=false
+for f in $changed_files; do
+	if git diff $target_branch..$feature_branch -- "$f" | grep -i "version" &>/dev/null; then
+		version_related=true
+		break
+	fi
+done
+
+if [ "$version_related" = true ]; then
+	for f in $changed_files; do
+		if git diff $target_branch..$feature_branch -- "$f" | grep -i "version" &>/dev/null; then
+			version_bump_found=false
+			commits=$(git log --format="%H" $target_branch..$feature_branch -- "$f")
+			for c in $commits; do
+				diff_output=$(git show "$c" -- "$f")
+				# Look for consecutive -version/+version lines
+				if echo "$diff_output" | awk '/^-version/ {prev=1; next} /^\+version/ {if(prev==1){found=1}; prev=0} {prev=0} END{exit !found}'; then
+					version_bump_found=true
+					break
+				fi
+			done
+			if [ "$version_bump_found" = false ]; then
+				echo -e "${oransje}Warning: '$f' changed and contains 'version', but no commit detected bumping the version.${reset}"
+			fi
+		fi
+	done
+fi
+
 # Making sure pre-work is done
 
 unstaged=$(eval git status --short)
@@ -104,6 +134,11 @@ echo -e "- Updated the software ${roed}version${reset}?"
 echo
 read -p "Press enter to continue, Ctrl+C to cancel"
 
+# Performing the merge (if not a dry run)
+if [[ "${ARGS['--dry-run']}" == true ]]; then
+	echo -e "\n${oransje}Dry run: No changes made. Exiting.${reset}"
+	exit 0
+fi
 git checkout $target_branch
 git merge $feature_branch --log
 
