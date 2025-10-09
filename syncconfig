@@ -23,8 +23,10 @@ EOU
 check="\xE2\x9C\x94"
 fail="\xE2\x9D\x8C"
 
-# Processing options
+# Setting variables
+help=$(usage)
 eval "$(docopts -A ARGS -h "$help" -V "$version" : "$@")"
+command="${ARGS['COMMAND']}"
 
 # Script to manually sync files with GitHub
 # Tip: edit the crontab file to make this run automatically
@@ -213,9 +215,6 @@ syncFiles () {
 # ==============================================================================
 # Actually performing requested operation
 # ==============================================================================
-source ic.sh  # TEMP
-command="${ARGS['COMMAND']}"
-ic command  # TEMP
 case "$command" in
 	push)
 		echo -e "\n\e[34m# Copying files to local git repository\e[0m\n"
