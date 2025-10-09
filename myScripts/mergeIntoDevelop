@@ -6,12 +6,13 @@ version="1.1.0 licensed under GPLv3"
 usage() {
   less << EOU
 Usage:
-  $(basename $0) [--target BRANCH]
+  $(basename $0) [--dry-run] [--target BRANCH]
   $(basename $0) -h | --help
   $(basename $0) --version
 
 Options:
   --target BRANCH  Branch to merge into [default, in order: develop, main, master]
+  --dry-run        Show what would be done, without making any changes
   -h --help        Show this help message and exit
   --version        Show version and exit
 
@@ -128,6 +129,11 @@ echo -e "- Updated the software ${roed}version${reset}?"
 echo
 read -p "Press enter to continue, Ctrl+C to cancel"
 
+# Performing the merge (if not a dry run)
+if [[ "${ARGS['--dry-run']}" == true ]]; then
+	echo -e "\n${oransje}Dry run: No changes made. Exiting.${reset}"
+	exit 0
+fi
 git checkout $target_branch
 git merge $feature_branch --log
 
