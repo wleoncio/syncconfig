@@ -73,10 +73,14 @@ if [ -n "$unstaged" ]; then
 	read -p "Press enter to continue, Ctrl+C to cancel"
 fi
 
-echo -e "\nMerging ${blaa}${feature_branch}${reset} into ${blaa}${target_branch}${reset}. Did you remember to:"
+check_file=/tmp/merge_check.txt
+git log --oneline $target_branch.. | grep -i -e "squash!" -e "fixup!" > $check_file
+if [ -s "$check_file" ]; then
+	echo -e "${roed}Error: There are squash or fixup commits on the feature branch. Please clean up your history before merging.${reset}"
+	exit 1
+fi
 
-echo -e "- ${roed}Squash${reset} commits on the feature branch?"
-git log --oneline $target_branch.. | grep -i -e "squash" -e "fixup"
+echo -e "\nMerging ${blaa}${feature_branch}${reset} into ${blaa}${target_branch}${reset}. Did you remember to:"
 
 echo -e "- Add unit ${roed}tests${reset} for new code?"
 if [[ $covr == true && -f "DESCRIPTION" ]]; then
