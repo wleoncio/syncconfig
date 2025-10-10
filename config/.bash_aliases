@@ -20,6 +20,7 @@ alias ls="eza"
 alias pqp="fuck"
 alias fd="fdfind"
 alias mistral="ollama run mistral"
+alias tree="ls --tree"
 
 # UiO servers
 alias pushuio="uiosync push"
