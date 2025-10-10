@@ -71,9 +71,9 @@ for hash in $commit_hashes; do
     # Get files changed in this commit
     files=$(git diff-tree --no-commit-id --name-only -r "$hash")
     for file in $files; do
-        # Skip files starting with '.'
+        # Skip files starting with '.' or ending with '.yml'
         filename="${file##*/}"
-        [[ "$filename" == .* ]] && continue
+        [[ "$filename" == .* || "$filename" == *.yml ]] && continue
         file_commits["$file"]+="$msg"$'\n'
     done
 done
@@ -131,9 +131,9 @@ suggested_count=0
 
 # Collect suggestions and display them with numbers
 for file in "${!file_commits[@]}"; do
-    # Skip files starting with '.'
+    # Skip files starting with '.' or ending with '.yml'
     filename="${file##*/}"
-    [[ "$filename" == .* ]] && continue
+    [[ "$filename" == .* || "$filename" == *.yml ]] && continue
 
     # Determine suggested bump
     bump=$(suggest_bump "${file_commits[$file]}")
@@ -195,9 +195,9 @@ for num in "${selected[@]}"; do
     entry="${bump_choices[$num]}"
     file="${entry%%:*}"
 
-    # Skip files starting with '.'
+    # Skip files starting with '.' or ending with '.yml'
     filename="${file##*/}"
-    [[ "$filename" == .* ]] && continue
+    [[ "$filename" == .* || "$filename" == *.yml ]] && continue
     current_ver="${entry#*:}"
     current_ver="${current_ver%%:*}"
     suggested_ver="${entry##*:}"
