@@ -2,9 +2,9 @@
   email = w.l.netto@medisin.uio.no
   name = Waldir Leoncio
 [alias]
-  psh = push
-  pll = pull
-  fix = !sh -c 'git add --all && git commit --amend' 
+  ps = push
+  pl = pull
+  fix = !sh -c 'git add --all && git commit --amend'
   getalias = !sh -c 'git config --get alias."${1}"' -
   ds = diff --stat
   df = diff --diff-filter=M
@@ -51,7 +51,7 @@
   latexdiff = difftool --tool=latexdiff
   pa = push --all
   pt = push --tags
-  pb = push --set-upstream ocbe-uio 
+  pb = push --set-upstream ocbe-uio
   CLEAN = clean --force
   stasha = stash --include-untracked
   stashm = stash push --include-untracked --message
