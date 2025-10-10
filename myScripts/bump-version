@@ -63,6 +63,11 @@ echo
 
 declare -A file_commits
 
+should_ignore_file() {
+    local filename="${1##*/}"
+    [[ "$filename" == .* || "$filename" == *.yml ]]
+}
+
 # Map files to their commit messages
 for hash in $commit_hashes; do
     # Get commit message
@@ -72,8 +77,9 @@ for hash in $commit_hashes; do
     files=$(git diff-tree --no-commit-id --name-only -r "$hash")
     for file in $files; do
         # Skip files starting with '.' or ending with '.yml'
-        filename="${file##*/}"
-        [[ "$filename" == .* || "$filename" == *.yml ]] && continue
+        if should_ignore_file "$file"; then
+            continue
+        fi
         file_commits["$file"]+="$msg"$'\n'
     done
 done
@@ -132,8 +138,9 @@ suggested_count=0
 # Collect suggestions and display them with numbers
 for file in "${!file_commits[@]}"; do
     # Skip files starting with '.' or ending with '.yml'
-    filename="${file##*/}"
-    [[ "$filename" == .* || "$filename" == *.yml ]] && continue
+    if should_ignore_file "$file"; then
+        continue
+    fi
 
     # Determine suggested bump
     bump=$(suggest_bump "${file_commits[$file]}")
@@ -196,8 +203,9 @@ for num in "${selected[@]}"; do
     file="${entry%%:*}"
 
     # Skip files starting with '.' or ending with '.yml'
-    filename="${file##*/}"
-    [[ "$filename" == .* || "$filename" == *.yml ]] && continue
+    if should_ignore_file "$file"; then
+        continue
+    fi
     current_ver="${entry#*:}"
     current_ver="${current_ver%%:*}"
     suggested_ver="${entry##*:}"
