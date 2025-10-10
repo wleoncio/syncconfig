@@ -67,9 +67,13 @@ declare -A file_commits
 for hash in $commit_hashes; do
     # Get commit message
     msg=$(git log -1 --pretty=format:"%s" "$hash")
+
     # Get files changed in this commit
     files=$(git diff-tree --no-commit-id --name-only -r "$hash")
     for file in $files; do
+        # Skip files starting with '.'
+        filename="${file##*/}"
+        [[ "$filename" == .* ]] && continue
         file_commits["$file"]+="$msg"$'\n'
     done
 done
@@ -127,10 +131,16 @@ suggested_count=0
 
 # Collect suggestions and display them with numbers
 for file in "${!file_commits[@]}"; do
+    # Skip files starting with '.'
+    filename="${file##*/}"
+    [[ "$filename" == .* ]] && continue
+
+    # Determine suggested bump
     bump=$(suggest_bump "${file_commits[$file]}")
     current_ver=$(extract_version "$file")
     suggested_ver=$(bump_version "$current_ver" "$bump")
     # Extract just the filename after the last slash
+
     filename="${file##*/}"
 
     # Color bump type
@@ -184,9 +194,14 @@ updated_files=()
 for num in "${selected[@]}"; do
     entry="${bump_choices[$num]}"
     file="${entry%%:*}"
+
+    # Skip files starting with '.'
+    filename="${file##*/}"
+    [[ "$filename" == .* ]] && continue
     current_ver="${entry#*:}"
     current_ver="${current_ver%%:*}"
     suggested_ver="${entry##*:}"
+
     # Replace first occurrence of current version with suggested version in file
     if [[ "$suggested_ver" != "$current_ver" && "$suggested_ver" != "unknown" ]]; then
         sed -i "0,/$current_ver/{s/$current_ver/$suggested_ver/}" "$file"
