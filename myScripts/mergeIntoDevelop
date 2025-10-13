@@ -67,7 +67,7 @@ feature_branch=$(eval git branch --show-current)
 changed_files=$(git diff --name-only $target_branch..$feature_branch)
 version_related=false
 for f in $changed_files; do
-	if git diff $target_branch..$feature_branch -- "$f" | grep -i "version" &>/dev/null; then
+	if grep "^version=" --ignore-case "$f" &> /dev/null; then
 		version_related=true
 		break
 	fi
@@ -75,7 +75,7 @@ done
 
 if [ "$version_related" = true ]; then
 	for f in $changed_files; do
-		if git diff $target_branch..$feature_branch -- "$f" | grep -i "version" &>/dev/null; then
+		if grep "^version=" --ignore-case "$f" &> /dev/null; then
 			version_bump_found=false
 			commits=$(git log --format="%H" $target_branch..$feature_branch -- "$f")
 			for c in $commits; do
