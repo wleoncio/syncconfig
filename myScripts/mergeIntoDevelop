@@ -122,7 +122,7 @@ if [[ $covr == true && -f "DESCRIPTION" ]]; then
 fi
 
 if [[ -f "NEWS.md" ]]; then
-	echo -e '- Update ${roed}NEWS${reset}.md (see head below)?'
+	echo -e "- Update ${roed}NEWS.md${reset} (see head below)?"
 	echo ""
 	awk '/^#/ {c++; if (c==2) {exit}} {print}' NEWS.md
 	echo ""
