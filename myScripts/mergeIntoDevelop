@@ -16,9 +16,6 @@ Options:
   -h --help        Show this help message and exit
   --version        Show version and exit
 
-Examples:
-  $(basename $0) --skip-cov
-  $(basename $0) --target the-main-branch
 EOU
 }
 
