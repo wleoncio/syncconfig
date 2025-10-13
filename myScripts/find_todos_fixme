@@ -1,2 +1,37 @@
 #!/usr/bin/bash
-grep --recursive --extended-regexp "#\s?(TODO|FIXME)" . --line-number --context=3 --color=always
+source uio-colors.sh
+
+version="1.0.0 licensed under GPLv3"
+
+usage() {
+  less << EOU
+Usage:
+  $(basename $0) [--context N]
+  $(basename $0) -h | --help
+  $(basename $0) --version
+
+Options:
+  --context N  Number of context lines to show [default: 3]
+  --dry-run    Show what would be done, without making any changes
+  -h --help    Show this help message and exit
+  --version    Show version and exit
+
+EOU
+}
+
+# Check if docopts is installed
+if ! command -v docopts &> /dev/null; then
+  echo "${roed}Error: docopts is not installed.${reset}"
+  exit 2
+fi
+
+# Setting variables
+eval "$(docopts -A ARGS -h "$(usage)" -V "$version" : "$@")"
+
+context=3
+if [[ "${ARGS['--context']}" ]]; then
+    context="${ARGS['--context']}"
+fi
+
+#!/usr/bin/bash
+grep --recursive --extended-regexp "#\s?(TODO|FIXME)" . --line-number --context=$context --color=always

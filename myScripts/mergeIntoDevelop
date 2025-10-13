@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 source uio-colors.sh
 
-version="1.3.0 licensed under GPLv3"
+version="1.3.1 licensed under GPLv3"
 
 usage() {
   less << EOU
@@ -16,9 +16,6 @@ Options:
   -h --help        Show this help message and exit
   --version        Show version and exit
 
-Examples:
-  $(basename $0) --skip-cov
-  $(basename $0) --target the-main-branch
 EOU
 }
 
