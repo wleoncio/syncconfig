@@ -1,5 +1,5 @@
 #!/bin/bash
-version="1.4.0 licensed under GPLv3"
+version="1.4.1 licensed under GPLv3"
 source uio-colors.sh
 
 usage() {
