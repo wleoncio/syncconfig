@@ -123,9 +123,9 @@ fi
 
 if [[ -f "NEWS.md" ]]; then
 	echo -e "- Update ${roed}NEWS.md${reset} (see head below)?"
-	echo ""
+	echo -e "${blaatone_bg}"
 	awk '/^#/ {c++; if (c==2) {exit}} {print}' NEWS.md
-	echo ""
+	echo -e "${reset}\n"
 else
 	echo -e "- ${roed}No NEWS.md${reset} found. Consider using one!"
 fi
