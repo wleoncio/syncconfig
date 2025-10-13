@@ -181,6 +181,7 @@ if [ $suggested_count -gt 0 ]; then
     echo "Which files do you want to update with the suggested version bump?"
     echo "Enter space-separated numbers, 'a' for all, or leave empty for none:"
     read -r choice
+    echo
 else
     echo "No version changes suggested based on commit messages."
     exit 0
@@ -213,7 +214,6 @@ for num in "${selected[@]}"; do
     # Replace first occurrence of current version with suggested version in file
     if [[ "$suggested_ver" != "$current_ver" && "$suggested_ver" != "unknown" ]]; then
         sed -i "0,/$current_ver/{s/$current_ver/$suggested_ver/}" "$file"
-        echo
         echo -e "${roed}Updated $file: $current_ver -> $suggested_ver${reset}"
         version_changed=1
         updated_files+=("$file:$suggested_ver")
