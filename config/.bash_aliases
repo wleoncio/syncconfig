@@ -5,7 +5,7 @@ alias cleanR="sudo docker run --rm -ti r-base bash"
 alias matlab-cli="/usr/local/bin/matlab -nodesktop -nosplash"
 alias copilot="tgpt --interactive"
 alias gt="git"
-alias quem="cat /tmp/author.txt | tgpt --quiet 'Who is this person from the world of software development?' --provider isou"
+alias quem\?="cat /tmp/author.txt | tgpt --quiet 'Who is this person from the world of software development?' --provider isou"
 alias log="libreoffice ~/UiO/Docs/Misc/worklog.ods"
 
 # System shortcuts
