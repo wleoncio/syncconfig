@@ -48,9 +48,9 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
 	colors=("graa" "blaa" "lysblaa" "blaatone" "groenn" "lysgroenn" "groenntone" "roed" "lysroed" "roedtone" "oransje" "lysoransje" "oransjetone" "gul")
 	colors_bg=("graa_bg" "blaa_bg" "lysblaa_bg" "blaatone_bg" "groenn_bg" "lysgroenn_bg" "groenntone_bg" "roed_bg" "lysroed_bg" "roedtone_bg" "oransje_bg" "lysoransje_bg" "oransjetone_bg" "gul_bg")
 	for fg in "${colors[@]}"; do
-		echo -e ${!fg}${fg} $reset
+		echo -e ${!fg}${fg} "$reset"
 	done
 	for bg in "${colors_bg[@]}"; do
-		echo -e ${svart}${!bg}${bg} $reset
+		echo -e "${svart}""${!bg}""${bg}" "$reset"
 	done
 fi

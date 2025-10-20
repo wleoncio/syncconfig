@@ -13,4 +13,4 @@ fi
 
 # Ask for location of sync directory
 read -p "Enter the full path to the sync directory: " syncdir
-echo "location=$syncdir" > $HOME/.config/syncconfig.conf
+echo "location=$syncdir" > "$HOME"/.config/syncconfig.conf

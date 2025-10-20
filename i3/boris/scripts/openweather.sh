@@ -12,8 +12,8 @@ URL="http://api.openweathermap.org/data/2.5/weather?id=${CITY_ID}&units=metric&A
 
 WEATHER_RESPONSE=$(wget -qO- "${URL}")
 
-WEATHER_CONDITION=$(echo $WEATHER_RESPONSE | jq '.weather[0].main' | sed 's/"//g')
-WEATHER_TEMP=$(echo $WEATHER_RESPONSE | jq '.main.temp')
+WEATHER_CONDITION=$(echo "$WEATHER_RESPONSE" | jq '.weather[0].main' | sed 's/"//g')
+WEATHER_TEMP=$(echo "$WEATHER_RESPONSE" | jq '.main.temp')
 WIND_DIR=$( echo "$WEATHER_RESPONSE" | jq '.wind.deg')
 WIND_SPEED=$( echo "$WEATHER_RESPONSE" | jq '.wind.speed')
 

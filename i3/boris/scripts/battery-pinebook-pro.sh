@@ -13,6 +13,6 @@ case $((
        (1) echo $STATUS:"" :$PERCENT%;;
        (2) echo $STATUS:"" :$PERCENT%;;
        (3) echo $STATUS:"" :$PERCENT%;;
-       (4) echo $STATUS:"" :$PERCENT%;;
-       (5) echo $STATUS:"" :$PERCENT%;;
+       (4) echo $STATUS:"" :"$PERCENT"%;;
+       (5) echo "$STATUS":"" :"$PERCENT"%;;
 esac
