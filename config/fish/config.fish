@@ -54,3 +54,7 @@ else if type -q batcat
 else
 	alias cat "cat"
 end
+
+# qlty
+set --export QLTY_INSTALL "$HOME/.qlty"
+set --export PATH $QLTY_INSTALL/bin $PATH
