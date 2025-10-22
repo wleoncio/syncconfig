@@ -1,0 +1,135 @@
+#!/usr/bin/env bash
+# resize-images - Resize one or more image files and save as new files
+#
+# Defaults:
+#   - scale to 50% (use -s / --scale to change)
+#   - suffix "-scaled" appended before file extension (use -S / --suffix)
+#   - JPEG quality 85 by default (use -q / --quality)
+#
+# Requirements: ImageMagick (convert or magick command available)
+#
+# Usage examples:
+#   resize-images file1.png file2.jpg
+#   resize-images -s 25 -S "-small" image.png
+#   resize-images -q 90 **/*.jpg
+
+set -euo pipefail
+
+progname="$(basename "$0")"
+scale=50
+suffix="-scaled"
+quality=85
+verbose=0
+
+show_help() {
+  cat <<EOF
+Usage: $progname [options] <files...>
+
+Resize image files and save as new files.
+
+Options:
+  -s, --scale PERCENT    Scale percentage (default: ${scale})
+  -S, --suffix SUFFIX    Suffix to append before extension (default: "${suffix}")
+  -q, --quality N        JPEG quality 1-100 (default: ${quality})
+  -v, --verbose          Verbose output
+  -h, --help             Show this help and exit
+
+Examples:
+  $progname image.png           # creates image-scaled.png at 50%
+  $progname -s 25 -S -small a.jpg b.jpg
+
+Requires ImageMagick (convert or magick on some systems).
+EOF
+}
+
+# find imagemagick command
+IM_CMD=""
+if command -v magick >/dev/null 2>&1; then
+  IM_CMD="magick"
+elif command -v convert >/dev/null 2>&1; then
+  IM_CMD="convert"
+else
+  echo "Error: ImageMagick not found. Install "magick"/"convert" and retry." >&2
+  exit 2
+fi
+
+# parse options
+args=()
+while (("${#}")); do
+  case "$1" in
+    -s|--scale)
+      if [ $# -lt 2 ]; then echo "Missing value for $1" >&2; exit 2; fi
+      scale="$2"; shift 2;;
+    -S|--suffix)
+      if [ $# -lt 2 ]; then echo "Missing value for $1" >&2; exit 2; fi
+      suffix="$2"; shift 2;;
+    -q|--quality)
+      if [ $# -lt 2 ]; then echo "Missing value for $1" >&2; exit 2; fi
+      quality="$2"; shift 2;;
+    -v|--verbose)
+      verbose=1; shift;;
+    -h|--help)
+      show_help; exit 0;;
+    --)
+      shift; while (("${#}")); do args+=("$1"); shift; done; break;;
+    -*?)
+      echo "Unknown option: $1" >&2; show_help; exit 2;;
+    *)
+      args+=("$1"); shift;;
+  esac
+done
+
+if [ ${#args[@]} -eq 0 ]; then
+  echo "No input files provided." >&2
+  show_help
+  exit 2
+fi
+
+# validate numeric scale
+if ! printf "%s" "$scale" | grep -Eq '^[0-9]+(\.[0-9]+)?$'; then
+  echo "Scale must be a number (percentage)" >&2; exit 2
+fi
+
+# iterate over files
+for f in "${args[@]}"; do
+  if [ ! -f "$f" ]; then
+    echo "Warning: '$f' is not a file, skipping." >&2; continue
+  fi
+
+  dir=$(dirname -- "$f")
+  base=$(basename -- "$f")
+  ext=""
+  name="$base"
+  # split extension (handle filenames with multiple dots)
+  if [[ "$base" == *.* ]]; then
+    ext=".${base##*.}"
+    name="${base%.*}"
+  fi
+
+  out="$dir/${name}${suffix}${ext}"
+
+  if [ "$verbose" -ne 0 ]; then
+    echo "Processing '$f' -> '$out' (scale=${scale}%)"
+  fi
+
+  # build command
+  if [ "$IM_CMD" = "magick" ]; then
+    # modern ImageMagick uses 'magick input -resize 50% output'
+    if [[ "${ext,,}" = ".jpg" || "${ext,,}" = ".jpeg" ]]; then
+      "$IM_CMD" "$f" -resize "${scale}%" -quality "$quality" "$out"
+    else
+      "$IM_CMD" "$f" -resize "${scale}%" "$out"
+    fi
+  else
+    # convert command
+    if [[ "${ext,,}" = ".jpg" || "${ext,,}" = ".jpeg" ]]; then
+      "$IM_CMD" "$f" -resize "${scale}%" -quality "$quality" "$out"
+    else
+      "$IM_CMD" "$f" -resize "${scale}%" "$out"
+    fi
+  fi
+
+done
+
+# mark todo item 1 as completed (non-blocking; best-effort)
+exit 0
