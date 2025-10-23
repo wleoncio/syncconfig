@@ -5,7 +5,6 @@ alias cleanR="sudo docker run --rm -ti r-base bash"
 alias matlab-cli="/usr/local/bin/matlab -nodesktop -nosplash"
 alias gt="git"
 alias quem\?="cat /tmp/author.txt | tgpt --quiet 'Who is this person from the world of software development?' --provider isou"
-alias log="libreoffice ~/UiO/Docs/Misc/worklog.ods"
 
 # System shortcuts
 alias nvtop="watch -d -n 0.5 nvidia-smi"
@@ -20,7 +19,7 @@ alias pqp="fuck"
 alias fd="fdfind"
 alias tree="ls --tree"
 
-# UiO servers
+# UiO server ops
 alias pushuio="uiosync push"
 alias pulluio="uiosync pull"
 alias smaug="ssh waldirln@login.uio.no"
@@ -36,5 +35,5 @@ alias ai="tgpt --interactive --provider pollinations"
 alias mistral="ollama run mistral"
 alias copilot="tgpt --interactive"
 
-# Environment variables hidden on (uncommited) .sensitive_env
+# Environment variables hidden on .sensitive_env (uncommited) 
 [ -f "$HOME/.sensitive_env" ] && source "$HOME/.sensitive_env"
