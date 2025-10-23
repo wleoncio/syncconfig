@@ -3,7 +3,6 @@ alias work="gh dash"
 alias r="~/venv/bin/radian"
 alias cleanR="sudo docker run --rm -ti r-base bash"
 alias matlab-cli="/usr/local/bin/matlab -nodesktop -nosplash"
-alias copilot="tgpt --interactive"
 alias gt="git"
 alias quem\?="cat /tmp/author.txt | tgpt --quiet 'Who is this person from the world of software development?' --provider isou"
 alias log="libreoffice ~/UiO/Docs/Misc/worklog.ods"
@@ -19,7 +18,6 @@ alias lstar="tar -ztvf"
 alias ls="eza"
 alias pqp="fuck"
 alias fd="fdfind"
-alias mistral="ollama run mistral"
 alias tree="ls --tree"
 
 # UiO servers
@@ -33,8 +31,10 @@ alias fox="ssh ec-waldirln@fox.educloud.no"
 # Common folders
 alias tmp="cd /tmp"
 
-# Life shortcuts 
+# LLMs
 alias ai="tgpt --interactive --provider pollinations"
+alias mistral="ollama run mistral"
+alias copilot="tgpt --interactive"
 
 # Environment variables hidden on (uncommited) .sensitive_env
 [ -f "$HOME/.sensitive_env" ] && source "$HOME/.sensitive_env"
