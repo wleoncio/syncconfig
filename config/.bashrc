@@ -24,7 +24,7 @@ fi
 
 # Linking custom scripts to $PATH
 ln -f $HOME/Programs/syncconfig/myScripts/* $HOME/.local/bin
-ln -f $HOME/Programs/syncconfig/syncconfig.sh $HOME/.local/bin
+ln -f $HOME/Programs/syncconfig/syncconfig $HOME/.local/bin
 
 # Environment variables
 export PATH=$PATH:~/.local/bin:~/.cargo/bin
