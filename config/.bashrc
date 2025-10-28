@@ -54,3 +54,13 @@ unset __conda_setup
 # Starting zoxide (replaces cd) and fzf
 eval "$(zoxide init bash)"
 eval "$(fzf --bash)"
+
+# Enable superfile "cd on quit" (https://superfile.dev/configure/superfile-config/#cd_on_quit)
+spf() {
+	export SPF_LAST_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/superfile/lastdir"
+	command spf "$@"
+	[ ! -f "$SPF_LAST_DIR" ] || {
+		. "$SPF_LAST_DIR"
+		rm -f -- "$SPF_LAST_DIR" > /dev/null
+	}
+}

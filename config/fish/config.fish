@@ -58,3 +58,24 @@ end
 # qlty
 set --export QLTY_INSTALL "$HOME/.qlty"
 set --export PATH $QLTY_INSTALL/bin $PATH
+
+# superfile cd_on_quit (https://raw.githubusercontent.com/yorukot/superfile/refs/heads/main/cd_on_quit/cd_on_quit.fish)
+function spf
+	set os $(uname -s)
+
+	if test "$os" = "Linux"
+		set spf_last_dir "$HOME/.local/state/superfile/lastdir"
+	end
+
+	if test "$os" = "Darwin"
+		set spf_last_dir "$HOME/Library/Application Support/superfile/lastdir"
+	end
+
+	command spf $argv
+
+	if test -f "$spf_last_dir"
+		source "$spf_last_dir"
+		rm -f -- "$spf_last_dir" >> /dev/null
+	end
+end
+
