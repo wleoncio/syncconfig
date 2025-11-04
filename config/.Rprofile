@@ -5,8 +5,6 @@ is_radian <- Sys.getenv("RADIAN_VERSION") != ""
 is_interactive <- interactive()
 
 if (is_interactive) {
-	require(statquotes, quietly = TRUE)
-	print(statquote())
 	if (!is_radian) {
 		require(colorout, quietly = TRUE)
 		if ("colorout" %in% installed.packages()) {
