@@ -38,7 +38,6 @@ alias tmp="cd /tmp"
 # LLMs
 alias ai="tgpt --interactive --provider pollinations"
 alias mistral="ollama run mistral"
-alias copilot="tgpt --interactive"
 
 # Environment variables hidden on .sensitive_env (uncommited) 
 [ -f "$HOME/.sensitive_env" ] && source "$HOME/.sensitive_env"
