@@ -36,7 +36,7 @@ alias fox="ssh ec-waldirln@fox.educloud.no"
 alias tmp="cd /tmp"
 
 # LLMs
-alias ai="tgpt --interactive --provider pollinations"
+alias ai="tgpt --interactive"
 alias mistral="ollama run mistral"
 
 # Environment variables hidden on .sensitive_env (uncommited) 
