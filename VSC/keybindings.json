@@ -109,6 +109,12 @@
         "when": "terminalFocus"
     },
     {
+        "key": "ctrl+shift+r ctrl+l",
+        "command": "r.runCommand",
+        "args": "rlang::last_trace()",
+        "when": "terminalFocus"
+    },
+    {
         "key": "ctrl+shift+r ctrl+shift+p",
         "command": "r.runCommand",
         "args": "Rprof(NULL); summaryRprof(); file.remove('Rprof.out')",
