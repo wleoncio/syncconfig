@@ -39,5 +39,5 @@ fi
 
 if [ -e /usr/bin/R ]; then
 	printf "\n${bold_orange}# R ##############################################${normal}\n"
-	Rscript -e "update.packages(lib.loc=.libPaths()[1], ask=FALSE); message('Done')"
+	Rscript -e "update.packages(lib.loc=.libPaths(), ask=FALSE); message('Done')"
 fi
