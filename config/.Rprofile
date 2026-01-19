@@ -40,5 +40,11 @@ options(repos = "https://cran.uib.no")
 options(error = rlang::entrace)
 Sys.setenv(LANGUAGE = "en_US.UTF-8")
 
+# Using default library paths from https://cran.r-project.org/doc/manuals/R-admin.html
+Sys.setenv("R_HOME" = "/usr/lib/R") # I'm usually the only user, no reason to have multiple sites
+Sys.setenv("R_LIBS_SITE" = "") # Ubuntu will create one anyway to install from APT
+Sys.setenv("R_LIBS_USER" = "")
+.libPaths("/usr/lib/R/library") # make sure this is the default one
+
 # Cleanup
 rm(is_radian, is_interactive)
