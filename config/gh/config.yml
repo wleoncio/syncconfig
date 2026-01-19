@@ -32,6 +32,7 @@ aliases:
     plot: contribs --glyph block --xgap --labels
     prc: pr create
     sky: skyline --year 2020-2026 --output /tmp/gh-skyline.stl
+    icl: issue close
 # The path to a unix socket through which send HTTP connections. If blank, HTTP traffic will be handled by net/http.DefaultTransport.
 http_unix_socket:
 # What web browser gh should use when opening URLs. If blank, will refer to environment.
