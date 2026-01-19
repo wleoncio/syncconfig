@@ -22,7 +22,7 @@ alias lsla=lsal
 alias lst="eza --tree --level 2"
 alias pqp="fuck"
 alias fd="fdfind"
-alias tree="ls --tree"
+alias tree="ls --tree --long"
 
 # UiO server ops
 alias pushuio="uiosync push"
