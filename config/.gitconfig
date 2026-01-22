@@ -16,7 +16,7 @@
   lgg = log --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
   lgs = log --graph --pretty=short --abbrev-commit --stat
   lgss = log --graph --pretty=short --abbrev-commit --shortstat
-  forget = !sh -c 'git filter-branch --index-filter "git rm -rf --cached --ignore-unmatch ${1}" HEAD' -
+  untrace = rm --cached
   countcomm = rev-list --count
   co = checkout
   cb = checkout
@@ -40,6 +40,8 @@
   cmft = !sh -c 'git commit --branch --message \"✨ Feat: ${0}\"'
   cmfx = !sh -c 'git commit --branch --message \"🐞 Fix: ${0}\"'
   cmbr = !sh -c 'git commit --branch --message \"💥 BREAKING CHANGE: ${0}\"'
+  cmdry = !sh -c 'git commit --branch --message \"Refactor: ${0}\"'
+  cmdoc = !sh -c 'git commit --branch --message \"Docs: ${0}\"'
   cma = commit --amend
   rb  = rebase --autosquash
   rbi = rebase --interactive --autosquash
