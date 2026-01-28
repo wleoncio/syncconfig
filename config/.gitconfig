@@ -79,7 +79,7 @@
   changed = green
   untracked = cyan
 [help]
-  autocorrect = 1
+  autocorrect = 0
 [merge]
   ff = no
 [pull]
