@@ -41,7 +41,7 @@
   cmfx = !sh -c 'git commit --branch --message \"🐞 Fix: ${0}\"'
   cmbr = !sh -c 'git commit --branch --message \"💥 BREAKING CHANGE: ${0}\"'
   cmdry = !sh -c 'git commit --branch --message \"Refactor: ${0}\"'
-  cmdoc = !sh -c 'git commit --branch --message \"Docs: ${0}\"'
+  cmdc = !sh -c 'git commit --branch --message \"Docs: ${0}\"'
   cma = commit --amend
   rb  = rebase --autosquash
   rbi = rebase --interactive --autosquash
