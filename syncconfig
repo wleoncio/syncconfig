@@ -241,9 +241,9 @@ case "$command" in
 		;;
 	diff)
 		echo -e "\n\e[34m# Dry-run: comparing local files with local git repository\e[0m\n"
-		diffFlags="--recursive --color=always"
+		diffFlags="--recursive --color=always --context=0"
 		echo -e "Showing changes to be made to local files\n"
-		diffFlags=""$diffFlags" --suppress-common-lines -bZB -C 1"
+		diffFlags=""$diffFlags" --suppress-common-lines -bZB"
 		syncFiles diff "${homePaths[*]}" "${locationPaths[*]}" "$diffFlags"
 		;;
 	"")
