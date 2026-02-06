@@ -131,7 +131,7 @@ if [ "$skip_conflict_check" != "true" ]; then
 		echo -e "${oransje:-\e[38;5;214m}No changes found${reset}"
 	fi
 	else
-		echo "Skipping conflict check"
+		echo -e "${oransje:-\e[38;5;214m}Skipping conflict check${reset}"
 	fi
 fi
 
