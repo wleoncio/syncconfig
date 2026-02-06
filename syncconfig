@@ -212,6 +212,12 @@ syncFiles () {
 	fi
 }
 
+# Helper to run syncFiles diff with given flags
+run_diff() {
+	local flags="$1"
+	local diffFlagsBase="--recursive --color=always"
+	syncFiles diff "${homePaths[*]}" "${locationPaths[*]}" "$diffFlagsBase $flags"
+}
 # ==============================================================================
 # Actually performing requested operation
 # ==============================================================================
@@ -225,7 +231,8 @@ case "$command" in
 		;;
 	pull)
 		echo -e "\n\e[34m# Copying files from local git repository\e[0m\n"
-		changedFiles=$(syncFiles diff "${homePaths[*]}" "${locationPaths[*]}" "--brief")
+		diffFlagsPull="--brief"
+		changedFiles=$(run_diff "$diffFlagsPull")
 		if [ "$changedFiles" = "" ]; then
 			proceed="y"
 		else
@@ -241,17 +248,15 @@ case "$command" in
 		;;
 	diff)
 		echo -e "\n\e[34m# Dry-run: comparing local files with local git repository\e[0m\n"
-		diffFlags="--recursive --color=always --context=0"
+		diffFlagsDiff="--context=0 --suppress-common-lines -bZB"
 		echo -e "Showing changes to be made to local files\n"
-		diffFlags=""$diffFlags" --suppress-common-lines -bZB"
-		syncFiles diff "${homePaths[*]}" "${locationPaths[*]}" "$diffFlags"
+		run_diff "$diffFlagsDiff"
 		;;
 	"")
 		echo -e "\n\e[34m# Dry-run: comparing local files with local git repository\e[0m\n"
-		diffFlags="--recursive --color=always"
+		diffFlagsEmpty="--brief"
 		echo -e "To get diff details, run this script with 'diff' as the first argument\n"
-		diffFlags=""$diffFlags" --brief"
-		syncFiles diff "${homePaths[*]}" "${locationPaths[*]}" "$diffFlags"
+		run_diff "$diffFlagsEmpty"
 		;;
 	*)
 		echo -e "$fail Unknown command: $command"
