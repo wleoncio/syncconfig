@@ -3,21 +3,22 @@
 
 source uio-colors.sh
 
-version="1.0.0 licensed under GPLv3"
+version="1.1.0 licensed under GPLv3"
 
 usage() {
-  less << EOU
+	less << EOU
 Usage:
-  $(basename $0) COMMAND
-  $(basename $0) -h | --help
-  $(basename $0) --version
+	$(basename $0) [--no-conflict-check] COMMAND
+	$(basename $0) -h | --help
+	$(basename $0) --version
 
 Arguments:
 	COMMAND    Operation (push | pull)
 
 Options:
-  -h --help  Show this help message and exit
-  --version  Show version and exit
+	--no-conflict-check  Skip the file conflict check step
+	-h --help            Show this help message and exit
+	--version            Show version and exit
 EOU
 }
 
@@ -30,6 +31,7 @@ fi
 # Setting variables
 eval "$(docopts -A ARGS -h "$(usage)" -V "$version" : "$@")"
 command="${ARGS['COMMAND']}"
+skip_conflict_check="${ARGS['--no-conflict-check']}"
 
 # Config constants
 configPath=$HOME/.config/uiosync.conf
@@ -100,16 +102,19 @@ fi
 # Dry run
 templog="/tmp/uiosync_files.log"
 touch "$templog"
-read -p "Check for file conflicts? (y/N) " -t 3 check
-echo ""
-if [ "$check" = "y" ]; then
-  	# Check for conflicts
+if [ "$skip_conflict_check" = "true" ]; then
+  echo "Skipping conflict check (argument provided)"
+else
+	read -p "Check for file conflicts? (y/N) " -t 3 check
+	echo ""
+	if [ "$check" = "y" ]; then
+		# Check for conflicts
 	echo "Checking for file conflicts. Please wait."
-  eval rsync -a --verbose --dry-run --delete "$from/" "$to" > "$templog"
+	eval rsync -a --verbose --dry-run --delete "$from/" "$to" > "$templog"
 	dirs=$(cat "$templog" | grep "/$" | grep -v "\.git/.")
 	if [ -n "$dirs" ]; then
 		echo -e "\nFound changes in the following ${oransje}directories${reset}"
-	  echo -e "${lysblaa}${dirs}${reset}\n"
+		echo -e "${lysblaa}${dirs}${reset}\n"
 		read -p "List changed files? (y/N) " filechange
 		if [ "$filechange" = "y" ]; then
 			files=$(cat "$templog" \
@@ -125,10 +130,11 @@ if [ "$check" = "y" ]; then
 			echo -e "${lysblaa}${files}${reset}"
 		fi
 	else
-	  echo -e "${oransje:-\e[38;5;214m}No changes found${reset}"
+		echo -e "${oransje:-\e[38;5;214m}No changes found${reset}"
 	fi
-else
+	else
 	echo "Skipping conflict check"
+	fi
 fi
 
 # Actual run
