@@ -4,7 +4,7 @@ alias r="~/venv/bin/radian"
 alias cleanR="sudo docker run --rm -ti r-base bash"
 alias matlab-cli="/usr/local/bin/matlab -nodesktop -nosplash"
 alias gt="git"
-alias quem\?="cat /tmp/author.txt | tgpt --quiet 'Who is this person from the world of software development?' --provider isou"
+alias quem\?="copilot --silent --prompt 'Who is the person named in /tmp/author.txt, from the world of software development? Please start your answer with their name, no need to mention the file name.'"
 
 # System shortcuts
 alias nvtop="watch -d -n 0.5 nvidia-smi"
