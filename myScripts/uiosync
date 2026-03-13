@@ -8,7 +8,7 @@ version="1.2.0 licensed under GPLv3"
 usage() {
 	less << EOU
 Usage:
-	$(basename $0) [--no-conflict-check] COMMAND
+	$(basename $0) [--no-conflict-check | --skip-conflict-check] COMMAND
 	$(basename $0) -h | --help
 	$(basename $0) --version
 
@@ -16,9 +16,10 @@ Arguments:
 	COMMAND    Operation (push | pull)
 
 Options:
-	--no-conflict-check  Skip the file conflict check step
-	-h --help            Show this help message and exit
-	--version            Show version and exit
+	--no-conflict-check    Skip the file conflict check step
+	--skip-conflict-check  Alias for --no-conflict-check
+	-h --help              Show this help message and exit
+	--version              Show version and exit
 EOU
 }
 
@@ -32,6 +33,7 @@ fi
 eval "$(docopts -A ARGS -h "$(usage)" -V "$version" : "$@")"
 command="${ARGS['COMMAND']}"
 skip_conflict_check="${ARGS['--no-conflict-check']}"
+[ "${ARGS['--skip-conflict-check']}" = "true" ] && skip_conflict_check="true"
 
 # Config constants
 configPath=$HOME/.config/uiosync.conf
