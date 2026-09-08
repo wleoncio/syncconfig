@@ -6,7 +6,7 @@ format = """
 [](fg:graa)\
 [  ](bg:graa fg:svart)\
 $directory[](fg:roed)\
-( $git_branch $git_status$git_state)
+( $git_branch $git_status$git_state$git_metrics)
 $character
 """
 
@@ -52,6 +52,7 @@ format = '([\[$conflicted$stashed$deleted$renamed[$staged](bold oransje)[$modifi
 
 [git_metrics]
 disabled = false
+format = '([\[](bold lysroed)LOC: [+$added]($added_style) )([-$deleted]($deleted_style)[\]](bold lysroed))'
 
 [rlang]
 symbol='󰟔'

@@ -377,5 +377,9 @@
     "workbench.sideBar.location": "right",
     "editor.stickyScroll.defaultModel": "indentationModel",
     "vim.highlightedyank.textColor": "#fff",
-    "diffEditor.ignoreTrimWhitespace": true
+    "diffEditor.ignoreTrimWhitespace": true,
+    "terminal.integrated.commandsToSkipShell": [
+        "matlab.interrupt"
+    ],
+    "DockerRun.DisableAutoGenerateConfig": true
 }
