@@ -64,3 +64,8 @@ spf() {
 		rm -f -- "$SPF_LAST_DIR" > /dev/null
 	}
 }
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/waldir/.lmstudio/bin"
+# End of LM Studio CLI section
+
