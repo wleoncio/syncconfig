@@ -37,7 +37,8 @@ truncation_symbol = "…/"
 [git_branch]
 symbol = ""
 style = "fg:svart bg:oransje"
-format = '[](fg:oransje)[$symbol $branch]($style)[](fg:oransje)'
+format = '[](fg:oransje)[$symbol $branch]($style)[](fg:oransje) ([](fg:lysblaa)[ $remote_name/$remote_branch](fg:svart bg:lysblaa)[](fg:lysblaa))'
+always_show_remote = true
 
 [git_status]
 style = "bold lysroed"
