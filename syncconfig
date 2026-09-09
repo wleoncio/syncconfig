@@ -235,9 +235,12 @@ copy_pull_file() {
 		return
 	fi
 
-	if [ "$skipConfirmation" = "true" ] || [ ! -e "$destination" ]; then
+	if [ ! -e "$destination" ]; then
+		echo "Creating $destination"
 		proceed="y"
-	elif [ -e "$destination" ]; then
+	elif [ "$skipConfirmation" = "true" ]; then
+		proceed="y"
+	else
 		read -r -p "Overwrite $destination? (y/N) " proceed || proceed="n"
 	fi
 
