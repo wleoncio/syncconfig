@@ -5,7 +5,7 @@ version="0.1.0 under GPLv3 (https://choosealicense.com/licenses/gpl-3.0/)"
 usage() {
 	cat << EOU
 Usage:
-	syncconfig COMMAND
+	syncconfig COMMAND [--skip-confirmation]
 	syncconfig -h | --help
 	syncconfig --version
 
@@ -15,8 +15,9 @@ Arguments:
 	COMMAND    Operation (push | pull | diff)
 
 Options:
-	-h --help  Print this help and exit
-	--version  Print version and exit
+	-h --help             Print this help and exit
+	--skip-confirmation   Skip overwrite confirmations when pulling
+	--version             Print version and exit
 EOU
 }
 
@@ -27,6 +28,7 @@ fail="\xE2\x9D\x8C"
 help=$(usage)
 eval "$(docopts -A ARGS -h "$help" -V "$version" : "$@")"
 command="${ARGS['COMMAND']}"
+skipConfirmation="${ARGS['--skip-confirmation']}"
 
 # Script to manually sync files with GitHub
 # Tip: edit the crontab file to make this run automatically
@@ -218,6 +220,96 @@ run_diff() {
 	local diffFlagsBase="--recursive --color=always"
 	syncFiles diff "${homePaths[*]}" "${locationPaths[*]}" "$diffFlagsBase $flags"
 }
+
+copy_pull_file() {
+	local source="$1"
+	local destination="$2"
+	local proceed="y"
+
+	if [ ! -e "$source" ]; then
+		return
+	fi
+
+	if [ -e "$destination" ] && cmp -s "$source" "$destination"; then
+		return
+	fi
+
+	if [ "$skipConfirmation" != "true" ] && [ -e "$destination" ]; then
+		read -p "Overwrite $destination? (y/N) " proceed
+	fi
+
+	if [ "$proceed" = "y" ]; then
+		mkdir -p "$(dirname "$destination")"
+		cp "$source" "$destination"
+		pullChanges=1
+	else
+		skippedFiles=1
+	fi
+}
+
+copy_pull_directory() {
+	local source="$1"
+	local destination="$2"
+	local entry=""
+	local relative=""
+
+	if [ ! -d "$source" ]; then
+		return
+	fi
+
+	while IFS= read -r -d '' entry; do
+		relative="${entry#"$source"/}"
+		if [ -d "$entry" ]; then
+			mkdir -p "$destination/$relative"
+		else
+			copy_pull_file "$entry" "$destination/$relative"
+		fi
+	done < <(find "$source" -mindepth 1 -print0)
+}
+
+pull_files() {
+	pullChanges=0
+	skippedFiles=0
+
+	copy_pull_file "${locationPaths[0]}/.bash_aliases" "${homePaths[0]}/.bash_aliases"
+	copy_pull_file "${locationPaths[0]}/.bashrc" "${homePaths[0]}/.bashrc"
+	copy_pull_file "${locationPaths[0]}/.gitconfig" "${homePaths[0]}/.gitconfig"
+	copy_pull_file "${locationPaths[0]}/.radian_profile" "${homePaths[0]}/.radian_profile"
+	copy_pull_file "${locationPaths[0]}/.vimrc" "${homePaths[0]}/.vimrc"
+	copy_pull_file "${locationPaths[0]}/.keynavrc" "${homePaths[0]}/.keynavrc"
+	copy_pull_file "${locationPaths[0]}/.xbindkeysrc" "${homePaths[0]}/.xbindkeysrc"
+	copy_pull_file "${locationPaths[0]}/.xinitrc" "${homePaths[0]}/.xinitrc"
+	copy_pull_file "${locationPaths[0]}/.Xresources" "${homePaths[0]}/.Xresources"
+	copy_pull_file "${locationPaths[0]}/.Rprofile" "${homePaths[0]}/.Rprofile"
+	copy_pull_file "${locationPaths[1]}/gromit-mpx.cfg" "${homePaths[1]}/gromit-mpx.cfg"
+	copy_pull_file "${locationPaths[1]}/starship.toml" "${homePaths[1]}/starship.toml"
+	copy_pull_file "${locationPaths[1]}/alacritty.toml" "${homePaths[1]}/alacritty.toml"
+	copy_pull_file "${locationPaths[1]}/gh/config.yml" "${homePaths[1]}/gh/config.yml"
+	copy_pull_file "${locationPaths[1]}/gh-dash/config.yml" "${homePaths[1]}/gh-dash/config.yml"
+	copy_pull_file "${locationPaths[1]}/fish/config.fish" "${homePaths[1]}/fish/config.fish"
+	copy_pull_file "${locationPaths[1]}/superfile/config.toml" "${homePaths[1]}/superfile/config.toml"
+	copy_pull_file "${locationPaths[1]}/superfile/hotkeys.toml" "${homePaths[1]}/superfile/hotkeys.toml"
+	copy_pull_file "${locationPaths[5]}/config" "${homePaths[5]}/config"
+
+	if [ "$compositor" != "other" ]; then
+		copy_pull_file "${locationPaths[2]}/$compositor" "${homePaths[2]}/$compositor"
+	fi
+
+	if [ "$i3dir" != "none" ]; then
+		copy_pull_directory "${locationPaths[3]}" "${homePaths[3]}"
+	fi
+
+	if [ "$notifier" != "other" ]; then
+		copy_pull_file "${locationPaths[4]}/$notifier" "${homePaths[4]}/$notifier"
+	fi
+
+	if [ "$VSCdir" != "none" ]; then
+		copy_pull_file "${locationPaths[6]}/keybindings.json" "${homePaths[6]}/keybindings.json"
+		copy_pull_file "${locationPaths[6]}/settings.json" "${homePaths[6]}/settings.json"
+		copy_pull_file "${locationPaths[6]}/tasks.json" "${homePaths[6]}/tasks.json"
+		copy_pull_directory "${locationPaths[6]}/snippets" "${homePaths[6]}/snippets"
+	fi
+}
 # ==============================================================================
 # Actually performing requested operation
 # ==============================================================================
@@ -231,19 +323,11 @@ case "$command" in
 		;;
 	pull)
 		echo -e "\n\e[34m# Copying files from local git repository\e[0m\n"
-		diffFlagsPull="--brief"
-		changedFiles=$(run_diff "$diffFlagsPull")
-		if [ "$changedFiles" = "" ]; then
-			proceed="y"
-		else
-			echo -e "THIS OPERATION WILL \e[1;31mOVERWRITE\e[0m THE CONTENTS OF:\e[0m"
-			echo "$changedFiles" | awk '{print $2'\r'}'
-			read -p "Are you sure you want to continue? (y/N) " proceed
-		fi
-		if [ "$proceed" = "y" ]; then
-			syncFiles cp "${locationPaths[*]}" "${homePaths[*]}"
-		else
-			echo "Cancelling. Run syncconfig.sh diff to see the change details"
+		pull_files
+		if [ "$pullChanges" = "0" ] && [ "$skippedFiles" = "0" ]; then
+			echo "No repository changes to pull"
+		elif [ "$pullChanges" = "0" ]; then
+			echo "Cancelling. Run syncconfig diff to see the change details"
 		fi
 		;;
 	diff)
