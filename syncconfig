@@ -234,6 +234,10 @@ copy_pull_file() {
 		return
 	fi
 
+	if [ ! -e "$destination" ]; then
+		echo "Creating $destination"
+	fi
+
 	if [ "$skipConfirmation" != "true" ] && [ -e "$destination" ]; then
 		read -p "Overwrite $destination? (y/N) " proceed
 	fi
