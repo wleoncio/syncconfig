@@ -4,7 +4,7 @@ This is a repository containing some configuration files I use across my compute
 
 # Usage
 
-Just browse the repository and hand-pick the code you want. To make my own life easier, I've created the `syncconfig.sh` script to manually sync these files between my system and a local clone of this repository. Pull operations now prompt for each file overwrite with a default answer of `no`, and print when a missing local file is being created; use `--skip-confirmation` to apply all repository changes without prompting.
+Just browse the repository and hand-pick the code you want. To make my own life easier, I've created the `syncconfig` script to manually sync these files between my system and a local clone of this repository. Pull operations now prompt for each file overwrite with a default answer of `no`, and print when a missing local file is being created; use `--skip-confirmation` to apply all repository changes without prompting.
 
 # License
 

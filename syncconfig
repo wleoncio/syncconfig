@@ -5,6 +5,7 @@ version="0.1.0 under GPLv3 (https://choosealicense.com/licenses/gpl-3.0/)"
 usage() {
 	cat << EOU
 Usage:
+	syncconfig [--skip-confirmation] COMMAND
 	syncconfig COMMAND [--skip-confirmation]
 	syncconfig -h | --help
 	syncconfig --version
@@ -224,7 +225,7 @@ run_diff() {
 copy_pull_file() {
 	local source="$1"
 	local destination="$2"
-	local proceed="y"
+	local proceed="n"
 
 	if [ ! -e "$source" ]; then
 		return
@@ -236,13 +237,14 @@ copy_pull_file() {
 
 	if [ ! -e "$destination" ]; then
 		echo "Creating $destination"
+		proceed="y"
+	elif [ "$skipConfirmation" = "true" ]; then
+		proceed="y"
+	else
+		read -r -p "Overwrite $destination? (y/N) " proceed || proceed="n"
 	fi
 
-	if [ "$skipConfirmation" != "true" ] && [ -e "$destination" ]; then
-		read -p "Overwrite $destination? (y/N) " proceed
-	fi
-
-	if [ "$proceed" = "y" ]; then
+	if [ "$proceed" = "y" ] || [ "$proceed" = "Y" ]; then
 		mkdir -p "$(dirname "$destination")"
 		cp "$source" "$destination"
 		pullChanges=1
@@ -332,6 +334,8 @@ case "$command" in
 			echo "No repository changes to pull"
 		elif [ "$pullChanges" = "0" ]; then
 			echo "Cancelling. Run syncconfig diff to see the change details"
+		elif [ "$skippedFiles" = "1" ]; then
+			echo "Some files were skipped. Run syncconfig diff to see the change details"
 		fi
 		;;
 	diff)
