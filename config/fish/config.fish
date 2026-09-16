@@ -29,7 +29,6 @@ if status is-interactive
 	# Terminal add-ons
 	starship init fish | source
 	zoxide init --cmd cd fish | source
-	thefuck --alias | source
 	fzf --fish | source
 end
 
@@ -38,9 +37,6 @@ set fish_cursor_default block blink
 set fish_cursor_insert line
 set fish_cursor_replace_one block blink
 set fish_cursor_replace block blink
-
-# Override Alacritty cursors
-set fish_vi_force_cursor
 
 # Start on insert mode
 fish_vi_key_bindings insert
@@ -56,10 +52,6 @@ else if type -q batcat
 else
 	alias cat "cat"
 end
-
-# qlty
-set --export QLTY_INSTALL "$HOME/.qlty"
-set --export PATH $QLTY_INSTALL/bin $PATH
 
 # superfile cd_on_quit (https://raw.githubusercontent.com/yorukot/superfile/refs/heads/main/cd_on_quit/cd_on_quit.fish)
 function spf
@@ -80,11 +72,3 @@ function spf
 		rm -f -- "$spf_last_dir" >> /dev/null
 	end
 end
-
-
-fish_add_path /home/waldir/.spicetify
-
-# Added by LM Studio CLI (lms)
-set -gx PATH $PATH /home/waldir/.lmstudio/bin
-# End of LM Studio CLI section
-
