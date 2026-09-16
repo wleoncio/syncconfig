@@ -1,3 +1,4 @@
+# Determine dialog window title
 function fish_title
 		set --query argv[1]; or set argv "Terminal"
 		if test $argv = "Terminal"
@@ -47,6 +48,7 @@ fish_vi_key_bindings insert
 # Created by `pipx` on 2025-06-03 08:24:23
 set PATH $PATH /home/waldir/.local/bin
 
+# Aliases for bat(cat)
 if type -q bat
 	alias cat "bat --plain"
 else if type -q batcat
