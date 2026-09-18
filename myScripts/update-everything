@@ -17,6 +17,7 @@ normal=$(tput sgr0)
 
 # Checking for upgrades
 sudo --validate
+echo ""
 if [ -n "$package_manager_name" ]; then
 	printf "${bold_orange}# %s ###########################################${normal}\n" "$package_manager_name"
 	$package_manager_command
