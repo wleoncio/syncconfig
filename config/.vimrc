@@ -22,6 +22,11 @@ set noexpandtab
 colorscheme slate
 let g:loaded_matchparen = 1
 
+" Plug-Vim
+call plug#begin()
+Plug 'github/copilot.vim'
+call plug#end()
+
 " Enable relative number in normal mode
 set relativenumber
 augroup RelativeNumber
@@ -35,3 +40,10 @@ augroup ExitToNormal
 	autocmd FocusLost,TabLeave * stopinsert
 	autocmd FocusLost,TabLeave * call feedkeys("\<C-\>\<C-n>")
 augroup END
+
+" Copilot settings
+imap <M-C-Right> <Plug>(copilot-accept-word)
+imap <M-C-Down> <Plug>(copilot-accept-line)
+imap <M-C-Left> <Plug>(copilot-next)
+imap <M-C-Up> <Plug>(copilot-suggest)
+imap <M-C-BS> <Plug>(copilot-dismiss)
