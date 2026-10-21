@@ -1,5 +1,10 @@
 #!/bin/bash
 version="1.4.1 licensed under GPLv3"
+
+script_path=$(readlink -f "${BASH_SOURCE[0]}")
+repo_root=$(dirname "$(dirname "$script_path")")
+cd "$repo_root" || exit 1
+
 source uio-colors.sh
 
 usage() {
