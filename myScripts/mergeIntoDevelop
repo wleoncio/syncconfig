@@ -115,13 +115,27 @@ echo -e "\nMerging ${blaa}${feature_branch}${reset} into ${blaa}${target_branch}
 
 echo -e "- Add unit ${roed}tests${reset} for new code?"
 if [[ -f "DESCRIPTION" ]]; then
-	echo "  Delinting package:"
-	Rscript -e 'lintr::lint_package(linters = list(
+	lint_output=$(mktemp)
+	if ! Rscript -e 'lints <- lintr::lint_package(linters = list(
 		object_usage_linter = lintr::object_usage_linter(),
 		unreachable_code_linter = lintr::unreachable_code_linter(),
 		undesirable_function_linter = lintr::undesirable_function_linter(),
 		cyclocomp_linter = lintr::cyclocomp_linter()
-	))'
+	)); if (length(lints) > 0) print(lints)' > "$lint_output" 2>&1; then
+		cat "$lint_output"
+		rm -f "$lint_output"
+		exit 1
+	fi
+	if [[ -s "$lint_output" ]]; then
+		echo -n "  Lints found. Print output? [y/N] "
+		read -r print_lints
+		if [[ "$print_lints" =~ ^[Yy]$ ]]; then
+			cat "$lint_output"
+		fi
+	else
+		echo "  No lints found"
+	fi
+	rm -f "$lint_output"
 	if [[ $covr == true ]]; then
 		echo -n "  Calculating package coverage on merge: "
 		cvrg=$(Rscript -e "cat(round(covr::percent_coverage(covr::package_coverage()), 2))")
