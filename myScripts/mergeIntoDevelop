@@ -115,6 +115,7 @@ echo -e "\nMerging ${blaa}${feature_branch}${reset} into ${blaa}${target_branch}
 
 echo -e "- Add unit ${roed}tests${reset} for new code?"
 if [[ $covr == true && -f "DESCRIPTION" ]]; then
+	echo -e "- Delint the package and check it for ${roed}code smells${reset}?"
 	echo -n "  Calculating package coverage on merge: "
 	cvrg=$(Rscript -e "cat(round(covr::percent_coverage(covr::package_coverage()), 2))")
 	echo -e "${roed}$cvrg %${reset}"
