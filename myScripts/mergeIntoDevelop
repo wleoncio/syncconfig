@@ -114,11 +114,19 @@ fi
 echo -e "\nMerging ${blaa}${feature_branch}${reset} into ${blaa}${target_branch}${reset}. Did you remember to:"
 
 echo -e "- Add unit ${roed}tests${reset} for new code?"
-if [[ $covr == true && -f "DESCRIPTION" ]]; then
-	echo -e "- Delint the package and check it for ${roed}code smells${reset}?"
-	echo -n "  Calculating package coverage on merge: "
-	cvrg=$(Rscript -e "cat(round(covr::percent_coverage(covr::package_coverage()), 2))")
-	echo -e "${roed}$cvrg %${reset}"
+if [[ -f "DESCRIPTION" ]]; then
+	echo "  Delinting package:"
+	Rscript -e 'lintr::lint_package(linters = list(
+		object_usage_linter = lintr::object_usage_linter(),
+		unreachable_code_linter = lintr::unreachable_code_linter(),
+		undesirable_function_linter = lintr::undesirable_function_linter(),
+		cyclocomp_linter = lintr::cyclocomp_linter()
+	))'
+	if [[ $covr == true ]]; then
+		echo -n "  Calculating package coverage on merge: "
+		cvrg=$(Rscript -e "cat(round(covr::percent_coverage(covr::package_coverage()), 2))")
+		echo -e "${roed}$cvrg %${reset}"
+	fi
 fi
 
 if [[ -f "NEWS.md" ]]; then
