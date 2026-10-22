@@ -202,7 +202,6 @@
     "notebook.lineNumbers": "on",
     "notebook.stickyScroll.enabled": true,
     "outline.icons": false,
-    "python.defaultInterpreterPath": "/home/waldir/venv/bin/python3",
     "python.REPL.sendToNativeREPL": true,
     "python.terminal.activateEnvironment": false,
     "quarto.render.previewType": "external",
@@ -212,7 +211,6 @@
     "r.lsp.diagnostics": false,
     "r.lsp.enabled": false,
     "r.rpath.linux": "/usr/bin/R",
-    "r.rterm.linux": "${userHome}/.local/bin/radian",
     "remote.SSH.configFile": "/home/waldir/.ssh/config",
     "remote.SSH.connectTimeout": 30,
     "remote.SSH.showLoginTerminal": true,
@@ -381,5 +379,10 @@
     "terminal.integrated.commandsToSkipShell": [
         "matlab.interrupt"
     ],
-    "DockerRun.DisableAutoGenerateConfig": true
+    "DockerRun.DisableAutoGenerateConfig": true,
+    "settingsSync.ignoredSettings": [
+        "r.rterm.linux",
+        "-r.consolePath"
+    ],
+    "r.consolePath": "/usr/bin/R"
 }
