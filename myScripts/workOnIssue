@@ -13,13 +13,13 @@ if [[ $(git branch | grep issue-"$issue_number") ]]; then
 	exit 0
 fi	
 
-echo -e "${bold}${blaa}## Self-assigning issue on GitHub${reset}"
+echo -e "${bold}${blaa}# Self-assigning issue on GitHub${reset}"
 echo ""
 gh issue edit "$issue_number" --add-assignee @me
 
 
 echo ""
-echo -e "${bold}${blaa}## Creating and checking out branch${reset}"
+echo -e "${bold}${blaa}# Creating and checking out branch${reset}"
 echo ""
 git checkout -b issue-"$issue_number"
 
@@ -32,12 +32,12 @@ fi
 
 if [[ $is_pack = "true" ]]; then
 	echo ""
-	echo -e "${bold}${blaa}## Package coverage at checkout${reset}"
+	echo -e "${bold}${blaa}# Package coverage at checkout${reset}"
 	echo ""
 	Rscript -e "covr::percent_coverage(covr::package_coverage())"
 fi
 
 echo ""
-echo -e "${bold}${blaa}## Summary of issue${reset}"
+echo -e "${bold}${blaa}# Summary of issue${reset}"
 echo ""
 gh issue view "$issue_number"
