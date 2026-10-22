@@ -1,14 +1,15 @@
 #!/bin/bash
 # Continue working on a GitHub issue
 
+script_dir=$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")
+source "$script_dir/uio-colors.sh"
+
 issue_number=$1
 
 git checkout issue-"$issue_number"
 git rebase develop
 
 echo ""
-echo "####################"
-echo "# Summary of issue #"
-echo "####################"
+echo -e "${bold}${blaa}## Summary of issue${reset}"
 echo ""
 gh issue view "$issue_number"
