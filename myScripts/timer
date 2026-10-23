@@ -1,17 +1,35 @@
 #!/bin/bash
-# Counts down from $1 seconds, then sends message
+# Counts down from $1 seconds or minutes, then sends a message
 
-time=$1
+duration=$1
 
 # Help
-if [ -z "$time" ]
+if [[ $# -ne 1 || ! "$duration" =~ ^[0-9]+m?$ ]]
 then
-	echo "Usage: timer.sh [seconds]"
+	echo "Usage: timer <seconds>|<minutes>m"
+	exit 1
+fi
+
+amount=$((10#${duration%m}))
+time=$amount
+unit=seconds
+if [[ "$duration" == *m ]]
+then
+	time=$((time * 60))
+	unit=minutes
+fi
+if (( amount == 1 ))
+then
+	unit=${unit%s}
+fi
+if (( time < 1 ))
+then
+	echo "Duration must be greater than zero"
 	exit 1
 fi
 
 # Countdown
-echo "$(date +%H:%M:%S) - Counting down from $time seconds"
+echo "$(date +%H:%M:%S) - Counting down from ${duration%m} $unit"
 for i in `seq $time -1 1`
 do
 	echo -ne "\r$i "
@@ -19,5 +37,10 @@ do
 done
 
 # Final feedback
-echo -ne "\r$(date +%H:%M:%S) - $time seconds are over!\n"
+message="is"
+if [[ "$unit" == *s ]]
+then
+	message="are"
+fi
+echo -ne "\r$(date +%H:%M:%S) - ${duration%m} $unit $message over!\n"
 notify-send "Time's up!"
