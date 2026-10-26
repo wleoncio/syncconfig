@@ -52,7 +52,8 @@ if status is-interactive
 		end
 
 		rm -f $stderr_file
-		set -l prompt "$argv[1] is not a valid $primary_command command. Did you mean $fallback_command "(string join ' ' $argv)"? [y/N] "
+		set -l fallback_display (set_color --bold green)"$fallback_command "(string join ' ' $argv)(set_color normal)
+		set -l prompt "$argv[1] is not a valid $primary_command command. Did you mean $fallback_display? [y/N] "
 		read -l -P "$prompt" answer
 		if test "$answer" = y
 			command $fallback_command $argv
