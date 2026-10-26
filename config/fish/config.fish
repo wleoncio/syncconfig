@@ -40,7 +40,7 @@ if status is-interactive
 				set fallback_command gh
 			end
 		else if test "$primary_command" = gh
-			if string match -rq '^unknown command "[^"]+" for "gh"$' -- "$stderr_output"
+			if string match -rq '^unknown command "[^"]+" for "gh"' -- "$stderr_output"
 				set fallback_command git
 			end
 		end
