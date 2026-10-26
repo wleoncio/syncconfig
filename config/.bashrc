@@ -21,6 +21,8 @@ unset -f _set_my_PS1
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+unalias gt 2>/dev/null
+source "$HOME/Programs/syncconfig/myScripts/git-gh-fallback.sh"
 
 # Linking custom scripts to $PATH
 ln -f $HOME/Programs/syncconfig/myScripts/* $HOME/.local/bin
@@ -68,4 +70,3 @@ spf() {
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/home/waldir/.lmstudio/bin"
 # End of LM Studio CLI section
-

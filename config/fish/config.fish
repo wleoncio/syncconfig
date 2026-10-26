@@ -11,6 +11,65 @@ end
 if status is-interactive
   # Commands to run in interactive sessions can go here
 	source $HOME/.bash_aliases
+	function _git_gh_fallback
+		set -l primary_command $argv[1]
+		set -e argv[1]
+
+		if test (count $argv) -eq 0
+			command $primary_command
+			return
+		end
+
+		set -l stderr_file (mktemp)
+		or begin
+			echo "Unable to create a temporary file for command output." >&2
+			return 1
+		end
+
+		command $primary_command $argv 2>$stderr_file
+		set -l command_status $status
+		if test $command_status -eq 0
+			rm -f $stderr_file
+			return 0
+		end
+
+		set -l stderr_output (cat $stderr_file)
+		set -l fallback_command
+		if test "$primary_command" = git
+			if string match -rq "^git: '[^']+' is not a git command\\." -- "$stderr_output"
+				set fallback_command gh
+			end
+		else if test "$primary_command" = gh
+			if string match -rq '^unknown command "[^"]+" for "gh"$' -- "$stderr_output"
+				set fallback_command git
+			end
+		end
+
+		if test -z "$fallback_command"
+			cat $stderr_file >&2
+			rm -f $stderr_file
+			return $command_status
+		end
+
+		rm -f $stderr_file
+		set -l prompt "$argv[1] is not a valid $primary_command command. Did you mean $fallback_command "(string join ' ' $argv)"? [y/N] "
+		read -l -P "$prompt" answer
+		if test "$answer" = y
+			command $fallback_command $argv
+		else
+			return $command_status
+		end
+	end
+
+	functions -e gt
+	function gt
+		_git_gh_fallback git $argv
+	end
+
+	function gh
+		_git_gh_fallback gh $argv
+	end
+
 	fish_add_path $HOME/Programs/syncconfig/
 
 	# RSE-related quotes on work machine instead of fish greet
