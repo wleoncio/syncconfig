@@ -1,0 +1,11 @@
+#!/bin/sh
+
+branch=$(git branch --show-current)
+
+if [ "$branch" = main ] || [ "$branch" = master ]; then
+    git rev-parse -q --verify MERGE_HEAD >/dev/null ||
+        {
+            echo "Direct commits to $branch are blocked." >&2
+            exit 1
+        }
+fi

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version="0.1.0 under GPLv3 (https://choosealicense.com/licenses/gpl-3.0/)"
+version="0.2.0 under GPLv3 (https://choosealicense.com/licenses/gpl-3.0/)"
 
 usage() {
 	cat << EOU
@@ -189,6 +189,7 @@ syncFiles () {
 	eval "$operator" "${origin[1]}"/fish/config.fish "${destination[1]}"/fish/config.fish
 	eval "$operator" "${origin[1]}"/superfile/config.toml "${destination[1]}"/superfile/config.toml
 	eval "$operator" "${origin[1]}"/superfile/hotkeys.toml "${destination[1]}"/superfile/hotkeys.toml
+	eval "$operator" -r "${origin[1]}"/git/. "${destination[1]}"/git
 	eval "$operator" "${origin[5]}"/config "${destination[5]}"
 
 	if [ $compositor != "other" ]; then
@@ -295,6 +296,7 @@ pull_files() {
 	copy_pull_file "${locationPaths[1]}/fish/config.fish" "${homePaths[1]}/fish/config.fish"
 	copy_pull_file "${locationPaths[1]}/superfile/config.toml" "${homePaths[1]}/superfile/config.toml"
 	copy_pull_file "${locationPaths[1]}/superfile/hotkeys.toml" "${homePaths[1]}/superfile/hotkeys.toml"
+	copy_pull_directory "${locationPaths[1]}/git" "${homePaths[1]}/git"
 	copy_pull_file "${locationPaths[5]}/config" "${homePaths[5]}/config"
 
 	if [ "$compositor" != "other" ]; then

@@ -61,6 +61,7 @@
 [core]
   editor = vim
 	autocrlf = input
+	hooksPath = /home/waldir/.config/git/hooks
 [credential]
   helper = store
 [color]
