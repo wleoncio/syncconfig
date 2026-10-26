@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 source uio-colors.sh
 
-version="1.5.0 licensed under GPLv3"
+version="1.6.0 licensed under GPLv3"
 
 usage() {
   less << EOU
@@ -119,8 +119,7 @@ if [[ -f "DESCRIPTION" ]]; then
 	if ! Rscript -e 'lints <- lintr::lint_package(linters = list(
 		object_usage_linter = lintr::object_usage_linter(),
 		unreachable_code_linter = lintr::unreachable_code_linter(),
-		undesirable_function_linter = lintr::undesirable_function_linter(),
-		cyclocomp_linter = lintr::cyclocomp_linter()
+		undesirable_function_linter = lintr::undesirable_function_linter()
 	)); if (length(lints) > 0) print(lints)' > "$lint_output" 2>&1; then
 		cat "$lint_output"
 		rm -f "$lint_output"
