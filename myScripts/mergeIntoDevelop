@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 source uio-colors.sh
 
-version="1.9.0 licensed under GPLv3"
+version="1.10.0 licensed under GPLv3"
 
 usage() {
   less << EOU
@@ -144,15 +144,15 @@ if [[ -f "DESCRIPTION" ]]; then
 		exit 1
 	fi
 	if [[ -s "$lint_output" ]]; then
-		echo -n "  Lints found. Print output? [y/N] "
+		echo "  Lints found. Open $lint_output to view them. Print output here? [y/N]"
 		read -r print_lints
 		if [[ "$print_lints" =~ ^[Yy]$ ]]; then
 			cat "$lint_output"
 		fi
 	else
 		echo "  No lints found"
+		rm -f "$lint_output"
 	fi
-	rm -f "$lint_output"
 	if [[ $covr == true ]]; then
 		echo -n "  Calculating package coverage on merge: "
 		cvrg=$(Rscript -e "cat(round(covr::percent_coverage(covr::package_coverage()), 2))")
