@@ -152,6 +152,9 @@ else
 fi
 
 echo -e "- Updated the software ${roed}version${reset}?"
+if [[ -f "DESCRIPTION" ]]; then
+	echo -e "- Updated the R package ${roed}date${reset} in DESCRIPTION?"
+fi
 echo
 read -p "Press enter to continue, Ctrl+C to cancel"
 
