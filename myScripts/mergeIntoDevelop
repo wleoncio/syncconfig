@@ -144,7 +144,11 @@ if [[ -f "DESCRIPTION" ]]; then
 		exit 1
 	fi
 	if [[ -s "$lint_output" ]]; then
-		echo "  Lints found. Open $lint_output to view them."
+		echo "  Lints found. Open $lint_output to view them. Print output here? [y/N]"
+		read -r print_lints
+		if [[ "$print_lints" =~ ^[Yy]$ ]]; then
+			cat "$lint_output"
+		fi
 	else
 		echo "  No lints found"
 		rm -f "$lint_output"
