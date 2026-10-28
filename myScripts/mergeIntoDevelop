@@ -138,7 +138,8 @@ if [[ -f "DESCRIPTION" ]]; then
 	if [[ $covr == true ]]; then
 		echo -n "  Calculating package coverage on merge: "
 		cvrg=$(Rscript -e "cat(round(covr::percent_coverage(covr::package_coverage()), 2))")
-		echo -e "${roed}$cvrg %${reset}"
+		coverage_color=$(awk -v cvrg="$cvrg" 'BEGIN { if (cvrg > 80) print "groenn"; else if (cvrg >= 50) print "oransje"; else print "roed" }')
+		echo -e "${!coverage_color}$cvrg %${reset}"
 	fi
 fi
 
