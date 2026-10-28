@@ -131,6 +131,7 @@ fi
 echo
 read -p "Press enter to continue, Ctrl+C to cancel"
 
+# Checking for lints and coverage level
 if [[ -f "DESCRIPTION" ]]; then
 	lint_output=$(mktemp)
 	if ! Rscript -e 'lints <- lintr::lint_package(linters = list(
