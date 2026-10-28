@@ -73,16 +73,11 @@ fi
 # Prevent an unattended first sync from a different machine
 if [ "$yolo" = "true" ] && [ -f "$local/.uiosync.log" ]; then
 	last_sync=$(tail -n 1 "$local/.uiosync.log")
-	last_machine=$(printf '%s\n' "$last_sync" | awk '{
-		for (i = 1; i <= NF; i++) {
-			if ($i == "from") from = $(i + 1)
-			if ($i == "to") to = $(i + 1)
-		}
-	}
-	END {
-		if (from == "Hjemmeområdet") print to
-		else if (to == "Hjemmeområdet") print from
-	}')
+	last_machine=$(printf '%s\n' "$last_sync" | awk '
+		NF >= 4 && $(NF - 3) == "from" && $(NF - 1) == "to" {
+			if ($(NF - 2) == "Hjemmeområdet") print $NF
+			else if ($NF == "Hjemmeområdet") print $(NF - 2)
+		}')
 	current_machine=$(hostname)
 	if [ -n "$last_machine" ] && [ "$last_machine" != "$current_machine" ]; then
 		echo "Error: --yolo is disabled because the last sync was on $last_machine, not $current_machine."
