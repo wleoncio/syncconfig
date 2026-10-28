@@ -3,7 +3,7 @@
 
 source uio-colors.sh
 
-version="1.3.0 licensed under GPLv3"
+version="1.4.0 licensed under GPLv3"
 
 usage() {
 	less << EOU
