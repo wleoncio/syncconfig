@@ -18,7 +18,7 @@ Arguments:
 Options:
 	--no-conflict-check    Skip the file conflict check step
 	--skip-conflict-check  Alias for --no-conflict-check
-	--yolo                 Skip conflict check and confirmation, then sync immediately
+	--yolo                 Skip conflict check and confirmation unless last sync was on another machine
 	-h --help              Show this help message and exit
 	--version              Show version and exit
 EOU
@@ -68,6 +68,27 @@ elif [ $command = "push" ]; then
 	fromname=$(hostname)
 	toname="Hjemmeområdet"
 	icon=${oransje}"\xE2\x86\x91"
+fi
+
+# Prevent an unattended first sync from a different machine
+if [ "$yolo" = "true" ] && [ -f "$local/.uiosync.log" ]; then
+	last_sync=$(tail -n 1 "$local/.uiosync.log")
+	last_machine=$(printf '%s\n' "$last_sync" | awk '{
+		for (i = 1; i <= NF; i++) {
+			if ($i == "from") from = $(i + 1)
+			if ($i == "to") to = $(i + 1)
+		}
+	}
+	END {
+		if (from == "Hjemmeområdet") print to
+		else if (to == "Hjemmeområdet") print from
+	}')
+	current_machine=$(hostname)
+	if [ -n "$last_machine" ] && [ "$last_machine" != "$current_machine" ]; then
+		echo "Error: --yolo is disabled because the last sync was on $last_machine, not $current_machine."
+		echo "Run without --yolo to confirm syncing on this machine."
+		exit 1
+	fi
 fi
 
 # Running rsync
