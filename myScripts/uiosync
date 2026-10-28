@@ -3,7 +3,7 @@
 
 source uio-colors.sh
 
-version="1.3.0 licensed under GPLv3"
+version="1.4.0 licensed under GPLv3"
 
 usage() {
 	less << EOU
@@ -18,7 +18,7 @@ Arguments:
 Options:
 	--no-conflict-check    Skip the file conflict check step
 	--skip-conflict-check  Alias for --no-conflict-check
-	--yolo                 Skip conflict check and confirmation, then sync immediately
+	--yolo                 Skip conflict check and confirmation unless last sync was on another machine
 	-h --help              Show this help message and exit
 	--version              Show version and exit
 EOU
@@ -68,6 +68,22 @@ elif [ $command = "push" ]; then
 	fromname=$(hostname)
 	toname="Hjemmeområdet"
 	icon=${oransje}"\xE2\x86\x91"
+fi
+
+# Prevent an unattended first sync from a different machine
+if [ "$yolo" = "true" ] && [ -f "$local/.uiosync.log" ]; then
+	last_sync=$(tail -n 1 "$local/.uiosync.log")
+	last_machine=$(printf '%s\n' "$last_sync" | awk '
+		NF >= 4 && $(NF - 3) == "from" && $(NF - 1) == "to" {
+			if ($(NF - 2) == "Hjemmeområdet") print $NF
+			else if ($NF == "Hjemmeområdet") print $(NF - 2)
+		}')
+	current_machine=$(hostname)
+	if [ -n "$last_machine" ] && [ "$last_machine" != "$current_machine" ]; then
+		echo "Error: --yolo is disabled because the last sync was on $last_machine, not $current_machine."
+		echo "Run without --yolo to confirm syncing on this machine."
+		exit 1
+	fi
 fi
 
 # Running rsync
