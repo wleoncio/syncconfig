@@ -28,11 +28,12 @@ gul = '#fffea7'
 [directory]
 style = "bold fg:blaatone bg:roed"
 format = "[ $path ]($style)"
-truncation_length = 4
+truncation_length = 3
 truncation_symbol = "…/"
 
 [directory.substitutions]
 "Dropbox" = ""
+"UiO" = " "
 
 [git_branch]
 symbol = ""
