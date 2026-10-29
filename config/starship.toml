@@ -49,7 +49,10 @@ deleted = "($count)d"
 untracked = "($count)u"
 renamed = "($count)r"
 stashed = "(+ stash)"
-format = '([\[$conflicted$stashed$deleted$renamed[$staged](bold oransje)[$modified](bold groenn)$typechanged[$untracked](bold lysblaa)$ahead_behind\]]($style) )'
+conflicted = "($count)󰚑"
+ahead = "[⇡](bold groenn)"
+behind = "[⇣](bold roed)"
+format = '([\[[$conflicted](bold roed)$stashed$deleted$renamed[$staged](bold oransje)[$modified](bold groenn)$typechanged[$untracked](bold lysblaa)$ahead_behind\]]($style) )'
 
 [git_metrics]
 disabled = false
