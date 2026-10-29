@@ -328,7 +328,6 @@
     "window.menuBarVisibility": "toggle",
     "window.restoreWindows": "none",
     "window.titleBarStyle": "native",
-    "workbench.activityBar.location": "hidden",
     "workbench.colorCustomizations": {
         "editor.lineHighlightBackground": "#1073cf2d",
         "editor.lineHighlightBorder": "#9fced11f",
@@ -384,5 +383,11 @@
         "r.rterm.linux",
         "-r.consolePath"
     ],
-    "r.consolePath": "/usr/bin/R"
+    "r.consolePath": "/usr/bin/R",
+    "chat.viewSessions.orientation": "stacked",
+    "chat.tools.urls.autoApprove": {
+        "https://code.visualstudio.com": true,
+        "https://github.com/microsoft/vscode/wiki/*": true,
+        "https://github.com/ocbe-uio": true
+    }
 }
