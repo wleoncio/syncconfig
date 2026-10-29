@@ -56,7 +56,7 @@ format = '([\[[$conflicted](bold roed)$stashed$deleted$renamed[$staged](bold ora
 
 [git_metrics]
 disabled = false
-format = '([\[](bold lysroed)LOC: [+$added]($added_style) )([-$deleted]($deleted_style)[\]](bold lysroed))'
+format = '(\[LOC:([ +$added]($added_style))([ -$deleted]($deleted_style))\])'
 
 [rlang]
 symbol='󰟔'
