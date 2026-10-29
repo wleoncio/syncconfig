@@ -50,7 +50,7 @@ untracked = "($count)u"
 renamed = "($count)r"
 stashed = "(+ stash)"
 conflicted = "($count)󰚑"
-ahead = "[󰁞](bold groenn)"
+ahead = "[󰁞](bold blaa)"
 behind = "[󰁆](bold roed)"
 format = '([\[[$conflicted](bold roed)$stashed$deleted$renamed[$staged](bold oransje)[$modified](bold groenn)$typechanged[$untracked](bold lysblaa)$ahead_behind\]]($style) )'
 
