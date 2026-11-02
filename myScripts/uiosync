@@ -110,7 +110,9 @@ if [ "$skip_conflict_check" != "true" ]; then
 	if [ "$check" = "y" ]; then
 		# Check for conflicts
 		echo "Checking for file conflicts. Please wait."
-		eval rsync -a --verbose --dry-run --delete "$from/" "$to" > "$templog"
+		eval rsync -a --verbose --dry-run --delete \
+			--filter='P *.swp' --filter='P .~lock.*' \
+			--exclude='*.swp' --exclude='.~lock.*' "$from/" "$to" > "$templog"
 		dirs=$(cat "$templog" | grep "/$" | grep -v "\.git/.")
 		if [ -n "$dirs" ]; then
 			echo -e "\nFound changes in the following ${oransje}directories${reset}"
@@ -179,7 +181,9 @@ if [ "$yolo" = "true" ] || [ "$answer" = "y" ]; then
 	fi
 
 	# Actual sync
-	eval rsync -az --info=name --delete --delete-excluded "$from/" "$to" > "$templog"
+	eval rsync -az --info=name --delete --delete-excluded \
+		--filter='P *.swp' --filter='P .~lock.*' \
+		--exclude='*.swp' --exclude='.~lock.*' "$from/" "$to" > "$templog"
 	log=$(cat "$templog" \
 		| grep -v "sending incremental file list" \
 		| grep -v '.uiosync.log' \
