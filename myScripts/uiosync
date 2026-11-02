@@ -103,7 +103,7 @@ fi
 
 # Dry run
 templog="/tmp/uiosync_files.log"
-rsync_exclusions=(--filter='P *.swp' --filter='P .~lock.*' --exclude='*.swp' --exclude='.~lock.*')
+rsync_exclusions=(--filter='+s */' --filter='R */' --filter='P *.swp' --filter='P .~lock.*' --exclude='*.swp' --exclude='.~lock.*')
 find_exclusions=(-not -name '*.swp' -not -name '.~lock.*')
 touch "$templog"
 if [ "$skip_conflict_check" != "true" ]; then
