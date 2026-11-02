@@ -143,7 +143,7 @@ if [ "$yolo" != "true" ]; then
 	while IFS= read -r -d '' source_file; do
 		relative_file=${source_file#./}
 		destination_file="$to/$relative_file"
-		if [ -f "$destination_file" ] && [ "$destination_file" -nt "$source_file" ]; then
+		if [ -f "$destination_file" ] && [ "$destination_file" -nt "$from/$relative_file" ]; then
 			newer_files+=("$relative_file")
 		fi
 	done < <(cd "$from" && find . -type d -name .git -prune -o -type f -print0)
