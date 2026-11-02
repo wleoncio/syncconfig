@@ -103,6 +103,7 @@ fi
 
 # Dry run
 templog="/tmp/uiosync_files.log"
+rsync_exclusions=(--filter='P *.swp' --filter='P .~lock.*' --exclude='*.swp' --exclude='.~lock.*')
 touch "$templog"
 if [ "$skip_conflict_check" != "true" ]; then
 	read -p "Check for file conflicts? (y/N) " -t 3 check
@@ -110,9 +111,8 @@ if [ "$skip_conflict_check" != "true" ]; then
 	if [ "$check" = "y" ]; then
 		# Check for conflicts
 		echo "Checking for file conflicts. Please wait."
-		eval rsync -a --verbose --dry-run --delete \
-			--filter='P *.swp' --filter='P .~lock.*' \
-			--exclude='*.swp' --exclude='.~lock.*' "$from/" "$to" > "$templog"
+		rsync -a --verbose --dry-run --delete \
+			"${rsync_exclusions[@]}" "$from/" "$to" > "$templog"
 		dirs=$(cat "$templog" | grep "/$" | grep -v "\.git/.")
 		if [ -n "$dirs" ]; then
 			echo -e "\nFound changes in the following ${oransje}directories${reset}"
@@ -148,7 +148,7 @@ if [ "$yolo" != "true" ]; then
 		if [ -f "$destination_file" ] && [ "$destination_file" -nt "$from/$relative_file" ]; then
 			newer_files+=("$relative_file")
 		fi
-	done < <(cd "$from" && find . -type d -name .git -prune -o -type f -print0)
+	done < <(cd "$from" && find . -type d -name .git -prune -o -type f ! -name '*.swp' ! -name '.~lock.*' -print0)
 
 	if [ "${#newer_files[@]}" -gt 0 ]; then
 		echo -e "\n${oransje}The following files are newer at the destination and would be overwritten:${reset}"
@@ -181,9 +181,8 @@ if [ "$yolo" = "true" ] || [ "$answer" = "y" ]; then
 	fi
 
 	# Actual sync
-	eval rsync -az --info=name --delete --delete-excluded \
-		--filter='P *.swp' --filter='P .~lock.*' \
-		--exclude='*.swp' --exclude='.~lock.*' "$from/" "$to" > "$templog"
+	rsync -az --info=name --delete --delete-excluded \
+		"${rsync_exclusions[@]}" "$from/" "$to" > "$templog"
 	log=$(cat "$templog" \
 		| grep -v "sending incremental file list" \
 		| grep -v '.uiosync.log' \
