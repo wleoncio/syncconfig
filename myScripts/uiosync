@@ -3,7 +3,7 @@
 
 source uio-colors.sh
 
-version="1.4.0 licensed under GPLv3"
+version="1.5.0 licensed under GPLv3"
 
 usage() {
 	less << EOU
@@ -134,6 +134,28 @@ if [ "$skip_conflict_check" != "true" ]; then
 	fi
 	else
 		echo -e "${oransje:-\e[38;5;214m}Skipping conflict check${reset}"
+	fi
+fi
+
+# Warn before replacing newer destination files
+if [ "$yolo" != "true" ]; then
+	newer_files=()
+	while IFS= read -r -d '' source_file; do
+		relative_file=${source_file#./}
+		destination_file="$to/$relative_file"
+		if [ -f "$destination_file" ] && [ "$destination_file" -nt "$from/$relative_file" ]; then
+			newer_files+=("$relative_file")
+		fi
+	done < <(cd "$from" && find . -type d -name .git -prune -o -type f -print0)
+
+	if [ "${#newer_files[@]}" -gt 0 ]; then
+		echo -e "\n${oransje}The following files are newer at the destination and would be overwritten:${reset}"
+		printf '%s\n' "${newer_files[@]}"
+		read -p "Continue and overwrite these files? (y/N) " answer
+		if [ "$answer" != "y" ]; then
+			echo "Aborting"
+			exit 0
+		fi
 	fi
 fi
 
