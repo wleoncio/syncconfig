@@ -40,3 +40,8 @@ Run `./syncconfig --help` or `<script> --help` to inspect a command's supported 
 - `uiosync` reads `local` and `remote` from the untracked `~/.config/uiosync.conf` and uses destructive `rsync --delete` after interactive confirmation. Preserve its conflict-check and confirmation flows when modifying synchronization behavior.
 - Machine and user paths in these configs are intentionally personalized. Do not add credentials, tokens, or other private values to tracked dotfiles; keep them in separate local files such as the `.sensitive_env` file sourced by `config/.bash_aliases`.
 - This repository is GPL-3.0 licensed; retain applicable license notices in files derived from upstream scripts.
+
+## Commit messages and versions
+
+- When creating a commit, use the repository owner's message taxonomy: `✨ Feat: <summary>` for features, `🐞 Fix: <summary>` for fixes, `💥 BREAKING CHANGE: <summary>` for incompatible changes, `Refactor: <summary>` for refactors, `Docs: <summary>` for documentation, and `Test: <summary>` for tests. These correspond to the owner's `cmft`, `cmfx`, `cmbr`, `cmdry`, `cmdc`, and `cmtst` Git aliases.
+- If an issue changes a versioned script or R package, locate its established version source and update it as part of the change when the change is release-worthy. Follow the project's existing versioning scheme; do not introduce a version field or bump a version for formatting-only changes.
