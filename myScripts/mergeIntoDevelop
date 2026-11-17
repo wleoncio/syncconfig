@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 source uio-colors.sh
 
-version="1.10.1 licensed under GPLv3"
+version="1.10.2 licensed under GPLv3"
 
 usage() {
   less << EOU
