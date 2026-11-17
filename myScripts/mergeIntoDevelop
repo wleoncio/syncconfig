@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 source uio-colors.sh
 
-version="1.10.1 licensed under GPLv3"
+version="1.10.2 licensed under GPLv3"
 
 usage() {
   less << EOU
@@ -134,7 +134,7 @@ read -p "Press enter to continue, Ctrl+C to cancel"
 # Checking for lints and coverage level
 if [[ -f "DESCRIPTION" ]]; then
 	lint_output=$(mktemp)
-	if ! Rscript -e 'pkgload::load_all(quiet = TRUE); lints <- lintr::lint_package(linters = list(
+	if ! Rscript -e 'suppressMessages(pkgload::load_all(quiet = TRUE)); lints <- lintr::lint_package(linters = list(
 		object_usage_linter = lintr::object_usage_linter(),
 		unreachable_code_linter = lintr::unreachable_code_linter(),
 		undesirable_function_linter = lintr::undesirable_function_linter()
