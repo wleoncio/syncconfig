@@ -13,7 +13,7 @@
         "editor.rulers": []
     },
     "background-terminal-notifier.notificationTimeout": 2000,
-    "diffEditor.renderSideBySide": false,
+    "diffEditor.renderSideBySide": true,
     "diffEditor.wordWrap": "off",
     "editor.acceptSuggestionOnEnter": "off",
     "editor.autoClosingBrackets": "never",
@@ -389,5 +389,11 @@
         "https://code.visualstudio.com": true,
         "https://github.com/microsoft/vscode/wiki/*": true,
         "https://github.com/ocbe-uio": true
-    }
+    },
+    "chat.tools.terminal.autoApprove": {
+        "command": true,
+        "Rscript": true
+    },
+    "MATLAB.showFeatureNotAvailableError": false,
+    "diffEditor.useInlineViewWhenSpaceIsLimited": false
 }
